@@ -56,3 +56,43 @@ def test_structured_extraction_persists_canonical_fields_and_provenance(client, 
             assert definition.text
     finally:
         db.close()
+
+
+def test_uncertain_structured_extraction_creates_review_task(client, sample_pdf_bytes):
+    from app.models import ReviewTask, SourceEntry
+
+    response = client.post(
+        "/api/v1/documents",
+        files={"file": ("review.pdf", sample_pdf_bytes, "application/pdf")},
+    )
+    assert response.status_code == 200
+    run_id = response.json()["run_id"]
+
+    db = SessionLocal()
+    try:
+        extract_native_blocks(db, run_id)
+        segment_source_entries(db, run_id)
+        source_entry = (
+            db.query(SourceEntry)
+            .filter(SourceEntry.processing_run_id == run_id)
+            .first()
+        )
+        assert source_entry is not None
+        source_entry.raw_text = "123 ???"
+        db.commit()
+
+        result = extract_canonical_fields(db, run_id)
+        assert result["review_required"] == 1
+
+        review = (
+            db.query(ReviewTask)
+            .filter(
+                ReviewTask.processing_run_id == run_id,
+                ReviewTask.reason_code == "STRUCTURED_EXTRACTION_UNCERTAIN",
+            )
+            .first()
+        )
+        assert review is not None
+        assert review.status == "OPEN"
+    finally:
+        db.close()

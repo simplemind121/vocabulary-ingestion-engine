@@ -25,6 +25,8 @@ def test_pdf_page_profiler_detects_images_and_text(tmp_path):
     assert profiles[1]["image_count"] >= 1
     assert "IMAGE" in profiles[1]["candidate_tags"]
     assert "OCR_HARD" in profiles[1]["candidate_tags"]
+    assert "BOUNDARY_ENTRY" not in profiles[0]["candidate_tags"]
+    assert "CROSS_PAGE_ENTRY" not in profiles[0]["candidate_tags"]
 
 
 def test_candidate_selector_keeps_status_non_gold_until_visual_review():

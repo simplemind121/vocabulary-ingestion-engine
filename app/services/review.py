@@ -74,6 +74,7 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
 
     db.commit()
     return {
+        "run_id": task.processing_run_id,
         "task_id": task.id,
         "status": task.status,
         "entry_id": entry.id,

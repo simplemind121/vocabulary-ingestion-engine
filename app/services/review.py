@@ -4,7 +4,7 @@ from datetime import UTC, datetime
 
 from sqlalchemy.orm import Session
 
-from app.models import ProvenanceRecord, ReviewTask, VocabularyEntry
+from app.models import ProvenanceRecord, ReviewTask, SourceBlock, VocabularyEntry
 
 OPEN_REVIEW_STATUSES = {"OPEN", "IN_PROGRESS", "ESCALATED"}
 
@@ -22,7 +22,7 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         raise ValueError("review task not found")
     if task.status not in OPEN_REVIEW_STATUSES:
         raise ValueError("review task is already resolved")
-    if task.target_entity_type != "VocabularyEntry":
+    if task.target_entity_type not in {"VocabularyEntry", "SourceBlock"}:
         raise ValueError("unsupported review target")
     if not reviewer_id or not reviewer_id.strip():
         raise ValueError("reviewer_id is required")
@@ -30,6 +30,37 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
     decision = str(resolution.get("decision", "ACCEPT")).upper()
     if decision not in {"ACCEPT", "REJECT"}:
         raise ValueError("review decision must be ACCEPT or REJECT")
+
+    audit = {
+        "decision": decision,
+        "reviewer_id": reviewer_id.strip(),
+        "resolved_at": datetime.now(UTC).isoformat(),
+        "resolution": resolution,
+    }
+    task.candidate_values = [audit]
+
+    if task.target_entity_type == "SourceBlock":
+        block = db.get(SourceBlock, task.target_entity_id)
+        if block is None:
+            raise ValueError("review target not found")
+        metadata = dict(block.metadata_json or {})
+        metadata["human_ocr_review"] = audit
+        block.metadata_json = metadata
+        if decision == "ACCEPT":
+            task.status = "RESOLVED"
+        else:
+            # A rejected OCR read remains unresolved. Escalation keeps G1
+            # blocked instead of silently allowing uncertain source text onward.
+            task.status = "ESCALATED"
+        db.commit()
+        return {
+            "run_id": task.processing_run_id,
+            "task_id": task.id,
+            "status": task.status,
+            "source_block_id": block.id,
+            "verification_status": "HUMAN_VERIFIED" if decision == "ACCEPT" else "REVIEW_REQUIRED",
+            "decision": decision,
+        }
 
     entry = db.get(VocabularyEntry, task.target_entity_id)
     if entry is None:
@@ -53,14 +84,6 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
                 metadata_json={"review_task_id": task.id, "reviewer_id": reviewer_id.strip()},
             )
         )
-
-    audit = {
-        "decision": decision,
-        "reviewer_id": reviewer_id.strip(),
-        "resolved_at": datetime.now(UTC).isoformat(),
-        "resolution": resolution,
-    }
-    task.candidate_values = [audit]
 
     if decision == "ACCEPT":
         entry.verification_status = "HUMAN_VERIFIED"

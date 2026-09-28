@@ -67,7 +67,7 @@ def test_g4_review_queue_resolves_to_human_verified_and_g5_pass(client, sample_p
         db.commit()
 
         validation = validate_canonical_entries(db, run_id)
-        assert validation["review_required"] >= 1
+        assert validation["validation_issues"] >= 1
         g4 = evaluate_g4_validation(db, run_id)
         assert g4["status"] == "REVIEW_REQUIRED"
 
@@ -80,6 +80,7 @@ def test_g4_review_queue_resolves_to_human_verified_and_g5_pass(client, sample_p
             .first()
         )
         assert task is not None
+        assert task.reason_code == "G4_VALIDATION_FAILED"
         g5_before = evaluate_g5_review_resolution(db, run_id)
         assert g5_before["status"] == "REVIEW_REQUIRED"
 

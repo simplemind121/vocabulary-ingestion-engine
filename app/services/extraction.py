@@ -27,18 +27,6 @@ def extract_native_blocks(db: Session, run_id: str) -> dict:
     if artifact is None:
         raise ValueError("source artifact not found")
 
-    step = ProcessingStep(
-        processing_run_id=run.id,
-        step_type="NATIVE_TEXT_EXTRACTION",
-        sequence_no=10,
-        processor_name=PyMuPDFNativeAdapter.name,
-        processor_version=str(PyMuPDFNativeAdapter.version),
-        configuration={},
-        status="RUNNING",
-    )
-    db.add(step)
-    db.flush()
-
     existing = (
         db.query(SourceBlock)
         .filter(
@@ -48,10 +36,44 @@ def extract_native_blocks(db: Session, run_id: str) -> dict:
         .count()
     )
     if existing:
-        step.status = "COMPLETED"
-        step.metrics = {"source_blocks": existing, "idempotent_reuse": True}
-        db.commit()
+        step = (
+            db.query(ProcessingStep)
+            .filter(
+                ProcessingStep.processing_run_id == run.id,
+                ProcessingStep.sequence_no == 10,
+            )
+            .one_or_none()
+        )
+        if step is not None:
+            step.status = "COMPLETED"
+            step.metrics = {"source_blocks": existing, "idempotent_reuse": True}
+            db.commit()
         return {"run_id": run.id, "source_blocks": existing, "reused": True}
+
+    step = (
+        db.query(ProcessingStep)
+        .filter(
+            ProcessingStep.processing_run_id == run.id,
+            ProcessingStep.sequence_no == 10,
+        )
+        .one_or_none()
+    )
+    if step is None:
+        step = ProcessingStep(
+            processing_run_id=run.id,
+            step_type="NATIVE_TEXT_EXTRACTION",
+            sequence_no=10,
+            processor_name=PyMuPDFNativeAdapter.name,
+            processor_version=str(PyMuPDFNativeAdapter.version),
+            configuration={},
+            status="RUNNING",
+        )
+        db.add(step)
+    else:
+        step.status = "RUNNING"
+        step.retry_count += 1
+        step.error = None
+    db.flush()
 
     pages = (
         db.query(Page)
@@ -86,6 +108,21 @@ def extract_native_blocks(db: Session, run_id: str) -> dict:
                     )
                 )
                 block_count += 1
+    except Exception as exc:
+        db.rollback()
+        failed_step = (
+            db.query(ProcessingStep)
+            .filter(
+                ProcessingStep.processing_run_id == run.id,
+                ProcessingStep.sequence_no == 10,
+            )
+            .one_or_none()
+        )
+        if failed_step is not None:
+            failed_step.status = "FAILED"
+            failed_step.error = {"type": type(exc).__name__, "message": str(exc)}
+            db.commit()
+        raise
     finally:
         pdf.close()
 

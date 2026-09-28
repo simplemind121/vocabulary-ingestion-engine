@@ -56,7 +56,6 @@ def test_ingestion_leaves_run_ready_for_pipeline(client, sample_pdf_bytes):
         db.close()
 
 
-
 def test_scanned_document_is_routed_to_ocr_required(client):
     import fitz
 
@@ -76,5 +75,5 @@ def test_scanned_document_is_routed_to_ocr_required(client):
     assert execute.status_code == 200
     body = execute.json()
     assert body["status"] == "OCR_REQUIRED"
-    assert body["reason"] == "ocr_required"
+    assert body["reason"] == "ocr_adapter_not_configured"
     assert body["document_mode"] == "SCANNED"

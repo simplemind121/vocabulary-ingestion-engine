@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+from importlib.metadata import PackageNotFoundError, version
 from typing import Any
 
 from app.adapters.ocr_base import OcrPageInput, OcrPageResult
@@ -31,8 +32,8 @@ class PaddleOcrAdapter:
 
     def extract_page(self, page: OcrPageInput) -> OcrPageResult:
         try:
-            from PIL import Image
             import numpy as np
+            from PIL import Image
         except ImportError as exc:
             raise RuntimeError("PaddleOCR adapter requires Pillow and numpy") from exc
 
@@ -83,8 +84,6 @@ class PaddleOcrAdapter:
 
 def _package_version(package: str) -> str:
     try:
-        from importlib.metadata import version
-
         return version(package)
-    except Exception:
+    except PackageNotFoundError:
         return "unknown"

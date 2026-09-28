@@ -140,3 +140,42 @@ class ProvenanceRecord(Base):
     source_text: Mapped[str | None] = mapped_column(Text, nullable=True)
     metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class ProcessingStep(Base):
+    __tablename__ = "processing_steps"
+    __table_args__ = (
+        UniqueConstraint("processing_run_id", "sequence_no", name="uq_processing_steps_run_sequence"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    processing_run_id: Mapped[str] = mapped_column(
+        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
+    )
+    step_type: Mapped[str] = mapped_column(String(100), index=True)
+    sequence_no: Mapped[int] = mapped_column(Integer)
+    processor_name: Mapped[str] = mapped_column(String(255))
+    processor_version: Mapped[str] = mapped_column(String(100))
+    configuration: Mapped[dict] = mapped_column(JSON, default=dict)
+    status: Mapped[str] = mapped_column(String(50), default="CREATED", index=True)
+    retry_count: Mapped[int] = mapped_column(Integer, default=0)
+    metrics: Mapped[dict] = mapped_column(JSON, default=dict)
+    error: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class SourceBlock(Base):
+    __tablename__ = "source_blocks"
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    page_id: Mapped[str] = mapped_column(ForeignKey("pages.id", ondelete="RESTRICT"), index=True)
+    processing_run_id: Mapped[str] = mapped_column(
+        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
+    )
+    block_type: Mapped[str] = mapped_column(String(100), default="TEXT", index=True)
+    reading_order: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    raw_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    confidence: Mapped[float | None] = mapped_column(nullable=True)
+    bbox: Mapped[dict] = mapped_column(JSON)
+    source_engine: Mapped[str] = mapped_column(String(255))
+    source_engine_version: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)

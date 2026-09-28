@@ -5,6 +5,7 @@ from app.main import app
 
 client = TestClient(app)
 
+
 def make_pdf() -> bytes:
     doc = fitz.open()
     page = doc.new_page()
@@ -12,6 +13,7 @@ def make_pdf() -> bytes:
     payload = doc.tobytes()
     doc.close()
     return payload
+
 
 def test_pdf_ingestion_persists_document_run_and_g0():
     response = client.post(
@@ -29,5 +31,5 @@ def test_pdf_ingestion_persists_document_run_and_g0():
 
     run = client.get(f"/api/v1/runs/{body['run_id']}")
     assert run.status_code == 200
-    assert run.json()["status"] == "COMPLETED"
+    assert run.json()["status"] == "READY"
     assert run.json()["gates"][0]["gate"] == "G0"

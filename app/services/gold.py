@@ -8,7 +8,15 @@ import json
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from app.models import Artifact, Definition, GoldRelease, Pronunciation, ReviewTask, Sense, VocabularyEntry
+from app.models import (
+    Artifact,
+    Definition,
+    GoldRelease,
+    Pronunciation,
+    ReviewTask,
+    Sense,
+    VocabularyEntry,
+)
 from app.storage import LocalStorageAdapter, StorageAdapter
 
 _VERIFIED = {"AUTO_VERIFIED", "HUMAN_VERIFIED"}

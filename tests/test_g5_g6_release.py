@@ -3,7 +3,12 @@ import hashlib
 from app.db import SessionLocal
 from app.services.extraction import extract_native_blocks
 from app.services.gates import evaluate_g5_review_resolution, evaluate_g6_gold_publication
-from app.services.gold import build_gold_dataset, publish_gold_release, serialize_gold_csv, serialize_gold_json
+from app.services.gold import (
+    build_gold_dataset,
+    publish_gold_release,
+    serialize_gold_csv,
+    serialize_gold_json,
+)
 from app.services.segmentation import segment_source_entries
 from app.services.structured_extraction import extract_canonical_fields
 from app.services.validation import validate_canonical_entries

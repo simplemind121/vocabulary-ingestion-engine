@@ -15,6 +15,7 @@ from app.models import (
     SourceEntry,
     SourceEntryBlock,
     VocabularyEntry,
+    VocabularyField,
 )
 from app.services.field_parser import parse_source_entry as parse_real_book_entry
 
@@ -32,6 +33,7 @@ class ParsedEntry:
     ipa: str | None
     part_of_speech: str | None
     definition: str | None
+    source_fields: dict[str, list[str]]
 
 
 def parse_source_entry_text(text: str) -> ParsedEntry:
@@ -44,6 +46,14 @@ def parse_source_entry_text(text: str) -> ParsedEntry:
             ipa=real.ipa,
             part_of_speech=first_sense.get("pos"),
             definition=first_sense.get("definition"),
+            source_fields={
+                "MEMORY_NOTE": real.memory_notes,
+                "COLLOCATION": real.collocations,
+                "EXAMPLE": real.examples,
+                "DERIVATIVE": real.derivatives,
+                "SYNONYM": real.synonyms,
+                "ANTONYM": real.antonyms,
+            },
         )
 
     normalized = " ".join(text.split())
@@ -56,6 +66,7 @@ def parse_source_entry_text(text: str) -> ParsedEntry:
         ipa=match.group("ipa"),
         part_of_speech=match.group("pos"),
         definition=definition.strip() if definition else None,
+        source_fields={},
     )
 
 
@@ -84,6 +95,26 @@ def extract_canonical_fields(db: Session, run_id: str) -> dict:
             .first()
         )
         if existing_sense is not None:
+            try:
+                parsed = parse_source_entry_text(source_entry.raw_text)
+            except ValueError:
+                extracted += 1
+                continue
+            link = (
+                db.query(SourceEntryBlock)
+                .filter(SourceEntryBlock.source_entry_id == source_entry.id)
+                .order_by(SourceEntryBlock.block_order)
+                .first()
+            )
+            block = db.get(SourceBlock, link.source_block_id) if link else None
+            _persist_source_fields(
+                db,
+                run_id=run_id,
+                vocab=vocab,
+                parsed=parsed,
+                source_entry=source_entry,
+                block=block,
+            )
             extracted += 1
             continue
 
@@ -204,6 +235,15 @@ def extract_canonical_fields(db: Session, run_id: str) -> dict:
                 source_text=parsed.definition,
             )
 
+        _persist_source_fields(
+            db,
+            run_id=run_id,
+            vocab=vocab,
+            parsed=parsed,
+            source_entry=source_entry,
+            block=block,
+        )
+
         extracted += 1
 
     db.commit()
@@ -239,3 +279,57 @@ def _add_provenance(
             metadata_json={"method": "structured-extractor@0.2.0"},
         )
     )
+
+
+
+def _persist_source_fields(
+    db: Session,
+    *,
+    run_id: str,
+    vocab: VocabularyEntry,
+    parsed: ParsedEntry,
+    source_entry: SourceEntry,
+    block: SourceBlock | None,
+) -> None:
+    for field_type, values in parsed.source_fields.items():
+        for field_order, value in enumerate(values, start=1):
+            text = value.strip()
+            if not text:
+                continue
+            existing = (
+                db.query(VocabularyField)
+                .filter(
+                    VocabularyField.vocabulary_entry_id == vocab.id,
+                    VocabularyField.field_type == field_type,
+                    VocabularyField.field_order == field_order,
+                )
+                .one_or_none()
+            )
+            if existing is not None:
+                continue
+            field = VocabularyField(
+                vocabulary_entry_id=vocab.id,
+                field_type=field_type,
+                field_order=field_order,
+                text=text,
+                language=_field_language(field_type),
+                verification_status="PARSED",
+            )
+            db.add(field)
+            db.flush()
+            _add_provenance(
+                db,
+                run_id=run_id,
+                entity_type="VocabularyField",
+                entity_id=field.id,
+                field_path="text",
+                source_entry=source_entry,
+                block=block,
+                source_text=text,
+            )
+
+
+def _field_language(field_type: str) -> str | None:
+    if field_type in {"MEMORY_NOTE"}:
+        return "zh"
+    return None

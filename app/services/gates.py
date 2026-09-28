@@ -40,9 +40,35 @@ def evaluate_g1_document_representation(db: Session, run_id: str) -> dict:
     blocks = db.query(SourceBlock).filter(SourceBlock.processing_run_id == run.id).all()
     represented = {b.page_id for b in blocks if b.raw_text}
     invalid = sum(1 for b in blocks if not _valid_bbox(b.bbox))
-    metrics = {"page_count": len(pages), "represented_pages": sum(p.id in represented for p in pages), "text_block_count": len(blocks), "page_representation_coverage": sum(p.id in represented for p in pages) / len(pages) if pages else 0.0, "invalid_geometry_blocks": invalid, "silent_page_loss": sum(p.id not in represented for p in pages)}
+    open_ocr_reviews = db.query(ReviewTask).filter(
+        ReviewTask.processing_run_id == run.id,
+        ReviewTask.target_entity_type == "SourceBlock",
+        ReviewTask.reason_code == "LOW_OCR_CONFIDENCE",
+        ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"]),
+    ).all()
+    metrics = {
+        "page_count": len(pages),
+        "represented_pages": sum(p.id in represented for p in pages),
+        "text_block_count": len(blocks),
+        "page_representation_coverage": sum(p.id in represented for p in pages) / len(pages) if pages else 0.0,
+        "invalid_geometry_blocks": invalid,
+        "silent_page_loss": sum(p.id not in represented for p in pages),
+        "open_ocr_review_tasks": len(open_ocr_reviews),
+    }
     blocking = ([] if blocks else ["no_source_blocks"]) + (["invalid_geometry"] if invalid else []) + (["silent_page_loss"] if metrics["silent_page_loss"] else [])
-    return _save_gate(db, run, "G1", "PASS" if not blocking else "FAIL", metrics, blocking, {"source_block_count": len(blocks)})
+    status = "FAIL" if blocking else ("REVIEW_REQUIRED" if open_ocr_reviews else "PASS")
+    return _save_gate(
+        db,
+        run,
+        "G1",
+        status,
+        metrics,
+        blocking,
+        {
+            "source_block_count": len(blocks),
+            "open_ocr_review_task_ids": [task.id for task in open_ocr_reviews],
+        },
+    )
 
 
 def _valid_bbox(bbox: dict) -> bool:

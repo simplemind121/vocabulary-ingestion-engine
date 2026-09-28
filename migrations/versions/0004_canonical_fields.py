@@ -13,36 +13,16 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.add_column("provenance_records", sa.Column("source_entry_id", sa.String(length=36), nullable=True))
-    op.add_column("provenance_records", sa.Column("source_block_id", sa.String(length=36), nullable=True))
-    op.add_column("provenance_records", sa.Column("page_id", sa.String(length=36), nullable=True))
-    op.create_foreign_key(
-        "fk_provenance_source_entry",
-        "provenance_records",
-        "source_entries",
-        ["source_entry_id"],
-        ["id"],
-        ondelete="RESTRICT",
-    )
-    op.create_foreign_key(
-        "fk_provenance_source_block",
-        "provenance_records",
-        "source_blocks",
-        ["source_block_id"],
-        ["id"],
-        ondelete="RESTRICT",
-    )
-    op.create_foreign_key(
-        "fk_provenance_page",
-        "provenance_records",
-        "pages",
-        ["page_id"],
-        ["id"],
-        ondelete="RESTRICT",
-    )
-    op.create_index("ix_provenance_records_source_entry_id", "provenance_records", ["source_entry_id"])
-    op.create_index("ix_provenance_records_source_block_id", "provenance_records", ["source_block_id"])
-    op.create_index("ix_provenance_records_page_id", "provenance_records", ["page_id"])
+    with op.batch_alter_table("provenance_records") as batch_op:
+        batch_op.add_column(sa.Column("source_entry_id", sa.String(length=36), nullable=True))
+        batch_op.add_column(sa.Column("source_block_id", sa.String(length=36), nullable=True))
+        batch_op.add_column(sa.Column("page_id", sa.String(length=36), nullable=True))
+        batch_op.create_foreign_key("fk_provenance_source_entry", "source_entries", ["source_entry_id"], ["id"], ondelete="RESTRICT")
+        batch_op.create_foreign_key("fk_provenance_source_block", "source_blocks", ["source_block_id"], ["id"], ondelete="RESTRICT")
+        batch_op.create_foreign_key("fk_provenance_page", "pages", ["page_id"], ["id"], ondelete="RESTRICT")
+        batch_op.create_index("ix_provenance_records_source_entry_id", ["source_entry_id"])
+        batch_op.create_index("ix_provenance_records_source_block_id", ["source_block_id"])
+        batch_op.create_index("ix_provenance_records_page_id", ["page_id"])
 
     op.create_table(
         "pronunciations",
@@ -55,11 +35,7 @@ def upgrade() -> None:
         sa.Column("verification_status", sa.String(length=50), nullable=False),
         sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
         sa.ForeignKeyConstraint(["vocabulary_entry_id"], ["vocabulary_entries.id"], ondelete="CASCADE"),
-        sa.UniqueConstraint(
-            "vocabulary_entry_id",
-            "pronunciation_order",
-            name="uq_pronunciations_entry_order",
-        ),
+        sa.UniqueConstraint("vocabulary_entry_id", "pronunciation_order", name="uq_pronunciations_entry_order"),
     )
     op.create_index("ix_pronunciations_vocabulary_entry_id", "pronunciations", ["vocabulary_entry_id"])
     op.create_index("ix_pronunciations_verification_status", "pronunciations", ["verification_status"])
@@ -124,12 +100,13 @@ def downgrade() -> None:
     op.drop_index("ix_pronunciations_verification_status", table_name="pronunciations")
     op.drop_index("ix_pronunciations_vocabulary_entry_id", table_name="pronunciations")
     op.drop_table("pronunciations")
-    op.drop_index("ix_provenance_records_page_id", table_name="provenance_records")
-    op.drop_index("ix_provenance_records_source_block_id", table_name="provenance_records")
-    op.drop_index("ix_provenance_records_source_entry_id", table_name="provenance_records")
-    op.drop_constraint("fk_provenance_page", "provenance_records", type_="foreignkey")
-    op.drop_constraint("fk_provenance_source_block", "provenance_records", type_="foreignkey")
-    op.drop_constraint("fk_provenance_source_entry", "provenance_records", type_="foreignkey")
-    op.drop_column("provenance_records", "page_id")
-    op.drop_column("provenance_records", "source_block_id")
-    op.drop_column("provenance_records", "source_entry_id")
+    with op.batch_alter_table("provenance_records") as batch_op:
+        batch_op.drop_index("ix_provenance_records_page_id")
+        batch_op.drop_index("ix_provenance_records_source_block_id")
+        batch_op.drop_index("ix_provenance_records_source_entry_id")
+        batch_op.drop_constraint("fk_provenance_page", type_="foreignkey")
+        batch_op.drop_constraint("fk_provenance_source_block", type_="foreignkey")
+        batch_op.drop_constraint("fk_provenance_source_entry", type_="foreignkey")
+        batch_op.drop_column("page_id")
+        batch_op.drop_column("source_block_id")
+        batch_op.drop_column("source_entry_id")

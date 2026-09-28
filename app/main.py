@@ -18,11 +18,14 @@ from app.models import (
     GoldRelease,
     Page,
     ProcessingRun,
+    ReviewTask,
 )
+from app.services.gates import evaluate_g5_review_resolution
 from app.services.gold import build_gold_dataset, publish_gold_release
 from app.services.pipeline import run_pipeline
+from app.services.review import resolve_review_task
 
-APP_VERSION = "0.1.0-alpha.3"
+APP_VERSION = "0.1.0-alpha.4"
 DATA_DIR = Path("data")
 BRONZE_DIR = DATA_DIR / "bronze"
 PAGE_DIR = DATA_DIR / "pages"
@@ -38,6 +41,13 @@ class PublishRequest(BaseModel):
     missing_required_provenance: int = 0
     open_required_reviews: int = 0
     blocking_validation_errors: int = 0
+
+
+class ReviewResolutionRequest(BaseModel):
+    reviewer_id: str
+    decision: str = "ACCEPT"
+    lemma: str | None = None
+    notes: str | None = None
 
 
 @app.get("/health")
@@ -90,6 +100,29 @@ def get_run(run_id: str, db: DbSession) -> dict:
 def execute_run(run_id: str, db: DbSession) -> dict:
     try: return run_pipeline(db, run_id)
     except ValueError as exc: raise HTTPException(404, str(exc)) from exc
+
+
+@app.get("/api/v1/runs/{run_id}/reviews")
+def list_reviews(run_id: str, db: DbSession, status: str | None = None) -> dict:
+    run = db.get(ProcessingRun, run_id)
+    if not run: raise HTTPException(404, "Processing run not found")
+    query = db.query(ReviewTask).filter(ReviewTask.processing_run_id == run_id)
+    if status: query = query.filter(ReviewTask.status == status.upper())
+    tasks = query.order_by(ReviewTask.created_at, ReviewTask.id).all()
+    return {"run_id": run_id, "count": len(tasks), "items": [{"id": t.id, "status": t.status, "reason_code": t.reason_code, "target_entity_type": t.target_entity_type, "target_entity_id": t.target_entity_id, "target_field_path": t.target_field_path, "source_context": t.source_context, "candidate_values": t.candidate_values} for t in tasks]}
+
+
+@app.post("/api/v1/reviews/{task_id}/resolve")
+def resolve_review(task_id: str, request: ReviewResolutionRequest, db: DbSession) -> dict:
+    resolution = {"decision": request.decision, "notes": request.notes}
+    if request.lemma is not None: resolution["lemma"] = request.lemma
+    try:
+        result = resolve_review_task(db, task_id, resolution=resolution, reviewer_id=request.reviewer_id)
+        result["g5"] = evaluate_g5_review_resolution(db, result["run_id"])
+        return result
+    except ValueError as exc:
+        message = str(exc)
+        raise HTTPException(404 if "not found" in message else 409, message) from exc
 
 
 @app.get("/api/v1/runs/{run_id}/gold")

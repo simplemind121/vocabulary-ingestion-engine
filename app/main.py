@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated
 
@@ -11,7 +10,15 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.db import Base, engine, get_db
-from app.models import Artifact, Document, DocumentVersion, GateEvaluation, GoldRelease, Page, ProcessingRun
+from app.models import (
+    Artifact,
+    Document,
+    DocumentVersion,
+    GateEvaluation,
+    GoldRelease,
+    Page,
+    ProcessingRun,
+)
 from app.services.gold import build_gold_dataset, publish_gold_release
 from app.services.pipeline import run_pipeline
 

@@ -137,6 +137,15 @@ class ProvenanceRecord(Base):
     target_entity_id: Mapped[str] = mapped_column(String(36))
     target_field_path: Mapped[str] = mapped_column(String(512))
     provenance_type: Mapped[str] = mapped_column(String(100), index=True)
+    source_entry_id: Mapped[str | None] = mapped_column(
+        ForeignKey("source_entries.id", ondelete="RESTRICT"), index=True, nullable=True
+    )
+    source_block_id: Mapped[str | None] = mapped_column(
+        ForeignKey("source_blocks.id", ondelete="RESTRICT"), index=True, nullable=True
+    )
+    page_id: Mapped[str | None] = mapped_column(
+        ForeignKey("pages.id", ondelete="RESTRICT"), index=True, nullable=True
+    )
     source_text: Mapped[str | None] = mapped_column(Text, nullable=True)
     metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
@@ -230,3 +239,65 @@ class VocabularyEntry(Base):
     metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
+
+
+class Pronunciation(Base):
+    __tablename__ = "pronunciations"
+    __table_args__ = (
+        UniqueConstraint("vocabulary_entry_id", "pronunciation_order", name="uq_pronunciations_entry_order"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    vocabulary_entry_id: Mapped[str] = mapped_column(
+        ForeignKey("vocabulary_entries.id", ondelete="CASCADE"), index=True
+    )
+    pronunciation_order: Mapped[int] = mapped_column(Integer)
+    ipa: Mapped[str | None] = mapped_column(Text, nullable=True)
+    phonetic_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    dialect: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    verification_status: Mapped[str] = mapped_column(String(50), default="PARSED", index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class Sense(Base):
+    __tablename__ = "senses"
+    __table_args__ = (
+        UniqueConstraint("vocabulary_entry_id", "sense_order", name="uq_senses_entry_order"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    vocabulary_entry_id: Mapped[str] = mapped_column(
+        ForeignKey("vocabulary_entries.id", ondelete="CASCADE"), index=True
+    )
+    sense_order: Mapped[int] = mapped_column(Integer)
+    part_of_speech: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    source_label: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    verification_status: Mapped[str] = mapped_column(String(50), default="PARSED", index=True)
+    metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class Definition(Base):
+    __tablename__ = "definitions"
+    __table_args__ = (
+        UniqueConstraint("sense_id", "definition_order", name="uq_definitions_sense_order"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    sense_id: Mapped[str] = mapped_column(ForeignKey("senses.id", ondelete="CASCADE"), index=True)
+    definition_order: Mapped[int] = mapped_column(Integer)
+    text: Mapped[str] = mapped_column(Text)
+    language: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    verification_status: Mapped[str] = mapped_column(String(50), default="PARSED", index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class Example(Base):
+    __tablename__ = "examples"
+    __table_args__ = (
+        UniqueConstraint("sense_id", "example_order", name="uq_examples_sense_order"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    sense_id: Mapped[str] = mapped_column(ForeignKey("senses.id", ondelete="CASCADE"), index=True)
+    example_order: Mapped[int] = mapped_column(Integer)
+    text: Mapped[str] = mapped_column(Text)
+    language: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    verification_status: Mapped[str] = mapped_column(String(50), default="PARSED", index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)

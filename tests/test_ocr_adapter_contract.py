@@ -35,3 +35,13 @@ def test_ocr_adapter_contract_emits_engine_neutral_text_blocks():
     assert result.blocks[0].text.startswith("medication*")
     assert result.blocks[0].confidence == 0.99
     assert result.blocks[0].bbox.unit == "normalized"
+
+
+def test_ocr_page_result_metadata_defaults_to_empty_dict():
+    result = OcrPageResult(
+        page_number=1,
+        blocks=[],
+        engine_name="fake",
+        engine_version="1",
+    )
+    assert result.metadata == {}

@@ -8,13 +8,14 @@ from app.adapters.ocr_base import OcrEngineAdapter, OcrPageInput
 from app.models import Artifact, Page, ProcessingRun, SourceBlock
 
 
-def extract_ocr_blocks(db: Session, run_id: str, adapter: OcrEngineAdapter) -> dict:
-    """Run OCR against rendered page images and persist engine-neutral SourceBlocks.
-
-    This service deliberately knows nothing about PaddleOCR, MinerU, Docling, or
-    any other concrete engine. Adapters terminate at OcrPageResult/TextBlock so
-    G2+ remains stable when OCR engines are replaced.
-    """
+def extract_ocr_blocks(
+    db: Session,
+    run_id: str,
+    adapter: OcrEngineAdapter,
+    *,
+    page_numbers: set[int] | None = None,
+) -> dict:
+    """Run OCR on selected rendered pages and persist engine-neutral SourceBlocks."""
     run = db.get(ProcessingRun, run_id)
     if run is None:
         raise ValueError("processing run not found")
@@ -25,13 +26,15 @@ def extract_ocr_blocks(db: Session, run_id: str, adapter: OcrEngineAdapter) -> d
         .order_by(Page.page_number)
         .all()
     )
+    if page_numbers is not None:
+        pages = [page for page in pages if page.page_number in page_numbers]
     if not pages:
-        raise ValueError("processing run has no rendered pages")
+        raise ValueError("processing run has no rendered pages selected for OCR")
 
-    # Idempotent reruns: only replace OCR-produced blocks. Native blocks remain
-    # untouched so HYBRID routing can safely combine both representations later.
+    selected_page_ids = [page.id for page in pages]
     db.query(SourceBlock).filter(
         SourceBlock.processing_run_id == run_id,
+        SourceBlock.page_id.in_(selected_page_ids),
         SourceBlock.source_engine.like("ocr:%"),
     ).delete(synchronize_session=False)
 
@@ -98,6 +101,7 @@ def extract_ocr_blocks(db: Session, run_id: str, adapter: OcrEngineAdapter) -> d
         "engine": adapter.name,
         "engine_version": adapter.version,
         "page_count": page_count,
+        "page_numbers": [page.page_number for page in pages],
         "block_count": block_count,
         "mean_confidence": mean_confidence,
     }

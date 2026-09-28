@@ -54,48 +54,43 @@ def run_pipeline(
         if document_mode == "NATIVE_TEXT":
             extraction = extract_native_blocks(db, run_id)
             stages.append({"stage": "native_extraction", "result": extraction})
+        elif document_mode == "HYBRID":
+            native_pages = {
+                page["page_number"]
+                for page in analysis["pages"]
+                if page["has_meaningful_native_text"]
+            }
+            ocr_pages = {
+                page["page_number"]
+                for page in analysis["pages"]
+                if not page["has_meaningful_native_text"]
+            }
+            if ocr_adapter is None:
+                return _ocr_required(db, run, document_mode, stages)
+            native = extract_native_blocks(db, run_id, page_numbers=native_pages)
+            stages.append({"stage": "native_extraction", "result": native})
+            ocr = extract_ocr_blocks(db, run_id, ocr_adapter, page_numbers=ocr_pages)
+            stages.append({"stage": "ocr_extraction", "result": ocr})
         elif ocr_adapter is not None:
             extraction = extract_ocr_blocks(db, run_id, ocr_adapter)
             stages.append({"stage": "ocr_extraction", "result": extraction})
         else:
-            run.status = "OCR_REQUIRED"
-            run.finished_at = datetime.now(UTC)
-            run.error_summary = {
-                "blocked_stage": "document_analysis",
-                "reason": "ocr_adapter_not_configured",
-                "document_mode": document_mode,
-            }
-            db.commit()
-            return {
-                "run_id": run_id,
-                "status": run.status,
-                "blocked_stage": "document_analysis",
-                "reason": "ocr_adapter_not_configured",
-                "document_mode": document_mode,
-                "stages": stages,
-            }
+            return _ocr_required(db, run, document_mode, stages)
 
         _require_pass("G1", evaluate_g1_document_representation(db, run_id), stages)
-
         segmentation = segment_source_entries(db, run_id)
         stages.append({"stage": "entry_segmentation", "result": segmentation})
         _require_pass("G2", evaluate_g2_entry_segmentation(db, run_id), stages)
-
         structured = extract_canonical_fields(db, run_id)
         stages.append({"stage": "structured_extraction", "result": structured})
         _require_pass("G3", evaluate_g3_structured_extraction(db, run_id), stages)
-
         validation = validate_canonical_entries(db, run_id)
         stages.append({"stage": "validation", "result": validation})
         g4 = evaluate_g4_validation(db, run_id)
         stages.append({"stage": "G4", "result": g4})
         if g4["status"] == "FAIL":
             raise PipelineBlocked("G4", g4)
-
-        # REVIEW_REQUIRED is a valid G4 outcome: unresolved validation work must
-        # proceed to the Human Review gate instead of being treated as a crash.
-        g5 = evaluate_g5_review_resolution(db, run_id)
-        _require_pass("G5", g5, stages)
+        _require_pass("G5", evaluate_g5_review_resolution(db, run_id), stages)
         _require_pass("G6", evaluate_g6_gold_publication(db, run_id), stages)
 
         release = publish_gold_release(db, run_id) if publish else None
@@ -131,6 +126,25 @@ def run_pipeline(
         run.error_summary = {"error_type": type(exc).__name__, "message": str(exc)}
         db.commit()
         raise
+
+
+def _ocr_required(db: Session, run: ProcessingRun, document_mode: str, stages: list[dict]) -> dict:
+    run.status = "OCR_REQUIRED"
+    run.finished_at = datetime.now(UTC)
+    run.error_summary = {
+        "blocked_stage": "document_analysis",
+        "reason": "ocr_adapter_not_configured",
+        "document_mode": document_mode,
+    }
+    db.commit()
+    return {
+        "run_id": run.id,
+        "status": run.status,
+        "blocked_stage": "document_analysis",
+        "reason": "ocr_adapter_not_configured",
+        "document_mode": document_mode,
+        "stages": stages,
+    }
 
 
 def _require_pass(gate: str, result: dict, stages: list[dict]) -> None:

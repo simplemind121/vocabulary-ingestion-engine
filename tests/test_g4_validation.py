@@ -1,5 +1,5 @@
 from app.db import SessionLocal
-from app.models import ReviewTask, VocabularyEntry
+from app.models import ProvenanceRecord, ReviewTask, VocabularyEntry
 from app.services.extraction import extract_native_blocks
 from app.services.gates import evaluate_g4_validation
 from app.services.segmentation import segment_source_entries
@@ -43,5 +43,43 @@ def test_g4_requires_review_for_invalid_lemma(client, sample_pdf_bytes):
         review = db.query(ReviewTask).filter(ReviewTask.processing_run_id == run_id, ReviewTask.reason_code == "G4_VALIDATION_FAILED").first()
         assert review is not None
         assert review.status == "OPEN"
+    finally:
+        db.close()
+
+
+def test_g4_routes_missing_lemma_provenance_to_review(client, sample_pdf_bytes):
+    response = client.post(
+        "/api/v1/documents",
+        files={"file": ("g4-provenance.pdf", sample_pdf_bytes, "application/pdf")},
+    )
+    assert response.status_code == 200
+    run_id = response.json()["run_id"]
+    db = SessionLocal()
+    try:
+        extract_native_blocks(db, run_id)
+        segment_source_entries(db, run_id)
+        extract_canonical_fields(db, run_id)
+        entry = db.query(VocabularyEntry).filter(VocabularyEntry.processing_run_id == run_id).first()
+        assert entry is not None
+        db.query(ProvenanceRecord).filter(
+            ProvenanceRecord.processing_run_id == run_id,
+            ProvenanceRecord.target_entity_type == "VocabularyEntry",
+            ProvenanceRecord.target_entity_id == entry.id,
+            ProvenanceRecord.target_field_path == "lemma",
+        ).delete(synchronize_session=False)
+        db.commit()
+
+        validation = validate_canonical_entries(db, run_id)
+        assert validation["validation_issues"] >= 1
+        db.refresh(entry)
+        assert entry.verification_status == "REVIEW_REQUIRED"
+        review = db.query(ReviewTask).filter(
+            ReviewTask.processing_run_id == run_id,
+            ReviewTask.target_entity_id == entry.id,
+            ReviewTask.reason_code == "G4_VALIDATION_FAILED",
+        ).one()
+        issue_codes = {issue["code"] for issue in review.source_context["issues"]}
+        assert "MISSING_LEMMA_PROVENANCE" in issue_codes
+        assert evaluate_g4_validation(db, run_id)["status"] == "REVIEW_REQUIRED"
     finally:
         db.close()

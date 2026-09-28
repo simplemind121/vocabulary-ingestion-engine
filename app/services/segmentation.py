@@ -32,12 +32,12 @@ class SegmentCandidate:
 
 
 def _effective_block_text(block: SourceBlock) -> str:
-    metadata = block.metadata_json or {}
+    metadata = getattr(block, "metadata_json", None) or {}
     reviewed_text = metadata.get("reviewed_text")
     review = metadata.get("human_ocr_review") or {}
     if reviewed_text and review.get("decision") == "ACCEPT":
         return str(reviewed_text)
-    return block.raw_text or ""
+    return getattr(block, "raw_text", "") or ""
 
 
 def _iter_lines(block: SourceBlock) -> list[str]:
@@ -163,7 +163,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
         step_type="ENTRY_SEGMENTATION",
         sequence_no=20,
         processor_name="book-structure-segmenter",
-        processor_version="0.3.0",
+        processor_version="0.3.1",
         configuration={
             "strategy": "line-state-machine",
             "cross_page": True,
@@ -188,7 +188,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
             continuation_type="CROSS_PAGE" if len(candidate.page_numbers) > 1 else None,
             status="PARSED",
             metadata_json={
-                "segmenter": "book-structure-segmenter@0.3.0",
+                "segmenter": "book-structure-segmenter@0.3.1",
                 "pages": candidate.page_numbers,
                 "word_list": candidate.word_list,
                 "starred": candidate.starred,
@@ -216,7 +216,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
                 verification_status="PARSED",
                 canonical_schema_version="1.0",
                 metadata_json={
-                    "extraction_method": "book-structure-segmenter@0.3.0",
+                    "extraction_method": "book-structure-segmenter@0.3.1",
                     "starred": candidate.starred,
                     "word_list": candidate.word_list,
                 },

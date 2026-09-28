@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import uuid
 from pathlib import Path
+from typing import Annotated
 
 import fitz
 from fastapi import FastAPI, File, HTTPException, UploadFile
@@ -35,7 +36,7 @@ def health() -> dict:
 
 
 @app.post("/api/v1/documents")
-async def ingest_document(file: UploadFile = File(...)) -> dict:
+async def ingest_document(file: Annotated[UploadFile, File()]) -> dict:
     if file.content_type not in {"application/pdf", "application/x-pdf"}:
         raise HTTPException(415, "Only PDF is supported in v0.1")
     payload = await file.read()

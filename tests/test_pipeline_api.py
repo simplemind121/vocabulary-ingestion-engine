@@ -54,3 +54,27 @@ def test_ingestion_leaves_run_ready_for_pipeline(client, sample_pdf_bytes):
         assert run.status == "READY"
     finally:
         db.close()
+
+
+
+def test_scanned_document_is_routed_to_ocr_required(client):
+    import fitz
+
+    doc = fitz.open()
+    doc.new_page()
+    payload = doc.tobytes()
+    doc.close()
+
+    response = client.post(
+        "/api/v1/documents",
+        files={"file": ("scan.pdf", payload, "application/pdf")},
+    )
+    assert response.status_code == 200
+    run_id = response.json()["run_id"]
+
+    execute = client.post(f"/api/v1/runs/{run_id}/execute")
+    assert execute.status_code == 200
+    body = execute.json()
+    assert body["status"] == "OCR_REQUIRED"
+    assert body["reason"] == "ocr_required"
+    assert body["document_mode"] == "SCANNED"

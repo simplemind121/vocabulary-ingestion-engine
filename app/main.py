@@ -22,8 +22,10 @@ from app.models import (
 )
 from app.services.gates import evaluate_g5_review_resolution
 from app.services.gold import build_gold_dataset, publish_gold_release
+from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
+from app.settings import get_settings
 
 APP_VERSION = "0.1.0-alpha.4"
 DATA_DIR = Path("data")
@@ -98,8 +100,13 @@ def get_run(run_id: str, db: DbSession) -> dict:
 
 @app.post("/api/v1/runs/{run_id}/execute")
 def execute_run(run_id: str, db: DbSession) -> dict:
-    try: return run_pipeline(db, run_id)
-    except ValueError as exc: raise HTTPException(404, str(exc)) from exc
+    try:
+        adapter = build_ocr_adapter(get_settings())
+        return run_pipeline(db, run_id, ocr_adapter=adapter)
+    except ValueError as exc:
+        raise HTTPException(404, str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(503, str(exc)) from exc
 
 
 @app.get("/api/v1/runs/{run_id}/reviews")

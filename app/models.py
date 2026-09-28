@@ -266,3 +266,27 @@ class GoldRelease(Base):
     json_artifact_id: Mapped[str | None] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"), nullable=True)
     csv_artifact_id: Mapped[str | None] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class VocabularyField(Base):
+    __tablename__ = "vocabulary_fields"
+    __table_args__ = (
+        UniqueConstraint(
+            "vocabulary_entry_id",
+            "field_type",
+            "field_order",
+            name="uq_vocabulary_fields_entry_type_order",
+        ),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    vocabulary_entry_id: Mapped[str] = mapped_column(
+        ForeignKey("vocabulary_entries.id", ondelete="CASCADE"), index=True
+    )
+    field_type: Mapped[str] = mapped_column(String(50), index=True)
+    field_order: Mapped[int] = mapped_column(Integer)
+    text: Mapped[str] = mapped_column(Text)
+    language: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    verification_status: Mapped[str] = mapped_column(
+        String(50), default="PARSED", index=True
+    )
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)

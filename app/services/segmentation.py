@@ -31,8 +31,17 @@ class SegmentCandidate:
     starred: bool = False
 
 
+def _effective_block_text(block: SourceBlock) -> str:
+    metadata = block.metadata_json or {}
+    reviewed_text = metadata.get("reviewed_text")
+    review = metadata.get("human_ocr_review") or {}
+    if reviewed_text and review.get("decision") == "ACCEPT":
+        return str(reviewed_text)
+    return block.raw_text or ""
+
+
 def _iter_lines(block: SourceBlock) -> list[str]:
-    return [line.strip() for line in (block.raw_text or "").splitlines() if line.strip()]
+    return [line.strip() for line in _effective_block_text(block).splitlines() if line.strip()]
 
 
 def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> list[SegmentCandidate]:
@@ -106,7 +115,6 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
                     current_pages.append(page_number)
                 continue
 
-            # Compatibility path for simple/synthetic fixtures and generic dictionaries.
             legacy = _LEGACY_HEADWORD.match(" ".join(line.split()))
             if legacy:
                 flush()
@@ -155,8 +163,12 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
         step_type="ENTRY_SEGMENTATION",
         sequence_no=20,
         processor_name="book-structure-segmenter",
-        processor_version="0.2.0",
-        configuration={"strategy": "line-state-machine", "cross_page": True},
+        processor_version="0.3.0",
+        configuration={
+            "strategy": "line-state-machine",
+            "cross_page": True,
+            "reviewed_ocr_precedence": True,
+        },
         status="RUNNING",
     )
     db.add(step)
@@ -176,7 +188,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
             continuation_type="CROSS_PAGE" if len(candidate.page_numbers) > 1 else None,
             status="PARSED",
             metadata_json={
-                "segmenter": "book-structure-segmenter@0.2.0",
+                "segmenter": "book-structure-segmenter@0.3.0",
                 "pages": candidate.page_numbers,
                 "word_list": candidate.word_list,
                 "starred": candidate.starred,
@@ -204,7 +216,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
                 verification_status="PARSED",
                 canonical_schema_version="1.0",
                 metadata_json={
-                    "extraction_method": "book-structure-segmenter@0.2.0",
+                    "extraction_method": "book-structure-segmenter@0.3.0",
                     "starred": candidate.starred,
                     "word_list": candidate.word_list,
                 },

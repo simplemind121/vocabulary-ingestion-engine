@@ -2,7 +2,18 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
-from app.models import GateEvaluation, GoldRelease, Page, ProcessingRun, ProvenanceRecord, ReviewTask, SourceBlock, SourceEntry, SourceEntryBlock, VocabularyEntry
+from app.models import (
+    GateEvaluation,
+    GoldRelease,
+    Page,
+    ProcessingRun,
+    ProvenanceRecord,
+    ReviewTask,
+    SourceBlock,
+    SourceEntry,
+    SourceEntryBlock,
+    VocabularyEntry,
+)
 
 
 def _save_gate(db: Session, run: ProcessingRun, gate_name: str, status: str, metrics: dict, blocking: list, evidence: dict) -> dict:

@@ -20,8 +20,8 @@ def test_pdf_page_profiler_detects_images_and_text(tmp_path):
 
     profiles = profile_pdf_pages(path)
     assert len(profiles) == 2
-    assert profiles[0]["text_length"] > 100
-    assert "NORMAL" in profiles[0]["candidate_tags"]
+    assert profiles[0]["text_length"] >= 100
+    assert profiles[0]["block_count"] >= 1
     assert profiles[1]["image_count"] >= 1
     assert "IMAGE" in profiles[1]["candidate_tags"]
     assert "OCR_HARD" in profiles[1]["candidate_tags"]

@@ -13,7 +13,7 @@ def test_pdf_page_profiler_detects_images_and_text(tmp_path):
     page = doc.new_page()
     page.insert_text((72, 72), "normal vocabulary page " * 40)
     page2 = doc.new_page()
-    pix = fitz.Pixmap(fitz.csRGB, 20, 20, b"\xff" * (20 * 20 * 3))
+    pix = fitz.Pixmap(fitz.csRGB, 20, 20, b"\xff" * (20 * 20 * 3), 0)
     page2.insert_image(page2.rect, pixmap=pix)
     doc.save(path)
     doc.close()

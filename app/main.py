@@ -101,8 +101,14 @@ def get_run(run_id: str, db: DbSession) -> dict:
 @app.post("/api/v1/runs/{run_id}/execute")
 def execute_run(run_id: str, db: DbSession) -> dict:
     try:
-        adapter = build_ocr_adapter(get_settings())
-        return run_pipeline(db, run_id, ocr_adapter=adapter)
+        settings = get_settings()
+        adapter = build_ocr_adapter(settings)
+        return run_pipeline(
+            db,
+            run_id,
+            ocr_adapter=adapter,
+            ocr_min_confidence=settings.ocr_min_confidence,
+        )
     except ValueError as exc:
         raise HTTPException(404, str(exc)) from exc
     except RuntimeError as exc:

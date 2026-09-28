@@ -171,8 +171,9 @@ def _infer_tags(
         tags.add("SPECIAL_LAYOUT")
     if text_length <= 50 and image_count:
         tags.add("OCR_HARD")
-    if text.strip() and not text.endswith("\n"):
-        tags.add("BOUNDARY_ENTRY")
+    # ENTRY boundary classes are semantic properties of vocabulary records, not
+    # reliable page-text properties. They must be assigned only after visual /
+    # annotation review; never infer them from newline behavior or page shape.
     return sorted(tags)
 
 

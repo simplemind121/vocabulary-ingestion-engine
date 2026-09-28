@@ -1,5 +1,5 @@
 from app.db import SessionLocal
-from app.models import ReviewTask, SourceBlock
+from app.models import ProvenanceRecord, ReviewTask, SourceBlock
 from app.services.review import resolve_review_task
 
 
@@ -23,7 +23,7 @@ def test_low_confidence_source_block_review_can_be_accepted(client, sample_pdf_b
             processing_run_id=run_id,
             block_type="TEXT",
             reading_order=0,
-            raw_text="medication",
+            raw_text="medicafion",
             confidence=0.42,
             bbox={"x1": 0.1, "y1": 0.1, "x2": 0.9, "y2": 0.2, "unit": "normalized"},
             source_engine="ocr:fake",
@@ -48,15 +48,34 @@ def test_low_confidence_source_block_review_can_be_accepted(client, sample_pdf_b
         result = resolve_review_task(
             db,
             task.id,
-            resolution={"decision": "ACCEPT", "notes": "checked against scan"},
+            resolution={
+                "decision": "ACCEPT",
+                "corrected_text": "medication",
+                "notes": "checked against scan",
+            },
             reviewer_id="reviewer-ocr",
         )
         db.refresh(block)
         db.refresh(task)
+        provenance = (
+            db.query(ProvenanceRecord)
+            .filter(
+                ProvenanceRecord.processing_run_id == run_id,
+                ProvenanceRecord.target_entity_type == "SourceBlock",
+                ProvenanceRecord.target_entity_id == block.id,
+                ProvenanceRecord.target_field_path == "reviewed_text",
+            )
+            .one()
+        )
         assert result["verification_status"] == "HUMAN_VERIFIED"
+        assert result["reviewed_text"] == "medication"
         assert task.status == "RESOLVED"
-        assert block.raw_text == "medication"
+        assert block.raw_text == "medicafion"
+        assert block.metadata_json["reviewed_text"] == "medication"
         assert block.metadata_json["human_ocr_review"]["reviewer_id"] == "reviewer-ocr"
+        assert provenance.provenance_type == "HUMAN_REVIEW"
+        assert provenance.source_text == "medication"
+        assert provenance.metadata_json["raw_ocr_text"] == "medicafion"
     finally:
         db.close()
 

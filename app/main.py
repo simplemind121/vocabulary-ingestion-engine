@@ -49,6 +49,7 @@ class ReviewResolutionRequest(BaseModel):
     reviewer_id: str
     decision: str = "ACCEPT"
     lemma: str | None = None
+    corrected_text: str | None = None
     notes: str | None = None
 
 
@@ -129,6 +130,7 @@ def list_reviews(run_id: str, db: DbSession, status: str | None = None) -> dict:
 def resolve_review(task_id: str, request: ReviewResolutionRequest, db: DbSession) -> dict:
     resolution = {"decision": request.decision, "notes": request.notes}
     if request.lemma is not None: resolution["lemma"] = request.lemma
+    if request.corrected_text is not None: resolution["corrected_text"] = request.corrected_text
     try:
         result = resolve_review_task(db, task_id, resolution=resolution, reviewer_id=request.reviewer_id)
         result["g5"] = evaluate_g5_review_resolution(db, result["run_id"])

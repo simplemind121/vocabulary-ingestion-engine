@@ -1,0 +1,95 @@
+from __future__ import annotations
+
+import fitz
+from sqlalchemy.orm import Session
+
+from app.adapters.pdf_native import PyMuPDFNativeAdapter
+from app.models import (
+    Artifact,
+    DocumentVersion,
+    Page,
+    ProcessingRun,
+    ProcessingStep,
+    SourceBlock,
+)
+
+
+def extract_native_blocks(db: Session, run_id: str) -> dict:
+    run = db.get(ProcessingRun, run_id)
+    if run is None:
+        raise ValueError("processing run not found")
+
+    version = db.get(DocumentVersion, run.document_version_id)
+    if version is None:
+        raise ValueError("document version not found")
+
+    artifact = db.get(Artifact, version.source_artifact_id)
+    if artifact is None:
+        raise ValueError("source artifact not found")
+
+    step = ProcessingStep(
+        processing_run_id=run.id,
+        step_type="NATIVE_TEXT_EXTRACTION",
+        sequence_no=10,
+        processor_name=PyMuPDFNativeAdapter.name,
+        processor_version=str(PyMuPDFNativeAdapter.version),
+        configuration={},
+        status="RUNNING",
+    )
+    db.add(step)
+    db.flush()
+
+    existing = (
+        db.query(SourceBlock)
+        .filter(
+            SourceBlock.processing_run_id == run.id,
+            SourceBlock.source_engine == PyMuPDFNativeAdapter.name,
+        )
+        .count()
+    )
+    if existing:
+        step.status = "COMPLETED"
+        step.metrics = {"source_blocks": existing, "idempotent_reuse": True}
+        db.commit()
+        return {"run_id": run.id, "source_blocks": existing, "reused": True}
+
+    pages = (
+        db.query(Page)
+        .filter(Page.document_version_id == version.id)
+        .order_by(Page.page_number)
+        .all()
+    )
+    pages_by_number = {page.page_number: page for page in pages}
+
+    adapter = PyMuPDFNativeAdapter()
+    block_count = 0
+    pdf = fitz.open(artifact.object_key)
+    try:
+        for page_index, pdf_page in enumerate(pdf, start=1):
+            page_row = pages_by_number.get(page_index)
+            if page_row is None:
+                raise ValueError(f"page {page_index} missing from persisted page map")
+
+            for block in adapter.extract_page(pdf_page):
+                db.add(
+                    SourceBlock(
+                        page_id=page_row.id,
+                        processing_run_id=run.id,
+                        block_type=block.block_type,
+                        reading_order=block.reading_order,
+                        raw_text=block.text,
+                        confidence=block.confidence,
+                        bbox=block.bbox.as_dict(),
+                        source_engine=adapter.name,
+                        source_engine_version=str(adapter.version),
+                        metadata_json=block.metadata,
+                    )
+                )
+                block_count += 1
+    finally:
+        pdf.close()
+
+    step.status = "COMPLETED"
+    step.metrics = {"source_blocks": block_count, "idempotent_reuse": False}
+    db.commit()
+    return {"run_id": run.id, "source_blocks": block_count, "reused": False}

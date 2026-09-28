@@ -1,0 +1,27 @@
+{
+  "dataset_version": "1.0-draft",
+  "source_document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "selection_status": "CANDIDATE_SELECTION",
+  "policy": "Candidates are selected from the confirmed 1120-page acceptance PDF. They are not HUMAN_VERIFIED Gold pages until page-image hashes, annotations, and reviewer sign-off are recorded.",
+  "candidates": [
+    {"pdf_page": 1, "tags": ["IMAGE", "SPECIAL_LAYOUT", "OCR_HARD"], "reason": "image-only opening page; exercises scanned/image path"},
+    {"pdf_page": 3, "tags": ["SPECIAL_LAYOUT"], "reason": "front matter / non-vocabulary structure"},
+    {"pdf_page": 50, "tags": ["NORMAL", "IMAGE"], "reason": "regular text page with embedded image"},
+    {"pdf_page": 82, "tags": ["IMAGE", "SPECIAL_LAYOUT"], "reason": "low native-text density with multiple images"},
+    {"pdf_page": 220, "tags": ["NORMAL", "BOUNDARY_ENTRY"], "reason": "dense vocabulary content suitable for entry-boundary regression"},
+    {"pdf_page": 458, "tags": ["NORMAL", "IMAGE", "BOUNDARY_ENTRY"], "reason": "dense vocabulary page near Word List transition"},
+    {"pdf_page": 460, "tags": ["NORMAL", "IMAGE", "BOUNDARY_ENTRY"], "reason": "vocabulary entries with examples/collocations and page-boundary pressure"},
+    {"pdf_page": 462, "tags": ["TABLE", "SPECIAL_LAYOUT"], "reason": "Word List preview/root-prefix table transition"},
+    {"pdf_page": 1112, "tags": ["IPA_DENSE", "TABLE", "DOUBLE_COLUMN"], "reason": "British/American pronunciation comparison content"},
+    {"pdf_page": 1114, "tags": ["TABLE", "DOUBLE_COLUMN", "SPECIAL_LAYOUT"], "reason": "British/American vocabulary comparison table"}
+  ],
+  "remaining_slots": 20,
+  "required_before_freeze": [
+    "render candidate page images and record SHA256",
+    "inspect page visuals and finalize layout tags",
+    "add explicit CROSS_PAGE_ENTRY pair(s)",
+    "expand to exactly 30 pages",
+    "create ground-truth annotation JSON per page",
+    "human reviewer sign-off for all 30 pages"
+  ]
+}

@@ -34,9 +34,8 @@ def classify_book_text(text: str, *, in_preview_table: bool = False) -> BookBloc
     if normalized == "词根/词缀预习表":
         return BookBlockClassification("PREVIEW_TABLE_HEADER", 0.99, {})
 
-    if in_preview_table or any(normalized == marker for marker in _PREVIEW_MARKERS):
-        return BookBlockClassification("PREVIEW_TABLE", 0.95, {})
-
+    # A canonical headword+IPA line is strong enough evidence to terminate
+    # preview-table context. Plain English rows inside the table do not match.
     headword = _HEADWORD.match(normalized)
     if headword:
         return BookBlockClassification(
@@ -48,6 +47,9 @@ def classify_book_text(text: str, *, in_preview_table: bool = False) -> BookBloc
                 "ipa": headword.group(3),
             },
         )
+
+    if in_preview_table or any(normalized == marker for marker in _PREVIEW_MARKERS):
+        return BookBlockClassification("PREVIEW_TABLE", 0.95, {})
 
     field = _FIELD_MARKER.match(normalized)
     if field:

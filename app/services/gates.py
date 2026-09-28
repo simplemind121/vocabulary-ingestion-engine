@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
-from app.models import GateEvaluation, Page, ProcessingRun, SourceBlock
+from app.models import GateEvaluation, Page, ProcessingRun, SourceBlock, SourceEntry, SourceEntryBlock
 
 
 def evaluate_g1_document_representation(db: Session, run_id: str) -> dict:
@@ -95,3 +95,82 @@ def _valid_bbox(bbox: dict) -> bool:
     except (KeyError, TypeError, ValueError):
         return False
     return 0.0 <= x1 <= x2 <= 1.0 and 0.0 <= y1 <= y2 <= 1.0
+
+
+def evaluate_g2_entry_segmentation(db: Session, run_id: str) -> dict:
+    run = db.get(ProcessingRun, run_id)
+    if run is None:
+        raise ValueError("processing run not found")
+
+    entries = (
+        db.query(SourceEntry)
+        .filter(SourceEntry.processing_run_id == run.id)
+        .order_by(SourceEntry.entry_order)
+        .all()
+    )
+    links = (
+        db.query(SourceEntryBlock)
+        .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
+        .filter(SourceEntry.processing_run_id == run.id)
+        .all()
+    )
+
+    linked_entry_ids = {link.source_entry_id for link in links}
+    empty_entries = sum(1 for entry in entries if not entry.raw_text.strip())
+    unlinked_entries = sum(1 for entry in entries if entry.id not in linked_entry_ids)
+    low_confidence_entries = sum(
+        1
+        for entry in entries
+        if entry.segmentation_confidence is None or entry.segmentation_confidence < 0.50
+    )
+
+    metrics = {
+        "source_entry_count": len(entries),
+        "entry_block_link_count": len(links),
+        "empty_entries": empty_entries,
+        "unlinked_entries": unlinked_entries,
+        "low_confidence_entries": low_confidence_entries,
+    }
+    blocking = []
+    if not entries:
+        blocking.append("no_source_entries")
+    if empty_entries:
+        blocking.append("empty_source_entries")
+    if unlinked_entries:
+        blocking.append("unlinked_source_entries")
+
+    status = "PASS" if not blocking else "FAIL"
+    gate = (
+        db.query(GateEvaluation)
+        .filter(
+            GateEvaluation.processing_run_id == run.id,
+            GateEvaluation.gate == "G2",
+        )
+        .one_or_none()
+    )
+    if gate is None:
+        gate = GateEvaluation(
+            processing_run_id=run.id,
+            gate="G2",
+            ruleset_version="1.0.0",
+            scope_type="DOCUMENT",
+            scope_id=run.document_version_id,
+            status=status,
+            metrics=metrics,
+            blocking_failures=blocking,
+            evidence={"entry_block_links": len(links)},
+        )
+        db.add(gate)
+    else:
+        gate.status = status
+        gate.metrics = metrics
+        gate.blocking_failures = blocking
+        gate.evidence = {"entry_block_links": len(links)}
+
+    db.commit()
+    return {
+        "gate": "G2",
+        "status": status,
+        "metrics": metrics,
+        "blocking_failures": blocking,
+    }

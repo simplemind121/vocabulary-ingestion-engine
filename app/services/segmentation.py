@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from sqlalchemy.orm import Session
 
 from app.models import (
     DocumentVersion,
+    Page,
     ProcessingRun,
     ProcessingStep,
     SourceBlock,
@@ -14,8 +15,9 @@ from app.models import (
     SourceEntryBlock,
     VocabularyEntry,
 )
+from app.services.book_structure import classify_book_text
 
-_HEADWORD = re.compile(r"^([A-Za-z][A-Za-z'’-]{1,63})(?:\s|$)")
+_LEGACY_HEADWORD = re.compile(r"^([A-Za-z][A-Za-z'’-]{1,63})(?:\s|$)")
 
 
 @dataclass(slots=True)
@@ -24,22 +26,99 @@ class SegmentCandidate:
     raw_text: str
     block_ids: list[str]
     confidence: float
+    page_numbers: list[int] = field(default_factory=list)
+    word_list: int | None = None
+    starred: bool = False
 
 
-def _candidate_from_block(block: SourceBlock) -> SegmentCandidate | None:
-    text = " ".join((block.raw_text or "").split())
-    if not text:
-        return None
-    match = _HEADWORD.match(text)
-    if not match:
-        return None
-    lemma = match.group(1)
-    return SegmentCandidate(
-        lemma=lemma,
-        raw_text=text,
-        block_ids=[block.id],
-        confidence=0.80,
-    )
+def _iter_lines(block: SourceBlock) -> list[str]:
+    return [line.strip() for line in (block.raw_text or "").splitlines() if line.strip()]
+
+
+def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> list[SegmentCandidate]:
+    candidates: list[SegmentCandidate] = []
+    current_lines: list[str] = []
+    current_blocks: list[str] = []
+    current_pages: list[int] = []
+    current_lemma: str | None = None
+    current_starred = False
+    current_confidence = 0.0
+    current_word_list: int | None = None
+    in_preview_table = False
+
+    def flush() -> None:
+        nonlocal current_lines, current_blocks, current_pages
+        nonlocal current_lemma, current_starred, current_confidence
+        if current_lemma and current_lines:
+            candidates.append(
+                SegmentCandidate(
+                    lemma=current_lemma,
+                    raw_text="\n".join(current_lines),
+                    block_ids=list(dict.fromkeys(current_blocks)),
+                    confidence=current_confidence,
+                    page_numbers=list(dict.fromkeys(current_pages)),
+                    word_list=current_word_list,
+                    starred=current_starred,
+                )
+            )
+        current_lines = []
+        current_blocks = []
+        current_pages = []
+        current_lemma = None
+        current_starred = False
+        current_confidence = 0.0
+
+    for block in blocks:
+        page_number = page_numbers.get(block.page_id)
+        for line in _iter_lines(block):
+            classification = classify_book_text(line, in_preview_table=in_preview_table)
+            if classification.block_type == "WORD_LIST_HEADER":
+                flush()
+                current_word_list = classification.metadata["word_list"]
+                in_preview_table = False
+                continue
+            if classification.block_type == "PREVIEW_TABLE_HEADER":
+                flush()
+                in_preview_table = True
+                continue
+            if in_preview_table:
+                if classification.block_type == "ENTRY_HEAD":
+                    in_preview_table = False
+                else:
+                    continue
+            if classification.block_type in {"PAGE_NUMBER", "DECORATION", "EMPTY"}:
+                continue
+            if classification.block_type == "ENTRY_HEAD":
+                flush()
+                current_lemma = classification.metadata["lemma"]
+                current_starred = classification.metadata["starred"]
+                current_confidence = classification.confidence
+                current_lines = [line]
+                current_blocks = [block.id]
+                if page_number is not None:
+                    current_pages = [page_number]
+                continue
+
+            if current_lemma:
+                current_lines.append(line)
+                current_blocks.append(block.id)
+                if page_number is not None:
+                    current_pages.append(page_number)
+                continue
+
+            # Compatibility path for simple/synthetic fixtures and generic dictionaries.
+            legacy = _LEGACY_HEADWORD.match(" ".join(line.split()))
+            if legacy:
+                flush()
+                current_lemma = legacy.group(1)
+                current_confidence = 0.80
+                current_lines = [line]
+                current_blocks = [block.id]
+                if page_number is not None:
+                    current_pages = [page_number]
+
+    flush()
+    return candidates
 
 
 def segment_source_entries(db: Session, run_id: str) -> dict:
@@ -54,46 +133,54 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
         .all()
     )
     if existing:
-        return {
-            "run_id": run.id,
-            "source_entries": len(existing),
-            "reused": True,
-        }
+        return {"run_id": run.id, "source_entries": len(existing), "reused": True}
 
     version = db.get(DocumentVersion, run.document_version_id)
     if version is None:
         raise ValueError("document version not found")
 
-    blocks = (
-        db.query(SourceBlock)
-        .filter(SourceBlock.processing_run_id == run.id)
-        .order_by(SourceBlock.page_id, SourceBlock.reading_order)
+    pages = (
+        db.query(Page)
+        .filter(Page.document_version_id == version.id)
+        .order_by(Page.page_number)
         .all()
     )
+    page_numbers = {page.id: page.page_number for page in pages}
+    page_order = {page.id: index for index, page in enumerate(pages)}
+    blocks = db.query(SourceBlock).filter(SourceBlock.processing_run_id == run.id).all()
+    blocks.sort(key=lambda block: (page_order.get(block.page_id, 10**9), block.reading_order or 0))
 
     step = ProcessingStep(
         processing_run_id=run.id,
         step_type="ENTRY_SEGMENTATION",
         sequence_no=20,
-        processor_name="baseline-rule-segmenter",
-        processor_version="0.1.0",
-        configuration={"strategy": "headword-at-block-start"},
+        processor_name="book-structure-segmenter",
+        processor_version="0.2.0",
+        configuration={"strategy": "line-state-machine", "cross_page": True},
         status="RUNNING",
     )
     db.add(step)
     db.flush()
 
-    candidates = [candidate for block in blocks if (candidate := _candidate_from_block(block))]
-
+    candidates = _segment_blocks(blocks, page_numbers)
+    cross_page_entries = 0
     for index, candidate in enumerate(candidates, start=1):
+        if len(candidate.page_numbers) > 1:
+            cross_page_entries += 1
         entry = SourceEntry(
             document_version_id=version.id,
             processing_run_id=run.id,
             entry_order=index,
             raw_text=candidate.raw_text,
             segmentation_confidence=candidate.confidence,
+            continuation_type="CROSS_PAGE" if len(candidate.page_numbers) > 1 else None,
             status="PARSED",
-            metadata_json={"segmenter": "baseline-rule-segmenter"},
+            metadata_json={
+                "segmenter": "book-structure-segmenter@0.2.0",
+                "pages": candidate.page_numbers,
+                "word_list": candidate.word_list,
+                "starred": candidate.starred,
+            },
         )
         db.add(entry)
         db.flush()
@@ -116,7 +203,11 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
                 language="en",
                 verification_status="PARSED",
                 canonical_schema_version="1.0",
-                metadata_json={"extraction_method": "baseline-rule"},
+                metadata_json={
+                    "extraction_method": "book-structure-segmenter@0.2.0",
+                    "starred": candidate.starred,
+                    "word_list": candidate.word_list,
+                },
             )
         )
 
@@ -124,10 +215,12 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
     step.metrics = {
         "input_blocks": len(blocks),
         "source_entries": len(candidates),
+        "cross_page_entries": cross_page_entries,
     }
     db.commit()
     return {
         "run_id": run.id,
         "source_entries": len(candidates),
+        "cross_page_entries": cross_page_entries,
         "reused": False,
     }

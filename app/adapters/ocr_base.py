@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Protocol
 
 from app.idr import TextBlock
@@ -19,7 +19,7 @@ class OcrPageResult:
     blocks: list[TextBlock]
     engine_name: str
     engine_version: str
-    metadata: dict
+    metadata: dict = field(default_factory=dict)
 
 
 class OcrEngineAdapter(Protocol):

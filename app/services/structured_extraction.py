@@ -9,6 +9,7 @@ from app.models import (
     Definition,
     Pronunciation,
     ProvenanceRecord,
+    ReviewTask,
     Sense,
     SourceBlock,
     SourceEntry,
@@ -76,8 +77,36 @@ def extract_canonical_fields(db: Session, run_id: str) -> dict:
 
         try:
             parsed = parse_source_entry_text(source_entry.raw_text)
-        except ValueError:
+        except ValueError as exc:
             vocab.verification_status = "REVIEW_REQUIRED"
+            existing_review = (
+                db.query(ReviewTask)
+                .filter(
+                    ReviewTask.processing_run_id == run_id,
+                    ReviewTask.target_entity_type == "VocabularyEntry",
+                    ReviewTask.target_entity_id == vocab.id,
+                    ReviewTask.reason_code == "STRUCTURED_EXTRACTION_UNCERTAIN",
+                    ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"]),
+                )
+                .first()
+            )
+            if existing_review is None:
+                db.add(
+                    ReviewTask(
+                        processing_run_id=run_id,
+                        reason_code="STRUCTURED_EXTRACTION_UNCERTAIN",
+                        status="OPEN",
+                        target_entity_type="VocabularyEntry",
+                        target_entity_id=vocab.id,
+                        target_field_path=None,
+                        source_context={
+                            "source_entry_id": source_entry.id,
+                            "raw_text": source_entry.raw_text,
+                            "error": str(exc),
+                        },
+                        candidate_values=[],
+                    )
+                )
             review_required += 1
             continue
 

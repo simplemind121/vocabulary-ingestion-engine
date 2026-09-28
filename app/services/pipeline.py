@@ -18,6 +18,7 @@ from app.services.gates import (
 )
 from app.services.gold import publish_gold_release
 from app.services.ocr_extraction import extract_ocr_blocks
+from app.services.ocr_quality import route_ocr_quality_reviews
 from app.services.segmentation import segment_source_entries
 from app.services.structured_extraction import extract_canonical_fields
 from app.services.validation import validate_canonical_entries
@@ -36,6 +37,7 @@ def run_pipeline(
     *,
     publish: bool = True,
     ocr_adapter: OcrEngineAdapter | None = None,
+    ocr_min_confidence: float = 0.85,
 ) -> dict:
     run = db.get(ProcessingRun, run_id)
     if run is None:
@@ -71,9 +73,21 @@ def run_pipeline(
             stages.append({"stage": "native_extraction", "result": native})
             ocr = extract_ocr_blocks(db, run_id, ocr_adapter, page_numbers=ocr_pages)
             stages.append({"stage": "ocr_extraction", "result": ocr})
+            quality = route_ocr_quality_reviews(
+                db,
+                run_id,
+                min_confidence=ocr_min_confidence,
+            )
+            stages.append({"stage": "ocr_quality", "result": quality})
         elif ocr_adapter is not None:
             extraction = extract_ocr_blocks(db, run_id, ocr_adapter)
             stages.append({"stage": "ocr_extraction", "result": extraction})
+            quality = route_ocr_quality_reviews(
+                db,
+                run_id,
+                min_confidence=ocr_min_confidence,
+            )
+            stages.append({"stage": "ocr_quality", "result": quality})
         else:
             return _ocr_required(db, run, document_mode, stages)
 

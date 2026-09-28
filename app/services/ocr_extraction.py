@@ -70,13 +70,7 @@ def extract_ocr_blocks(db: Session, run_id: str, adapter: OcrEngineAdapter) -> d
                     reading_order=block.reading_order,
                     raw_text=text,
                     confidence=block.confidence,
-                    bbox={
-                        "x0": block.bbox.x0,
-                        "y0": block.bbox.y0,
-                        "x1": block.bbox.x1,
-                        "y1": block.bbox.y1,
-                        "unit": block.bbox.unit,
-                    },
+                    bbox=block.bbox.as_dict(),
                     source_engine=f"ocr:{result.engine_name}",
                     source_engine_version=result.engine_version,
                     metadata_json={

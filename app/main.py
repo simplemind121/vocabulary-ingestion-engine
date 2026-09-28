@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import hashlib
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated
 
@@ -22,6 +22,8 @@ PAGE_DIR.mkdir(parents=True, exist_ok=True)
 
 Base.metadata.create_all(bind=engine)
 app = FastAPI(title="Vocabulary Ingestion Engine", version=APP_VERSION)
+DbSession = Annotated[Session, Depends(get_db)]
+
 
 class PublishRequest(BaseModel):
     unresolved_records: int = 0
@@ -29,14 +31,16 @@ class PublishRequest(BaseModel):
     open_required_reviews: int = 0
     blocking_validation_errors: int = 0
 
+
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "version": APP_VERSION}
 
+
 @app.post("/api/v1/documents")
 async def ingest_document(
     file: Annotated[UploadFile, File()],
-    db: Session = Depends(get_db),
+    db: DbSession,
 ) -> dict:
     if file.content_type not in {"application/pdf", "application/x-pdf"}:
         raise HTTPException(415, "Only PDF is supported in v0.1")
@@ -130,7 +134,7 @@ async def ingest_document(
     )
     db.add(gate)
     run.status = "COMPLETED" if status == "PASS" else "FAILED"
-    run.finished_at = datetime.now(timezone.utc)
+    run.finished_at = datetime.now(UTC)
     run.metrics = {"rendered_pages": len(rendered)}
     db.commit()
 
@@ -144,15 +148,17 @@ async def ingest_document(
         "g0": {"gate": "G0", "status": status, "metrics": metrics},
     }
 
+
 @app.get("/api/v1/documents/{document_id}")
-def get_document(document_id: str, db: Session = Depends(get_db)) -> dict:
+def get_document(document_id: str, db: DbSession) -> dict:
     document = db.get(Document, document_id)
     if not document:
         raise HTTPException(404, "Document not found")
     return {"id": document.id, "filename": document.original_filename, "status": document.status}
 
+
 @app.get("/api/v1/runs/{run_id}")
-def get_run(run_id: str, db: Session = Depends(get_db)) -> dict:
+def get_run(run_id: str, db: DbSession) -> dict:
     run = db.get(ProcessingRun, run_id)
     if not run:
         raise HTTPException(404, "Processing run not found")
@@ -164,6 +170,7 @@ def get_run(run_id: str, db: Session = Depends(get_db)) -> dict:
         "pipeline_version": run.pipeline_version,
         "gates": [{"gate": g.gate, "status": g.status, "metrics": g.metrics} for g in gates],
     }
+
 
 @app.post("/api/v1/gold/preflight")
 def gold_preflight(request: PublishRequest) -> dict:

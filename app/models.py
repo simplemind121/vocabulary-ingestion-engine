@@ -3,16 +3,7 @@ from __future__ import annotations
 import uuid
 from datetime import UTC, datetime
 
-from sqlalchemy import (
-    JSON,
-    BigInteger,
-    DateTime,
-    ForeignKey,
-    Integer,
-    String,
-    Text,
-    UniqueConstraint,
-)
+from sqlalchemy import JSON, BigInteger, DateTime, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db import Base
@@ -47,9 +38,7 @@ class Document(Base):
 
 class DocumentVersion(Base):
     __tablename__ = "document_versions"
-    __table_args__ = (
-        UniqueConstraint("document_id", "version_no", name="uq_document_versions_document_version"),
-    )
+    __table_args__ = (UniqueConstraint("document_id", "version_no", name="uq_document_versions_document_version"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     document_id: Mapped[str] = mapped_column(ForeignKey("documents.id", ondelete="RESTRICT"), index=True)
     version_no: Mapped[int] = mapped_column(Integer, default=1)
@@ -63,13 +52,9 @@ class DocumentVersion(Base):
 
 class Page(Base):
     __tablename__ = "pages"
-    __table_args__ = (
-        UniqueConstraint("document_version_id", "page_number", name="uq_pages_version_page"),
-    )
+    __table_args__ = (UniqueConstraint("document_version_id", "page_number", name="uq_pages_version_page"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    document_version_id: Mapped[str] = mapped_column(
-        ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True
-    )
+    document_version_id: Mapped[str] = mapped_column(ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True)
     page_number: Mapped[int] = mapped_column(Integer)
     render_artifact_id: Mapped[str] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
@@ -78,9 +63,7 @@ class Page(Base):
 class ProcessingRun(Base):
     __tablename__ = "processing_runs"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    document_version_id: Mapped[str] = mapped_column(
-        ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True
-    )
+    document_version_id: Mapped[str] = mapped_column(ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True)
     pipeline_version: Mapped[str] = mapped_column(String(100), default="0.1.0-alpha.2")
     canonical_schema_version: Mapped[str] = mapped_column(String(50), default="1.0")
     configuration_snapshot: Mapped[dict] = mapped_column(JSON, default=dict)
@@ -96,9 +79,7 @@ class ProcessingRun(Base):
 class GateEvaluation(Base):
     __tablename__ = "gate_evaluations"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    processing_run_id: Mapped[str] = mapped_column(
-        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
-    )
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
     gate: Mapped[str] = mapped_column(String(20), index=True)
     ruleset_version: Mapped[str] = mapped_column(String(50), default="1.0.0")
     scope_type: Mapped[str] = mapped_column(String(100), default="DOCUMENT")
@@ -114,9 +95,7 @@ class GateEvaluation(Base):
 class ReviewTask(Base):
     __tablename__ = "review_tasks"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    processing_run_id: Mapped[str] = mapped_column(
-        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
-    )
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
     reason_code: Mapped[str] = mapped_column(String(255))
     status: Mapped[str] = mapped_column(String(50), default="OPEN", index=True)
     target_entity_type: Mapped[str] = mapped_column(String(100))
@@ -130,22 +109,14 @@ class ReviewTask(Base):
 class ProvenanceRecord(Base):
     __tablename__ = "provenance_records"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    processing_run_id: Mapped[str] = mapped_column(
-        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
-    )
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
     target_entity_type: Mapped[str] = mapped_column(String(100))
     target_entity_id: Mapped[str] = mapped_column(String(36))
     target_field_path: Mapped[str] = mapped_column(String(512))
     provenance_type: Mapped[str] = mapped_column(String(100), index=True)
-    source_entry_id: Mapped[str | None] = mapped_column(
-        ForeignKey("source_entries.id", ondelete="RESTRICT"), index=True, nullable=True
-    )
-    source_block_id: Mapped[str | None] = mapped_column(
-        ForeignKey("source_blocks.id", ondelete="RESTRICT"), index=True, nullable=True
-    )
-    page_id: Mapped[str | None] = mapped_column(
-        ForeignKey("pages.id", ondelete="RESTRICT"), index=True, nullable=True
-    )
+    source_entry_id: Mapped[str | None] = mapped_column(ForeignKey("source_entries.id", ondelete="RESTRICT"), index=True, nullable=True)
+    source_block_id: Mapped[str | None] = mapped_column(ForeignKey("source_blocks.id", ondelete="RESTRICT"), index=True, nullable=True)
+    page_id: Mapped[str | None] = mapped_column(ForeignKey("pages.id", ondelete="RESTRICT"), index=True, nullable=True)
     source_text: Mapped[str | None] = mapped_column(Text, nullable=True)
     metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
@@ -153,13 +124,9 @@ class ProvenanceRecord(Base):
 
 class ProcessingStep(Base):
     __tablename__ = "processing_steps"
-    __table_args__ = (
-        UniqueConstraint("processing_run_id", "sequence_no", name="uq_processing_steps_run_sequence"),
-    )
+    __table_args__ = (UniqueConstraint("processing_run_id", "sequence_no", name="uq_processing_steps_run_sequence"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    processing_run_id: Mapped[str] = mapped_column(
-        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
-    )
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
     step_type: Mapped[str] = mapped_column(String(100), index=True)
     sequence_no: Mapped[int] = mapped_column(Integer)
     processor_name: Mapped[str] = mapped_column(String(255))
@@ -176,9 +143,7 @@ class SourceBlock(Base):
     __tablename__ = "source_blocks"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     page_id: Mapped[str] = mapped_column(ForeignKey("pages.id", ondelete="RESTRICT"), index=True)
-    processing_run_id: Mapped[str] = mapped_column(
-        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
-    )
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
     block_type: Mapped[str] = mapped_column(String(100), default="TEXT", index=True)
     reading_order: Mapped[int | None] = mapped_column(Integer, nullable=True)
     raw_text: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -192,16 +157,10 @@ class SourceBlock(Base):
 
 class SourceEntry(Base):
     __tablename__ = "source_entries"
-    __table_args__ = (
-        UniqueConstraint("processing_run_id", "entry_order", name="uq_source_entries_run_order"),
-    )
+    __table_args__ = (UniqueConstraint("processing_run_id", "entry_order", name="uq_source_entries_run_order"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    document_version_id: Mapped[str] = mapped_column(
-        ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True
-    )
-    processing_run_id: Mapped[str] = mapped_column(
-        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
-    )
+    document_version_id: Mapped[str] = mapped_column(ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True)
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
     entry_order: Mapped[int] = mapped_column(Integer)
     raw_text: Mapped[str] = mapped_column(Text)
     segmentation_confidence: Mapped[float | None] = mapped_column(nullable=True)
@@ -213,24 +172,16 @@ class SourceEntry(Base):
 
 class SourceEntryBlock(Base):
     __tablename__ = "source_entry_blocks"
-    source_entry_id: Mapped[str] = mapped_column(
-        ForeignKey("source_entries.id", ondelete="CASCADE"), primary_key=True
-    )
-    source_block_id: Mapped[str] = mapped_column(
-        ForeignKey("source_blocks.id", ondelete="RESTRICT"), primary_key=True
-    )
+    source_entry_id: Mapped[str] = mapped_column(ForeignKey("source_entries.id", ondelete="CASCADE"), primary_key=True)
+    source_block_id: Mapped[str] = mapped_column(ForeignKey("source_blocks.id", ondelete="RESTRICT"), primary_key=True)
     block_order: Mapped[int] = mapped_column(Integer)
 
 
 class VocabularyEntry(Base):
     __tablename__ = "vocabulary_entries"
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    source_entry_id: Mapped[str] = mapped_column(
-        ForeignKey("source_entries.id", ondelete="RESTRICT"), index=True
-    )
-    processing_run_id: Mapped[str] = mapped_column(
-        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
-    )
+    source_entry_id: Mapped[str] = mapped_column(ForeignKey("source_entries.id", ondelete="RESTRICT"), index=True)
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
     lemma: Mapped[str] = mapped_column(String(512), index=True)
     display_form: Mapped[str | None] = mapped_column(String(512), nullable=True)
     language: Mapped[str] = mapped_column(String(32), default="en", index=True)
@@ -243,13 +194,9 @@ class VocabularyEntry(Base):
 
 class Pronunciation(Base):
     __tablename__ = "pronunciations"
-    __table_args__ = (
-        UniqueConstraint("vocabulary_entry_id", "pronunciation_order", name="uq_pronunciations_entry_order"),
-    )
+    __table_args__ = (UniqueConstraint("vocabulary_entry_id", "pronunciation_order", name="uq_pronunciations_entry_order"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    vocabulary_entry_id: Mapped[str] = mapped_column(
-        ForeignKey("vocabulary_entries.id", ondelete="CASCADE"), index=True
-    )
+    vocabulary_entry_id: Mapped[str] = mapped_column(ForeignKey("vocabulary_entries.id", ondelete="CASCADE"), index=True)
     pronunciation_order: Mapped[int] = mapped_column(Integer)
     ipa: Mapped[str | None] = mapped_column(Text, nullable=True)
     phonetic_text: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -260,13 +207,9 @@ class Pronunciation(Base):
 
 class Sense(Base):
     __tablename__ = "senses"
-    __table_args__ = (
-        UniqueConstraint("vocabulary_entry_id", "sense_order", name="uq_senses_entry_order"),
-    )
+    __table_args__ = (UniqueConstraint("vocabulary_entry_id", "sense_order", name="uq_senses_entry_order"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    vocabulary_entry_id: Mapped[str] = mapped_column(
-        ForeignKey("vocabulary_entries.id", ondelete="CASCADE"), index=True
-    )
+    vocabulary_entry_id: Mapped[str] = mapped_column(ForeignKey("vocabulary_entries.id", ondelete="CASCADE"), index=True)
     sense_order: Mapped[int] = mapped_column(Integer)
     part_of_speech: Mapped[str | None] = mapped_column(String(100), nullable=True)
     source_label: Mapped[str | None] = mapped_column(String(255), nullable=True)
@@ -277,9 +220,7 @@ class Sense(Base):
 
 class Definition(Base):
     __tablename__ = "definitions"
-    __table_args__ = (
-        UniqueConstraint("sense_id", "definition_order", name="uq_definitions_sense_order"),
-    )
+    __table_args__ = (UniqueConstraint("sense_id", "definition_order", name="uq_definitions_sense_order"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     sense_id: Mapped[str] = mapped_column(ForeignKey("senses.id", ondelete="CASCADE"), index=True)
     definition_order: Mapped[int] = mapped_column(Integer)
@@ -291,13 +232,28 @@ class Definition(Base):
 
 class Example(Base):
     __tablename__ = "examples"
-    __table_args__ = (
-        UniqueConstraint("sense_id", "example_order", name="uq_examples_sense_order"),
-    )
+    __table_args__ = (UniqueConstraint("sense_id", "example_order", name="uq_examples_sense_order"),)
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     sense_id: Mapped[str] = mapped_column(ForeignKey("senses.id", ondelete="CASCADE"), index=True)
     example_order: Mapped[int] = mapped_column(Integer)
     text: Mapped[str] = mapped_column(Text)
     language: Mapped[str | None] = mapped_column(String(32), nullable=True)
     verification_status: Mapped[str] = mapped_column(String(50), default="PARSED", index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class GoldRelease(Base):
+    __tablename__ = "gold_releases"
+    __table_args__ = (
+        UniqueConstraint("processing_run_id", "version", name="uq_gold_releases_run_version"),
+        UniqueConstraint("sha256", name="uq_gold_releases_sha256"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
+    version: Mapped[int] = mapped_column(Integer)
+    schema_version: Mapped[str] = mapped_column(String(50))
+    record_count: Mapped[int] = mapped_column(Integer)
+    sha256: Mapped[str] = mapped_column(String(64))
+    json_artifact_id: Mapped[str | None] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"), nullable=True)
+    csv_artifact_id: Mapped[str | None] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)

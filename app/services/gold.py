@@ -8,7 +8,8 @@ import json
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from app.models import Definition, GoldRelease, Pronunciation, ReviewTask, Sense, VocabularyEntry
+from app.models import Artifact, Definition, GoldRelease, Pronunciation, ReviewTask, Sense, VocabularyEntry
+from app.storage import LocalStorageAdapter, StorageAdapter
 
 _VERIFIED = {"AUTO_VERIFIED", "HUMAN_VERIFIED"}
 
@@ -45,10 +46,26 @@ def serialize_gold_csv(dataset: dict) -> bytes:
     return output.getvalue().encode("utf-8")
 
 
-def publish_gold_release(db: Session, run_id: str) -> GoldRelease:
-    dataset = build_gold_dataset(db, run_id); payload = serialize_gold_json(dataset); digest = hashlib.sha256(payload).hexdigest()
+def _persist_artifact(db: Session, storage: StorageAdapter, key: str, payload: bytes, artifact_type: str, mime_type: str) -> Artifact:
+    existing = db.query(Artifact).filter(Artifact.object_key == key).one_or_none()
+    digest = hashlib.sha256(payload).hexdigest()
+    if existing is not None:
+        if existing.sha256 != digest:
+            raise ValueError(f"immutable artifact collision at {key}")
+        return existing
+    stored = storage.put_bytes(key, payload)
+    artifact = Artifact(artifact_type=artifact_type, storage_provider=stored["provider"], bucket="local", object_key=stored["object_key"], mime_type=mime_type, byte_size=stored["byte_size"], sha256=stored["sha256"], metadata_json={"immutable": True})
+    db.add(artifact); db.flush(); return artifact
+
+
+def publish_gold_release(db: Session, run_id: str, storage: StorageAdapter | None = None) -> GoldRelease:
+    storage = storage or LocalStorageAdapter("data")
+    dataset = build_gold_dataset(db, run_id); json_payload = serialize_gold_json(dataset); csv_payload = serialize_gold_csv(dataset); digest = hashlib.sha256(json_payload).hexdigest()
     existing = db.query(GoldRelease).filter(GoldRelease.sha256 == digest).one_or_none()
     if existing is not None: return existing
     version = (db.query(func.max(GoldRelease.version)).filter(GoldRelease.processing_run_id == run_id).scalar() or 0) + 1
-    release = GoldRelease(processing_run_id=run_id, version=version, schema_version=dataset["schema_version"], record_count=dataset["record_count"], sha256=digest)
+    prefix = f"gold/{run_id}/v{version:04d}/{digest}"
+    json_artifact = _persist_artifact(db, storage, f"{prefix}.json", json_payload, "GOLD_JSON", "application/json")
+    csv_artifact = _persist_artifact(db, storage, f"{prefix}.csv", csv_payload, "GOLD_CSV", "text/csv; charset=utf-8")
+    release = GoldRelease(processing_run_id=run_id, version=version, schema_version=dataset["schema_version"], record_count=dataset["record_count"], sha256=digest, json_artifact_id=json_artifact.id, csv_artifact_id=csv_artifact.id)
     db.add(release); db.commit(); db.refresh(release); return release

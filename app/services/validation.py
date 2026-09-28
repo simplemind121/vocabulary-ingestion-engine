@@ -4,7 +4,14 @@ import re
 
 from sqlalchemy.orm import Session
 
-from app.models import Pronunciation, ReviewTask, Sense, VocabularyEntry
+from app.models import (
+    Pronunciation,
+    ProvenanceRecord,
+    ReviewTask,
+    Sense,
+    VocabularyEntry,
+    VocabularyField,
+)
 
 _LEMMA = re.compile(r"^[A-Za-z][A-Za-z'’-]{0,511}$")
 _IPA_FORBIDDEN = re.compile(r"[0-9<>={}\\]")
@@ -38,6 +45,34 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
         senses = db.query(Sense).filter(Sense.vocabulary_entry_id == entry.id).all()
         if not senses:
             issues.append({"code": "MISSING_SENSE", "field": "senses", "value": None})
+
+        source_fields = (
+            db.query(VocabularyField)
+            .filter(VocabularyField.vocabulary_entry_id == entry.id)
+            .all()
+        )
+        for source_field in source_fields:
+            provenance = (
+                db.query(ProvenanceRecord)
+                .filter(
+                    ProvenanceRecord.processing_run_id == run_id,
+                    ProvenanceRecord.target_entity_type == "VocabularyField",
+                    ProvenanceRecord.target_entity_id == source_field.id,
+                    ProvenanceRecord.target_field_path == "text",
+                    ProvenanceRecord.provenance_type.like("SOURCE_%"),
+                )
+                .first()
+            )
+            if provenance is None or provenance.source_entry_id is None or provenance.page_id is None:
+                issues.append(
+                    {
+                        "code": "MISSING_FIELD_PROVENANCE",
+                        "field": f"source_field.{source_field.field_type}",
+                        "value": source_field.text,
+                    }
+                )
+            elif source_field.verification_status != "HUMAN_VERIFIED":
+                source_field.verification_status = "AUTO_VERIFIED"
 
         if issues:
             entry.verification_status = "REVIEW_REQUIRED"

@@ -5,6 +5,7 @@ from datetime import UTC, datetime
 from sqlalchemy.orm import Session
 
 from app.models import ProcessingRun
+from app.services.document_analysis import analyze_text_layer
 from app.services.extraction import extract_native_blocks
 from app.services.gates import (
     evaluate_g1_document_representation,
@@ -38,6 +39,26 @@ def run_pipeline(db: Session, run_id: str, *, publish: bool = True) -> dict:
     stages: list[dict] = []
 
     try:
+        analysis = analyze_text_layer(db, run_id)
+        stages.append({"stage": "document_analysis", "result": analysis})
+        if analysis["document_mode"] != "NATIVE_TEXT":
+            run.status = "OCR_REQUIRED"
+            run.finished_at = datetime.now(UTC)
+            run.error_summary = {
+                "blocked_stage": "document_analysis",
+                "reason": "ocr_required",
+                "document_mode": analysis["document_mode"],
+            }
+            db.commit()
+            return {
+                "run_id": run_id,
+                "status": run.status,
+                "blocked_stage": "document_analysis",
+                "reason": "ocr_required",
+                "document_mode": analysis["document_mode"],
+                "stages": stages,
+            }
+
         extraction = extract_native_blocks(db, run_id)
         stages.append({"stage": "native_extraction", "result": extraction})
         _require_pass("G1", evaluate_g1_document_representation(db, run_id), stages)

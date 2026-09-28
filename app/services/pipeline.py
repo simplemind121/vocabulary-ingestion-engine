@@ -4,6 +4,7 @@ from datetime import UTC, datetime
 
 from sqlalchemy.orm import Session
 
+from app.adapters.ocr_base import OcrEngineAdapter
 from app.models import ProcessingRun
 from app.services.document_analysis import analyze_text_layer
 from app.services.extraction import extract_native_blocks
@@ -16,6 +17,7 @@ from app.services.gates import (
     evaluate_g6_gold_publication,
 )
 from app.services.gold import publish_gold_release
+from app.services.ocr_extraction import extract_ocr_blocks
 from app.services.segmentation import segment_source_entries
 from app.services.structured_extraction import extract_canonical_fields
 from app.services.validation import validate_canonical_entries
@@ -28,7 +30,13 @@ class PipelineBlocked(RuntimeError):
         self.result = result
 
 
-def run_pipeline(db: Session, run_id: str, *, publish: bool = True) -> dict:
+def run_pipeline(
+    db: Session,
+    run_id: str,
+    *,
+    publish: bool = True,
+    ocr_adapter: OcrEngineAdapter | None = None,
+) -> dict:
     run = db.get(ProcessingRun, run_id)
     if run is None:
         raise ValueError("processing run not found")
@@ -41,26 +49,32 @@ def run_pipeline(db: Session, run_id: str, *, publish: bool = True) -> dict:
     try:
         analysis = analyze_text_layer(db, run_id)
         stages.append({"stage": "document_analysis", "result": analysis})
-        if analysis["document_mode"] != "NATIVE_TEXT":
+        document_mode = analysis["document_mode"]
+
+        if document_mode == "NATIVE_TEXT":
+            extraction = extract_native_blocks(db, run_id)
+            stages.append({"stage": "native_extraction", "result": extraction})
+        elif ocr_adapter is not None:
+            extraction = extract_ocr_blocks(db, run_id, ocr_adapter)
+            stages.append({"stage": "ocr_extraction", "result": extraction})
+        else:
             run.status = "OCR_REQUIRED"
             run.finished_at = datetime.now(UTC)
             run.error_summary = {
                 "blocked_stage": "document_analysis",
-                "reason": "ocr_required",
-                "document_mode": analysis["document_mode"],
+                "reason": "ocr_adapter_not_configured",
+                "document_mode": document_mode,
             }
             db.commit()
             return {
                 "run_id": run_id,
                 "status": run.status,
                 "blocked_stage": "document_analysis",
-                "reason": "ocr_required",
-                "document_mode": analysis["document_mode"],
+                "reason": "ocr_adapter_not_configured",
+                "document_mode": document_mode,
                 "stages": stages,
             }
 
-        extraction = extract_native_blocks(db, run_id)
-        stages.append({"stage": "native_extraction", "result": extraction})
         _require_pass("G1", evaluate_g1_document_representation(db, run_id), stages)
 
         segmentation = segment_source_entries(db, run_id)

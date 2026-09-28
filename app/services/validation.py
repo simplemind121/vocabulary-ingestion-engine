@@ -5,6 +5,7 @@ import re
 from sqlalchemy.orm import Session
 
 from app.models import (
+    Definition,
     Pronunciation,
     ProvenanceRecord,
     ReviewTask,
@@ -30,6 +31,8 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
         issues: list[dict] = []
         if not entry.lemma or not _LEMMA.fullmatch(entry.lemma.strip()):
             issues.append({"code": "INVALID_LEMMA", "field": "lemma", "value": entry.lemma})
+        elif not _has_source_provenance(db, run_id, "VocabularyEntry", entry.id, "lemma"):
+            issues.append({"code": "MISSING_LEMMA_PROVENANCE", "field": "lemma", "value": entry.lemma})
 
         pronunciations = (
             db.query(Pronunciation)
@@ -41,10 +44,44 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
                 issues.append(
                     {"code": "INVALID_IPA", "field": "pronunciation.ipa", "value": pronunciation.ipa}
                 )
+            elif pronunciation.ipa and not _has_source_provenance(
+                db, run_id, "Pronunciation", pronunciation.id, "ipa"
+            ):
+                issues.append(
+                    {"code": "MISSING_IPA_PROVENANCE", "field": "pronunciation.ipa", "value": pronunciation.ipa}
+                )
+            elif pronunciation.verification_status != "HUMAN_VERIFIED":
+                pronunciation.verification_status = "AUTO_VERIFIED"
 
         senses = db.query(Sense).filter(Sense.vocabulary_entry_id == entry.id).all()
         if not senses:
             issues.append({"code": "MISSING_SENSE", "field": "senses", "value": None})
+        for sense in senses:
+            if sense.part_of_speech and not _has_source_provenance(
+                db, run_id, "Sense", sense.id, "part_of_speech"
+            ):
+                issues.append(
+                    {
+                        "code": "MISSING_POS_PROVENANCE",
+                        "field": "sense.part_of_speech",
+                        "value": sense.part_of_speech,
+                    }
+                )
+            elif sense.verification_status != "HUMAN_VERIFIED":
+                sense.verification_status = "AUTO_VERIFIED"
+
+            definitions = db.query(Definition).filter(Definition.sense_id == sense.id).all()
+            for definition in definitions:
+                if not _has_source_provenance(db, run_id, "Definition", definition.id, "text"):
+                    issues.append(
+                        {
+                            "code": "MISSING_DEFINITION_PROVENANCE",
+                            "field": "definition.text",
+                            "value": definition.text,
+                        }
+                    )
+                elif definition.verification_status != "HUMAN_VERIFIED":
+                    definition.verification_status = "AUTO_VERIFIED"
 
         source_fields = (
             db.query(VocabularyField)
@@ -52,18 +89,7 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
             .all()
         )
         for source_field in source_fields:
-            provenance = (
-                db.query(ProvenanceRecord)
-                .filter(
-                    ProvenanceRecord.processing_run_id == run_id,
-                    ProvenanceRecord.target_entity_type == "VocabularyField",
-                    ProvenanceRecord.target_entity_id == source_field.id,
-                    ProvenanceRecord.target_field_path == "text",
-                    ProvenanceRecord.provenance_type.like("SOURCE_%"),
-                )
-                .first()
-            )
-            if provenance is None or provenance.source_entry_id is None or provenance.page_id is None:
+            if not _has_source_provenance(db, run_id, "VocabularyField", source_field.id, "text"):
                 issues.append(
                     {
                         "code": "MISSING_FIELD_PROVENANCE",
@@ -89,6 +115,31 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
         "clean_entries": clean_count,
         "validation_issues": issue_count,
     }
+
+
+def _has_source_provenance(
+    db: Session,
+    run_id: str,
+    entity_type: str,
+    entity_id: str,
+    field_path: str,
+) -> bool:
+    provenance = (
+        db.query(ProvenanceRecord)
+        .filter(
+            ProvenanceRecord.processing_run_id == run_id,
+            ProvenanceRecord.target_entity_type == entity_type,
+            ProvenanceRecord.target_entity_id == entity_id,
+            ProvenanceRecord.target_field_path == field_path,
+            ProvenanceRecord.provenance_type.like("SOURCE_%"),
+        )
+        .first()
+    )
+    return bool(
+        provenance is not None
+        and provenance.source_entry_id is not None
+        and provenance.page_id is not None
+    )
 
 
 def _ensure_review_task(db: Session, run_id: str, entry: VocabularyEntry, issues: list[dict]) -> None:

@@ -26,7 +26,7 @@ def load_gold_sample_manifest(path: str | Path) -> dict[str, Any]:
     except (OSError, json.JSONDecodeError) as exc:
         raise ValueError(f"invalid Gold Sample manifest: {exc}") from exc
     if not isinstance(data, dict):
-        raise ValueError("Gold Sample manifest root must be an object")
+        raise TypeError("Gold Sample manifest root must be an object")
     return data
 
 

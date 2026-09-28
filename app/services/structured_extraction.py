@@ -16,6 +16,7 @@ from app.models import (
     SourceEntryBlock,
     VocabularyEntry,
 )
+from app.services.field_parser import parse_source_entry as parse_real_book_entry
 
 _ENTRY = re.compile(
     r"^(?P<lemma>[A-Za-z][A-Za-z'’-]{1,63})"
@@ -34,10 +35,21 @@ class ParsedEntry:
 
 
 def parse_source_entry_text(text: str) -> ParsedEntry:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    if lines and "[" in lines[0] and "]" in lines[0]:
+        real = parse_real_book_entry(lines)
+        first_sense = real.senses[0] if real.senses else {}
+        return ParsedEntry(
+            lemma=real.lemma,
+            ipa=real.ipa,
+            part_of_speech=first_sense.get("pos"),
+            definition=first_sense.get("definition"),
+        )
+
     normalized = " ".join(text.split())
     match = _ENTRY.match(normalized)
     if match is None:
-        raise ValueError("source entry does not match baseline structured format")
+        raise ValueError("source entry does not match supported structured formats")
     definition = match.group("definition")
     return ParsedEntry(
         lemma=match.group("lemma"),
@@ -176,7 +188,7 @@ def extract_canonical_fields(db: Session, run_id: str) -> dict:
                 sense_id=sense.id,
                 definition_order=1,
                 text=parsed.definition,
-                language="en",
+                language="zh",
                 verification_status="PARSED",
             )
             db.add(definition)
@@ -224,6 +236,6 @@ def _add_provenance(
             source_block_id=block.id if block else None,
             page_id=block.page_id if block else None,
             source_text=source_text,
-            metadata_json={"method": "baseline-structured-extractor@0.1.0"},
+            metadata_json={"method": "structured-extractor@0.2.0"},
         )
     )

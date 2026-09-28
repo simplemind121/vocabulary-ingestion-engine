@@ -2,7 +2,16 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
-from app.models import (GateEvaluation, Page, ProcessingRun, ProvenanceRecord, SourceBlock, SourceEntry, SourceEntryBlock, VocabularyEntry)
+from app.models import (
+    GateEvaluation,
+    Page,
+    ProcessingRun,
+    ProvenanceRecord,
+    SourceBlock,
+    SourceEntry,
+    SourceEntryBlock,
+    VocabularyEntry,
+)
 
 
 def evaluate_g1_document_representation(db: Session, run_id: str) -> dict:

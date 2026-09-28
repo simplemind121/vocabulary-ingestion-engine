@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
-from app.models import GateEvaluation, Page, ProcessingRun, SourceBlock, SourceEntry, SourceEntryBlock
+from app.models import (GateEvaluation, Page, ProcessingRun, ProvenanceRecord, SourceBlock, SourceEntry, SourceEntryBlock, VocabularyEntry)
 
 
 def evaluate_g1_document_representation(db: Session, run_id: str) -> dict:
@@ -170,6 +170,92 @@ def evaluate_g2_entry_segmentation(db: Session, run_id: str) -> dict:
     db.commit()
     return {
         "gate": "G2",
+        "status": status,
+        "metrics": metrics,
+        "blocking_failures": blocking,
+    }
+
+
+def evaluate_g3_structured_extraction(db: Session, run_id: str) -> dict:
+    run = db.get(ProcessingRun, run_id)
+    if run is None:
+        raise ValueError("processing run not found")
+
+    entries = (
+        db.query(VocabularyEntry)
+        .filter(VocabularyEntry.processing_run_id == run.id)
+        .all()
+    )
+    entry_ids = [entry.id for entry in entries]
+    lemma_provenance = (
+        db.query(ProvenanceRecord)
+        .filter(
+            ProvenanceRecord.processing_run_id == run.id,
+            ProvenanceRecord.target_entity_type == "VocabularyEntry",
+            ProvenanceRecord.target_field_path == "lemma",
+            ProvenanceRecord.provenance_type.like("SOURCE_%"),
+        )
+        .all()
+    )
+    proven_entry_ids = {record.target_entity_id for record in lemma_provenance}
+    missing_lemma = sum(1 for entry in entries if not entry.lemma.strip())
+    missing_lemma_provenance = sum(1 for entry_id in entry_ids if entry_id not in proven_entry_ids)
+    review_required = sum(1 for entry in entries if entry.verification_status == "REVIEW_REQUIRED")
+
+    metrics = {
+        "vocabulary_entry_count": len(entries),
+        "missing_lemma": missing_lemma,
+        "missing_lemma_provenance": missing_lemma_provenance,
+        "review_required_entries": review_required,
+    }
+    blocking = []
+    if not entries:
+        blocking.append("no_vocabulary_entries")
+    if missing_lemma:
+        blocking.append("missing_lemma")
+    if missing_lemma_provenance:
+        blocking.append("missing_required_provenance")
+
+    if blocking:
+        status = "FAIL"
+    elif review_required:
+        status = "REVIEW_REQUIRED"
+    else:
+        status = "PASS"
+
+    gate = (
+        db.query(GateEvaluation)
+        .filter(
+            GateEvaluation.processing_run_id == run.id,
+            GateEvaluation.gate == "G3",
+        )
+        .one_or_none()
+    )
+    payload = {
+        "status": status,
+        "metrics": metrics,
+        "blocking_failures": blocking,
+        "evidence": {"lemma_provenance_records": len(lemma_provenance)},
+    }
+    if gate is None:
+        gate = GateEvaluation(
+            processing_run_id=run.id,
+            gate="G3",
+            ruleset_version="1.0.0",
+            scope_type="DOCUMENT",
+            scope_id=run.document_version_id,
+            **payload,
+        )
+        db.add(gate)
+    else:
+        gate.status = status
+        gate.metrics = metrics
+        gate.blocking_failures = blocking
+        gate.evidence = payload["evidence"]
+
+    db.commit()
+    return {
+        "gate": "G3",
         "status": status,
         "metrics": metrics,
         "blocking_failures": blocking,

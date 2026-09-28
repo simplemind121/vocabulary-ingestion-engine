@@ -13,6 +13,16 @@ def test_parse_source_entry_text():
     assert parsed.definition == "to leave somebody or something"
 
 
+def test_parse_real_book_source_entry_text():
+    parsed = parse_source_entry_text(
+        "medication* [ˌmedɪˈkeɪʃn]\nn. 药；药物\n记 词根记忆：med（治疗）+ication→药；药物"
+    )
+    assert parsed.lemma == "medication"
+    assert parsed.ipa == "ˌmedɪˈkeɪʃn"
+    assert parsed.part_of_speech == "n."
+    assert parsed.definition == "药；药物"
+
+
 def test_structured_extraction_persists_canonical_fields_and_provenance(client, sample_pdf_bytes):
     response = client.post(
         "/api/v1/documents",
@@ -47,7 +57,6 @@ def test_structured_extraction_persists_canonical_fields_and_provenance(client, 
         assert provenance.source_block_id is not None
         assert provenance.page_id is not None
 
-        # IPA/definition depend on source glyph fidelity; if extracted they must be SOURCE-backed.
         pronunciation = db.query(Pronunciation).filter(Pronunciation.vocabulary_entry_id == vocab.id).first()
         if pronunciation is not None:
             assert pronunciation.ipa

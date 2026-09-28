@@ -73,22 +73,44 @@ def run_pipeline(db: Session, run_id: str, *, publish: bool = True) -> dict:
 
         validation = validate_canonical_entries(db, run_id)
         stages.append({"stage": "validation", "result": validation})
-        _require_pass("G4", evaluate_g4_validation(db, run_id), stages)
-        _require_pass("G5", evaluate_g5_review_resolution(db, run_id), stages)
+        g4 = evaluate_g4_validation(db, run_id)
+        stages.append({"stage": "G4", "result": g4})
+        if g4["status"] == "FAIL":
+            raise PipelineBlocked("G4", g4)
+
+        # REVIEW_REQUIRED is a valid G4 outcome: unresolved validation work must
+        # proceed to the Human Review gate instead of being treated as a crash.
+        g5 = evaluate_g5_review_resolution(db, run_id)
+        _require_pass("G5", g5, stages)
         _require_pass("G6", evaluate_g6_gold_publication(db, run_id), stages)
 
         release = publish_gold_release(db, run_id) if publish else None
         run.status = "COMPLETED"
         run.finished_at = datetime.now(UTC)
-        run.metrics = {**(run.metrics or {}), "pipeline_stages": len(stages), "gold_release_id": release.id if release else None}
+        run.metrics = {
+            **(run.metrics or {}),
+            "pipeline_stages": len(stages),
+            "gold_release_id": release.id if release else None,
+        }
         db.commit()
-        return {"run_id": run_id, "status": run.status, "stages": stages, "gold_release_id": release.id if release else None}
+        return {
+            "run_id": run_id,
+            "status": run.status,
+            "stages": stages,
+            "gold_release_id": release.id if release else None,
+        }
     except PipelineBlocked as exc:
         run.status = "REVIEW_REQUIRED" if exc.result["status"] == "REVIEW_REQUIRED" else "FAILED"
         run.finished_at = datetime.now(UTC)
         run.error_summary = {"blocked_gate": exc.gate, "gate_result": exc.result}
         db.commit()
-        return {"run_id": run_id, "status": run.status, "blocked_gate": exc.gate, "gate_result": exc.result, "stages": stages}
+        return {
+            "run_id": run_id,
+            "status": run.status,
+            "blocked_gate": exc.gate,
+            "gate_result": exc.result,
+            "stages": stages,
+        }
     except Exception as exc:
         run.status = "FAILED"
         run.finished_at = datetime.now(UTC)

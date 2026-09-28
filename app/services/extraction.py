@@ -97,7 +97,7 @@ def extract_native_blocks(
                     )
                 )
                 block_count += 1
-    except Exception as exc:
+    except Exception:
         db.rollback()
         raise
     finally:

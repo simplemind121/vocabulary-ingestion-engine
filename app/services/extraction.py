@@ -4,58 +4,56 @@ import fitz
 from sqlalchemy.orm import Session
 
 from app.adapters.pdf_native import PyMuPDFNativeAdapter
-from app.models import (
-    Artifact,
-    DocumentVersion,
-    Page,
-    ProcessingRun,
-    ProcessingStep,
-    SourceBlock,
-)
+from app.models import Artifact, DocumentVersion, Page, ProcessingRun, ProcessingStep, SourceBlock
 
 
-def extract_native_blocks(db: Session, run_id: str) -> dict:
+def extract_native_blocks(
+    db: Session,
+    run_id: str,
+    *,
+    page_numbers: set[int] | None = None,
+) -> dict:
     run = db.get(ProcessingRun, run_id)
     if run is None:
         raise ValueError("processing run not found")
-
     version = db.get(DocumentVersion, run.document_version_id)
     if version is None:
         raise ValueError("document version not found")
-
     artifact = db.get(Artifact, version.source_artifact_id)
     if artifact is None:
         raise ValueError("source artifact not found")
 
-    existing = (
-        db.query(SourceBlock)
-        .filter(
-            SourceBlock.processing_run_id == run.id,
-            SourceBlock.source_engine == PyMuPDFNativeAdapter.name,
-        )
-        .count()
+    pages = (
+        db.query(Page)
+        .filter(Page.document_version_id == version.id)
+        .order_by(Page.page_number)
+        .all()
     )
-    if existing:
-        step = (
-            db.query(ProcessingStep)
-            .filter(
-                ProcessingStep.processing_run_id == run.id,
-                ProcessingStep.sequence_no == 10,
-            )
-            .one_or_none()
-        )
-        if step is not None:
-            step.status = "COMPLETED"
-            step.metrics = {"source_blocks": existing, "idempotent_reuse": True}
-            db.commit()
+    if page_numbers is not None:
+        pages = [page for page in pages if page.page_number in page_numbers]
+    if not pages:
+        raise ValueError("processing run has no rendered pages selected for native extraction")
+    pages_by_number = {page.page_number: page for page in pages}
+
+    selected_page_ids = [page.id for page in pages]
+    existing = db.query(SourceBlock).filter(
+        SourceBlock.processing_run_id == run.id,
+        SourceBlock.page_id.in_(selected_page_ids),
+        SourceBlock.source_engine == PyMuPDFNativeAdapter.name,
+    ).count()
+    if existing and page_numbers is None:
         return {"run_id": run.id, "source_blocks": existing, "reused": True}
+
+    if page_numbers is not None:
+        db.query(SourceBlock).filter(
+            SourceBlock.processing_run_id == run.id,
+            SourceBlock.page_id.in_(selected_page_ids),
+            SourceBlock.source_engine == PyMuPDFNativeAdapter.name,
+        ).delete(synchronize_session=False)
 
     step = (
         db.query(ProcessingStep)
-        .filter(
-            ProcessingStep.processing_run_id == run.id,
-            ProcessingStep.sequence_no == 10,
-        )
+        .filter(ProcessingStep.processing_run_id == run.id, ProcessingStep.sequence_no == 10)
         .one_or_none()
     )
     if step is None:
@@ -65,7 +63,7 @@ def extract_native_blocks(db: Session, run_id: str) -> dict:
             sequence_no=10,
             processor_name=PyMuPDFNativeAdapter.name,
             processor_version=str(PyMuPDFNativeAdapter.version),
-            configuration={},
+            configuration={"page_numbers": sorted(page_numbers) if page_numbers else None},
             status="RUNNING",
         )
         db.add(step)
@@ -75,23 +73,14 @@ def extract_native_blocks(db: Session, run_id: str) -> dict:
         step.error = None
     db.flush()
 
-    pages = (
-        db.query(Page)
-        .filter(Page.document_version_id == version.id)
-        .order_by(Page.page_number)
-        .all()
-    )
-    pages_by_number = {page.page_number: page for page in pages}
-
     adapter = PyMuPDFNativeAdapter()
     block_count = 0
     pdf = fitz.open(artifact.object_key)
     try:
         for page_index, pdf_page in enumerate(pdf, start=1):
-            page_row = pages_by_number.get(page_index)
-            if page_row is None:
-                raise ValueError(f"page {page_index} missing from persisted page map")
-
+            if page_index not in pages_by_number:
+                continue
+            page_row = pages_by_number[page_index]
             for block in adapter.extract_page(pdf_page):
                 db.add(
                     SourceBlock(
@@ -110,23 +99,20 @@ def extract_native_blocks(db: Session, run_id: str) -> dict:
                 block_count += 1
     except Exception as exc:
         db.rollback()
-        failed_step = (
-            db.query(ProcessingStep)
-            .filter(
-                ProcessingStep.processing_run_id == run.id,
-                ProcessingStep.sequence_no == 10,
-            )
-            .one_or_none()
-        )
-        if failed_step is not None:
-            failed_step.status = "FAILED"
-            failed_step.error = {"type": type(exc).__name__, "message": str(exc)}
-            db.commit()
         raise
     finally:
         pdf.close()
 
     step.status = "COMPLETED"
-    step.metrics = {"source_blocks": block_count, "idempotent_reuse": False}
+    step.metrics = {
+        "source_blocks": block_count,
+        "idempotent_reuse": False,
+        "page_numbers": sorted(pages_by_number),
+    }
     db.commit()
-    return {"run_id": run.id, "source_blocks": block_count, "reused": False}
+    return {
+        "run_id": run.id,
+        "source_blocks": block_count,
+        "page_numbers": sorted(pages_by_number),
+        "reused": False,
+    }

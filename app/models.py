@@ -179,3 +179,54 @@ class SourceBlock(Base):
     source_engine_version: Mapped[str | None] = mapped_column(String(100), nullable=True)
     metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class SourceEntry(Base):
+    __tablename__ = "source_entries"
+    __table_args__ = (
+        UniqueConstraint("processing_run_id", "entry_order", name="uq_source_entries_run_order"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    document_version_id: Mapped[str] = mapped_column(
+        ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True
+    )
+    processing_run_id: Mapped[str] = mapped_column(
+        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
+    )
+    entry_order: Mapped[int] = mapped_column(Integer)
+    raw_text: Mapped[str] = mapped_column(Text)
+    segmentation_confidence: Mapped[float | None] = mapped_column(nullable=True)
+    continuation_type: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    status: Mapped[str] = mapped_column(String(50), default="PARSED", index=True)
+    metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class SourceEntryBlock(Base):
+    __tablename__ = "source_entry_blocks"
+    source_entry_id: Mapped[str] = mapped_column(
+        ForeignKey("source_entries.id", ondelete="CASCADE"), primary_key=True
+    )
+    source_block_id: Mapped[str] = mapped_column(
+        ForeignKey("source_blocks.id", ondelete="RESTRICT"), primary_key=True
+    )
+    block_order: Mapped[int] = mapped_column(Integer)
+
+
+class VocabularyEntry(Base):
+    __tablename__ = "vocabulary_entries"
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    source_entry_id: Mapped[str] = mapped_column(
+        ForeignKey("source_entries.id", ondelete="RESTRICT"), index=True
+    )
+    processing_run_id: Mapped[str] = mapped_column(
+        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
+    )
+    lemma: Mapped[str] = mapped_column(String(512), index=True)
+    display_form: Mapped[str | None] = mapped_column(String(512), nullable=True)
+    language: Mapped[str] = mapped_column(String(32), default="en", index=True)
+    verification_status: Mapped[str] = mapped_column(String(50), default="PARSED", index=True)
+    canonical_schema_version: Mapped[str] = mapped_column(String(50), default="1.0")
+    metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)

@@ -13,4 +13,5 @@ jobs:
           python-version: "3.12"
       - run: pip install -e '.[dev]'
       - run: ruff check app tests
+      - run: rm -f vie-dev.db && alembic upgrade head
       - run: pytest -q

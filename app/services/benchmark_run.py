@@ -4,7 +4,7 @@ from typing import Any
 
 from sqlalchemy.orm import Session
 
-from app.models import SourceBlock, SourceEntry, VocabularyEntry
+from app.models import Definition, Pronunciation, Sense, SourceBlock, SourceEntry, VocabularyEntry
 from app.services.benchmark import run_gold_benchmark
 
 
@@ -27,26 +27,50 @@ def build_run_prediction(db: Session, run_id: str) -> dict[str, list[dict[str, A
         .order_by(VocabularyEntry.lemma, VocabularyEntry.id)
         .all()
     )
+    vocabulary_by_source = {item.source_entry_id: item for item in vocabulary}
+
+    canonical = []
+    for item in vocabulary:
+        pronunciation = (
+            db.query(Pronunciation)
+            .filter(Pronunciation.vocabulary_entry_id == item.id)
+            .order_by(Pronunciation.pronunciation_order)
+            .first()
+        )
+        sense = (
+            db.query(Sense)
+            .filter(Sense.vocabulary_entry_id == item.id)
+            .order_by(Sense.sense_order)
+            .first()
+        )
+        definition = None
+        if sense is not None:
+            definition = (
+                db.query(Definition)
+                .filter(Definition.sense_id == sense.id)
+                .order_by(Definition.definition_order)
+                .first()
+            )
+        canonical.append(
+            {
+                "lemma": item.lemma,
+                "display_form": item.display_form,
+                "ipa": pronunciation.ipa if pronunciation is not None else None,
+                "part_of_speech": sense.part_of_speech if sense is not None else None,
+                "definition": definition.text if definition is not None else None,
+            }
+        )
 
     return {
         "blocks": [{"text": _effective_text(block)} for block in blocks],
         "entries": [
             {
-                "lemma": entry.vocabulary_entry.lemma if entry.vocabulary_entry is not None else "",
+                "lemma": vocabulary_by_source[entry.id].lemma if entry.id in vocabulary_by_source else "",
                 "raw_text": entry.raw_text,
             }
             for entry in entries
         ],
-        "vocabulary": [
-            {
-                "lemma": item.lemma,
-                "display_form": item.display_form,
-                "ipa": item.ipa,
-                "part_of_speech": item.part_of_speech,
-                "definition": item.definition,
-            }
-            for item in vocabulary
-        ],
+        "vocabulary": canonical,
     }
 
 

@@ -16,8 +16,9 @@ class FakePaddleEngine:
 
 
 def test_paddleocr_adapter_normalizes_bbox_and_confidence():
-    from PIL import Image
     import io
+
+    from PIL import Image
 
     image = Image.new("RGB", (200, 100), "white")
     buffer = io.BytesIO()

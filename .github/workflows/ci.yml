@@ -43,7 +43,36 @@ jobs:
         if: steps.ruff.outputs.exit_code != '0'
         run: exit 1
       - run: rm -f vie-dev.db && alembic upgrade head
-      - run: pytest -q
+      - name: Pytest
+        id: pytest
+        shell: bash
+        run: |
+          set +e
+          pytest -q 2>&1 | tee pytest-output.txt
+          code=${PIPESTATUS[0]}
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Publish pytest diagnostics
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## Pytest diagnostics'
+            echo '```text'
+            cat pytest-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload pytest diagnostics artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-diagnostics
+          path: pytest-output.txt
+          if-no-files-found: error
+          retention-days: 7
+      - name: Enforce pytest result
+        if: steps.pytest.outputs.exit_code != '0'
+        run: exit 1
 
   gold-regression-contract:
     runs-on: ubuntu-latest

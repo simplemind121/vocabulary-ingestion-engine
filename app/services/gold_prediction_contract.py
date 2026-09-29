@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import Any
 
-
 _REQUIRED_IDENTITY_FIELDS = ("document_sha256", "page_number", "page_image_sha256")
 _ALLOWED_PAYLOAD_FIELDS = ("blocks", "entries", "vocabulary")
 

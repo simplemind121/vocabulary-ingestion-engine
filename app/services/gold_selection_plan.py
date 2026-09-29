@@ -46,11 +46,12 @@ def validate_selection_plan(plan: dict[str, Any], *, source_page_count: int) -> 
         unknown = sorted(set(tags) - ALLOWED_TAGS)
         if unknown:
             errors.append(f"candidate[{index}] has unknown tags: {', '.join(unknown)}")
-        if SEMANTIC_BOUNDARY_TAGS.intersection(tags):
-            if not isinstance(reason, str) or "directly inspected" not in reason.lower():
-                errors.append(
-                    f"candidate[{index}] semantic boundary tags require direct-inspection evidence"
-                )
+        if SEMANTIC_BOUNDARY_TAGS.intersection(tags) and (
+            not isinstance(reason, str) or "directly inspected" not in reason.lower()
+        ):
+            errors.append(
+                f"candidate[{index}] semantic boundary tags require direct-inspection evidence"
+            )
 
     if len(pages) != len(set(pages)):
         errors.append("candidate pdf_page values must be unique")
@@ -58,9 +59,7 @@ def validate_selection_plan(plan: dict[str, Any], *, source_page_count: int) -> 
     declared_remaining = plan.get("remaining_slots")
     expected_remaining = max(0, 30 - len(candidates))
     if declared_remaining != expected_remaining:
-        errors.append(
-            f"remaining_slots must equal 30 - candidate count ({expected_remaining})"
-        )
+        errors.append(f"remaining_slots must equal 30 - candidate count ({expected_remaining})")
     if len(candidates) > 30:
         errors.append("candidate count cannot exceed the 30-page Gold Sample target")
 

@@ -15,3 +15,33 @@ jobs:
       - run: ruff check app tests
       - run: rm -f vie-dev.db && alembic upgrade head
       - run: pytest -q
+
+  gold-regression-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - name: Build deterministic exact-match benchmark report
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = {
+              "layers": {
+                  "ocr": {"f1": 1.0},
+                  "segmentation": {"f1": 1.0},
+                  "canonical": {"field_accuracy": 1.0},
+              },
+              "exact_match": True,
+          }
+          Path("benchmark-report.json").write_text(
+              json.dumps(report, ensure_ascii=False, sort_keys=True),
+              encoding="utf-8",
+          )
+          PY
+      - name: Enforce Gold regression CLI exit contract
+        run: python -m app.gold_regression_cli benchmark-report.json

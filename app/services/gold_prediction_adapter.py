@@ -4,7 +4,16 @@ from typing import Any
 
 from sqlalchemy.orm import Session
 
-from app.models import Artifact, DocumentVersion, Page, ProcessingRun, SourceBlock
+from app.models import (
+    Artifact,
+    DocumentVersion,
+    Page,
+    ProcessingRun,
+    SourceBlock,
+    SourceEntry,
+    SourceEntryBlock,
+    VocabularyEntry,
+)
 from app.services.gold_prediction_contract import build_gold_prediction
 
 
@@ -13,11 +22,13 @@ def build_gold_prediction_from_run(
     run_id: str,
     scaffold: dict[str, Any],
 ) -> dict[str, Any]:
-    """Build a source-grounded Gold DRAFT prediction from persisted extraction output.
+    """Build a source-grounded Gold DRAFT prediction from persisted pipeline output.
 
-    The adapter is deliberately limited to SourceBlock transport in this slice.
-    Entry segmentation and canonical vocabulary remain empty until their persisted
-    outputs are joined through equally strict provenance contracts.
+    Blocks, segmented source entries, and canonical vocabulary are transported only
+    when they belong to the same ProcessingRun and are provenance-linked to the
+    frozen page. Cross-page entries remain visible through their complete ordered
+    source_block_ids, while page membership is established by at least one linked
+    block on the frozen page.
     """
     run = db.get(ProcessingRun, run_id)
     if run is None:
@@ -71,9 +82,74 @@ def build_gold_prediction_from_run(
         for row in rows
     ]
 
+    entry_rows = (
+        db.query(SourceEntry)
+        .join(SourceEntryBlock, SourceEntryBlock.source_entry_id == SourceEntry.id)
+        .join(SourceBlock, SourceBlock.id == SourceEntryBlock.source_block_id)
+        .filter(
+            SourceEntry.processing_run_id == run.id,
+            SourceEntry.document_version_id == version.id,
+            SourceBlock.processing_run_id == run.id,
+            SourceBlock.page_id == page.id,
+        )
+        .order_by(SourceEntry.entry_order, SourceEntry.id)
+        .distinct()
+        .all()
+    )
+    entries = []
+    for entry in entry_rows:
+        links = (
+            db.query(SourceEntryBlock)
+            .join(SourceBlock, SourceBlock.id == SourceEntryBlock.source_block_id)
+            .filter(
+                SourceEntryBlock.source_entry_id == entry.id,
+                SourceBlock.processing_run_id == run.id,
+            )
+            .order_by(SourceEntryBlock.block_order, SourceEntryBlock.source_block_id)
+            .all()
+        )
+        entries.append(
+            {
+                "source_entry_id": entry.id,
+                "entry_order": entry.entry_order,
+                "raw_text": entry.raw_text,
+                "segmentation_confidence": entry.segmentation_confidence,
+                "continuation_type": entry.continuation_type,
+                "status": entry.status,
+                "source_block_ids": [link.source_block_id for link in links],
+                "metadata": dict(entry.metadata_json or {}),
+            }
+        )
+
+    entry_ids = [entry.id for entry in entry_rows]
+    vocabulary_rows = []
+    if entry_ids:
+        vocabulary_rows = (
+            db.query(VocabularyEntry)
+            .filter(
+                VocabularyEntry.processing_run_id == run.id,
+                VocabularyEntry.source_entry_id.in_(entry_ids),
+            )
+            .order_by(VocabularyEntry.source_entry_id, VocabularyEntry.id)
+            .all()
+        )
+    vocabulary = [
+        {
+            "vocabulary_entry_id": row.id,
+            "source_entry_id": row.source_entry_id,
+            "lemma": row.lemma,
+            "display_form": row.display_form,
+            "language": row.language,
+            "verification_status": row.verification_status,
+            "canonical_schema_version": row.canonical_schema_version,
+            "metadata": dict(row.metadata_json or {}),
+        }
+        for row in vocabulary_rows
+    ]
+
     return build_gold_prediction(
         scaffold,
         blocks=blocks,
-        entries=[],
-        vocabulary=[],
+        entries=entries,
+        vocabulary=vocabulary,
     )

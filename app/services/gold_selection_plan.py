@@ -16,14 +16,16 @@ ALLOWED_TAGS = {
     "CROSS_PAGE_ENTRY",
 }
 SEMANTIC_BOUNDARY_TAGS = {"BOUNDARY_ENTRY", "CROSS_PAGE_ENTRY"}
+ALLOWED_SELECTION_STATUSES = {"CANDIDATE_SELECTION", "CANDIDATE_SELECTION_COMPLETE"}
 
 
 def validate_selection_plan(plan: dict[str, Any], *, source_page_count: int) -> dict[str, Any]:
     """Validate a pre-Gold candidate plan without treating candidates as verified truth."""
     errors: list[str] = []
     candidates = plan.get("candidates")
-    if plan.get("selection_status") != "CANDIDATE_SELECTION":
-        errors.append("selection_status must be CANDIDATE_SELECTION")
+    selection_status = plan.get("selection_status")
+    if selection_status not in ALLOWED_SELECTION_STATUSES:
+        errors.append("selection_status must be a supported pre-Gold state")
     if not isinstance(candidates, list):
         errors.append("candidates must be a list")
         candidates = []
@@ -62,6 +64,8 @@ def validate_selection_plan(plan: dict[str, Any], *, source_page_count: int) -> 
         errors.append(f"remaining_slots must equal 30 - candidate count ({expected_remaining})")
     if len(candidates) > 30:
         errors.append("candidate count cannot exceed the 30-page Gold Sample target")
+    if selection_status == "CANDIDATE_SELECTION_COMPLETE" and len(candidates) != 30:
+        errors.append("completed candidate selection must contain exactly 30 pages")
 
     return {
         "status": "PASS" if not errors else "FAIL",

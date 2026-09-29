@@ -4,7 +4,6 @@ import pytest
 
 from app.services.gold_prediction_contract import build_gold_prediction, validate_gold_prediction
 
-
 _SHA = "a" * 64
 _PAGE_SHA = "b" * 64
 

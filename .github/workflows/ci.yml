@@ -12,7 +12,28 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -e '.[dev]'
-      - run: ruff check app tests
+      - name: Ruff lint
+        id: ruff
+        shell: bash
+        run: |
+          set +e
+          ruff check app tests 2>&1 | tee ruff-output.txt
+          code=${PIPESTATUS[0]}
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Publish Ruff diagnostics
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## Ruff diagnostics'
+            echo '```text'
+            cat ruff-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Enforce Ruff result
+        if: steps.ruff.outputs.exit_code != '0'
+        run: exit 1
       - run: rm -f vie-dev.db && alembic upgrade head
       - run: pytest -q
 

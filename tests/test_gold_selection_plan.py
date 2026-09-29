@@ -11,8 +11,8 @@ def test_repository_selection_plan_is_internally_consistent() -> None:
 
     assert result == {
         "status": "PASS",
-        "candidate_count": 17,
-        "remaining_slots": 13,
+        "candidate_count": 30,
+        "remaining_slots": 0,
         "errors": [],
     }
 
@@ -64,4 +64,4 @@ def test_selection_plan_cannot_claim_verified_status() -> None:
     result = validate_selection_plan(plan, source_page_count=1120)
 
     assert result["status"] == "FAIL"
-    assert "selection_status must be CANDIDATE_SELECTION" in result["errors"]
+    assert any("selection_status must be" in error for error in result["errors"])

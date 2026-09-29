@@ -84,4 +84,7 @@ def test_draft_batch_preserves_machine_only_review_boundary() -> None:
     assert len(drafts) == 30
     assert all(item["review_status"] == "DRAFT" for item in drafts)
     assert all(item.get("reviewer_id") is None for item in drafts)
-    assert all("MACHINE_PREANNOTATION_ONLY" in item["warnings"] for item in drafts)
+    assert all(
+        any("MACHINE_PREANNOTATION_ONLY" in note for note in item["review_notes"])
+        for item in drafts
+    )

@@ -12,9 +12,9 @@ from app.services.gold_run_batch import build_gold_draft_batch_from_run
 def _load_scaffolds(path: Path) -> list[dict[str, Any]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, list):
-        raise ValueError("scaffolds_json_must_be_a_list")
+        raise TypeError("scaffolds_json_must_be_a_list")
     if not all(isinstance(item, dict) for item in payload):
-        raise ValueError("scaffold_items_must_be_objects")
+        raise TypeError("scaffold_items_must_be_objects")
     return payload
 
 

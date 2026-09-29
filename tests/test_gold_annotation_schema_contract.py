@@ -3,7 +3,10 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
-from app.services.gold_annotation import build_annotation_scaffold, promote_annotation_to_human_verified
+from app.services.gold_annotation import (
+    build_annotation_scaffold,
+    promote_annotation_to_human_verified,
+)
 
 
 def _schema():

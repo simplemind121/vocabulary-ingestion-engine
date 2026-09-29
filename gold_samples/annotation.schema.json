@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vie.local/schemas/gold-sample-annotation-v1.json",
+  "title": "Vocabulary Ingestion Engine Gold Sample Annotation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_document_sha256",
+    "pdf_page_number",
+    "page_image_sha256",
+    "verification_status",
+    "blocks",
+    "entries",
+    "vocabulary"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "source_document_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "pdf_page_number": {"type": "integer", "minimum": 1},
+    "page_image_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "verification_status": {
+      "enum": ["CANDIDATE_SELECTION", "ANNOTATION_DRAFT", "HUMAN_VERIFIED"]
+    },
+    "reviewer": {"type": ["string", "null"]},
+    "verified_at": {"type": ["string", "null"], "format": "date-time"},
+    "layout_tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "notes": {"type": ["string", "null"]},
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text"],
+        "properties": {
+          "text": {"type": "string"},
+          "bbox": {
+            "type": ["array", "null"],
+            "prefixItems": [
+              {"type": "number"}, {"type": "number"},
+              {"type": "number"}, {"type": "number"}
+            ],
+            "minItems": 4,
+            "maxItems": 4
+          }
+        }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["lemma", "raw_text"],
+        "properties": {
+          "lemma": {"type": "string"},
+          "raw_text": {"type": "string"},
+          "continues_from_previous_page": {"type": "boolean", "default": false},
+          "continues_to_next_page": {"type": "boolean", "default": false}
+        }
+      }
+    },
+    "vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["lemma", "display_form", "ipa", "part_of_speech", "definition"],
+        "properties": {
+          "lemma": {"type": "string"},
+          "display_form": {"type": ["string", "null"]},
+          "ipa": {"type": ["string", "null"]},
+          "part_of_speech": {"type": ["string", "null"]},
+          "definition": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

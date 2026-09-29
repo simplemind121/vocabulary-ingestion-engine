@@ -99,21 +99,24 @@ def test_adapter_joins_persisted_entries_and_vocabulary_by_page_provenance(
         )
         db.add(entry)
         db.flush()
+        entry_id = entry.id
+        block_id = block.id
         db.add(
             SourceEntryBlock(
-                source_entry_id=entry.id,
-                source_block_id=block.id,
+                source_entry_id=entry_id,
+                source_block_id=block_id,
                 block_order=1,
             )
         )
-        vocabulary = VocabularyEntry(
-            source_entry_id=entry.id,
-            processing_run_id=run_id,
-            lemma="abandon",
-            display_form="abandon",
-            verification_status="PARSED",
+        db.add(
+            VocabularyEntry(
+                source_entry_id=entry_id,
+                processing_run_id=run_id,
+                lemma="abandon",
+                display_form="abandon",
+                verification_status="PARSED",
+            )
         )
-        db.add(vocabulary)
         db.commit()
 
         prediction = build_gold_prediction_from_run(db, run_id, scaffold)
@@ -121,10 +124,10 @@ def test_adapter_joins_persisted_entries_and_vocabulary_by_page_provenance(
         db.close()
 
     assert len(prediction["entries"]) == 1
-    assert prediction["entries"][0]["source_entry_id"] == entry.id
-    assert prediction["entries"][0]["source_block_ids"] == [block.id]
+    assert prediction["entries"][0]["source_entry_id"] == entry_id
+    assert prediction["entries"][0]["source_block_ids"] == [block_id]
     assert len(prediction["vocabulary"]) == 1
-    assert prediction["vocabulary"][0]["source_entry_id"] == entry.id
+    assert prediction["vocabulary"][0]["source_entry_id"] == entry_id
     assert prediction["vocabulary"][0]["lemma"] == "abandon"
     assert prediction["vocabulary"][0]["verification_status"] == "PARSED"
     assert "review_status" not in prediction

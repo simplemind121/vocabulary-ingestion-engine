@@ -55,6 +55,43 @@ def test_complete_annotation_can_be_promoted_only_with_reviewer_and_page_hash():
     assert validate_ground_truth_annotation(verified)["status"] == "PASS"
 
 
+def test_human_verified_non_entry_page_can_truthfully_have_no_entries():
+    annotation = build_annotation_scaffold(
+        sample_id="gold-v1-p0120",
+        document_sha256=SHA,
+        page_number=120,
+        layout_tags=["TABLE", "SPECIAL_LAYOUT"],
+    )
+    annotation["blocks"] = [{"type": "TABLE", "text": "root/affix preview"}]
+
+    verified = promote_annotation_to_human_verified(
+        annotation,
+        reviewer_id="reviewer-1",
+        page_image_sha256=PAGE_SHA,
+    )
+
+    assert verified["entries"] == []
+    assert verified["vocabulary"] == []
+    assert validate_ground_truth_annotation(verified)["status"] == "PASS"
+
+
+def test_human_verified_normal_page_cannot_omit_entries():
+    annotation = build_annotation_scaffold(
+        sample_id="gold-v1-p0030",
+        document_sha256=SHA,
+        page_number=30,
+        layout_tags=["NORMAL"],
+    )
+    annotation["blocks"] = [{"text": "source block"}]
+
+    with pytest.raises(ValueError, match="entries_required_for_entry_bearing_page"):
+        promote_annotation_to_human_verified(
+            annotation,
+            reviewer_id="reviewer-1",
+            page_image_sha256=PAGE_SHA,
+        )
+
+
 def test_verified_annotation_rejects_missing_page_image_digest():
     annotation = _scaffold()
     annotation.update(

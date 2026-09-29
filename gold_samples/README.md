@@ -32,6 +32,12 @@ Every manifest page requires:
 - reviewer identity or stable reviewer pseudonym
 - annotation schema version
 
+Human-verified entry-bearing pages (`NORMAL`, `BOUNDARY_ENTRY`, or
+`CROSS_PAGE_ENTRY`) require non-empty entries and vocabulary. A verified table,
+index, front-matter, or image-only page may truthfully contain zero entries; it
+must still contain reviewed source blocks and must never be padded with invented
+vocabulary merely to satisfy the gate.
+
 A page is benchmark-eligible only when `review_status` is `HUMAN_VERIFIED`.
 
 No benchmark score may be described as Gold Sample Dataset v1 unless all 30 pages pass manifest validation.

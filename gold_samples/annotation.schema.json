@@ -26,7 +26,22 @@
         "properties": {
           "reviewer_id": {"type": "string", "minLength": 1},
           "page_image_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-          "blocks": {"minItems": 1},
+          "blocks": {"minItems": 1}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "review_status": {"const": "HUMAN_VERIFIED"},
+          "layout_tags": {
+            "contains": {"enum": ["NORMAL", "BOUNDARY_ENTRY", "CROSS_PAGE_ENTRY"]}
+          }
+        },
+        "required": ["review_status", "layout_tags"]
+      },
+      "then": {
+        "properties": {
           "entries": {"minItems": 1},
           "vocabulary": {"minItems": 1}
         }

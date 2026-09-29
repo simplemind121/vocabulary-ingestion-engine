@@ -3,6 +3,11 @@ from __future__ import annotations
 from typing import Any
 
 ANNOTATION_SCHEMA_VERSION = "1.0"
+ENTRY_BEARING_LAYOUT_TAGS = {
+    "NORMAL",
+    "BOUNDARY_ENTRY",
+    "CROSS_PAGE_ENTRY",
+}
 
 
 def build_annotation_scaffold(
@@ -53,10 +58,12 @@ def validate_ground_truth_annotation(annotation: dict[str, Any]) -> dict[str, An
             errors.append("page_image_sha256_required_for_human_verified")
         if not annotation.get("blocks"):
             errors.append("blocks_required_for_human_verified")
-        if not annotation.get("entries"):
-            errors.append("entries_required_for_human_verified")
-        if not annotation.get("vocabulary"):
-            errors.append("vocabulary_required_for_human_verified")
+        layout_tags = set(annotation.get("layout_tags") or [])
+        if layout_tags & ENTRY_BEARING_LAYOUT_TAGS:
+            if not annotation.get("entries"):
+                errors.append("entries_required_for_entry_bearing_page")
+            if not annotation.get("vocabulary"):
+                errors.append("vocabulary_required_for_entry_bearing_page")
 
     return {
         "status": "PASS" if not errors else "FAIL",

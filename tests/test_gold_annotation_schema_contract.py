@@ -42,3 +42,20 @@ def test_human_verified_schema_requires_real_ground_truth_content():
     )
     Draft202012Validator(_schema()).validate(verified)
     assert verified["review_status"] == "HUMAN_VERIFIED"
+
+
+def test_human_verified_non_entry_page_schema_allows_empty_entry_arrays():
+    annotation = build_annotation_scaffold(
+        sample_id="sample-table",
+        document_sha256="a" * 64,
+        page_number=120,
+        layout_tags=["TABLE", "SPECIAL_LAYOUT"],
+    )
+    annotation["blocks"] = [{"type": "TABLE", "text": "root/affix preview"}]
+    verified = promote_annotation_to_human_verified(
+        annotation,
+        reviewer_id="reviewer-1",
+        page_image_sha256="b" * 64,
+    )
+
+    Draft202012Validator(_schema()).validate(verified)

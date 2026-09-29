@@ -1,7 +1,11 @@
 import pytest
 
 from app.services.gold_annotation import promote_annotation_to_human_verified
-from app.services.gold_corpus import build_annotation_corpus, evaluate_corpus_readiness, freeze_manifest
+from app.services.gold_corpus import (
+    build_annotation_corpus,
+    evaluate_corpus_readiness,
+    freeze_manifest,
+)
 from app.services.gold_sample import REQUIRED_LAYOUT_TAGS
 
 
@@ -11,7 +15,9 @@ def _plan_and_hashes():
     hashes = {}
     for index in range(30):
         page = index + 1
-        candidates.append({"pdf_page": page, "tags": [tags[index]] if index < len(tags) else ["NORMAL"]})
+        candidates.append(
+            {"pdf_page": page, "tags": [tags[index]] if index < len(tags) else ["NORMAL"]}
+        )
         hashes[str(page)] = f"{page:064x}"[-64:]
     return {
         "source_document_sha256": "a" * 64,

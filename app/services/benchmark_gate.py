@@ -19,8 +19,7 @@ def evaluate_benchmark_gate(
     Gold Sample v1 is deliberately strict: unless explicitly overridden, every
     benchmark layer must be exact and all aggregate metrics must equal 1.0.
     """
-    required = {**DEFAULT_THRESHOLDS, **(thresholds or {})
-    }
+    required = {**DEFAULT_THRESHOLDS, **(thresholds or {})}
     layers = report.get("layers") or {}
     ocr = layers.get("ocr") or {}
     segmentation = layers.get("segmentation") or {}

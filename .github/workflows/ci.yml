@@ -31,6 +31,14 @@ jobs:
             cat ruff-output.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload Ruff diagnostics artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruff-diagnostics
+          path: ruff-output.txt
+          if-no-files-found: error
+          retention-days: 7
       - name: Enforce Ruff result
         if: steps.ruff.outputs.exit_code != '0'
         run: exit 1

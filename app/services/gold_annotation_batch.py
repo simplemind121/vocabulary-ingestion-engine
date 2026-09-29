@@ -22,7 +22,7 @@ def build_annotation_scaffold_batch(
     candidates = selection_plan.get("candidates")
     hashes = page_hash_registry.get("pages")
     if not isinstance(candidates, list) or not isinstance(hashes, dict):
-        raise ValueError("invalid_gold_assets")
+        raise TypeError("invalid_gold_assets")
 
     selected_pages = [candidate.get("pdf_page") for candidate in candidates]
     if len(selected_pages) != 30 or len(set(selected_pages)) != 30:
@@ -49,8 +49,10 @@ def build_annotation_scaffold_batch(
         )
         scaffold["page_image_sha256"] = page_sha
         scaffold["review_notes"] = [
-            "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary "
-            "still require source-grounded annotation and human verification."
+            (
+                "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary "
+                "still require source-grounded annotation and human verification."
+            )
         ]
         scaffolds.append(scaffold)
 

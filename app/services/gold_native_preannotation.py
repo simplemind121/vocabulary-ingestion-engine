@@ -8,6 +8,7 @@ import fitz
 
 from app.adapters.pdf_native import PyMuPDFNativeAdapter
 from app.models import SourceBlock
+from app.services.gold_annotation import ENTRY_BEARING_LAYOUT_TAGS
 from app.services.gold_page_hashes import GOLD_RENDER_CONTRACT
 from app.services.segmentation import SegmentCandidate, _segment_blocks
 from app.services.structured_extraction import parse_source_entry_text
@@ -67,7 +68,12 @@ def build_native_pdf_predictions(
     finally:
         document.close()
 
-    candidates = _segment_contiguous_page_groups(page_numbers, blocks_by_page)
+    entry_pages = [
+        page
+        for page in page_numbers
+        if set(scaffold_by_page[page].get("layout_tags") or []) & ENTRY_BEARING_LAYOUT_TAGS
+    ]
+    candidates = _segment_contiguous_page_groups(entry_pages, blocks_by_page)
     predictions = []
     for page_number in page_numbers:
         page_candidates = [item for item in candidates if page_number in item.page_numbers]

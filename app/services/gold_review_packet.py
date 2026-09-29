@@ -20,6 +20,7 @@ from app.models import (
     SourceEntry,
     VocabularyEntry,
 )
+from app.services.gold_annotation import ENTRY_BEARING_LAYOUT_TAGS
 from app.services.gold_preannotation import summarize_review_work
 
 
@@ -238,9 +239,10 @@ def _review_flags(draft: dict[str, Any]) -> list[str]:
     flags = []
     if not draft.get("blocks"):
         flags.append("NO_BLOCKS")
-    if not draft.get("entries"):
+    entry_bearing = bool(set(draft.get("layout_tags") or []) & ENTRY_BEARING_LAYOUT_TAGS)
+    if entry_bearing and not draft.get("entries"):
         flags.append("NO_ENTRIES")
-    if not draft.get("vocabulary"):
+    if entry_bearing and not draft.get("vocabulary"):
         flags.append("NO_VOCABULARY")
     if any((block.get("confidence") or 0) < 0.85 for block in draft.get("blocks") or []):
         flags.append("LOW_OCR_CONFIDENCE")

@@ -73,3 +73,15 @@ def test_packet_rejects_machine_promoted_annotation(tmp_path):
 
     with pytest.raises(ValueError, match="review_packet_accepts_draft_only:1"):
         write_review_packet(drafts, images, tmp_path / "packet")
+
+
+def test_non_entry_page_does_not_raise_false_empty_entry_flags(tmp_path):
+    drafts, images = _drafts_and_images(tmp_path)
+    drafts[0]["layout_tags"] = ["TABLE", "SPECIAL_LAYOUT"]
+    drafts[0]["entries"] = []
+    drafts[0]["vocabulary"] = []
+
+    packet = write_review_packet(drafts, images, tmp_path / "packet")
+
+    assert "NO_ENTRIES" not in packet["items"][0]["review_flags"]
+    assert "NO_VOCABULARY" not in packet["items"][0]["review_flags"]

@@ -31,6 +31,7 @@ def _scaffolds(source: Path, render_dir: Path):
                 "document_sha256": source_sha,
                 "page_number": page_number,
                 "page_image_sha256": hashlib.sha256(render.read_bytes()).hexdigest(),
+                "layout_tags": ["NORMAL"],
             }
         )
     document.close()
@@ -57,3 +58,17 @@ def test_rejects_wrong_source_document(tmp_path):
 
     with pytest.raises(ValueError, match="source_document_sha256_mismatch"):
         build_native_pdf_predictions(source, scaffolds, tmp_path / "renders")
+
+
+def test_non_entry_layout_is_not_forced_through_vocabulary_segmenter(tmp_path):
+    source = _pdf(tmp_path)
+    scaffolds = _scaffolds(source, tmp_path)
+    scaffolds[0]["layout_tags"] = ["TABLE", "SPECIAL_LAYOUT"]
+    scaffolds[1]["layout_tags"] = ["NORMAL"]
+
+    predictions, _ = build_native_pdf_predictions(source, scaffolds, tmp_path / "renders")
+
+    assert predictions[0]["blocks"]
+    assert predictions[0]["entries"] == []
+    assert predictions[0]["vocabulary"] == []
+    assert predictions[1]["vocabulary"][0]["lemma"] == "beta"

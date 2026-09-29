@@ -5,7 +5,6 @@ import pytest
 
 from app.services.gold_annotation_batch import build_annotation_scaffold_batch
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

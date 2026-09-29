@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 import pytest
 
 from app.services.gold_annotation import promote_annotation_to_human_verified
@@ -7,6 +10,8 @@ from app.services.gold_corpus import (
     freeze_manifest,
 )
 from app.services.gold_sample import REQUIRED_LAYOUT_TAGS
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def _plan_and_hashes():
@@ -60,3 +65,18 @@ def test_30_complete_human_verified_annotations_freeze_manifest():
     assert len(manifest["pages"]) == 30
     assert len(manifest["manifest_sha256"]) == 64
     assert all(page["review_status"] == "HUMAN_VERIFIED" for page in manifest["pages"])
+
+
+def test_repository_corpus_truthfully_reports_30_drafts_and_zero_verified():
+    annotations = [
+        json.loads(path.read_text(encoding="utf-8"))
+        for path in sorted((ROOT / "gold_samples" / "annotations").glob("*.json"))
+    ]
+
+    readiness = evaluate_corpus_readiness(annotations)
+
+    assert readiness["annotation_count"] == 30
+    assert readiness["human_verified_count"] == 0
+    assert readiness["missing_layout_tags"] == []
+    assert readiness["status"] == "NOT_READY"
+    assert readiness["errors"] == ["human_verified_count_must_equal_30:0"]

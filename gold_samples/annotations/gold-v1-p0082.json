@@ -1,0 +1,438 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0082",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 82,
+  "layout_tags": [
+    "IMAGE",
+    "SPECIAL_LAYOUT"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "bb796a07c26be3a009b4403b5df6b2f74864b69915c716eb369646c5dff795f2",
+  "blocks": [
+    {
+      "source_block_id": "native-p0082-b0000",
+      "text": "81",
+      "raw_text": "81",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4874224237122049,
+        "y1": 0.9474933951437061,
+        "x2": 0.512644770771405,
+        "y2": 0.9672319528096855,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0001",
+      "text": "Word List 05",
+      "raw_text": "Word List 05",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.3675392579923478,
+        "y1": 0.1580321743840101,
+        "x2": 0.6325494797608163,
+        "y2": 0.19751463623685545,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0002",
+      "text": "音频",
+      "raw_text": "音频",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.47431519075436734,
+        "y1": 0.3870582079172441,
+        "x2": 0.5253350901698677,
+        "y2": 0.4054556044116808,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0003",
+      "text": "影视剧场景",
+      "raw_text": "影视剧场景",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.43572760443766734,
+        "y1": 0.5785926608615894,
+        "x2": 0.5639028771959773,
+        "y2": 0.5977681483211164,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0004",
+      "text": "词根/词缀预习表",
+      "raw_text": "词根/词缀预习表",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6455520534736183,
+        "x2": 0.3704325447402415,
+        "y2": 0.6716361883561547,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0005",
+      "text": "词根/",
+      "raw_text": "词根/",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.706923806169008,
+        "x2": 0.20370659133771804,
+        "y2": 0.7266649736621319,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0006",
+      "text": "词缀",
+      "raw_text": "词缀",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.7395769484697605,
+        "x2": 0.18660351787229643,
+        "y2": 0.7574032277907153,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0007",
+      "text": "含义\n例词及释义",
+      "raw_text": "含义\n例词及释义",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.21561314607239523,
+        "y1": 0.7235332535837821,
+        "x2": 0.4666095222892822,
+        "y2": 0.7413595329047369,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0008",
+      "text": "词根/",
+      "raw_text": "词根/",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.5687738104422074,
+        "y1": 0.706923806169008,
+        "x2": 0.6363283744146386,
+        "y2": 0.7266649736621319,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0009",
+      "text": "词缀",
+      "raw_text": "词缀",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.5687738104422074,
+        "y1": 0.7395769484697605,
+        "x2": 0.6192253778894654,
+        "y2": 0.7574032277907153,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0010",
+      "text": "含",
+      "raw_text": "含",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.6482349804428147,
+        "y1": 0.7074895586978035,
+        "x2": 0.6734607641664437,
+        "y2": 0.7253158380187584,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0011",
+      "text": "义",
+      "raw_text": "义",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.6482349804428147,
+        "y1": 0.7395769484697605,
+        "x2": 0.6734607641664437,
+        "y2": 0.7574032277907153,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0012",
+      "text": "例词及释义",
+      "raw_text": "例词及释义",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.688596193365822,
+        "y1": 0.7235332535837821,
+        "x2": 0.814725009396969,
+        "y2": 0.7413595329047369,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0013",
+      "text": "priv-\n单个\nprivilege n. 特权\nclud",
+      "raw_text": "priv-\n单个\nprivilege n. 特权\nclud",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.7951640192990918,
+        "x2": 0.6122125820080461,
+        "y2": 0.8149051867922158,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0014",
+      "text": "关",
+      "raw_text": "关",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.6482349804428147,
+        "y1": 0.779686076941909,
+        "x2": 0.6734607641664437,
+        "y2": 0.7975123562628639,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0015",
+      "text": "闭",
+      "raw_text": "闭",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.6482349804428147,
+        "y1": 0.8117734667138659,
+        "x2": 0.6734607641664437,
+        "y2": 0.8295997460348208,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0016",
+      "text": "conclude v. 作结",
+      "raw_text": "conclude v. 作结",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.688596193365822,
+        "y1": 0.7791203244131133,
+        "x2": 0.8637748281052263,
+        "y2": 0.7988614919062373,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0017",
+      "text": "论",
+      "raw_text": "论",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.688596193365822,
+        "y1": 0.8117734667138659,
+        "x2": 0.7138219770894509,
+        "y2": 0.8295997460348208,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0018",
+      "text": "infra-\n下",
+      "raw_text": "infra-\n下",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.8673605375431972,
+        "x2": 0.24083890414927475,
+        "y2": 0.8871017050363211,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0019",
+      "text": "infrastructure n. 基",
+      "raw_text": "infrastructure n. 基",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.3404806806113857,
+        "y1": 0.8513168426572187,
+        "x2": 0.5570749430847336,
+        "y2": 0.8710580101503427,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0020",
+      "text": "础结构",
+      "raw_text": "础结构",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.3404806806113857,
+        "y1": 0.8839699849579713,
+        "x2": 0.4161579548420242,
+        "y2": 0.9017962642789261,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0021",
+      "text": "her",
+      "raw_text": "her",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.5687738104422074,
+        "y1": 0.8673605375431972,
+        "x2": 0.6009871536457778,
+        "y2": 0.8871017050363211,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0022",
+      "text": "黏",
+      "raw_text": "黏",
+      "block_type": "TEXT",
+      "reading_order": 22,
+      "bbox": {
+        "x1": 0.6482349804428147,
+        "y1": 0.8518825951860144,
+        "x2": 0.6734607641664437,
+        "y2": 0.8697088745069692,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0023",
+      "text": "附",
+      "raw_text": "附",
+      "block_type": "TEXT",
+      "reading_order": 23,
+      "bbox": {
+        "x1": 0.6482349804428147,
+        "y1": 0.8839699849579713,
+        "x2": 0.6734607641664437,
+        "y2": 0.9017962642789261,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0024",
+      "text": "inherent adj. 内",
+      "raw_text": "inherent adj. 内",
+      "block_type": "TEXT",
+      "reading_order": 24,
+      "bbox": {
+        "x1": 0.688596193365822,
+        "y1": 0.8513168426572187,
+        "x2": 0.8638659253593417,
+        "y2": 0.8710580101503427,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0082-b0025",
+      "text": "在的",
+      "raw_text": "在的",
+      "block_type": "TEXT",
+      "reading_order": 25,
+      "bbox": {
+        "x1": 0.688596193365822,
+        "y1": 0.8839699849579713,
+        "x2": 0.7390477608130799,
+        "y2": 0.9017962642789261,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [],
+  "vocabulary": [],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

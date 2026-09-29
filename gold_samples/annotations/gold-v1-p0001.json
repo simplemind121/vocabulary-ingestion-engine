@@ -1,0 +1,22 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0001",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 1,
+  "layout_tags": [
+    "IMAGE",
+    "OCR_HARD",
+    "SPECIAL_LAYOUT"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "2fbae16a5092669bc5afba99100c13ed80064ed095ca89704be68906fd6bc0e8",
+  "blocks": [],
+  "entries": [],
+  "vocabulary": [],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

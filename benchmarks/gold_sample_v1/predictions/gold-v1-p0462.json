@@ -1,0 +1,414 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0462",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 462,
+  "layout_tags": [
+    "BOUNDARY_ENTRY",
+    "CROSS_PAGE_ENTRY",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "9e91dec03c822ec71f0a17e1576782ed0d5cad33fddc62489b18bbc822f3b4ce",
+  "blocks": [
+    {
+      "source_block_id": "native-p0462-b0000",
+      "text": "461",
+      "raw_text": "461",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475026745291093,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672412321950886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0001",
+      "text": "大也不能太小。",
+      "raw_text": "大也不能太小。",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.08624223639857773,
+        "x2": 0.30599231684938094,
+        "y2": 0.10406853384333223,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0002",
+      "text": "qualitative [ˈkwɒlɪtətɪv]",
+      "raw_text": "qualitative [ˈkwɒlɪtətɪv]",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.1293510440069778,
+        "x2": 0.378730037596083,
+        "y2": 0.14909228399530028,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0003",
+      "text": "adj. 性质的，质量的；定性的",
+      "raw_text": "adj. 性质的，质量的；定性的",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.15698157396790216,
+        "x2": 0.5007776094439128,
+        "y2": 0.17672281395622463,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0004",
+      "text": "记 联想记忆：qualit(y)（质量）+ative→质量的；定性的",
+      "raw_text": "记 联想记忆：qualit(y)（质量）+ative→质量的；定性的",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.18450723962425158,
+        "x2": 0.796650667882391,
+        "y2": 0.20435334391714902,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0005",
+      "text": "例 There is little qualitative improvement in their work. 他们的工\n作没有什么实质性的改进。",
+      "raw_text": "例 There is little qualitative improvement in their work. 他们的工\n作没有什么实质性的改进。",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.21210036206276967,
+        "x2": 0.8587297021365999,
+        "y2": 0.2511352023127128,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0006",
+      "text": "accountant [əˈkaʊntənt]",
+      "raw_text": "accountant [əˈkaʊntənt]",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2764177034144586,
+        "x2": 0.3793457134638459,
+        "y2": 0.2961589434027811,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0007",
+      "text": "n. 会计师",
+      "raw_text": "n. 会计师",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.30404823337538295,
+        "x2": 0.28076655877250145,
+        "y2": 0.32378947336370545,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0008",
+      "text": "记 联想记忆：account（账目）+ant（表人）→管账的人→会\n计师",
+      "raw_text": "记 联想记忆：account（账目）+ant（表人）→管账的人→会\n计师",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.33157505895490774,
+        "x2": 0.8456980245026993,
+        "y2": 0.37057131363546963,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0009",
+      "text": "搭 Certified Public Accountant 注册会计师",
+      "raw_text": "搭 Certified Public Accountant 注册会计师",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.3797345617306402,
+        "x2": 0.6331512550903668,
+        "y2": 0.3995521754105421,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0010",
+      "text": "storey [ˈstɔːri]",
+      "raw_text": "storey [ˈstɔːri]",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4234855227451148,
+        "x2": 0.27674071156803814,
+        "y2": 0.44322676273343725,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0011",
+      "text": "n. 楼层",
+      "raw_text": "n. 楼层",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.45111605270603916,
+        "x2": 0.2555408006956219,
+        "y2": 0.4708572926943616,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0012",
+      "text": "记 联想记忆：可与store （n. 商店）一起记",
+      "raw_text": "记 联想记忆：可与store （n. 商店）一起记",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.47864171836238856,
+        "x2": 0.651430103785214,
+        "y2": 0.49848782265528596,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0013",
+      "text": "例 To the west of where I'm standing, we can see the construction\nof a seventeen-storey building. 从我站的地方往西，可以看到一座17\n层的建筑。",
+      "raw_text": "例 To the west of where I'm standing, we can see the construction\nof a seventeen-storey building. 从我站的地方往西，可以看到一座17\n层的建筑。",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5062336808777312,
+        "x2": 0.8503341874042863,
+        "y2": 0.5657701451288627,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0014",
+      "text": "gang [gæŋ]",
+      "raw_text": "gang [gæŋ]",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5910526643544082,
+        "x2": 0.2462947884574034,
+        "y2": 0.6107938680951314,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0015",
+      "text": "n. 一帮 v. 结成一伙",
+      "raw_text": "n. 一帮 v. 结成一伙",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6186832305629317,
+        "x2": 0.3863378637119423,
+        "y2": 0.6384243980560558,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0462-b0016",
+      "text": "例 A gang of young men attacked the police station with machine\nguns. 一群手持机关枪的年轻人袭击了警察局。",
+      "raw_text": "例 A gang of young men attacked the police station with machine\nguns. 一群手持机关枪的年轻人袭击了警察局。",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6461702925261003,
+        "x2": 0.8524667146226687,
+        "y2": 0.6865554102187927,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "sample",
+      "raw_text": "sample* [ˈsɑːmpl]\nn. 样品，样本 vt. 从…抽样，采样；品尝\n记 联想记忆：简单的（simple）样品（sample）\n搭 blood sample 血液样本；size of sample 样本的大小\n例 The main thing is to make sure we have the right size sample,\nnot too big or too small. 最主要是确保我们有合适的样本量，不能太\n大也不能太小。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        461,
+        462
+      ],
+      "source_block_ids": [
+        "native-p0461-b0017",
+        "native-p0461-b0018",
+        "native-p0461-b0019",
+        "native-p0461-b0020",
+        "native-p0461-b0021",
+        "native-p0462-b0001"
+      ]
+    },
+    {
+      "lemma": "qualitative",
+      "raw_text": "qualitative [ˈkwɒlɪtətɪv]\nadj. 性质的，质量的；定性的\n记 联想记忆：qualit(y)（质量）+ative→质量的；定性的\n例 There is little qualitative improvement in their work. 他们的工\n作没有什么实质性的改进。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        462
+      ],
+      "source_block_ids": [
+        "native-p0462-b0002",
+        "native-p0462-b0003",
+        "native-p0462-b0004",
+        "native-p0462-b0005"
+      ]
+    },
+    {
+      "lemma": "accountant",
+      "raw_text": "accountant [əˈkaʊntənt]\nn. 会计师\n记 联想记忆：account（账目）+ant（表人）→管账的人→会\n计师\n搭 Certified Public Accountant 注册会计师",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        462
+      ],
+      "source_block_ids": [
+        "native-p0462-b0006",
+        "native-p0462-b0007",
+        "native-p0462-b0008",
+        "native-p0462-b0009"
+      ]
+    },
+    {
+      "lemma": "storey",
+      "raw_text": "storey [ˈstɔːri]\nn. 楼层\n记 联想记忆：可与store （n. 商店）一起记\n例 To the west of where I'm standing, we can see the construction\nof a seventeen-storey building. 从我站的地方往西，可以看到一座17\n层的建筑。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        462
+      ],
+      "source_block_ids": [
+        "native-p0462-b0010",
+        "native-p0462-b0011",
+        "native-p0462-b0012",
+        "native-p0462-b0013"
+      ]
+    },
+    {
+      "lemma": "gang",
+      "raw_text": "gang [gæŋ]\nn. 一帮 v. 结成一伙\n例 A gang of young men attacked the police station with machine\nguns. 一群手持机关枪的年轻人袭击了警察局。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        462
+      ],
+      "source_block_ids": [
+        "native-p0462-b0014",
+        "native-p0462-b0015",
+        "native-p0462-b0016"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "sample",
+      "display_form": "sample",
+      "ipa": "ˈsɑːmpl",
+      "part_of_speech": "n.",
+      "definition": "样品，样本 vt. 从…抽样，采样；品尝",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "qualitative",
+      "display_form": "qualitative",
+      "ipa": "ˈkwɒlɪtətɪv",
+      "part_of_speech": "adj.",
+      "definition": "性质的，质量的；定性的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "accountant",
+      "display_form": "accountant",
+      "ipa": "əˈkaʊntənt",
+      "part_of_speech": "n.",
+      "definition": "会计师",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "storey",
+      "display_form": "storey",
+      "ipa": "ˈstɔːri",
+      "part_of_speech": "n.",
+      "definition": "楼层",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "gang",
+      "display_form": "gang",
+      "ipa": "gæŋ",
+      "part_of_speech": "n.",
+      "definition": "一帮 v. 结成一伙",
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

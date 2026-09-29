@@ -1,0 +1,599 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p1115",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 1115,
+  "layout_tags": [
+    "DOUBLE_COLUMN",
+    "SPECIAL_LAYOUT",
+    "TABLE"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "b8e789fbbf67c6d78a140492e76f18cbe413a853968b051a516e21238412a6e1",
+  "blocks": [
+    {
+      "source_block_id": "native-p1115-b0000",
+      "text": "1114",
+      "raw_text": "1114",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4757373543059456,
+        "y1": 0.9474655569874968,
+        "x2": 0.5243101434740718,
+        "y2": 0.9672041146534762,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0001",
+      "text": "七 雅思常考单词英美对照表",
+      "raw_text": "七 雅思常考单词英美对照表",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.19101804156496877,
+        "y1": 0.1580321743840101,
+        "x2": 0.8090491785653906,
+        "y2": 0.19751463623685545,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0002",
+      "text": "中文",
+      "raw_text": "中文",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.25113628974068974,
+        "x2": 0.18660351787229643,
+        "y2": 0.26896258718544425,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0003",
+      "text": "British",
+      "raw_text": "British",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.28876788296547,
+        "y1": 0.23452684232591564,
+        "x2": 0.3574576233629167,
+        "y2": 0.25426808231423814,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0004",
+      "text": "English",
+      "raw_text": "English",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.28876788296547,
+        "y1": 0.2666141777264737,
+        "x2": 0.3658578058036337,
+        "y2": 0.2863554177147962,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0005",
+      "text": "American",
+      "raw_text": "American",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.4035450886269592,
+        "y1": 0.23452684232591564,
+        "x2": 0.5030102615722237,
+        "y2": 0.25426808231423814,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0006",
+      "text": "English",
+      "raw_text": "English",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.4035450886269592,
+        "y1": 0.2666141777264737,
+        "x2": 0.48063496017162394,
+        "y2": 0.2863554177147962,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0007",
+      "text": "中文",
+      "raw_text": "中文",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.5586835072114557,
+        "y1": 0.25113628974068974,
+        "x2": 0.6091350746587135,
+        "y2": 0.26896258718544425,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0008",
+      "text": "British",
+      "raw_text": "British",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.6494962875817208,
+        "y1": 0.23452684232591564,
+        "x2": 0.7181859766856685,
+        "y2": 0.25426808231423814,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0009",
+      "text": "English",
+      "raw_text": "English",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.6494962875817208,
+        "y1": 0.2666141777264737,
+        "x2": 0.7265861591263856,
+        "y2": 0.2863554177147962,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0010",
+      "text": "American",
+      "raw_text": "American",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.7617508789653978,
+        "y1": 0.23452684232591564,
+        "x2": 0.8612161032041613,
+        "y2": 0.25426808231423814,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0011",
+      "text": "English",
+      "raw_text": "English",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.7617508789653978,
+        "y1": 0.2666141777264737,
+        "x2": 0.8388408018035615,
+        "y2": 0.2863554177147962,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0012",
+      "text": "足球\nfootball\nsoccer\n软饮\nmineral\nsoft-drink",
+      "raw_text": "足球\nfootball\nsoccer\n软饮\nmineral\nsoft-drink",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.30672337869382066,
+        "x2": 0.8612412370186413,
+        "y2": 0.32646461868214316,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0013",
+      "text": "账单\nbill\ncheck\n二楼\nfirst floor",
+      "raw_text": "账单\nbill\ncheck\n二楼\nfirst floor",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.3628762020519476,
+        "x2": 0.7454802733410041,
+        "y2": 0.3826174420402701,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0014",
+      "text": "second fl",
+      "raw_text": "second fl",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.7617508789653978,
+        "y1": 0.34683250716596914,
+        "x2": 0.8636088423426602,
+        "y2": 0.3665737471542916,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0015",
+      "text": "oor",
+      "raw_text": "oor",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.7617508789653978,
+        "y1": 0.37891986069032685,
+        "x2": 0.7953768451297438,
+        "y2": 0.3986611006786493,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0016",
+      "text": "纸币\nnote\nbill\n秋天\nautumn\nfall",
+      "raw_text": "纸币\nnote\nbill\n秋天\nautumn\nfall",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.4190290616576738,
+        "x2": 0.7953767938362449,
+        "y2": 0.43877030164599623,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0017",
+      "text": "数学\nmaths\nmath\n洗澡\nbath\nbathe",
+      "raw_text": "数学\nmaths\nmath\n洗澡\nbath\nbathe",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.45913822637742147,
+        "x2": 0.8163898937855258,
+        "y2": 0.4788794663657439,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0018",
+      "text": "图钉",
+      "raw_text": "图钉",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.5158568385119433,
+        "x2": 0.18660351787229643,
+        "y2": 0.5336831178328981,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0019",
+      "text": "drawing p",
+      "raw_text": "drawing p",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.28876788296547,
+        "y1": 0.49924739109716915,
+        "x2": 0.39160965565237943,
+        "y2": 0.5189886310854916,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0020",
+      "text": "in",
+      "raw_text": "in",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.28876788296547,
+        "y1": 0.5313347446215269,
+        "x2": 0.3083935194152049,
+        "y2": 0.5510759846098493,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0021",
+      "text": "thumb tack\n硬盘\ndisc\ndisk",
+      "raw_text": "thumb tack\n硬盘\ndisc\ndisk",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.4035450886269592,
+        "y1": 0.5152910497355484,
+        "x2": 0.8038022639719388,
+        "y2": 0.5350322897238708,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0022",
+      "text": "背心\nwaistcoat vest\n电影\nfilm\nmovie",
+      "raw_text": "背心\nwaistcoat vest\n电影\nfilm\nmovie",
+      "block_type": "TEXT",
+      "reading_order": 22,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.5714439093412745,
+        "x2": 0.8248153126277208,
+        "y2": 0.591185149329597,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0023",
+      "text": "紧身裤\ntights\n(panty) hose\n公寓\nflat\napartment",
+      "raw_text": "紧身裤\ntights\n(panty) hose\n公寓\nflat\napartment",
+      "block_type": "TEXT",
+      "reading_order": 23,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.6115531103086215,
+        "x2": 0.8626287261649369,
+        "y2": 0.6312942778017455,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0024",
+      "text": "男士长裤\ntrousers\npants\n电梯\nlift\nelevator",
+      "raw_text": "男士长裤\ntrousers\npants\n电梯\nlift\nelevator",
+      "block_type": "TEXT",
+      "reading_order": 24,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.6516623112759684,
+        "x2": 0.8430031153619516,
+        "y2": 0.6714034787690925,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0025",
+      "text": "吊带\nbraces\nsuspenders\n假期\nholiday\nvacation",
+      "raw_text": "吊带\nbraces\nsuspenders\n假期\nholiday\nvacation",
+      "block_type": "TEXT",
+      "reading_order": 25,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.6917714397481168,
+        "x2": 0.8472157991362995,
+        "y2": 0.7115126072412409,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0026",
+      "text": "酒吧\npub\nbar\n人行道pavement sidewalk",
+      "raw_text": "酒吧\npub\nbar\n人行道pavement sidewalk",
+      "block_type": "TEXT",
+      "reading_order": 26,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.7318806407154638,
+        "x2": 0.8514285342041464,
+        "y2": 0.7516218082085878,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0027",
+      "text": "飞机\naeroplane airplane\n商店\nshop\nstore",
+      "raw_text": "飞机\naeroplane airplane\n商店\nshop\nstore",
+      "block_type": "TEXT",
+      "reading_order": 27,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.7719898416828107,
+        "x2": 0.8107897721583812,
+        "y2": 0.7917310091759348,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0028",
+      "text": "保证\nensure\ninsure\n病\nill\nsick",
+      "raw_text": "保证\nensure\ninsure\n病\nill\nsick",
+      "block_type": "TEXT",
+      "reading_order": 28,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.8120989701549592,
+        "x2": 0.8023896410111631,
+        "y2": 0.8318401376480832,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0029",
+      "text": "商业区",
+      "raw_text": "商业区",
+      "block_type": "TEXT",
+      "reading_order": 29,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.8688176185370803,
+        "x2": 0.21182928877255067,
+        "y2": 0.8866438978580351,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0030",
+      "text": "town cent",
+      "raw_text": "town cent",
+      "block_type": "TEXT",
+      "reading_order": 30,
+      "bbox": {
+        "x1": 0.28876788296547,
+        "y1": 0.8522081711223062,
+        "x2": 0.3925971324472005,
+        "y2": 0.8719493386154301,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0031",
+      "text": "er",
+      "raw_text": "er",
+      "block_type": "TEXT",
+      "reading_order": 31,
+      "bbox": {
+        "x1": 0.28876788296547,
+        "y1": 0.8842954883990646,
+        "x2": 0.30836830866047643,
+        "y2": 0.9040366558921886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0032",
+      "text": "downtown\n红绿灯",
+      "raw_text": "downtown\n红绿灯",
+      "block_type": "TEXT",
+      "reading_order": 32,
+      "bbox": {
+        "x1": 0.4035450886269592,
+        "y1": 0.8682518660082846,
+        "x2": 0.6343608070888436,
+        "y2": 0.8879930335014086,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0033",
+      "text": "traffic lig",
+      "raw_text": "traffic lig",
+      "block_type": "TEXT",
+      "reading_order": 33,
+      "bbox": {
+        "x1": 0.6494962875817208,
+        "y1": 0.8522081711223062,
+        "x2": 0.7499027475260119,
+        "y2": 0.8719493386154301,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0034",
+      "text": "ht",
+      "raw_text": "ht",
+      "block_type": "TEXT",
+      "reading_order": 34,
+      "bbox": {
+        "x1": 0.6494962875817208,
+        "y1": 0.8842954883990646,
+        "x2": 0.6691218983847061,
+        "y2": 0.9040366558921886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1115-b0035",
+      "text": "stoplight",
+      "raw_text": "stoplight",
+      "block_type": "TEXT",
+      "reading_order": 35,
+      "bbox": {
+        "x1": 0.7617508789653978,
+        "y1": 0.8682518660082846,
+        "x2": 0.8500663327528277,
+        "y2": 0.8879930335014086,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [],
+  "vocabulary": [],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

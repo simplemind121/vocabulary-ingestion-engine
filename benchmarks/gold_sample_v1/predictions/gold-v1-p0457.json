@@ -1,0 +1,514 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0457",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 457,
+  "layout_tags": [
+    "BOUNDARY_ENTRY",
+    "CROSS_PAGE_ENTRY",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "71b1d7e5fdf0e785d3a9f088c0e2fe2aa30d53429e44825b7b856f4a32e83867",
+  "blocks": [
+    {
+      "source_block_id": "native-p0457-b0000",
+      "text": "456",
+      "raw_text": "456",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475026745291093,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672412321950886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0001",
+      "text": "attack* [əˈtæk]",
+      "raw_text": "attack* [əˈtæk]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.09102486244579806,
+        "x2": 0.288425755327548,
+        "y2": 0.11076610243412054,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0002",
+      "text": "n./v. 进攻；抨击；（疾病等）突然发作",
+      "raw_text": "n./v. 进攻；抨击；（疾病等）突然发作",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.11865597236831012,
+        "x2": 0.6077653843565497,
+        "y2": 0.13839721235663258,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0003",
+      "text": "记 联想记忆：at（表加强）+tack（看作tank，坦克）→用坦克\n加强进攻→进攻；抨击",
+      "raw_text": "记 联想记忆：at（表加强）+tack（看作tank，坦克）→用坦克\n加强进攻→进攻；抨击",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.14618164708655934,
+        "x2": 0.8653193779452727,
+        "y2": 0.1865282245193695,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0004",
+      "text": "例 Passive smoking causes between 30,000 and 60,000 deaths from\nheart attacks each year in the United States. 在美国，被动吸烟每年导\n致三到六万人死于心脏病。",
+      "raw_text": "例 Passive smoking causes between 30,000 and 60,000 deaths from\nheart attacks each year in the United States. 在美国，被动吸烟每年导\n致三到六万人死于心脏病。",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.1942740827418148,
+        "x2": 0.869283544717262,
+        "y2": 0.25380998515515824,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0005",
+      "text": "discredit* [dɪsˈkredɪt]",
+      "raw_text": "discredit* [dɪsˈkredɪt]",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.27909248625690397,
+        "x2": 0.35523617886412395,
+        "y2": 0.29883372624522647,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0006",
+      "text": "vt. 使怀疑；使丧失信誉，使丢脸",
+      "raw_text": "vt. 使怀疑；使丧失信誉，使丢脸",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.306723596179416,
+        "x2": 0.5400327293558029,
+        "y2": 0.3264648361677385,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0007",
+      "text": "记 联想记忆：dis（不）+credit（信任）→不信任→使怀疑",
+      "raw_text": "记 联想记忆：dis（不）+credit（信任）→不信任→使怀疑",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.3342492618357655,
+        "x2": 0.8233052320189613,
+        "y2": 0.3540953661286629,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0008",
+      "text": "例 The ugly gossip would discredit us all. 恶毒的流言蜚语会使我\n们所有人丧失信誉。",
+      "raw_text": "例 The ugly gossip would discredit us all. 恶毒的流言蜚语会使我\n们所有人丧失信誉。",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.36184122435110816,
+        "x2": 0.867925703213353,
+        "y2": 0.40087720640042707,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0009",
+      "text": "flora* [ˈflɔːrə]",
+      "raw_text": "flora* [ˈflɔːrə]",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4261597256259725,
+        "x2": 0.27858930362304446,
+        "y2": 0.44590096561429493,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0010",
+      "text": "n. （某地区或时期的）一切植物，植物群",
+      "raw_text": "n. （某地区或时期的）一切植物，植物群",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.45379025558689684,
+        "x2": 0.6339272744358125,
+        "y2": 0.47353149557521934,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0011",
+      "text": "记 联想记忆：希腊神话里的花神名叫弗洛拉（Flora）",
+      "raw_text": "记 联想记忆：希腊神话里的花神名叫弗洛拉（Flora）",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.48131650120483394,
+        "x2": 0.7754649653091807,
+        "y2": 0.5011626054977314,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0012",
+      "text": "搭 flora and fauna 动植物",
+      "raw_text": "搭 flora and fauna 动植物",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.5089755217787538,
+        "x2": 0.4523584443051085,
+        "y2": 0.5287931354586557,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0013",
+      "text": "例 The theme of the meeting is the protection of native flora and\nfauna. 本次会议以保护当地动植物为主题。",
+      "raw_text": "例 The theme of the meeting is the protection of native flora and\nfauna. 本次会议以保护当地动植物为主题。",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.536538993681101,
+        "x2": 0.840449776278275,
+        "y2": 0.5769241476213927,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0014",
+      "text": "派 floral （adj. 花的；有花卉图案的）",
+      "raw_text": "派 floral （adj. 花的；有花卉图案的）",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.5846245513544024,
+        "x2": 0.5995497559250147,
+        "y2": 0.6045546775823171,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0015",
+      "text": "mass [mæs]",
+      "raw_text": "mass [mæs]",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.628488061164489,
+        "x2": 0.2520328639499441,
+        "y2": 0.6482292286576129,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0016",
+      "text": "adj. 大量的 n. 团，众多；【物】质量；[pl.] 群众，民众 v. 聚集",
+      "raw_text": "adj. 大量的 n. 团，众多；【物】质量；[pl.] 群众，民众 v. 聚集",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6561185911254133,
+        "x2": 0.8634964069929864,
+        "y2": 0.6758597586185373,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0017",
+      "text": "记 联想记忆：和less （adj. 少的）一起记",
+      "raw_text": "记 联想记忆：和less （adj. 少的）一起记",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.6836442205341635,
+        "x2": 0.6332128585825924,
+        "y2": 0.7034902885794616,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0018",
+      "text": "搭 mass production 大规模生产",
+      "raw_text": "搭 mass production 大规模生产",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.7113044010312587,
+        "x2": 0.5161865355796329,
+        "y2": 0.7311219784635614,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0019",
+      "text": "例 Mass use of motor vehicles has killed or injured millions of\npeople. 机动车的大量使用已造成数百万人伤亡。",
+      "raw_text": "例 Mass use of motor vehicles has killed or injured millions of\npeople. 机动车的大量使用已造成数百万人伤亡。",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7388678729336059,
+        "x2": 0.8202998946226358,
+        "y2": 0.7792529906262984,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0020",
+      "text": "anticipate* [ænˈtɪsɪpeɪt]",
+      "raw_text": "anticipate* [ænˈtɪsɪpeɪt]",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8031864104560694,
+        "x2": 0.3781403675322821,
+        "y2": 0.8229275779491935,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0021",
+      "text": "v. 预期，预料，期望；先于…行动",
+      "raw_text": "v. 预期，预料，期望；先于…行动",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.8308169404169938,
+        "x2": 0.5566117627893159,
+        "y2": 0.8505581079101179,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0457-b0022",
+      "text": "记 词根记忆：anti（=ante，前面）+cip（拿）+ate（做）→\n在…之前取得→先于…行动",
+      "raw_text": "记 词根记忆：anti（=ante，前面）+cip（拿）+ate（做）→\n在…之前取得→先于…行动",
+      "block_type": "TEXT",
+      "reading_order": 22,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.858342569825744,
+        "x2": 0.8292791293728734,
+        "y2": 0.8986891200728547,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "attack",
+      "raw_text": "attack* [əˈtæk]\nn./v. 进攻；抨击；（疾病等）突然发作\n记 联想记忆：at（表加强）+tack（看作tank，坦克）→用坦克\n加强进攻→进攻；抨击\n例 Passive smoking causes between 30,000 and 60,000 deaths from\nheart attacks each year in the United States. 在美国，被动吸烟每年导\n致三到六万人死于心脏病。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        457
+      ],
+      "source_block_ids": [
+        "native-p0457-b0001",
+        "native-p0457-b0002",
+        "native-p0457-b0003",
+        "native-p0457-b0004"
+      ]
+    },
+    {
+      "lemma": "discredit",
+      "raw_text": "discredit* [dɪsˈkredɪt]\nvt. 使怀疑；使丧失信誉，使丢脸\n记 联想记忆：dis（不）+credit（信任）→不信任→使怀疑\n例 The ugly gossip would discredit us all. 恶毒的流言蜚语会使我\n们所有人丧失信誉。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        457
+      ],
+      "source_block_ids": [
+        "native-p0457-b0005",
+        "native-p0457-b0006",
+        "native-p0457-b0007",
+        "native-p0457-b0008"
+      ]
+    },
+    {
+      "lemma": "flora",
+      "raw_text": "flora* [ˈflɔːrə]\nn. （某地区或时期的）一切植物，植物群\n记 联想记忆：希腊神话里的花神名叫弗洛拉（Flora）\n搭 flora and fauna 动植物\n例 The theme of the meeting is the protection of native flora and\nfauna. 本次会议以保护当地动植物为主题。\n派 floral （adj. 花的；有花卉图案的）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        457
+      ],
+      "source_block_ids": [
+        "native-p0457-b0009",
+        "native-p0457-b0010",
+        "native-p0457-b0011",
+        "native-p0457-b0012",
+        "native-p0457-b0013",
+        "native-p0457-b0014"
+      ]
+    },
+    {
+      "lemma": "mass",
+      "raw_text": "mass [mæs]\nadj. 大量的 n. 团，众多；【物】质量；[pl.] 群众，民众 v. 聚集\n记 联想记忆：和less （adj. 少的）一起记\n搭 mass production 大规模生产\n例 Mass use of motor vehicles has killed or injured millions of\npeople. 机动车的大量使用已造成数百万人伤亡。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        457
+      ],
+      "source_block_ids": [
+        "native-p0457-b0015",
+        "native-p0457-b0016",
+        "native-p0457-b0017",
+        "native-p0457-b0018",
+        "native-p0457-b0019"
+      ]
+    },
+    {
+      "lemma": "anticipate",
+      "raw_text": "anticipate* [ænˈtɪsɪpeɪt]\nv. 预期，预料，期望；先于…行动\n记 词根记忆：anti（=ante，前面）+cip（拿）+ate（做）→\n在…之前取得→先于…行动\n搭 anticipate doing sth. 期待做某事\n例 We need someone who can anticipate and respond to changes in\nthe fashion industry. 我们需要一个能预见时装业变化并能应对这些变\n化的人。\n派 anticipation （n. 预料）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        457,
+        458
+      ],
+      "source_block_ids": [
+        "native-p0457-b0020",
+        "native-p0457-b0021",
+        "native-p0457-b0022",
+        "native-p0458-b0001",
+        "native-p0458-b0002",
+        "native-p0458-b0003"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "attack",
+      "display_form": "attack",
+      "ipa": "əˈtæk",
+      "part_of_speech": "n.",
+      "definition": "/v. 进攻；抨击；（疾病等）突然发作",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "discredit",
+      "display_form": "discredit",
+      "ipa": "dɪsˈkredɪt",
+      "part_of_speech": "vt.",
+      "definition": "使怀疑；使丧失信誉，使丢脸",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "flora",
+      "display_form": "flora",
+      "ipa": "ˈflɔːrə",
+      "part_of_speech": "n.",
+      "definition": "（某地区或时期的）一切植物，植物群",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "mass",
+      "display_form": "mass",
+      "ipa": "mæs",
+      "part_of_speech": "adj.",
+      "definition": "大量的 n. 团，众多；【物】质量；[pl.] 群众，民众 v. 聚集",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "anticipate",
+      "display_form": "anticipate",
+      "ipa": "ænˈtɪsɪpeɪt",
+      "part_of_speech": "v.",
+      "definition": "预期，预料，期望；先于…行动",
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

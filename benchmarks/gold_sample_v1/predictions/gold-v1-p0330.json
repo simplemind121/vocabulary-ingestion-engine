@@ -1,0 +1,457 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0330",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 330,
+  "layout_tags": [
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "b5ee6384e703691f67eba5962427b948af19242e959204aaa4fafefd95cd9769",
+  "blocks": [
+    {
+      "source_block_id": "native-p0330-b0000",
+      "text": "329",
+      "raw_text": "329",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475026745291093,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672412321950886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0001",
+      "text": "premise* [ˈpremɪs]",
+      "raw_text": "premise* [ˈpremɪs]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.09102486244579806,
+        "x2": 0.3271953822719819,
+        "y2": 0.11076610243412054,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0002",
+      "text": "n. 前提，假设；[pl.] （企业、机构等使用的）房屋和地基，经\n营场址",
+      "raw_text": "n. 前提，假设；[pl.] （企业、机构等使用的）房屋和地基，经\n营场址",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.11865539240672242,
+        "x2": 0.8595426528012816,
+        "y2": 0.15754796082968434,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0003",
+      "text": "记 词根记忆：pre（前）+mis（放）+e→放在前面的东西→前\n提",
+      "raw_text": "记 词根记忆：pre（前）+mis（放）+e→放在前面的东西→前\n提",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.1666815402648844,
+        "x2": 0.8557489343262661,
+        "y2": 0.20567897299242127,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0004",
+      "text": "搭 the major premise 主要前提",
+      "raw_text": "搭 the major premise 主要前提",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.21484104304061682,
+        "x2": 0.5070347494989651,
+        "y2": 0.23465865672051875,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0005",
+      "text": "例 His agreement of this investment is based on the premise that all\npeople equally share the risk. 基于所有人平均分担风险的前提，他同\n意了该项投资。",
+      "raw_text": "例 His agreement of this investment is based on the premise that all\npeople equally share the risk. 基于所有人平均分担风险的前提，他同\n意了该项投资。",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.24240509490455173,
+        "x2": 0.8699260470849699,
+        "y2": 0.30194099731789514,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0006",
+      "text": "同 hypothesis （n. 假设）",
+      "raw_text": "同 hypothesis （n. 假设）",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.311013318310395,
+        "x2": 0.45804899637088237,
+        "y2": 0.33092068104599265,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0007",
+      "text": "discerning* [dɪˈsɜːnɪŋ]",
+      "raw_text": "discerning* [dɪˈsɜːnɪŋ]",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3548540283805653,
+        "x2": 0.36480698153762314,
+        "y2": 0.37459526836888773,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0008",
+      "text": "adj. 有识别力的，眼光敏锐的",
+      "raw_text": "adj. 有识别力的，眼光敏锐的",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.38248455834148964,
+        "x2": 0.5007776094439128,
+        "y2": 0.40222579832981215,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0009",
+      "text": "记 词根记忆：dis（分离）+cern（区别）+ing→能分清楚的→\n有识别力的",
+      "raw_text": "记 词根记忆：dis（分离）+cern（区别）+ing→能分清楚的→\n有识别力的",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.41001080395942674,
+        "x2": 0.8557489343262661,
+        "y2": 0.44900763860157633,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0010",
+      "text": "例 Only the discerning customers can recognize this jade\ndecoration as a high quality product. 只有眼光敏锐的顾客才能识别出\n这件玉饰是高品质产品。",
+      "raw_text": "例 Only the discerning customers can recognize this jade\ndecoration as a high quality product. 只有眼光敏锐的顾客才能识别出\n这件玉饰是高品质产品。",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.45810324867658203,
+        "x2": 0.8573501634826398,
+        "y2": 0.5176391329661258,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0011",
+      "text": "niggle* [ˈnɪɡl]",
+      "raw_text": "niggle* [ˈnɪɡl]",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5429216521916712,
+        "x2": 0.2772467988753182,
+        "y2": 0.5626628921799937,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0012",
+      "text": "v. 拘泥小节；挑剔，吹毛求疵；为小事操心；不断地烦扰",
+      "raw_text": "v. 拘泥小节；挑剔，吹毛求疵；为小事操心；不断地烦扰",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5705521821525956,
+        "x2": 0.8088693948516099,
+        "y2": 0.5902934221409181,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0013",
+      "text": "例 Tina wears a frown these days that there must be something\nniggled her. 蒂娜这些天眉头紧锁，一定是有什么事困扰着她。",
+      "raw_text": "例 Tina wears a frown these days that there must be something\nniggled her. 蒂娜这些天眉头紧锁，一定是有什么事困扰着她。",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.598039860324951,
+        "x2": 0.8207160387795266,
+        "y2": 0.6384243980560558,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0014",
+      "text": "prospectus* [prəˈspektəs]",
+      "raw_text": "prospectus* [prəˈspektəs]",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6623578178858269,
+        "x2": 0.3958709656637215,
+        "y2": 0.6820989853789509,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0015",
+      "text": "n. 内容说明书；简章，简介",
+      "raw_text": "n. 内容说明书；简章，简介",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6899883478467512,
+        "x2": 0.4825726746810365,
+        "y2": 0.7097295153398753,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0016",
+      "text": "例 I picked up a really detailed prospectus for Tom. 我为汤姆挑选\n了一本内容相当详尽的说明书。",
+      "raw_text": "例 I picked up a really detailed prospectus for Tom. 我为汤姆挑选\n了一本内容相当详尽的说明书。",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7174759897715075,
+        "x2": 0.867455239241086,
+        "y2": 0.7565113918592387,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0017",
+      "text": "liaise* [liˈeɪz]",
+      "raw_text": "liaise* [liˈeɪz]",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7817939473323833,
+        "x2": 0.271619876394978,
+        "y2": 0.8015351148255073,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0018",
+      "text": "vi. 做联络人；联络，联系",
+      "raw_text": "vi. 做联络人；联络，联系",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.8094244772933077,
+        "x2": 0.4643554807719138,
+        "y2": 0.8291656447864317,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0330-b0019",
+      "text": "例 He had the right to liaise directly with the police while writing\nthe report. 他在写报告的过程中，有权直接与警方联系。",
+      "raw_text": "例 He had the right to liaise directly with the police while writing\nthe report. 他在写报告的过程中，有权直接与警方联系。",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8369121192180639,
+        "x2": 0.8489531099453581,
+        "y2": 0.8772966569491686,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "premise",
+      "raw_text": "premise* [ˈpremɪs]\nn. 前提，假设；[pl.] （企业、机构等使用的）房屋和地基，经\n营场址\n记 词根记忆：pre（前）+mis（放）+e→放在前面的东西→前\n提\n搭 the major premise 主要前提\n例 His agreement of this investment is based on the premise that all\npeople equally share the risk. 基于所有人平均分担风险的前提，他同\n意了该项投资。\n同 hypothesis （n. 假设）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        330
+      ],
+      "source_block_ids": [
+        "native-p0330-b0001",
+        "native-p0330-b0002",
+        "native-p0330-b0003",
+        "native-p0330-b0004",
+        "native-p0330-b0005",
+        "native-p0330-b0006"
+      ]
+    },
+    {
+      "lemma": "discerning",
+      "raw_text": "discerning* [dɪˈsɜːnɪŋ]\nadj. 有识别力的，眼光敏锐的\n记 词根记忆：dis（分离）+cern（区别）+ing→能分清楚的→\n有识别力的\n例 Only the discerning customers can recognize this jade\ndecoration as a high quality product. 只有眼光敏锐的顾客才能识别出\n这件玉饰是高品质产品。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        330
+      ],
+      "source_block_ids": [
+        "native-p0330-b0007",
+        "native-p0330-b0008",
+        "native-p0330-b0009",
+        "native-p0330-b0010"
+      ]
+    },
+    {
+      "lemma": "niggle",
+      "raw_text": "niggle* [ˈnɪɡl]\nv. 拘泥小节；挑剔，吹毛求疵；为小事操心；不断地烦扰\n例 Tina wears a frown these days that there must be something\nniggled her. 蒂娜这些天眉头紧锁，一定是有什么事困扰着她。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        330
+      ],
+      "source_block_ids": [
+        "native-p0330-b0011",
+        "native-p0330-b0012",
+        "native-p0330-b0013"
+      ]
+    },
+    {
+      "lemma": "prospectus",
+      "raw_text": "prospectus* [prəˈspektəs]\nn. 内容说明书；简章，简介\n例 I picked up a really detailed prospectus for Tom. 我为汤姆挑选\n了一本内容相当详尽的说明书。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        330
+      ],
+      "source_block_ids": [
+        "native-p0330-b0014",
+        "native-p0330-b0015",
+        "native-p0330-b0016"
+      ]
+    },
+    {
+      "lemma": "liaise",
+      "raw_text": "liaise* [liˈeɪz]\nvi. 做联络人；联络，联系\n例 He had the right to liaise directly with the police while writing\nthe report. 他在写报告的过程中，有权直接与警方联系。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        330
+      ],
+      "source_block_ids": [
+        "native-p0330-b0017",
+        "native-p0330-b0018",
+        "native-p0330-b0019"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "premise",
+      "display_form": "premise",
+      "ipa": "ˈpremɪs",
+      "part_of_speech": "n.",
+      "definition": "前提，假设；[pl.] （企业、机构等使用的）房屋和地基，经",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "discerning",
+      "display_form": "discerning",
+      "ipa": "dɪˈsɜːnɪŋ",
+      "part_of_speech": "adj.",
+      "definition": "有识别力的，眼光敏锐的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "niggle",
+      "display_form": "niggle",
+      "ipa": "ˈnɪɡl",
+      "part_of_speech": "v.",
+      "definition": "拘泥小节；挑剔，吹毛求疵；为小事操心；不断地烦扰",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "prospectus",
+      "display_form": "prospectus",
+      "ipa": "prəˈspektəs",
+      "part_of_speech": "n.",
+      "definition": "内容说明书；简章，简介",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "liaise",
+      "display_form": "liaise",
+      "ipa": "liˈeɪz",
+      "part_of_speech": "vi.",
+      "definition": "做联络人；联络，联系",
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

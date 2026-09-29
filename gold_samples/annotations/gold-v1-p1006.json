@@ -1,0 +1,518 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p1006",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 1006,
+  "layout_tags": [
+    "INDEX",
+    "SPECIAL_LAYOUT"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "b065878f307895fb9b447a0553c4e2028cf5bfd8ffd01891a8041f9b86132093",
+  "blocks": [
+    {
+      "source_block_id": "native-p1006-b0000",
+      "text": "1005",
+      "raw_text": "1005",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.47481125018260484,
+        "y1": 0.9474655569874968,
+        "x2": 0.525255944301005,
+        "y2": 0.9672041146534762,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0001",
+      "text": "□ booked up (旅馆、饭店等)预订一空的",
+      "raw_text": "□ booked up (旅馆、饭店等)预订一空的",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.08567761660725806,
+        "x2": 0.6077900052360403,
+        "y2": 0.10541885659558053,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0002",
+      "text": "□ brain circuits 脑回路",
+      "raw_text": "□ brain circuits 脑回路",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.11330930649135781,
+        "x2": 0.4157761260359235,
+        "y2": 0.1330505464796803,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0003",
+      "text": "□ by degrees 逐渐地；渐渐地",
+      "raw_text": "□ by degrees 逐渐地；渐渐地",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.1409386765291068,
+        "x2": 0.49285763674026123,
+        "y2": 0.16067991651742927,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0004",
+      "text": "□ carbon dioxide emission 二氧化碳排放",
+      "raw_text": "□ carbon dioxide emission 二氧化碳排放",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.16857036641320652,
+        "x2": 0.6056714298493695,
+        "y2": 0.188311606401529,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0005",
+      "text": "□ card index 卡片目录(或索引)",
+      "raw_text": "□ card index 卡片目录(或索引)",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.19620205629730628,
+        "x2": 0.5068497851417917,
+        "y2": 0.21594329628562875,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0006",
+      "text": "□ casual clothes 便装",
+      "raw_text": "□ casual clothes 便装",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.22383142633505526,
+        "x2": 0.3989507299270073,
+        "y2": 0.24357266632337773,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0007",
+      "text": "□ cellular fluid 细胞液",
+      "raw_text": "□ cellular fluid 细胞液",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.251463116219155,
+        "x2": 0.4129677813222725,
+        "y2": 0.2712043562074775,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0008",
+      "text": "□ chemical industry 化学工业",
+      "raw_text": "□ chemical industry 化学工业",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.27909248625690397,
+        "x2": 0.48864510684641005,
+        "y2": 0.29883372624522647,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0009",
+      "text": "□ chief assistant 首席助理",
+      "raw_text": "□ chief assistant 首席助理",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.3067241761410037,
+        "x2": 0.45081876734746135,
+        "y2": 0.3264654161293262,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0010",
+      "text": "□ collaborative interaction 协作交互",
+      "raw_text": "□ collaborative interaction 协作交互",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.3343558660251035,
+        "x2": 0.554456256083409,
+        "y2": 0.354097106013426,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0011",
+      "text": "□ come to the fore 涌现；崭露头角",
+      "raw_text": "□ come to the fore 涌现；崭露头角",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.3619852360628525,
+        "x2": 0.5488888597085873,
+        "y2": 0.38172647605117493,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0012",
+      "text": "□ communication channel 通信电路，通信信道",
+      "raw_text": "□ communication channel 通信电路，通信信道",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.38961692594695224,
+        "x2": 0.6764095248334397,
+        "y2": 0.4093581659352747,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0013",
+      "text": "□ company logo 公司标志",
+      "raw_text": "□ company logo 公司标志",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.4172462959847012,
+        "x2": 0.4522352373206574,
+        "y2": 0.43698753597302364,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0014",
+      "text": "□ confront with 遭遇；面对",
+      "raw_text": "□ confront with 遭遇；面对",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.44487798586880095,
+        "x2": 0.470452533816778,
+        "y2": 0.4646192258571234,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0015",
+      "text": "□ conservative assumption 保守假设",
+      "raw_text": "□ conservative assumption 保守假设",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.4725096757529007,
+        "x2": 0.5573138682027907,
+        "y2": 0.49225091574122315,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0016",
+      "text": "□ cultural tradition 文化传统",
+      "raw_text": "□ cultural tradition 文化传统",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5001390457906497,
+        "x2": 0.4774363488712968,
+        "y2": 0.5198802857789722,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0017",
+      "text": "□ culture shock 文化冲突",
+      "raw_text": "□ culture shock 文化冲突",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5277707356747494,
+        "x2": 0.443810228826454,
+        "y2": 0.5475119756630719,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0018",
+      "text": "□ deteriorate into 恶化",
+      "raw_text": "□ deteriorate into 恶化",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5554001057124984,
+        "x2": 0.41155131134907647,
+        "y2": 0.5751413457008209,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0019",
+      "text": "□ distinguish between 辨别，弄清",
+      "raw_text": "□ distinguish between 辨别，弄清",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5830317955965981,
+        "x2": 0.5349210757190528,
+        "y2": 0.6027730355849206,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0020",
+      "text": "□ draw on 凭借；利用",
+      "raw_text": "□ draw on 凭借；利用",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6106635217282971,
+        "x2": 0.41580074691541413,
+        "y2": 0.6304046892214211,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0021",
+      "text": "□ dress down (与平时比较)穿着随便",
+      "raw_text": "□ dress down (与平时比较)穿着随便",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6382928917660461,
+        "x2": 0.5657511871367394,
+        "y2": 0.6580340592591701,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0022",
+      "text": "□ driving licence 驾照",
+      "raw_text": "□ driving licence 驾照",
+      "block_type": "TEXT",
+      "reading_order": 22,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6659245816501459,
+        "x2": 0.40875527707517084,
+        "y2": 0.6856657491432698,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0023",
+      "text": "□ education system 教育体制",
+      "raw_text": "□ education system 教育体制",
+      "block_type": "TEXT",
+      "reading_order": 23,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6935539516878948,
+        "x2": 0.4830530895920977,
+        "y2": 0.7132951191810188,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0024",
+      "text": "□ electricity indicator 电量指示灯",
+      "raw_text": "□ electricity indicator 电量指示灯",
+      "block_type": "TEXT",
+      "reading_order": 24,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7211856415719946,
+        "x2": 0.530646993626475,
+        "y2": 0.7409268090651185,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0025",
+      "text": "□ end up with 以…结束",
+      "raw_text": "□ end up with 以…结束",
+      "block_type": "TEXT",
+      "reading_order": 25,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7488173314560943,
+        "x2": 0.4277238694502486,
+        "y2": 0.7685584989492183,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0026",
+      "text": "□ entertainment programme 娱乐节目",
+      "raw_text": "□ entertainment programme 娱乐节目",
+      "block_type": "TEXT",
+      "reading_order": 26,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7764467014938433,
+        "x2": 0.5698774926588744,
+        "y2": 0.7961878689869674,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0027",
+      "text": "□ equal opportunity 平等机会",
+      "raw_text": "□ equal opportunity 平等机会",
+      "block_type": "TEXT",
+      "reading_order": 27,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.804078391377943,
+        "x2": 0.4872655681924499,
+        "y2": 0.8238195588710671,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0028",
+      "text": "□ exhaust pipe 排气管",
+      "raw_text": "□ exhaust pipe 排气管",
+      "block_type": "TEXT",
+      "reading_order": 28,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.831707761415692,
+        "x2": 0.4101840831348617,
+        "y2": 0.8514489289088161,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0029",
+      "text": "□ experimental demonstration 实验示范",
+      "raw_text": "□ experimental demonstration 实验示范",
+      "block_type": "TEXT",
+      "reading_order": 29,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.8593394512997918,
+        "x2": 0.5909153673681429,
+        "y2": 0.8790806187929158,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p1006-b0030",
+      "text": "□ extraordinary polymath 非凡的博学者",
+      "raw_text": "□ extraordinary polymath 非凡的博学者",
+      "block_type": "TEXT",
+      "reading_order": 30,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.8869711411838915,
+        "x2": 0.5965320567954449,
+        "y2": 0.9067123086770156,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [],
+  "vocabulary": [],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

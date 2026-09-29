@@ -1,0 +1,490 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0240",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 240,
+  "layout_tags": [
+    "IPA_DENSE",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "4c8d7c0bd2661fcabbc850e18ab064db57852a9e2a422ca3b3b3d6a2dae44547",
+  "blocks": [
+    {
+      "source_block_id": "native-p0240-b0000",
+      "text": "239",
+      "raw_text": "239",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.947484115758303,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672226734242825,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0001",
+      "text": "aggravate* [ˈæɡrəveɪt]",
+      "raw_text": "aggravate* [ˈæɡrəveɪt]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.09102486244579806,
+        "x2": 0.3668700060649433,
+        "y2": 0.11076610243412054,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0002",
+      "text": "vt. 恶化，加重，加剧",
+      "raw_text": "vt. 恶化，加重，加剧",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.11865539240672242,
+        "x2": 0.41390388767790637,
+        "y2": 0.1383966323950449,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0003",
+      "text": "记 词根记忆：ag（表加强）+grav（重）+ate（使…）→使…\n更重→加重，恶化",
+      "raw_text": "记 词根记忆：ag（表加强）+grav（重）+ate（使…）→使…\n更重→加重，恶化",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.14618164708655934,
+        "x2": 0.8487034131925237,
+        "y2": 0.1865276445577818,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0004",
+      "text": "搭 aggravate poverty 加重贫困；aggravate the situation 使情况恶\n化",
+      "raw_text": "搭 aggravate poverty 加重贫困；aggravate the situation 使情况恶\n化",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.19434114080039194,
+        "x2": 0.8670931071385778,
+        "y2": 0.23330950295334565,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0005",
+      "text": "例 The pollution problems in the area will be further aggravated by\nthe heavy industry. 重工业的发展将使该地区的污染问题进一步恶\n化。",
+      "raw_text": "例 The pollution problems in the area will be further aggravated by\nthe heavy industry. 重工业的发展将使该地区的污染问题进一步恶\n化。",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.24240509490455173,
+        "x2": 0.8691968587040554,
+        "y2": 0.30194099731789514,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0006",
+      "text": "派 aggravation （n. 恶化，激怒；恼人的事物）",
+      "raw_text": "派 aggravation （n. 恶化，激怒；恼人的事物）",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.310990554818078,
+        "x2": 0.6962403096321804,
+        "y2": 0.33092068104599265,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0007",
+      "text": "同 burden （vt. 使担负）；increase （v. 增加）",
+      "raw_text": "同 burden （vt. 使担负）；increase （v. 增加）",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.33869006396033874,
+        "x2": 0.6910670525032048,
+        "y2": 0.3585517909685047,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0008",
+      "text": "反 decrease （v. 减少）；lessen （v. 减少，减轻）",
+      "raw_text": "反 decrease （v. 减少）；lessen （v. 减少，减轻）",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.3663205939212631,
+        "x2": 0.7286593397664956,
+        "y2": 0.38618232092942906,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0009",
+      "text": "deception* [dɪˈsepʃn]",
+      "raw_text": "deception* [dɪˈsepʃn]",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4101156682640017,
+        "x2": 0.3514783401916161,
+        "y2": 0.4298569082523242,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0010",
+      "text": "n. 欺骗；诡计",
+      "raw_text": "n. 欺骗；诡计",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.43774619822492605,
+        "x2": 0.33121810057300993,
+        "y2": 0.45748743821324855,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0011",
+      "text": "记 词根记忆：de（非）+cept（拿）+ion→不拿来→欺骗",
+      "raw_text": "记 词根记忆：de（非）+cept（拿）+ion→不拿来→欺骗",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.4652724438428632,
+        "x2": 0.7982765692117544,
+        "y2": 0.4851185481357606,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0012",
+      "text": "搭 intentional deception 故意的欺骗行为",
+      "raw_text": "搭 intentional deception 故意的欺骗行为",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.49293146441678304,
+        "x2": 0.6128401066740639,
+        "y2": 0.5127490780966849,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0013",
+      "text": "例 The young boy didn't have the courage to admit his deception.\n那个男孩没有勇气承认他的欺骗行为。",
+      "raw_text": "例 The young boy didn't have the courage to admit his deception.\n那个男孩没有勇气承认他的欺骗行为。",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5204955162807179,
+        "x2": 0.8478140865079222,
+        "y2": 0.5595309183684491,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0014",
+      "text": "sharpen* [ˈʃɑːpən]",
+      "raw_text": "sharpen* [ˈʃɑːpən]",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5848134375939945,
+        "x2": 0.32547451102933334,
+        "y2": 0.6045546775823171,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0015",
+      "text": "v. 削尖，磨快；使敏锐，使敏捷；提高，改善",
+      "raw_text": "v. 削尖，磨快；使敏锐，使敏捷；提高，改善",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6124440038025182,
+        "x2": 0.6827405788204629,
+        "y2": 0.6321851712956421,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0016",
+      "text": "记 联想记忆：sharp（锋利的）+en（使…）→使变锋利的→削\n尖；使敏锐",
+      "raw_text": "记 联想记忆：sharp（锋利的）+en（使…）→使变锋利的→削\n尖；使敏锐",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6399702131728561,
+        "x2": 0.8653439988247633,
+        "y2": 0.6789670478150056,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0017",
+      "text": "搭 sharpen pencils 削铅笔",
+      "raw_text": "搭 sharpen pencils 削铅笔",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.6881297159485884,
+        "x2": 0.4558934896649755,
+        "y2": 0.7079472933808911,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0018",
+      "text": "例 The course can help the students sharpen their oral skills. 这门\n课程可以帮助学生们提高口语表达能力。",
+      "raw_text": "例 The course can help the students sharpen their oral skills. 这门\n课程可以帮助学生们提高口语表达能力。",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7156931878509356,
+        "x2": 0.8573477013946907,
+        "y2": 0.7547291699002546,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0019",
+      "text": "practical* [ˈpræktɪkl]",
+      "raw_text": "practical* [ˈpræktɪkl]",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7800117253733992,
+        "x2": 0.35288149950183756,
+        "y2": 0.7997528928665232,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0020",
+      "text": "adj. 实际的，实用的；实践的，应用的",
+      "raw_text": "adj. 实际的，实用的；实践的，应用的",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.8076422553343235,
+        "x2": 0.6016806417514309,
+        "y2": 0.8273834228274476,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0021",
+      "text": "记 来自practice （v./n. 实践）",
+      "raw_text": "记 来自practice （v./n. 实践）",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.8351678847430738,
+        "x2": 0.5046945349033795,
+        "y2": 0.8550139527883719,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0240-b0022",
+      "text": "搭 practical experience 实践经验；practical value 实用价值；\npractical material 实用材料",
+      "raw_text": "搭 practical experience 实践经验；practical value 实用价值；\npractical material 实用材料",
+      "block_type": "TEXT",
+      "reading_order": 22,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8628274852785813,
+        "x2": 0.8326909677482892,
+        "y2": 0.9031449649511089,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "aggravate",
+      "raw_text": "aggravate* [ˈæɡrəveɪt]\nvt. 恶化，加重，加剧\n记 词根记忆：ag（表加强）+grav（重）+ate（使…）→使…\n更重→加重，恶化\n搭 aggravate poverty 加重贫困；aggravate the situation 使情况恶\n化\n例 The pollution problems in the area will be further aggravated by\nthe heavy industry. 重工业的发展将使该地区的污染问题进一步恶\n化。\n派 aggravation （n. 恶化，激怒；恼人的事物）\n同 burden （vt. 使担负）；increase （v. 增加）\n反 decrease （v. 减少）；lessen （v. 减少，减轻）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        240
+      ],
+      "source_block_ids": [
+        "native-p0240-b0001",
+        "native-p0240-b0002",
+        "native-p0240-b0003",
+        "native-p0240-b0004",
+        "native-p0240-b0005",
+        "native-p0240-b0006",
+        "native-p0240-b0007",
+        "native-p0240-b0008"
+      ]
+    },
+    {
+      "lemma": "deception",
+      "raw_text": "deception* [dɪˈsepʃn]\nn. 欺骗；诡计\n记 词根记忆：de（非）+cept（拿）+ion→不拿来→欺骗\n搭 intentional deception 故意的欺骗行为\n例 The young boy didn't have the courage to admit his deception.\n那个男孩没有勇气承认他的欺骗行为。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        240
+      ],
+      "source_block_ids": [
+        "native-p0240-b0009",
+        "native-p0240-b0010",
+        "native-p0240-b0011",
+        "native-p0240-b0012",
+        "native-p0240-b0013"
+      ]
+    },
+    {
+      "lemma": "sharpen",
+      "raw_text": "sharpen* [ˈʃɑːpən]\nv. 削尖，磨快；使敏锐，使敏捷；提高，改善\n记 联想记忆：sharp（锋利的）+en（使…）→使变锋利的→削\n尖；使敏锐\n搭 sharpen pencils 削铅笔\n例 The course can help the students sharpen their oral skills. 这门\n课程可以帮助学生们提高口语表达能力。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        240
+      ],
+      "source_block_ids": [
+        "native-p0240-b0014",
+        "native-p0240-b0015",
+        "native-p0240-b0016",
+        "native-p0240-b0017",
+        "native-p0240-b0018"
+      ]
+    },
+    {
+      "lemma": "practical",
+      "raw_text": "practical* [ˈpræktɪkl]\nadj. 实际的，实用的；实践的，应用的\n记 来自practice （v./n. 实践）\n搭 practical experience 实践经验；practical value 实用价值；\npractical material 实用材料",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        240
+      ],
+      "source_block_ids": [
+        "native-p0240-b0019",
+        "native-p0240-b0020",
+        "native-p0240-b0021",
+        "native-p0240-b0022"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "aggravate",
+      "display_form": "aggravate",
+      "ipa": "ˈæɡrəveɪt",
+      "part_of_speech": "vt.",
+      "definition": "恶化，加重，加剧",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "deception",
+      "display_form": "deception",
+      "ipa": "dɪˈsepʃn",
+      "part_of_speech": "n.",
+      "definition": "欺骗；诡计",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "sharpen",
+      "display_form": "sharpen",
+      "ipa": "ˈʃɑːpən",
+      "part_of_speech": "v.",
+      "definition": "削尖，磨快；使敏锐，使敏捷；提高，改善",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "practical",
+      "display_form": "practical",
+      "ipa": "ˈpræktɪkl",
+      "part_of_speech": "adj.",
+      "definition": "实际的，实用的；实践的，应用的",
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

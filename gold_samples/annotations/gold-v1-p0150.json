@@ -1,0 +1,422 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0150",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 150,
+  "layout_tags": [
+    "IMAGE",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "b641f41b6653f81d7e9c65205a66569d02434523a3f3e18d876dce390ee19ca4",
+  "blocks": [
+    {
+      "source_block_id": "native-p0150-b0000",
+      "text": "149",
+      "raw_text": "149",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475026745291093,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672412321950886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0001",
+      "text": "adj. 磁的，有磁性的；有吸引力的",
+      "raw_text": "adj. 磁的，有磁性的；有吸引力的",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.08567703664567036,
+        "x2": 0.5512291255976719,
+        "y2": 0.10541827663399284,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0002",
+      "text": "搭 magnetic field 磁场；magnetic needle 磁针",
+      "raw_text": "搭 magnetic field 磁场；magnetic needle 磁针",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.11323178193850275,
+        "x2": 0.6660137175230082,
+        "y2": 0.1330493865565049,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0003",
+      "text": "例 The electric and magnetic fields are formed due to a passing\nwave oscillating at a regular frequency. 电场和磁场是由振波以固定频\n率振荡而形成的。",
+      "raw_text": "例 The electric and magnetic fields are formed due to a passing\nwave oscillating at a regular frequency. 电场和磁场是由振波以固定频\n率振荡而形成的。",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.14079524477895017,
+        "x2": 0.8598382572356661,
+        "y2": 0.20033114719229358,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0004",
+      "text": "slippery [ˈslɪpəri]",
+      "raw_text": "slippery [ˈslɪpəri]",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.22561364829403938,
+        "x2": 0.3108743038446324,
+        "y2": 0.24535488828236185,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0005",
+      "text": "adj. 滑的，滑溜的；狡猾的；棘手的",
+      "raw_text": "adj. 滑的，滑溜的；狡猾的；棘手的",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2532441782549637,
+        "x2": 0.5764548580278019,
+        "y2": 0.2729854182432862,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0006",
+      "text": "记 联想记忆：slipp（=slip，滑）+ery→滑的",
+      "raw_text": "记 联想记忆：slipp（=slip，滑）+ery→滑的",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.28077042387290085,
+        "x2": 0.6665803568057855,
+        "y2": 0.30061652816579826,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0007",
+      "text": "例 How damp and slippery the ground is! 地面又湿又滑！",
+      "raw_text": "例 How damp and slippery the ground is! 地面又湿又滑！",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.30836238638824354,
+        "x2": 0.7886912504780554,
+        "y2": 0.3282470581267226,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0008",
+      "text": "graphic [ˈgræfɪk]",
+      "raw_text": "graphic [ˈgræfɪk]",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5045948906689037,
+        "x2": 0.3094569618819544,
+        "y2": 0.5243361306572263,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0009",
+      "text": "adj. 文字的；生动的，形象的；绘画的，图表的",
+      "raw_text": "adj. 文字的；生动的，形象的；绘画的，图表的",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5322260005914158,
+        "x2": 0.7025837253524478,
+        "y2": 0.5519672405797383,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0010",
+      "text": "记 词根记忆：graph（画）+ic（…的）→绘画的，图表的",
+      "raw_text": "记 词根记忆：graph（画）+ic（…的）→绘画的，图表的",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.5597516662477653,
+        "x2": 0.8120842148976017,
+        "y2": 0.5795977705406626,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0011",
+      "text": "例 The graphic record shows three waves are arriving. 图表记录\n显示有三股浪潮正在靠近。",
+      "raw_text": "例 The graphic record shows three waves are arriving. 图表记录\n显示有三股浪潮正在靠近。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5873442087246956,
+        "x2": 0.8460527703413603,
+        "y2": 0.6263796108124269,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0012",
+      "text": "同 lifelike （adj. 逼真的，栩栩如生的）；vivid （adj. 逼真\n的）；pictorial （adj. 绘画的；用图片表示的）",
+      "raw_text": "同 lifelike （adj. 逼真的，栩栩如生的）；vivid （adj. 逼真\n的）；pictorial （adj. 绘画的；用图片表示的）",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.635498201865345,
+        "x2": 0.8188587011829512,
+        "y2": 0.6758597586185373,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0013",
+      "text": "反 vague （adj. 含糊的，模糊的）；obscure （adj. 模糊的；费\n解的）",
+      "raw_text": "反 vague （adj. 含糊的，模糊的）；obscure （adj. 模糊的；费\n解的）",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6836292140280819,
+        "x2": 0.8594687388693107,
+        "y2": 0.7226416351379007,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0014",
+      "text": "provided* [prəˈvaɪdɪd]",
+      "raw_text": "provided* [prəˈvaɪdɪd]",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7479241906110453,
+        "x2": 0.36506162811310505,
+        "y2": 0.7676653581041694,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0015",
+      "text": "conj. 倘若，只要，假如",
+      "raw_text": "conj. 倘若，只要，假如",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7755547205719697,
+        "x2": 0.4377131757815898,
+        "y2": 0.7952958880650938,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0016",
+      "text": "例 I'll buy the cup, provided that the price is right. 倘若价格合\n适，我就买这个杯子。",
+      "raw_text": "例 I'll buy the cup, provided that the price is right. 倘若价格合\n适，我就买这个杯子。",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8030423624967259,
+        "x2": 0.824746374165147,
+        "y2": 0.8420777645844572,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0150-b0017",
+      "text": "examine* [ɪgˈzæmɪn]",
+      "raw_text": "examine* [ɪgˈzæmɪn]",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8673603200576018,
+        "x2": 0.3501043155887919,
+        "y2": 0.8871014875507258,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "wave",
+      "raw_text": "wave oscillating at a regular frequency. 电场和磁场是由振波以固定频\n率振荡而形成的。",
+      "segmentation_confidence": 0.8,
+      "continuation_type": null,
+      "source_pages": [
+        150
+      ],
+      "source_block_ids": [
+        "native-p0150-b0003"
+      ]
+    },
+    {
+      "lemma": "slippery",
+      "raw_text": "slippery [ˈslɪpəri]\nadj. 滑的，滑溜的；狡猾的；棘手的\n记 联想记忆：slipp（=slip，滑）+ery→滑的\n例 How damp and slippery the ground is! 地面又湿又滑！",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        150
+      ],
+      "source_block_ids": [
+        "native-p0150-b0004",
+        "native-p0150-b0005",
+        "native-p0150-b0006",
+        "native-p0150-b0007"
+      ]
+    },
+    {
+      "lemma": "graphic",
+      "raw_text": "graphic [ˈgræfɪk]\nadj. 文字的；生动的，形象的；绘画的，图表的\n记 词根记忆：graph（画）+ic（…的）→绘画的，图表的\n例 The graphic record shows three waves are arriving. 图表记录\n显示有三股浪潮正在靠近。\n同 lifelike （adj. 逼真的，栩栩如生的）；vivid （adj. 逼真\n的）；pictorial （adj. 绘画的；用图片表示的）\n反 vague （adj. 含糊的，模糊的）；obscure （adj. 模糊的；费\n解的）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        150
+      ],
+      "source_block_ids": [
+        "native-p0150-b0008",
+        "native-p0150-b0009",
+        "native-p0150-b0010",
+        "native-p0150-b0011",
+        "native-p0150-b0012",
+        "native-p0150-b0013"
+      ]
+    },
+    {
+      "lemma": "provided",
+      "raw_text": "provided* [prəˈvaɪdɪd]\nconj. 倘若，只要，假如\n例 I'll buy the cup, provided that the price is right. 倘若价格合\n适，我就买这个杯子。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        150
+      ],
+      "source_block_ids": [
+        "native-p0150-b0014",
+        "native-p0150-b0015",
+        "native-p0150-b0016"
+      ]
+    },
+    {
+      "lemma": "examine",
+      "raw_text": "examine* [ɪgˈzæmɪn]",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        150
+      ],
+      "source_block_ids": [
+        "native-p0150-b0017"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "wave",
+      "display_form": "wave",
+      "ipa": null,
+      "part_of_speech": null,
+      "definition": "oscillating at a regular frequency. 电场和磁场是由振波以固定频 率振荡而形成的。",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "slippery",
+      "display_form": "slippery",
+      "ipa": "ˈslɪpəri",
+      "part_of_speech": "adj.",
+      "definition": "滑的，滑溜的；狡猾的；棘手的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "graphic",
+      "display_form": "graphic",
+      "ipa": "ˈgræfɪk",
+      "part_of_speech": "adj.",
+      "definition": "文字的；生动的，形象的；绘画的，图表的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "provided",
+      "display_form": "provided",
+      "ipa": "prəˈvaɪdɪd",
+      "part_of_speech": "conj.",
+      "definition": "倘若，只要，假如",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "examine",
+      "display_form": "examine",
+      "ipa": "ɪgˈzæmɪn",
+      "part_of_speech": null,
+      "definition": null,
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

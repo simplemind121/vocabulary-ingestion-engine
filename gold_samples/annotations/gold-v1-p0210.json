@@ -1,0 +1,493 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0210",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 210,
+  "layout_tags": [
+    "IPA_DENSE",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "32936628b2f4c320b2e919ac26863cd7bf96d3452761cb7ec20f69fece02b4fd",
+  "blocks": [
+    {
+      "source_block_id": "native-p0210-b0000",
+      "text": "209",
+      "raw_text": "209",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.947484115758303,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672226734242825,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0001",
+      "text": "n. 软木塞 vt. 用软木塞塞住",
+      "raw_text": "n. 软木塞 vt. 用软木塞塞住",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.08567645668408268,
+        "x2": 0.47066191387944634,
+        "y2": 0.10541769667240515,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0002",
+      "text": "例 When a volcano erupts, the shattered summit is ejected like a\ncork from a shaken soda bottle. 火山喷发时，被炸碎的山峰喷射而\n出，就像是装有苏打水的瓶子经过摇晃，上面的软木塞被顶飞出去\n一样。",
+      "raw_text": "例 When a volcano erupts, the shattered summit is ejected like a\ncork from a shaken soda bottle. 火山喷发时，被炸碎的山峰喷射而\n出，就像是装有苏打水的瓶子经过摇晃，上面的软木塞被顶飞出去\n一样。",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.11316355489485043,
+        "x2": 0.8609591227744776,
+        "y2": 0.19320051947159408,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0003",
+      "text": "data* [ˈdeɪtə]",
+      "raw_text": "data* [ˈdeɪtə]",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.21848186065016448,
+        "x2": 0.2702237955876101,
+        "y2": 0.23822310063848695,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0004",
+      "text": "n. 数据；资料",
+      "raw_text": "n. 数据；资料",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.24611355053426423,
+        "x2": 0.33121810057300993,
+        "y2": 0.2658547905225867,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0005",
+      "text": "记 联想记忆：数据（data）每日（date）更新",
+      "raw_text": "记 联想记忆：数据（data）每日（date）更新",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.27363921619061365,
+        "x2": 0.6801170189367391,
+        "y2": 0.29348532048351106,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0006",
+      "text": "例 You have to spend a bit of time making the data a lot clearer. 你\n要花一点时间把这些数据整理得更清楚些。",
+      "raw_text": "例 You have to spend a bit of time making the data a lot clearer. 你\n要花一点时间把这些数据整理得更清楚些。",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.30123117870595634,
+        "x2": 0.8645532582451222,
+        "y2": 0.3402671607552753,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0007",
+      "text": "insufficient* [ˌɪnsəˈfɪʃnt]",
+      "raw_text": "insufficient* [ˌɪnsəˈfɪʃnt]",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.36554967998082066,
+        "x2": 0.38652164831864017,
+        "y2": 0.38529091996914316,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0008",
+      "text": "adj. 不足的，不够的",
+      "raw_text": "adj. 不足的，不够的",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.393180209941745,
+        "x2": 0.3998745258428958,
+        "y2": 0.4129214499300675,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0009",
+      "text": "记 联想记忆：in（不）+sufficient（充分的）→不足的，不够\n的",
+      "raw_text": "记 联想记忆：in（不）+sufficient（充分的）→不足的，不够\n的",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.42070587559809447,
+        "x2": 0.8508712816316749,
+        "y2": 0.4597032902018317,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0010",
+      "text": "搭 insufficient for 不够做…；不能胜任…",
+      "raw_text": "搭 insufficient for 不够做…；不能胜任…",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.46886537837382686,
+        "x2": 0.6264137514177524,
+        "y2": 0.4886829920537288,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0011",
+      "text": "例 The company's funds for research were insufficient. 那家公司\n没有足够的研究资金。",
+      "raw_text": "例 The company's funds for research were insufficient. 那家公司\n没有足够的研究资金。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.49642885027617406,
+        "x2": 0.852248358197686,
+        "y2": 0.535464832325493,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0012",
+      "text": "grocery* [ˈgrəʊsəri]",
+      "raw_text": "grocery* [ˈgrəʊsəri]",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5607473515510384,
+        "x2": 0.33818121870070694,
+        "y2": 0.5804885915393608,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0013",
+      "text": "n. 杂货店；食品，杂货",
+      "raw_text": "n. 杂货店；食品，杂货",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5883778815119628,
+        "x2": 0.43212115852727745,
+        "y2": 0.6081191215002852,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0014",
+      "text": "例 I assisted in a grocery store last semester. 上学期，我在一家杂\n货店帮忙。",
+      "raw_text": "例 I assisted in a grocery store last semester. 上学期，我在一家杂\n货店帮忙。",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6158649797227305,
+        "x2": 0.8685293251088653,
+        "y2": 0.6549009617720495,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0015",
+      "text": "humid* [ˈhjuːmɪd]",
+      "raw_text": "humid* [ˈhjuːmɪd]",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6801835172451941,
+        "x2": 0.32213445790568235,
+        "y2": 0.699924684738318,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0016",
+      "text": "adj. 湿的，潮湿的，湿润的，多潮气的",
+      "raw_text": "adj. 湿的，潮湿的，湿润的，多潮气的",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7078140472061184,
+        "x2": 0.6016806417514309,
+        "y2": 0.7275552146992424,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0017",
+      "text": "记 词根记忆：hum（湿）+id（…的）→潮湿的，湿润的",
+      "raw_text": "记 词根记忆：hum（湿）+id（…的）→潮湿的，湿润的",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.7353396766148687,
+        "x2": 0.8009124395352234,
+        "y2": 0.7551857446601667,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0018",
+      "text": "搭 humid air 潮湿的空气；humid atmosphere 潮湿的大气；\nhumid climate 湿润的气候",
+      "raw_text": "搭 humid air 潮湿的空气；humid atmosphere 潮湿的大气；\nhumid climate 湿润的气候",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7629998571119638,
+        "x2": 0.8174545416495005,
+        "y2": 0.8033167568229037,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0019",
+      "text": "例 Summers in that city are extremely hot and humid. 那个城市的\n夏天非常湿热。",
+      "raw_text": "例 Summers in that city are extremely hot and humid. 那个城市的\n夏天非常湿热。",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8110638112161236,
+        "x2": 0.865058294035674,
+        "y2": 0.8500986333422672,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0210-b0020",
+      "text": "relation* [rɪˈleɪʃn]",
+      "raw_text": "relation* [rɪˈleɪʃn]",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8753811888154118,
+        "x2": 0.318783402326509,
+        "y2": 0.8951223563085358,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "cork",
+      "raw_text": "cork from a shaken soda bottle. 火山喷发时，被炸碎的山峰喷射而\n出，就像是装有苏打水的瓶子经过摇晃，上面的软木塞被顶飞出去\n一样。",
+      "segmentation_confidence": 0.8,
+      "continuation_type": null,
+      "source_pages": [
+        210
+      ],
+      "source_block_ids": [
+        "native-p0210-b0002"
+      ]
+    },
+    {
+      "lemma": "data",
+      "raw_text": "data* [ˈdeɪtə]\nn. 数据；资料\n记 联想记忆：数据（data）每日（date）更新\n例 You have to spend a bit of time making the data a lot clearer. 你\n要花一点时间把这些数据整理得更清楚些。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        210
+      ],
+      "source_block_ids": [
+        "native-p0210-b0003",
+        "native-p0210-b0004",
+        "native-p0210-b0005",
+        "native-p0210-b0006"
+      ]
+    },
+    {
+      "lemma": "insufficient",
+      "raw_text": "insufficient* [ˌɪnsəˈfɪʃnt]\nadj. 不足的，不够的\n记 联想记忆：in（不）+sufficient（充分的）→不足的，不够\n的\n搭 insufficient for 不够做…；不能胜任…\n例 The company's funds for research were insufficient. 那家公司\n没有足够的研究资金。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        210
+      ],
+      "source_block_ids": [
+        "native-p0210-b0007",
+        "native-p0210-b0008",
+        "native-p0210-b0009",
+        "native-p0210-b0010",
+        "native-p0210-b0011"
+      ]
+    },
+    {
+      "lemma": "grocery",
+      "raw_text": "grocery* [ˈgrəʊsəri]\nn. 杂货店；食品，杂货\n例 I assisted in a grocery store last semester. 上学期，我在一家杂\n货店帮忙。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        210
+      ],
+      "source_block_ids": [
+        "native-p0210-b0012",
+        "native-p0210-b0013",
+        "native-p0210-b0014"
+      ]
+    },
+    {
+      "lemma": "humid",
+      "raw_text": "humid* [ˈhjuːmɪd]\nadj. 湿的，潮湿的，湿润的，多潮气的\n记 词根记忆：hum（湿）+id（…的）→潮湿的，湿润的\n搭 humid air 潮湿的空气；humid atmosphere 潮湿的大气；\nhumid climate 湿润的气候\n例 Summers in that city are extremely hot and humid. 那个城市的\n夏天非常湿热。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        210
+      ],
+      "source_block_ids": [
+        "native-p0210-b0015",
+        "native-p0210-b0016",
+        "native-p0210-b0017",
+        "native-p0210-b0018",
+        "native-p0210-b0019"
+      ]
+    },
+    {
+      "lemma": "relation",
+      "raw_text": "relation* [rɪˈleɪʃn]",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        210
+      ],
+      "source_block_ids": [
+        "native-p0210-b0020"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "cork",
+      "display_form": "cork",
+      "ipa": null,
+      "part_of_speech": null,
+      "definition": "from a shaken soda bottle. 火山喷发时，被炸碎的山峰喷射而 出，就像是装有苏打水的瓶子经过摇晃，上面的软木塞被顶飞出去 一样。",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "data",
+      "display_form": "data",
+      "ipa": "ˈdeɪtə",
+      "part_of_speech": "n.",
+      "definition": "数据；资料",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "insufficient",
+      "display_form": "insufficient",
+      "ipa": "ˌɪnsəˈfɪʃnt",
+      "part_of_speech": "adj.",
+      "definition": "不足的，不够的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "grocery",
+      "display_form": "grocery",
+      "ipa": "ˈgrəʊsəri",
+      "part_of_speech": "n.",
+      "definition": "杂货店；食品，杂货",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "humid",
+      "display_form": "humid",
+      "ipa": "ˈhjuːmɪd",
+      "part_of_speech": "adj.",
+      "definition": "湿的，潮湿的，湿润的，多潮气的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "relation",
+      "display_form": "relation",
+      "ipa": "rɪˈleɪʃn",
+      "part_of_speech": null,
+      "definition": null,
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

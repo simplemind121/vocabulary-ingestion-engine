@@ -1,0 +1,369 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0180",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 180,
+  "layout_tags": [
+    "IPA_DENSE",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "6c3ac6451c2305e865c0f84d7d8d662cdec832a96fd7930978d4dc6708695925",
+  "blocks": [
+    {
+      "source_block_id": "native-p0180-b0000",
+      "text": "179",
+      "raw_text": "179",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475026745291093,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672412321950886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0001",
+      "text": "specialise* [ˈspeʃəlaɪz]",
+      "raw_text": "specialise* [ˈspeʃəlaɪz]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2478966424356299,
+        "x2": 0.3640675857504198,
+        "y2": 0.26763788242395237,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0002",
+      "text": "v. 专门研究，专攻；专用于，使适应特殊目的",
+      "raw_text": "v. 专门研究，专攻；专用于，使适应特殊目的",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2755274623773481,
+        "x2": 0.6827405788204629,
+        "y2": 0.29526870236567054,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0003",
+      "text": "记 来自special （adj. 特殊的，专门的）",
+      "raw_text": "记 来自special （adj. 特殊的，专门的）",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.3030531280336975,
+        "x2": 0.6149586820607348,
+        "y2": 0.32289923232659495,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0004",
+      "text": "搭 specialised equipment 专用设备",
+      "raw_text": "搭 specialised equipment 专用设备",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.3307124385884112,
+        "x2": 0.5483715134782902,
+        "y2": 0.35053005226831313,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0005",
+      "text": "例 Two years later, we will specialise and take courses in one or\ntwo subjects. 两年后，我们将专攻一两门学科并学习这些学科的课\n程。// As the brain evolved, one side became specialised for fine control\nof movement. 随着大脑的进化，大脑的一边开始专门负责对运动进\n行精密控制。",
+      "raw_text": "例 Two years later, we will specialise and take courses in one or\ntwo subjects. 两年后，我们将专攻一两门学科并学习这些学科的课\n程。// As the brain evolved, one side became specialised for fine control\nof movement. 随着大脑的进化，大脑的一边开始专门负责对运动进\n行精密控制。",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3582762004715523,
+        "x2": 0.8663416573791238,
+        "y2": 0.45881275918392733,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0006",
+      "text": "派 specialisation （n. 专门化，特殊化）",
+      "raw_text": "派 specialisation （n. 专门化，特殊化）",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.46786262478870366,
+        "x2": 0.6135668329670294,
+        "y2": 0.4877927510166183,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0007",
+      "text": "magnificent* [mægˈnɪfɪsnt]",
+      "raw_text": "magnificent* [mægˈnɪfɪsnt]",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5117258083703972,
+        "x2": 0.4145813465651411,
+        "y2": 0.5314670483587196,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0008",
+      "text": "adj. 壮丽的，宏伟的，华丽的；高尚的",
+      "raw_text": "adj. 壮丽的，宏伟的，华丽的；高尚的",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5393566283121153,
+        "x2": 0.6016806417514309,
+        "y2": 0.5590978683004378,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0009",
+      "text": "记 词根记忆：magni（大）+fic（做）+ent（有…性质的）→\n做得很大的→宏伟的，壮丽的",
+      "raw_text": "记 词根记忆：magni（大）+fic（做）+ent（有…性质的）→\n做得很大的→宏伟的，壮丽的",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5668825839492586,
+        "x2": 0.845919715005113,
+        "y2": 0.6072288804631747,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0010",
+      "text": "搭 magnificent performance 出色表演",
+      "raw_text": "搭 magnificent performance 出色表演",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.6150420867249909,
+        "x2": 0.5791400726972502,
+        "y2": 0.6348596641572937,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0011",
+      "text": "例 The garage around the corner contains the magnificent old\nRolls-Royce which used to belong to George. 街角的车库里停着一辆\n华丽的老式劳斯莱斯，它曾经是乔治的。",
+      "raw_text": "例 The garage around the corner contains the magnificent old\nRolls-Royce which used to belong to George. 街角的车库里停着一辆\n华丽的老式劳斯莱斯，它曾经是乔治的。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6426058486081321,
+        "x2": 0.8478042894496248,
+        "y2": 0.7021417328976759,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0012",
+      "text": "派 magnificently （adv. 壮观地；宏伟地）；magnificence （n.\n壮丽，宏伟；华丽）",
+      "raw_text": "派 magnificently （adv. 壮观地；宏伟地）；magnificence （n.\n壮丽，宏伟；华丽）",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7111915985024522,
+        "x2": 0.8500706414067386,
+        "y2": 0.7502727450604127,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0013",
+      "text": "spasmodic [spæzˈmɒdɪk]",
+      "raw_text": "spasmodic [spæzˈmɒdɪk]",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7755550105527635,
+        "x2": 0.38856415544638473,
+        "y2": 0.7952961780458876,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0014",
+      "text": "adj. 痉挛的；间歇性的",
+      "raw_text": "adj. 痉挛的；间歇性的",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.8031858304944818,
+        "x2": 0.42510028391977533,
+        "y2": 0.8229269979876058,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0015",
+      "text": "记 联想记忆：spasm（痉挛，一阵发作）+odic→痉挛的",
+      "raw_text": "记 联想记忆：spasm（痉挛，一阵发作）+odic→痉挛的",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.8307117498840259,
+        "x2": 0.79248743104102,
+        "y2": 0.850557817929324,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0180-b0016",
+      "text": "例 Since the arrival of Europeans, the region experienced a period\nof spasmodic activity, between 1831 and 1857. 自从欧洲人来到这个地",
+      "raw_text": "例 Since the arrival of Europeans, the region experienced a period\nof spasmodic activity, between 1831 and 1857. 自从欧洲人来到这个地",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8583040023801624,
+        "x2": 0.8627155147651414,
+        "y2": 0.8986888300920609,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "specialise",
+      "raw_text": "specialise* [ˈspeʃəlaɪz]\nv. 专门研究，专攻；专用于，使适应特殊目的\n记 来自special （adj. 特殊的，专门的）\n搭 specialised equipment 专用设备\n例 Two years later, we will specialise and take courses in one or\ntwo subjects. 两年后，我们将专攻一两门学科并学习这些学科的课\n程。// As the brain evolved, one side became specialised for fine control\nof movement. 随着大脑的进化，大脑的一边开始专门负责对运动进\n行精密控制。\n派 specialisation （n. 专门化，特殊化）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        180
+      ],
+      "source_block_ids": [
+        "native-p0180-b0001",
+        "native-p0180-b0002",
+        "native-p0180-b0003",
+        "native-p0180-b0004",
+        "native-p0180-b0005",
+        "native-p0180-b0006"
+      ]
+    },
+    {
+      "lemma": "magnificent",
+      "raw_text": "magnificent* [mægˈnɪfɪsnt]\nadj. 壮丽的，宏伟的，华丽的；高尚的\n记 词根记忆：magni（大）+fic（做）+ent（有…性质的）→\n做得很大的→宏伟的，壮丽的\n搭 magnificent performance 出色表演\n例 The garage around the corner contains the magnificent old\nRolls-Royce which used to belong to George. 街角的车库里停着一辆\n华丽的老式劳斯莱斯，它曾经是乔治的。\n派 magnificently （adv. 壮观地；宏伟地）；magnificence （n.\n壮丽，宏伟；华丽）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        180
+      ],
+      "source_block_ids": [
+        "native-p0180-b0007",
+        "native-p0180-b0008",
+        "native-p0180-b0009",
+        "native-p0180-b0010",
+        "native-p0180-b0011",
+        "native-p0180-b0012"
+      ]
+    },
+    {
+      "lemma": "spasmodic",
+      "raw_text": "spasmodic [spæzˈmɒdɪk]\nadj. 痉挛的；间歇性的\n记 联想记忆：spasm（痉挛，一阵发作）+odic→痉挛的\n例 Since the arrival of Europeans, the region experienced a period\nof spasmodic activity, between 1831 and 1857. 自从欧洲人来到这个地",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        180
+      ],
+      "source_block_ids": [
+        "native-p0180-b0013",
+        "native-p0180-b0014",
+        "native-p0180-b0015",
+        "native-p0180-b0016"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "specialise",
+      "display_form": "specialise",
+      "ipa": "ˈspeʃəlaɪz",
+      "part_of_speech": "v.",
+      "definition": "专门研究，专攻；专用于，使适应特殊目的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "magnificent",
+      "display_form": "magnificent",
+      "ipa": "mægˈnɪfɪsnt",
+      "part_of_speech": "adj.",
+      "definition": "壮丽的，宏伟的，华丽的；高尚的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "spasmodic",
+      "display_form": "spasmodic",
+      "ipa": "spæzˈmɒdɪk",
+      "part_of_speech": "adj.",
+      "definition": "痉挛的；间歇性的",
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

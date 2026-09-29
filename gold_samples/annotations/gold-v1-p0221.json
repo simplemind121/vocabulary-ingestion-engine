@@ -1,0 +1,516 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0221",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 221,
+  "layout_tags": [
+    "BOUNDARY_ENTRY",
+    "CROSS_PAGE_ENTRY",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "5a96fc6751a72e782a5542478b03e86a4e964e50501023eb312b79ae3855d356",
+  "blocks": [
+    {
+      "source_block_id": "native-p0221-b0000",
+      "text": "220",
+      "raw_text": "220",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.947484115758303,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672226734242825,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0001",
+      "text": "例 By way of introduction, I shall give you the background of the\nsubject. 通过介绍，我将向你讲述该学科的相关背景。",
+      "raw_text": "例 By way of introduction, I shall give you the background of the\nsubject. 通过介绍，我将向你讲述该学科的相关背景。",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.08553360489551376,
+        "x2": 0.8538989829935378,
+        "y2": 0.12591817887421772,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0002",
+      "text": "compact* [kəmˈpækt]",
+      "raw_text": "compact* [kəmˈpækt]",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.1498515262087904,
+        "x2": 0.3570839758698967,
+        "y2": 0.16959276619711286,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0003",
+      "text": "adj. 紧密的，结实的；简明的；小巧的；紧凑的 vt. 使紧凑，压\n缩",
+      "raw_text": "adj. 紧密的，结实的；简明的；小巧的；紧凑的 vt. 使紧凑，压\n缩",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.17748205616971474,
+        "x2": 0.8672532454422649,
+        "y2": 0.21637462459267667,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0004",
+      "text": "记 词根记忆：com（表加强）+pact（系紧）→紧密的",
+      "raw_text": "记 词根记忆：com（表加强）+pact（系紧）→紧密的",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.22550820402787672,
+        "x2": 0.7714372458920062,
+        "y2": 0.24535430832077415,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0005",
+      "text": "搭 compact car 小型客车；compact narration 简明的叙述",
+      "raw_text": "搭 compact car 小型客车；compact narration 简明的叙述",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.2531678045633843,
+        "x2": 0.7879177445140577,
+        "y2": 0.2729854182432862,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0006",
+      "text": "例 The bag must be compact and light for easy transport. 这个包必\n须轻便结实以便于运输。",
+      "raw_text": "例 The bag must be compact and light for easy transport. 这个包必\n须轻便结实以便于运输。",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2807312764657315,
+        "x2": 0.8699038882934284,
+        "y2": 0.3197672585150504,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0007",
+      "text": "派 compaction （n. 压紧，紧束的状态）；compactness （n. 紧\n密）",
+      "raw_text": "派 compaction （n. 压紧，紧束的状态）；compactness （n. 紧\n密）",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3288168341390329,
+        "x2": 0.8552685194152049,
+        "y2": 0.36789827067778735,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0008",
+      "text": "enquire* [ɪnˈkwaɪə(r)]",
+      "raw_text": "enquire* [ɪnˈkwaɪə(r)]",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.393180209941745,
+        "x2": 0.36081739883690966,
+        "y2": 0.4129214499300675,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0009",
+      "text": "v. 打听，询问；查问，调查",
+      "raw_text": "v. 打听，询问；查问，调查",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.42081131986425707,
+        "x2": 0.4809344629119278,
+        "y2": 0.4405525598525796,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0010",
+      "text": "记 词根记忆：en（使…）+quir（寻求）+e→询问；查问",
+      "raw_text": "记 词根记忆：en（使…）+quir（寻求）+e→询问；查问",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.4483369855206065,
+        "x2": 0.8010848882786559,
+        "y2": 0.4681830898135039,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0011",
+      "text": "例 If you have any question, welcome to call the Students' Union to\nenquire. 有任何问题，欢迎致电学生会询问。",
+      "raw_text": "例 If you have any question, welcome to call the Students' Union to\nenquire. 有任何问题，欢迎致电学生会询问。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4759295279975369,
+        "x2": 0.8696367517509549,
+        "y2": 0.5163141019762408,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0012",
+      "text": "派 enquiry （n. 打听，询问；调查）",
+      "raw_text": "派 enquiry （n. 打听，询问；调查）",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.5240150856708383,
+        "x2": 0.5785488125349821,
+        "y2": 0.5439452118987529,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0013",
+      "text": "memorandum [ˌmeməˈrændəm]",
+      "raw_text": "memorandum [ˌmeməˈrændəm]",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5678779792717379,
+        "x2": 0.46498244120944326,
+        "y2": 0.5876192192600603,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0014",
+      "text": "n. 备忘录；简报",
+      "raw_text": "n. 备忘录；简报",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5955090891942499,
+        "x2": 0.35644383300314,
+        "y2": 0.6152502929349731,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0015",
+      "text": "记 词根记忆：memor（记忆）+andum→辅助记忆的东西→备\n忘录",
+      "raw_text": "记 词根记忆：memor（记忆）+andum→辅助记忆的东西→备\n忘录",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6230347548505993,
+        "x2": 0.8513270243697465,
+        "y2": 0.6620321694543366,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0016",
+      "text": "rectangular [rekˈtæŋgjələ(r)]",
+      "raw_text": "rectangular [rekˈtæŋgjələ(r)]",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6873147249274812,
+        "x2": 0.42933294651196,
+        "y2": 0.7070558924206053,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0017",
+      "text": "adj. 长方形的，矩形的",
+      "raw_text": "adj. 长方形的，矩形的",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7149452548884057,
+        "x2": 0.42510028391977533,
+        "y2": 0.7346864223815296,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0018",
+      "text": "记 词根记忆：rect（直的）+angul（角）+ar→所有内角都为直\n角的平行四边形→长方形的",
+      "raw_text": "记 词根记忆：rect（直的）+angul（角）+ar→所有内角都为直\n角的平行四边形→长方形的",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7424708842971558,
+        "x2": 0.8641123393282439,
+        "y2": 0.7828174345442666,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0019",
+      "text": "例 In front of the Empire State Building is a long rectangular\nwading pool. 帝国大厦前面是一个长方形的浅水池。",
+      "raw_text": "例 In front of the Empire State Building is a long rectangular\nwading pool. 帝国大厦前面是一个长方形的浅水池。",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.790563329014311,
+        "x2": 0.8104389246256395,
+        "y2": 0.8309484467070035,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0020",
+      "text": "kidney [ˈkɪdni]",
+      "raw_text": "kidney [ˈkɪdni]",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8548818665367746,
+        "x2": 0.28568165572131793,
+        "y2": 0.8746230340298986,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0221-b0021",
+      "text": "n. 肾，肾脏",
+      "raw_text": "n. 肾，肾脏",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.882512396497699,
+        "x2": 0.30599231684938094,
+        "y2": 0.902253563990823,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "introduction",
+      "raw_text": "introduction* [ˌɪntrəˈdʌkʃn]\nn. 介绍；传入，引进；导言，绪论\n记 词根记忆：intro（向内）+duc（引导）+tion→介绍；传\n入，引进\n例 By way of introduction, I shall give you the background of the\nsubject. 通过介绍，我将向你讲述该学科的相关背景。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        220,
+        221
+      ],
+      "source_block_ids": [
+        "native-p0220-b0018",
+        "native-p0220-b0019",
+        "native-p0220-b0020",
+        "native-p0221-b0001"
+      ]
+    },
+    {
+      "lemma": "compact",
+      "raw_text": "compact* [kəmˈpækt]\nadj. 紧密的，结实的；简明的；小巧的；紧凑的 vt. 使紧凑，压\n缩\n记 词根记忆：com（表加强）+pact（系紧）→紧密的\n搭 compact car 小型客车；compact narration 简明的叙述\n例 The bag must be compact and light for easy transport. 这个包必\n须轻便结实以便于运输。\n派 compaction （n. 压紧，紧束的状态）；compactness （n. 紧\n密）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        221
+      ],
+      "source_block_ids": [
+        "native-p0221-b0002",
+        "native-p0221-b0003",
+        "native-p0221-b0004",
+        "native-p0221-b0005",
+        "native-p0221-b0006",
+        "native-p0221-b0007"
+      ]
+    },
+    {
+      "lemma": "enquire",
+      "raw_text": "enquire* [ɪnˈkwaɪə(r)]\nv. 打听，询问；查问，调查\n记 词根记忆：en（使…）+quir（寻求）+e→询问；查问\n例 If you have any question, welcome to call the Students' Union to\nenquire. 有任何问题，欢迎致电学生会询问。\n派 enquiry （n. 打听，询问；调查）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        221
+      ],
+      "source_block_ids": [
+        "native-p0221-b0008",
+        "native-p0221-b0009",
+        "native-p0221-b0010",
+        "native-p0221-b0011",
+        "native-p0221-b0012"
+      ]
+    },
+    {
+      "lemma": "memorandum",
+      "raw_text": "memorandum [ˌmeməˈrændəm]\nn. 备忘录；简报\n记 词根记忆：memor（记忆）+andum→辅助记忆的东西→备\n忘录",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        221
+      ],
+      "source_block_ids": [
+        "native-p0221-b0013",
+        "native-p0221-b0014",
+        "native-p0221-b0015"
+      ]
+    },
+    {
+      "lemma": "rectangular",
+      "raw_text": "rectangular [rekˈtæŋgjələ(r)]\nadj. 长方形的，矩形的\n记 词根记忆：rect（直的）+angul（角）+ar→所有内角都为直\n角的平行四边形→长方形的\n例 In front of the Empire State Building is a long rectangular\nwading pool. 帝国大厦前面是一个长方形的浅水池。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        221
+      ],
+      "source_block_ids": [
+        "native-p0221-b0016",
+        "native-p0221-b0017",
+        "native-p0221-b0018",
+        "native-p0221-b0019"
+      ]
+    },
+    {
+      "lemma": "kidney",
+      "raw_text": "kidney [ˈkɪdni]\nn. 肾，肾脏",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        221
+      ],
+      "source_block_ids": [
+        "native-p0221-b0020",
+        "native-p0221-b0021"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "introduction",
+      "display_form": "introduction",
+      "ipa": "ˌɪntrəˈdʌkʃn",
+      "part_of_speech": "n.",
+      "definition": "介绍；传入，引进；导言，绪论",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "compact",
+      "display_form": "compact",
+      "ipa": "kəmˈpækt",
+      "part_of_speech": "adj.",
+      "definition": "紧密的，结实的；简明的；小巧的；紧凑的 vt. 使紧凑，压",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "enquire",
+      "display_form": "enquire",
+      "ipa": "ɪnˈkwaɪə(r)",
+      "part_of_speech": "v.",
+      "definition": "打听，询问；查问，调查",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "memorandum",
+      "display_form": "memorandum",
+      "ipa": "ˌmeməˈrændəm",
+      "part_of_speech": "n.",
+      "definition": "备忘录；简报",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "rectangular",
+      "display_form": "rectangular",
+      "ipa": "rekˈtæŋgjələ(r)",
+      "part_of_speech": "adj.",
+      "definition": "长方形的，矩形的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "kidney",
+      "display_form": "kidney",
+      "ipa": "ˈkɪdni",
+      "part_of_speech": "n.",
+      "definition": "肾，肾脏",
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

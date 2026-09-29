@@ -1,0 +1,387 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0060",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 60,
+  "layout_tags": [
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "76083276c9e031d114e511d71c1ca806a3286824b8af80e3090541741342b758",
+  "blocks": [
+    {
+      "source_block_id": "native-p0060-b0000",
+      "text": "59",
+      "raw_text": "59",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4874224237122049,
+        "y1": 0.9474980348364077,
+        "x2": 0.512644770771405,
+        "y2": 0.9672365925023871,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0001",
+      "text": "internal [ɪnˈtɜːnl]",
+      "raw_text": "internal [ɪnˈtɜːnl]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.09102486244579806,
+        "x2": 0.3102625775762878,
+        "y2": 0.11076610243412054,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0002",
+      "text": "adj. 内部的；国内的",
+      "raw_text": "adj. 内部的；国内的",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.11865539240672242,
+        "x2": 0.3998745258428958,
+        "y2": 0.1383966323950449,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0003",
+      "text": "搭 internal organ 内脏；internal clock 生物钟；internal trade 国\n内贸易",
+      "raw_text": "搭 internal organ 内脏；internal clock 生物钟；internal trade 国\n内贸易",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.14620955773796712,
+        "x2": 0.8505017632653196,
+        "y2": 0.18517849079060872,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0004",
+      "text": "例 The theory lacks internal consistency. 这种理论缺乏内在统一\n性。",
+      "raw_text": "例 The theory lacks internal consistency. 这种理论缺乏内在统一\n性。",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.19427350278022712,
+        "x2": 0.8620381328181551,
+        "y2": 0.23330950295334565,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0005",
+      "text": "cruise [kruːz]",
+      "raw_text": "cruise [kruːz]",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2585920040550914,
+        "x2": 0.26880168332953075,
+        "y2": 0.2783332440434139,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0006",
+      "text": "v. 乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；\n航行",
+      "raw_text": "v. 乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；\n航行",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2862225340160158,
+        "x2": 0.8656273441129015,
+        "y2": 0.3251150843151781,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0007",
+      "text": "例 The famous Crocodile Cruise leaves at 11 a.m. each day. 著名\n的“鳄鱼”号巡游艇每天上午11点出航。",
+      "raw_text": "例 The famous Crocodile Cruise leaves at 11 a.m. each day. 著名\n的“鳄鱼”号巡游艇每天上午11点出航。",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3342101144285961,
+        "x2": 0.8490852932921235,
+        "y2": 0.37459526836888773,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0008",
+      "text": "illusion [ɪˈluːʒn]",
+      "raw_text": "illusion [ɪˈluːʒn]",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.39852861570346043,
+        "x2": 0.29689846677576454,
+        "y2": 0.4182698556917829,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0009",
+      "text": "n. 幻想中的事物，错误的观念；错觉，幻觉，假象",
+      "raw_text": "n. 幻想中的事物，错误的观念；错觉，幻觉，假象",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.4261591456643848,
+        "x2": 0.7348303067433306,
+        "y2": 0.44590038565270723,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0010",
+      "text": "记 联想记忆：il（不，无）+lus（看作lust，光）+ion（表名\n词）→看到根本没有的光→幻觉，假象",
+      "raw_text": "记 联想记忆：il（不，无）+lus（看作lust，光）+ion（表名\n词）→看到根本没有的光→幻觉，假象",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4536848113207342,
+        "x2": 0.8375809308826258,
+        "y2": 0.4940313978154442,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0011",
+      "text": "例 He will be presenting his show of magic illusion and mystery at\n9:30. 他将在9点30分表演神秘魔幻节目。",
+      "raw_text": "例 He will be presenting his show of magic illusion and mystery at\n9:30. 他将在9点30分表演神秘魔幻节目。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5017772560378895,
+        "x2": 0.8643811172626834,
+        "y2": 0.5421624099781811,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0012",
+      "text": "同 mirage （n. 幻景，幻想）",
+      "raw_text": "同 mirage （n. 幻景，幻想）",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.5499312129309396,
+        "x2": 0.4958507149903404,
+        "y2": 0.5697929399391055,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0013",
+      "text": "shave [ʃeɪv]",
+      "raw_text": "shave [ʃeɪv]",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5937262872736782,
+        "x2": 0.2520108077454004,
+        "y2": 0.6134674910144013,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0014",
+      "text": "n./v. 修面",
+      "raw_text": "n./v. 修面",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6213568534822017,
+        "x2": 0.2798304524168676,
+        "y2": 0.6410980209753258,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0015",
+      "text": "记 联想记忆：不要在阴暗处（shade）修面（shave）",
+      "raw_text": "记 联想记忆：不要在阴暗处（shade）修面（shave）",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.648882482890952,
+        "x2": 0.7614109569479302,
+        "y2": 0.6687285509362502,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "native-p0060-b0016",
+      "text": "例 How do you shave your beard so clean? 你是怎样把胡须刮得\n那么干净的？",
+      "raw_text": "例 How do you shave your beard so clean? 你是怎样把胡须刮得\n那么干净的？",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.67647560532947,
+        "x2": 0.8552242018321217,
+        "y2": 0.7155104274556136,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "lemma": "internal",
+      "raw_text": "internal [ɪnˈtɜːnl]\nadj. 内部的；国内的\n搭 internal organ 内脏；internal clock 生物钟；internal trade 国\n内贸易\n例 The theory lacks internal consistency. 这种理论缺乏内在统一\n性。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        60
+      ],
+      "source_block_ids": [
+        "native-p0060-b0001",
+        "native-p0060-b0002",
+        "native-p0060-b0003",
+        "native-p0060-b0004"
+      ]
+    },
+    {
+      "lemma": "cruise",
+      "raw_text": "cruise [kruːz]\nv. 乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；\n航行\n例 The famous Crocodile Cruise leaves at 11 a.m. each day. 著名\n的“鳄鱼”号巡游艇每天上午11点出航。",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        60
+      ],
+      "source_block_ids": [
+        "native-p0060-b0005",
+        "native-p0060-b0006",
+        "native-p0060-b0007"
+      ]
+    },
+    {
+      "lemma": "illusion",
+      "raw_text": "illusion [ɪˈluːʒn]\nn. 幻想中的事物，错误的观念；错觉，幻觉，假象\n记 联想记忆：il（不，无）+lus（看作lust，光）+ion（表名\n词）→看到根本没有的光→幻觉，假象\n例 He will be presenting his show of magic illusion and mystery at\n9:30. 他将在9点30分表演神秘魔幻节目。\n同 mirage （n. 幻景，幻想）",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        60
+      ],
+      "source_block_ids": [
+        "native-p0060-b0008",
+        "native-p0060-b0009",
+        "native-p0060-b0010",
+        "native-p0060-b0011",
+        "native-p0060-b0012"
+      ]
+    },
+    {
+      "lemma": "shave",
+      "raw_text": "shave [ʃeɪv]\nn./v. 修面\n记 联想记忆：不要在阴暗处（shade）修面（shave）\n例 How do you shave your beard so clean? 你是怎样把胡须刮得\n那么干净的？",
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        60
+      ],
+      "source_block_ids": [
+        "native-p0060-b0013",
+        "native-p0060-b0014",
+        "native-p0060-b0015",
+        "native-p0060-b0016"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "lemma": "internal",
+      "display_form": "internal",
+      "ipa": "ɪnˈtɜːnl",
+      "part_of_speech": "adj.",
+      "definition": "内部的；国内的",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "cruise",
+      "display_form": "cruise",
+      "ipa": "kruːz",
+      "part_of_speech": "v.",
+      "definition": "乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "illusion",
+      "display_form": "illusion",
+      "ipa": "ɪˈluːʒn",
+      "part_of_speech": "n.",
+      "definition": "幻想中的事物，错误的观念；错觉，幻觉，假象",
+      "machine_verification_status": "PARSED"
+    },
+    {
+      "lemma": "shave",
+      "display_form": "shave",
+      "ipa": "ʃeɪv",
+      "part_of_speech": "n.",
+      "definition": "/v. 修面",
+      "machine_verification_status": "PARSED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=pymupdf-native@1.26.7"
+  ]
+}

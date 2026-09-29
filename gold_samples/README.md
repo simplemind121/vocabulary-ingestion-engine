@@ -35,3 +35,26 @@ Every manifest page requires:
 A page is benchmark-eligible only when `review_status` is `HUMAN_VERIFIED`.
 
 No benchmark score may be described as Gold Sample Dataset v1 unless all 30 pages pass manifest validation.
+
+## Build the private review packet
+
+After the confirmed source PDF has been ingested and its processing run contains
+the 30 selected pages, build the side-by-side reviewer packet with:
+
+```bash
+python -m app.gold_review_packet_cli RUN_ID
+```
+
+For the confirmed source PDF, the same packet can be produced without rendering
+all 1120 pages into the database first:
+
+```bash
+python -m app.gold_review_packet_cli --pdf /private/path/source.pdf
+```
+
+The default output is `data-private/gold-review-packet-v1/index.html`. It copies
+the 30 copyrighted page renders into that ignored private directory, verifies
+every render against the frozen SHA-256 registry, and shows the source page next
+to the machine annotation plus automatic review flags. All emitted annotations
+remain `DRAFT`; this command cannot assign a reviewer or create
+`HUMAN_VERIFIED` ground truth.

@@ -4,8 +4,9 @@ import re
 from typing import Any
 
 _SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
-_EXPECTED_RENDER_CONTRACT = {
+GOLD_RENDER_CONTRACT = {
     "engine": "PyMuPDF",
+    "engine_version": "1.26.7",
     "matrix": [2, 2],
     "dpi": 144,
     "alpha": False,
@@ -23,7 +24,7 @@ def validate_page_hash_registry(
 
     if registry.get("source_document_sha256") != selection_plan.get("source_document_sha256"):
         errors.append("source document SHA256 does not match selection plan")
-    if registry.get("render_contract") != _EXPECTED_RENDER_CONTRACT:
+    if registry.get("render_contract") != GOLD_RENDER_CONTRACT:
         errors.append("render contract does not match frozen Gold Sample render contract")
 
     candidates = selection_plan.get("candidates")

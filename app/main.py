@@ -22,6 +22,7 @@ from app.models import (
 )
 from app.services.gates import evaluate_g5_review_resolution
 from app.services.gold import build_gold_dataset, publish_gold_release
+from app.services.gold_page_hashes import GOLD_RENDER_CONTRACT
 from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
@@ -70,11 +71,15 @@ async def ingest_document(file: Annotated[UploadFile, File()], db: DbSession) ->
     document = Document(original_filename=file.filename or "upload.pdf"); db.add(document); db.flush()
     source_artifact = Artifact(artifact_type="ORIGINAL_PDF", object_key=str(source_path), mime_type=file.content_type, byte_size=len(payload), sha256=digest); db.add(source_artifact); db.flush()
     version = DocumentVersion(document_id=document.id, source_artifact_id=source_artifact.id, sha256=digest, mime_type=file.content_type or "application/pdf", file_size=len(payload), page_count=pdf.page_count); db.add(version); db.flush()
-    run = ProcessingRun(document_version_id=version.id, configuration_snapshot={"renderer": "pymupdf"}); db.add(run); db.flush()
+    run = ProcessingRun(
+        document_version_id=version.id,
+        configuration_snapshot={"render_contract": GOLD_RENDER_CONTRACT},
+    ); db.add(run); db.flush()
     run_page_dir = PAGE_DIR / run.id; run_page_dir.mkdir(parents=True, exist_ok=True); rendered = []
     try:
         for index, page in enumerate(pdf):
-            pix = page.get_pixmap(matrix=fitz.Matrix(1.5, 1.5), alpha=False); page_path = run_page_dir / f"page-{index + 1:04d}.png"; pix.save(page_path); page_bytes = page_path.read_bytes(); page_digest = hashlib.sha256(page_bytes).hexdigest()
+            matrix = GOLD_RENDER_CONTRACT["matrix"]
+            pix = page.get_pixmap(matrix=fitz.Matrix(*matrix), alpha=False); page_path = run_page_dir / f"page-{index + 1:04d}.png"; pix.save(page_path); page_bytes = page_path.read_bytes(); page_digest = hashlib.sha256(page_bytes).hexdigest()
             artifact = Artifact(artifact_type="PAGE_IMAGE", object_key=str(page_path), mime_type="image/png", byte_size=len(page_bytes), sha256=page_digest); db.add(artifact); db.flush()
             page_row = Page(document_version_id=version.id, page_number=index + 1, render_artifact_id=artifact.id); db.add(page_row); rendered.append({"page_number": index + 1, "artifact_id": artifact.id})
     finally: pdf.close()

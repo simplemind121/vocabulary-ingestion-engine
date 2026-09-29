@@ -48,6 +48,12 @@ def test_render_contract_drift_fails_closed() -> None:
     assert "render contract does not match frozen Gold Sample render contract" in result["errors"]
 
 
+def test_render_contract_pins_engine_version() -> None:
+    registry = _load("page_image_hashes_v1.json")
+
+    assert registry["render_contract"]["engine_version"] == "1.26.7"
+
+
 def test_source_digest_mismatch_fails_closed() -> None:
     registry = _load("page_image_hashes_v1.json")
     registry["source_document_sha256"] = "0" * 64

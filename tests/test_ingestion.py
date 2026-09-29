@@ -1,7 +1,10 @@
 import fitz
 from fastapi.testclient import TestClient
 
+from app.db import SessionLocal
 from app.main import app
+from app.models import ProcessingRun
+from app.services.gold_page_hashes import GOLD_RENDER_CONTRACT
 
 client = TestClient(app)
 
@@ -33,3 +36,10 @@ def test_pdf_ingestion_persists_document_run_and_g0():
     assert run.status_code == 200
     assert run.json()["status"] == "READY"
     assert run.json()["gates"][0]["gate"] == "G0"
+
+    db = SessionLocal()
+    try:
+        persisted_run = db.get(ProcessingRun, body["run_id"])
+        assert persisted_run.configuration_snapshot["render_contract"] == GOLD_RENDER_CONTRACT
+    finally:
+        db.close()

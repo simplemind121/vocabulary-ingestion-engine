@@ -26,6 +26,15 @@ OpenAPI: `http://localhost:8000/docs`
 
 Human review UI: `http://localhost:8000/review`
 
+30-page Gold source sign-off (local copyrighted packet only):
+
+```bash
+python -m app.gold_review_server_cli
+```
+
+Then open `http://127.0.0.1:8765`. This separate UI requires a real reviewer and
+four explicit source checks; it never promotes machine annotations by itself.
+
 Liveness: `GET /health/live`
 
 Readiness: `GET /health/ready`

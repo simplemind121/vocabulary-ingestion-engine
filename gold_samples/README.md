@@ -64,3 +64,24 @@ every render against the frozen SHA-256 registry, and shows the source page next
 to the machine annotation plus automatic review flags. All emitted annotations
 remain `DRAFT`; this command cannot assign a reviewer or create
 `HUMAN_VERIFIED` ground truth.
+
+## Perform explicit human sign-off
+
+After the private packet exists, start the local reviewer application:
+
+```bash
+python -m app.gold_review_server_cli
+```
+
+Open `http://127.0.0.1:8765`. The application is intentionally local-only: it
+serves copyrighted page images and therefore refuses a non-loopback bind. For
+each page, compare the frozen source image with the editable machine draft,
+correct fields when necessary, enter the real reviewer identity, and explicitly
+confirm all four checks. Pages with no detected blocks require a truthful human
+classification. Use **发现问题，保持 DRAFT** when a machine correction is needed.
+
+The application writes annotations atomically to `gold_samples/annotations`.
+It cannot auto-check the human controls, invent a reviewer, or promote an
+already verified page. Frozen document, page-image, page-number, schema, and
+layout identity fields must still match the private packet. The corpus remains
+unpublishable until all 30 annotations independently satisfy the readiness Gate.

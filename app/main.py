@@ -1,15 +1,20 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 from typing import Annotated
 
 import fitz
+import redis
+from botocore.exceptions import BotoCoreError, ClientError
 from fastapi import Depends, FastAPI, File, HTTPException, Response, UploadFile
 from pydantic import BaseModel
+from sqlalchemy import text
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
-from app.db import Base, engine, get_db
+from app.db import get_db
 from app.models import (
     Artifact,
     Document,
@@ -27,7 +32,7 @@ from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
 from app.settings import get_settings
-from app.storage import LocalStorageAdapter
+from app.storage import build_storage_adapter
 
 APP_VERSION = "0.1.0-alpha.4"
 DATA_DIR = Path("data")
@@ -35,7 +40,6 @@ BRONZE_DIR = DATA_DIR / "bronze"
 PAGE_DIR = DATA_DIR / "pages"
 BRONZE_DIR.mkdir(parents=True, exist_ok=True)
 PAGE_DIR.mkdir(parents=True, exist_ok=True)
-Base.metadata.create_all(bind=engine)
 app = FastAPI(title="Vocabulary Ingestion Engine", version=APP_VERSION)
 DbSession = Annotated[Session, Depends(get_db)]
 
@@ -59,6 +63,44 @@ class ReviewResolutionRequest(BaseModel):
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "version": APP_VERSION}
+
+
+@app.get("/health/live")
+def health_live() -> dict:
+    return {"status": "ok", "version": APP_VERSION}
+
+
+@app.get("/health/ready")
+def health_ready(db: DbSession) -> Response:
+    checks: dict[str, str] = {}
+    try:
+        db.execute(text("SELECT 1"))
+        checks["database"] = "ok"
+    except SQLAlchemyError:
+        checks["database"] = "unavailable"
+
+    settings = get_settings()
+    if settings.redis_url:
+        try:
+            redis.Redis.from_url(settings.redis_url, socket_timeout=1).ping()
+            checks["redis"] = "ok"
+        except redis.RedisError:
+            checks["redis"] = "unavailable"
+    else:
+        checks["redis"] = "not_configured"
+
+    try:
+        build_storage_adapter(settings).healthcheck()
+        checks["storage"] = "ok"
+    except (BotoCoreError, ClientError, OSError, ValueError):
+        checks["storage"] = "unavailable"
+
+    ready = all(value != "unavailable" for value in checks.values())
+    return Response(
+        content=json.dumps({"status": "ready" if ready else "not_ready", "checks": checks}),
+        media_type="application/json",
+        status_code=200 if ready else 503,
+    )
 
 
 @app.post("/api/v1/documents")
@@ -188,8 +230,8 @@ def download_gold_release(release_id: str, artifact_format: str, db: DbSession) 
     if artifact is None:
         raise HTTPException(404, "Gold artifact not found")
     try:
-        payload = LocalStorageAdapter("data").read_bytes(artifact.object_key)
-    except OSError as exc:
+        payload = build_storage_adapter(get_settings()).read_bytes(artifact.object_key)
+    except (BotoCoreError, ClientError, OSError, ValueError) as exc:
         raise HTTPException(503, "Gold artifact storage unavailable") from exc
     return Response(
         content=payload,

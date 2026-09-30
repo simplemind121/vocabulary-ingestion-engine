@@ -20,7 +20,8 @@ from app.models import (
     Sense,
     VocabularyEntry,
 )
-from app.storage import LocalStorageAdapter, StorageAdapter
+from app.settings import get_settings
+from app.storage import StorageAdapter, build_storage_adapter
 
 _VERIFIED = {"AUTO_VERIFIED", "HUMAN_VERIFIED"}
 
@@ -114,12 +115,12 @@ def _persist_artifact(db: Session, storage: StorageAdapter, key: str, payload: b
             raise ValueError(f"immutable artifact collision at {key}")
         return existing
     stored = storage.put_bytes(key, payload)
-    artifact = Artifact(artifact_type=artifact_type, storage_provider=stored["provider"], bucket="local", object_key=stored["object_key"], mime_type=mime_type, byte_size=stored["byte_size"], sha256=stored["sha256"], metadata_json={"immutable": True})
+    artifact = Artifact(artifact_type=artifact_type, storage_provider=stored["provider"], bucket=stored["bucket"], object_key=stored["object_key"], mime_type=mime_type, byte_size=stored["byte_size"], sha256=stored["sha256"], metadata_json={"immutable": True})
     db.add(artifact); db.flush(); return artifact
 
 
 def publish_gold_release(db: Session, run_id: str, storage: StorageAdapter | None = None) -> GoldRelease:
-    storage = storage or LocalStorageAdapter("data")
+    storage = storage or build_storage_adapter(get_settings())
     dataset = build_gold_dataset(db, run_id); json_payload = serialize_gold_json(dataset); digest = hashlib.sha256(json_payload).hexdigest()
     existing = db.query(GoldRelease).filter(GoldRelease.sha256 == digest).one_or_none()
     if existing is not None: return existing

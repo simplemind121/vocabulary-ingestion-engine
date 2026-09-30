@@ -11,6 +11,21 @@ def test_health():
     assert response.json()["status"] == "ok"
 
 
+def test_liveness_and_readiness_are_separate():
+    live = client.get("/health/live")
+    ready = client.get("/health/ready")
+
+    assert live.status_code == 200
+    assert live.json()["status"] == "ok"
+    assert ready.status_code == 200
+    assert ready.json()["status"] == "ready"
+    assert ready.json()["checks"] == {
+        "database": "ok",
+        "redis": "not_configured",
+        "storage": "ok",
+    }
+
+
 def test_gold_preflight_passes_only_with_zero_unresolved_state():
     response = client.post("/api/v1/gold/preflight", json={})
     assert response.status_code == 200

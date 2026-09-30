@@ -4,6 +4,11 @@ import hashlib
 from pathlib import Path
 from typing import Protocol
 
+import boto3
+from botocore.exceptions import ClientError
+
+from app.settings import Settings
+
 
 class StorageAdapter(Protocol):
     provider: str
@@ -15,6 +20,9 @@ class StorageAdapter(Protocol):
         ...
 
     def exists(self, key: str) -> bool:
+        ...
+
+    def healthcheck(self) -> bool:
         ...
 
 
@@ -38,6 +46,7 @@ class LocalStorageAdapter:
         path.write_bytes(payload)
         return {
             "provider": self.provider,
+            "bucket": "local",
             "object_key": key,
             "byte_size": len(payload),
             "sha256": hashlib.sha256(payload).hexdigest(),
@@ -48,3 +57,75 @@ class LocalStorageAdapter:
 
     def exists(self, key: str) -> bool:
         return self._path(key).exists()
+
+    def healthcheck(self) -> bool:
+        return self.root.is_dir()
+
+
+class S3StorageAdapter:
+    provider = "s3"
+
+    def __init__(
+        self,
+        *,
+        bucket: str,
+        endpoint_url: str | None = None,
+        access_key_id: str | None = None,
+        secret_access_key: str | None = None,
+        region: str = "us-east-1",
+        client=None,
+    ) -> None:
+        if not bucket.strip():
+            raise ValueError("S3 bucket is required")
+        self.bucket = bucket
+        self._client = client or boto3.client(
+            "s3",
+            endpoint_url=endpoint_url,
+            aws_access_key_id=access_key_id,
+            aws_secret_access_key=secret_access_key,
+            region_name=region,
+        )
+
+    def put_bytes(self, key: str, payload: bytes) -> dict:
+        self._client.put_object(Bucket=self.bucket, Key=key, Body=payload)
+        return {
+            "provider": self.provider,
+            "bucket": self.bucket,
+            "object_key": key,
+            "byte_size": len(payload),
+            "sha256": hashlib.sha256(payload).hexdigest(),
+        }
+
+    def read_bytes(self, key: str) -> bytes:
+        return self._client.get_object(Bucket=self.bucket, Key=key)["Body"].read()
+
+    def exists(self, key: str) -> bool:
+        try:
+            self._client.head_object(Bucket=self.bucket, Key=key)
+            return True
+        except ClientError as exc:
+            status = exc.response.get("ResponseMetadata", {}).get("HTTPStatusCode")
+            if status == 404:
+                return False
+            raise
+
+    def healthcheck(self) -> bool:
+        self._client.head_bucket(Bucket=self.bucket)
+        return True
+
+
+def build_storage_adapter(settings: Settings) -> StorageAdapter:
+    backend = settings.storage_backend.strip().lower()
+    if backend == "local":
+        return LocalStorageAdapter(settings.storage_root)
+    if backend in {"s3", "minio"}:
+        if not settings.s3_access_key_id or not settings.s3_secret_access_key:
+            raise ValueError("S3 credentials are required")
+        return S3StorageAdapter(
+            bucket=settings.s3_bucket,
+            endpoint_url=settings.s3_endpoint_url,
+            access_key_id=settings.s3_access_key_id,
+            secret_access_key=settings.s3_secret_access_key,
+            region=settings.s3_region,
+        )
+    raise ValueError(f"unsupported storage backend: {settings.storage_backend}")

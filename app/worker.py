@@ -1,16 +1,18 @@
 from __future__ import annotations
 
-import os
-
 from celery import Celery
 
 from app.db import SessionLocal
 from app.services.extraction import extract_native_blocks
+from app.settings import get_settings
+
+settings = get_settings()
+redis_url = settings.redis_url or "redis://localhost:6379/0"
 
 celery_app = Celery(
     "vie",
-    broker=os.getenv("REDIS_URL", "redis://localhost:6379/0"),
-    backend=os.getenv("REDIS_URL", "redis://localhost:6379/0"),
+    broker=redis_url,
+    backend=redis_url,
 )
 
 

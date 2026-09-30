@@ -73,3 +73,10 @@ jobs:
           name: gold-corpus-readiness
           path: gold-readiness.json
           if-no-files-found: error
+
+  container-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and verify the production topology
+        run: scripts/compose-smoke.sh

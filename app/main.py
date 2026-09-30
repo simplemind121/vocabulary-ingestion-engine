@@ -9,8 +9,8 @@ from typing import Annotated
 import fitz
 import redis
 from botocore.exceptions import BotoCoreError, ClientError
-from fastapi import Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
-from fastapi.responses import JSONResponse
+from fastapi import Depends, FastAPI, File, HTTPException, Query, Request, Response, UploadFile
+from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
@@ -27,14 +27,16 @@ from app.models import (
     ProcessingRun,
     ReviewTask,
 )
+from app.review_ui import REVIEW_UI_HTML
 from app.services.gates import evaluate_g5_review_resolution
 from app.services.gold import build_gold_dataset, publish_gold_release
 from app.services.gold_page_hashes import GOLD_RENDER_CONTRACT
 from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
+from app.services.review_view import review_task_detail
 from app.settings import get_settings
-from app.storage import build_storage_adapter
+from app.storage import build_storage_adapter, read_artifact_bytes
 
 APP_VERSION = "0.1.0-alpha.4"
 DATA_DIR = Path("data")
@@ -121,6 +123,11 @@ def health_ready(db: DbSession) -> Response:
     )
 
 
+@app.get("/review", response_class=HTMLResponse, include_in_schema=False)
+def review_ui() -> str:
+    return REVIEW_UI_HTML
+
+
 @app.post("/api/v1/documents")
 async def ingest_document(file: Annotated[UploadFile, File()], db: DbSession) -> dict:
     if file.content_type not in {"application/pdf", "application/x-pdf"}: raise HTTPException(415, "Only PDF is supported in v0.1")
@@ -190,7 +197,55 @@ def list_reviews(run_id: str, db: DbSession, status: str | None = None) -> dict:
     query = db.query(ReviewTask).filter(ReviewTask.processing_run_id == run_id)
     if status: query = query.filter(ReviewTask.status == status.upper())
     tasks = query.order_by(ReviewTask.created_at, ReviewTask.id).all()
-    return {"run_id": run_id, "count": len(tasks), "items": [{"id": t.id, "status": t.status, "reason_code": t.reason_code, "target_entity_type": t.target_entity_type, "target_entity_id": t.target_entity_id, "target_field_path": t.target_field_path, "source_context": t.source_context, "candidate_values": t.candidate_values} for t in tasks]}
+    return {
+        "run_id": run_id,
+        "count": len(tasks),
+        "items": [review_task_detail(db, task) for task in tasks],
+    }
+
+
+@app.get("/api/v1/reviews")
+def list_all_reviews(
+    db: DbSession,
+    status: str | None = "OPEN",
+    limit: int = Query(default=100, ge=1, le=500),
+) -> dict:
+    query = db.query(ReviewTask)
+    if status:
+        query = query.filter(ReviewTask.status == status.upper())
+    tasks = query.order_by(ReviewTask.created_at, ReviewTask.id).limit(limit).all()
+    return {"count": len(tasks), "items": [review_task_detail(db, task) for task in tasks]}
+
+
+@app.get("/api/v1/reviews/{task_id}")
+def get_review(task_id: str, db: DbSession) -> dict:
+    task = db.get(ReviewTask, task_id)
+    if task is None:
+        raise HTTPException(404, "Review task not found")
+    return review_task_detail(db, task)
+
+
+@app.get("/api/v1/pages/{page_id}/image")
+def get_page_image(page_id: str, db: DbSession) -> Response:
+    page = db.get(Page, page_id)
+    if page is None:
+        raise HTTPException(404, "Page not found")
+    artifact = db.get(Artifact, page.render_artifact_id)
+    if artifact is None:
+        raise HTTPException(404, "Page image artifact not found")
+    try:
+        payload = read_artifact_bytes(
+            storage_provider=artifact.storage_provider,
+            object_key=artifact.object_key,
+            settings=get_settings(),
+        )
+    except (BotoCoreError, ClientError, OSError, ValueError) as exc:
+        raise HTTPException(503, "Page image storage unavailable") from exc
+    return Response(
+        content=payload,
+        media_type=artifact.mime_type or "image/png",
+        headers={"Cache-Control": "private, max-age=300"},
+    )
 
 
 @app.post("/api/v1/reviews/{task_id}/resolve")
@@ -248,7 +303,11 @@ def download_gold_release(release_id: str, artifact_format: str, db: DbSession) 
     if artifact is None:
         raise HTTPException(404, "Gold artifact not found")
     try:
-        payload = build_storage_adapter(get_settings()).read_bytes(artifact.object_key)
+        payload = read_artifact_bytes(
+            storage_provider=artifact.storage_provider,
+            object_key=artifact.object_key,
+            settings=get_settings(),
+        )
     except (BotoCoreError, ClientError, OSError, ValueError) as exc:
         raise HTTPException(503, "Gold artifact storage unavailable") from exc
     return Response(

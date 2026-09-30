@@ -12,4 +12,6 @@ data/
 data-private/
 node_modules/
 .next/
+.playwright-cli/
+output/
 .DS_Store

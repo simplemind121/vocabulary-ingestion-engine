@@ -24,6 +24,8 @@ API: `http://localhost:8000`
 
 OpenAPI: `http://localhost:8000/docs`
 
+Human review UI: `http://localhost:8000/review`
+
 Liveness: `GET /health/live`
 
 Readiness: `GET /health/ready`

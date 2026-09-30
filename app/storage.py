@@ -165,3 +165,17 @@ def build_storage_adapter(settings: Settings) -> StorageAdapter:
             region=settings.s3_region,
         )
     raise ValueError(f"unsupported storage backend: {settings.storage_backend}")
+
+
+def read_artifact_bytes(
+    *, storage_provider: str, object_key: str, settings: Settings
+) -> bytes:
+    if storage_provider == "local":
+        root = settings.storage_root.resolve()
+        candidate = Path(object_key)
+        if not candidate.is_absolute():
+            candidate = (Path.cwd() / candidate).resolve()
+        if candidate == root or root in candidate.parents:
+            return candidate.read_bytes()
+        return LocalStorageAdapter(root).read_bytes(object_key)
+    return build_storage_adapter(settings).read_bytes(object_key)

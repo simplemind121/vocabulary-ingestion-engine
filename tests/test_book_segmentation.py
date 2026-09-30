@@ -49,3 +49,27 @@ def test_entry_can_continue_across_page_boundary():
     assert entries[0].page_numbers == [10, 11]
     assert entries[0].block_ids == ["b1", "b2"]
     assert entries[1].page_numbers == [11]
+
+
+def test_structured_book_does_not_turn_front_matter_words_into_legacy_entries():
+    blocks = [
+        FakeBlock("front", "p1", "CONTENTS\nUnit 1 Vocabulary"),
+        FakeBlock("entry", "p2", "medication* [ˌmedɪˈkeɪʃn]\nn. 药；药物"),
+    ]
+
+    entries = _segment_blocks(blocks, {"p1": 1, "p2": 2})
+
+    assert [entry.lemma for entry in entries] == ["medication"]
+
+
+def test_appendix_header_terminates_dictionary_entry_and_suppresses_table_rows():
+    blocks = [
+        FakeBlock("entry", "p1", "solitary [ˈsɒlətri]\nadj. 孤独的"),
+        FakeBlock("appendix", "p2", "一 雅思必备词根、词缀"),
+        FakeBlock("table", "p2", "schedule [ˈʃedjuːl]\n[ˈskedʒuːl]"),
+    ]
+
+    entries = _segment_blocks(blocks, {"p1": 925, "p2": 926})
+
+    assert [entry.lemma for entry in entries] == ["solitary"]
+    assert entries[0].page_numbers == [925]

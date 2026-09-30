@@ -4,7 +4,7 @@ from datetime import UTC, datetime
 
 from sqlalchemy.orm import Session
 
-from app.models import ProvenanceRecord, ReviewTask, SourceBlock, VocabularyEntry
+from app.models import Page, ProvenanceRecord, ReviewTask, SourceBlock, VocabularyEntry
 
 OPEN_REVIEW_STATUSES = {"OPEN", "IN_PROGRESS", "ESCALATED"}
 
@@ -22,7 +22,7 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         raise ValueError("review task not found")
     if task.status not in OPEN_REVIEW_STATUSES:
         raise ValueError("review task is already resolved")
-    if task.target_entity_type not in {"VocabularyEntry", "SourceBlock"}:
+    if task.target_entity_type not in {"VocabularyEntry", "SourceBlock", "Page"}:
         raise ValueError("unsupported review target")
     if not reviewer_id or not reviewer_id.strip():
         raise ValueError("reviewer_id is required")
@@ -38,6 +38,43 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         "resolution": resolution,
     }
     task.candidate_values = [audit]
+
+    if task.target_entity_type == "Page":
+        page = db.get(Page, task.target_entity_id)
+        if page is None:
+            raise ValueError("review target not found")
+        classification = str(resolution.get("classification", "")).upper()
+        if decision == "ACCEPT" and classification != "NON_TEXT_PAGE":
+            raise ValueError("accepted no-text page requires NON_TEXT_PAGE classification")
+        audit["classification"] = classification
+        task.status = "RESOLVED" if decision == "ACCEPT" else "ESCALATED"
+        db.add(
+            ProvenanceRecord(
+                processing_run_id=task.processing_run_id,
+                target_entity_type="Page",
+                target_entity_id=page.id,
+                target_field_path="content_classification",
+                provenance_type="HUMAN_REVIEW",
+                page_id=page.id,
+                source_text=classification,
+                metadata_json={
+                    "review_task_id": task.id,
+                    "reviewer_id": reviewer_id.strip(),
+                },
+            )
+        )
+        db.commit()
+        return {
+            "run_id": task.processing_run_id,
+            "task_id": task.id,
+            "status": task.status,
+            "page_id": page.id,
+            "verification_status": (
+                "HUMAN_VERIFIED" if decision == "ACCEPT" else "REVIEW_REQUIRED"
+            ),
+            "decision": decision,
+            "classification": classification,
+        }
 
     if task.target_entity_type == "SourceBlock":
         block = db.get(SourceBlock, task.target_entity_id)

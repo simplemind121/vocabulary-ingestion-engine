@@ -54,6 +54,12 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
     current_confidence = 0.0
     current_word_list: int | None = None
     in_preview_table = False
+    in_non_entry_section = False
+    has_structured_headwords = any(
+        classify_book_text(line).block_type == "ENTRY_HEAD"
+        for block in blocks
+        for line in _iter_lines(block)
+    )
 
     def flush() -> None:
         nonlocal current_lines, current_blocks, current_pages
@@ -85,6 +91,14 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
                 flush()
                 current_word_list = classification.metadata["word_list"]
                 in_preview_table = False
+                in_non_entry_section = False
+                continue
+            if classification.block_type == "NON_ENTRY_SECTION_HEADER":
+                flush()
+                in_preview_table = False
+                in_non_entry_section = True
+                continue
+            if in_non_entry_section:
                 continue
             if classification.block_type == "PREVIEW_TABLE_HEADER":
                 flush()
@@ -115,7 +129,7 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
                     current_pages.append(page_number)
                 continue
 
-            legacy = _LEGACY_HEADWORD.match(" ".join(line.split()))
+            legacy = None if has_structured_headwords else _LEGACY_HEADWORD.match(" ".join(line.split()))
             if legacy:
                 flush()
                 current_lemma = legacy.group(1)

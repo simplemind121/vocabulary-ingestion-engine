@@ -19,6 +19,7 @@ from app.services.gates import (
 from app.services.gold import publish_gold_release
 from app.services.ocr_extraction import extract_ocr_blocks
 from app.services.ocr_quality import route_ocr_quality_reviews
+from app.services.page_quality import route_no_text_page_reviews
 from app.services.segmentation import segment_source_entries
 from app.services.structured_extraction import extract_canonical_fields
 from app.services.validation import validate_canonical_entries
@@ -68,7 +69,16 @@ def run_pipeline(
                 if not page["has_meaningful_native_text"]
             }
             if ocr_adapter is None:
-                return _ocr_required(db, run, document_mode, stages)
+                native = extract_native_blocks(db, run_id, page_numbers=native_pages)
+                stages.append({"stage": "native_extraction", "result": native})
+                page_reviews = route_no_text_page_reviews(
+                    db,
+                    run_id,
+                    page_numbers=ocr_pages,
+                )
+                stages.append({"stage": "no_text_page_review", "result": page_reviews})
+                _require_pass("G1", evaluate_g1_document_representation(db, run_id), stages)
+                raise AssertionError("G1 must require review for unresolved no-text pages")
             native = extract_native_blocks(db, run_id, page_numbers=native_pages)
             stages.append({"stage": "native_extraction", "result": native})
             ocr = extract_ocr_blocks(db, run_id, ocr_adapter, page_numbers=ocr_pages)

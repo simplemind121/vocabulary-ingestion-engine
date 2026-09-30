@@ -12,6 +12,7 @@ from app.models import (
     ProcessingRun,
     SourceBlock,
     SourceEntry,
+    SourceEntryBlock,
     VocabularyEntry,
 )
 
@@ -27,7 +28,7 @@ def inspect_gold_run_candidates(
 
     This is deliberately read-only. It never guesses a run ID and never upgrades a
     candidate to "ready" unless document identity, all frozen page renders, and
-    persisted block/entry/vocabulary layers are present.
+    page-bound block/entry/vocabulary layers are present.
     """
     versions = (
         db.query(DocumentVersion)
@@ -84,28 +85,96 @@ def inspect_gold_run_candidates(
                 or 0
             )
             frozen_page_ids = [page.id for page in pages]
-            covered_pages = 0
+            block_pages: set[str] = set()
+            entry_pages: set[str] = set()
+            vocabulary_pages: set[str] = set()
             if frozen_page_ids:
-                covered_pages = (
-                    db.query(func.count(func.distinct(SourceBlock.page_id)))
-                    .filter(
-                        SourceBlock.processing_run_id == run.id,
-                        SourceBlock.page_id.in_(frozen_page_ids),
+                block_pages = {
+                    page_id
+                    for (page_id,) in (
+                        db.query(SourceBlock.page_id)
+                        .filter(
+                            SourceBlock.processing_run_id == run.id,
+                            SourceBlock.page_id.in_(frozen_page_ids),
+                        )
+                        .distinct()
+                        .all()
                     )
-                    .scalar()
-                    or 0
-                )
+                }
+                entry_pages = {
+                    page_id
+                    for (page_id,) in (
+                        db.query(SourceBlock.page_id)
+                        .join(
+                            SourceEntryBlock,
+                            SourceEntryBlock.source_block_id == SourceBlock.id,
+                        )
+                        .join(
+                            SourceEntry,
+                            SourceEntry.id == SourceEntryBlock.source_entry_id,
+                        )
+                        .filter(
+                            SourceBlock.processing_run_id == run.id,
+                            SourceEntry.processing_run_id == run.id,
+                            SourceBlock.page_id.in_(frozen_page_ids),
+                        )
+                        .distinct()
+                        .all()
+                    )
+                }
+                vocabulary_pages = {
+                    page_id
+                    for (page_id,) in (
+                        db.query(SourceBlock.page_id)
+                        .join(
+                            SourceEntryBlock,
+                            SourceEntryBlock.source_block_id == SourceBlock.id,
+                        )
+                        .join(
+                            SourceEntry,
+                            SourceEntry.id == SourceEntryBlock.source_entry_id,
+                        )
+                        .join(
+                            VocabularyEntry,
+                            VocabularyEntry.source_entry_id == SourceEntry.id,
+                        )
+                        .filter(
+                            SourceBlock.processing_run_id == run.id,
+                            SourceEntry.processing_run_id == run.id,
+                            VocabularyEntry.processing_run_id == run.id,
+                            SourceBlock.page_id.in_(frozen_page_ids),
+                        )
+                        .distinct()
+                        .all()
+                    )
+                }
+            page_number_by_id = {page.id: page.page_number for page in pages}
+            pages_without_blocks = sorted(
+                page_number_by_id[page_id]
+                for page_id in frozen_page_ids
+                if page_id not in block_pages
+            )
+            pages_without_entries = sorted(
+                page_number_by_id[page_id]
+                for page_id in frozen_page_ids
+                if page_id not in entry_pages
+            )
+            pages_without_vocabulary = sorted(
+                page_number_by_id[page_id]
+                for page_id in frozen_page_ids
+                if page_id not in vocabulary_pages
+            )
             blockers: list[str] = []
             if missing_pages:
                 blockers.append("FROZEN_PAGES_MISSING")
             if render_mismatches:
                 blockers.append("FROZEN_RENDER_SHA256_MISMATCH")
-            if covered_pages != len(page_numbers):
+            if pages_without_blocks or missing_pages:
                 blockers.append("FROZEN_PAGES_WITHOUT_SOURCE_BLOCKS")
-            if entry_count == 0:
-                blockers.append("SOURCE_ENTRIES_MISSING")
-            if vocabulary_count == 0:
-                blockers.append("VOCABULARY_ENTRIES_MISSING")
+            if pages_without_entries or missing_pages:
+                blockers.append("FROZEN_PAGES_WITHOUT_SOURCE_ENTRIES")
+            if pages_without_vocabulary or missing_pages:
+                blockers.append("FROZEN_PAGES_WITHOUT_VOCABULARY_ENTRIES")
             results.append(
                 {
                     "processing_run_id": run.id,
@@ -114,12 +183,17 @@ def inspect_gold_run_candidates(
                     "pipeline_version": run.pipeline_version,
                     "canonical_schema_version": run.canonical_schema_version,
                     "frozen_page_count": len(page_numbers),
-                    "frozen_pages_with_blocks": covered_pages,
+                    "frozen_pages_with_blocks": len(block_pages),
+                    "frozen_pages_with_entries": len(entry_pages),
+                    "frozen_pages_with_vocabulary": len(vocabulary_pages),
                     "source_block_count": block_count,
                     "source_entry_count": entry_count,
                     "vocabulary_entry_count": vocabulary_count,
                     "missing_pages": sorted(missing_pages),
                     "render_sha256_mismatches": sorted(render_mismatches),
+                    "pages_without_blocks": pages_without_blocks,
+                    "pages_without_entries": pages_without_entries,
+                    "pages_without_vocabulary": pages_without_vocabulary,
                     "blockers": blockers,
                     "ready_for_gold_draft": not blockers,
                 }

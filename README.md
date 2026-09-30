@@ -62,6 +62,7 @@ pytest -q
 - PostgreSQL / SQLAlchemy / Alembic
 - Redis + worker queue
 - S3-compatible object storage (SeaweedFS locally; AWS S3/Backblaze B2 compatible adapter)
+- Tesseract OCR runtime with English and Simplified Chinese language data
 - Next.js / React target UI
 - PyMuPDF baseline renderer
 - Replaceable OCR/parser adapters (MinerU, PaddleOCR/PP-Structure, vision fallback)

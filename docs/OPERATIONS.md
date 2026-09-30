@@ -23,6 +23,13 @@ curl --fail http://127.0.0.1:8000/health/ready
 
 A ready deployment returns database, Redis, and storage as `ok`. Do not route public traffic until this endpoint succeeds. Keep port 8000 private or firewall-restricted; expose it through HTTPS only.
 
+The production image includes Tesseract with English and Simplified Chinese
+language data. Compose selects it through `VIE_OCR_ENGINE=tesseract` and
+`VIE_OCR_LANGUAGES=eng+chi_sim`. Missing native text pages are rendered and sent
+through OCR; low-confidence blocks remain blocking review work. Change the
+engine or languages only after the production smoke test succeeds with the new
+runtime.
+
 For an automated destructive test using disposable volumes, run `scripts/compose-smoke.sh`. It builds all services, applies migrations, checks the worker and object storage, then proves backup and restore before deleting only its temporary project and volumes.
 
 ## Authentication and secrets

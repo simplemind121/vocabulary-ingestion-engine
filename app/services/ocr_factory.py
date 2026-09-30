@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from app.adapters.ocr_base import OcrEngineAdapter
 from app.adapters.paddleocr import PaddleOcrAdapter
+from app.adapters.tesseract import TesseractOcrAdapter
 from app.settings import Settings
 
 
@@ -11,4 +12,6 @@ def build_ocr_adapter(settings: Settings) -> OcrEngineAdapter | None:
         return None
     if engine == "paddleocr":
         return PaddleOcrAdapter()
+    if engine == "tesseract":
+        return TesseractOcrAdapter(languages=settings.ocr_languages)
     raise ValueError(f"unsupported OCR engine: {settings.ocr_engine}")

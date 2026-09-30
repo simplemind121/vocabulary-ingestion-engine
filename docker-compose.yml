@@ -1,6 +1,8 @@
 x-app-environment: &app-environment
   DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL in .env}
   VIE_API_KEY: ${VIE_API_KEY:?set VIE_API_KEY in .env}
+  VIE_OCR_ENGINE: ${VIE_OCR_ENGINE:-tesseract}
+  VIE_OCR_LANGUAGES: ${VIE_OCR_LANGUAGES:-eng+chi_sim}
   VIE_REDIS_URL: redis://redis:6379/0
   VIE_STORAGE_BACKEND: s3
   VIE_S3_ENDPOINT_URL: http://object-storage:8333

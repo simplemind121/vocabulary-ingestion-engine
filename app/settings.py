@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="VIE_", extra="ignore")
 
     ocr_engine: str = "none"
+    ocr_languages: str = "eng+chi_sim"
     ocr_min_confidence: float = 0.85
     api_key: SecretStr | None = None
     redis_url: str | None = None

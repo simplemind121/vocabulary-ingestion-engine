@@ -6,6 +6,7 @@ from typing import Any
 
 import fitz
 
+from app.adapters.ocr_base import OcrEngineAdapter, OcrPageInput
 from app.adapters.pdf_native import PyMuPDFNativeAdapter
 from app.models import SourceBlock
 from app.services.gold_sample_selection import profile_pdf_pages
@@ -20,8 +21,10 @@ def audit_full_book(
     *,
     expected_sha256: str,
     expected_page_count: int,
+    ocr_adapter: OcrEngineAdapter | None = None,
+    ocr_min_confidence: float = 0.85,
 ) -> dict[str, Any]:
-    """Run a read-only whole-book native extraction and parser audit."""
+    """Run a read-only whole-book extraction and parser audit with OCR fallback."""
     source = Path(pdf_path)
     actual_sha = _sha256_file(source)
     if actual_sha != expected_sha256:
@@ -31,6 +34,9 @@ def audit_full_book(
     blocks: list[SourceBlock] = []
     page_numbers: dict[str, int] = {}
     represented_pages: set[int] = set()
+    native_pages: set[int] = set()
+    ocr_pages_attempted: set[int] = set()
+    ocr_pages_represented: set[int] = set()
     document = fitz.open(source)
     try:
         if document.page_count != expected_page_count:
@@ -41,9 +47,33 @@ def audit_full_book(
             extracted = adapter.extract_page(page)
             if extracted:
                 represented_pages.add(page_number)
+                native_pages.add(page_number)
+            source_engine = adapter.name
+            source_engine_version = str(adapter.version)
+            if not extracted and ocr_adapter is not None:
+                ocr_pages_attempted.add(page_number)
+                pixmap = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
+                result = ocr_adapter.extract_page(
+                    OcrPageInput(
+                        page_number=page_number,
+                        image_bytes=pixmap.tobytes("png"),
+                    )
+                )
+                if result.page_number != page_number:
+                    raise ValueError("OCR adapter returned mismatched page number")
+                extracted = result.blocks
+                source_engine = f"ocr:{result.engine_name}"
+                source_engine_version = result.engine_version
+                if extracted:
+                    represented_pages.add(page_number)
+                    ocr_pages_represented.add(page_number)
             blocks.extend(
                 SourceBlock(
-                    id=f"native-p{page_number:04d}-b{item.reading_order:04d}",
+                    id=(
+                        f"ocr-p{page_number:04d}-b{item.reading_order:04d}"
+                        if source_engine.startswith("ocr:")
+                        else f"native-p{page_number:04d}-b{item.reading_order:04d}"
+                    ),
                     page_id=page_id,
                     processing_run_id="full-book-native-audit",
                     block_type=item.block_type,
@@ -51,8 +81,8 @@ def audit_full_book(
                     raw_text=item.text,
                     confidence=item.confidence,
                     bbox=item.bbox.as_dict(),
-                    source_engine=adapter.name,
-                    source_engine_version=str(adapter.version),
+                    source_engine=source_engine,
+                    source_engine_version=source_engine_version,
                     metadata_json=item.metadata,
                 )
                 for item in extracted
@@ -95,6 +125,23 @@ def audit_full_book(
                 }
             )
 
+    low_confidence_ocr = [
+        block
+        for block in blocks
+        if block.source_engine.startswith("ocr:")
+        and (block.confidence is None or block.confidence < ocr_min_confidence)
+    ]
+    for block in low_confidence_ocr:
+        review_queue.append(
+            {
+                "page_numbers": [page_numbers[block.page_id]],
+                "reasons": ["LOW_OCR_CONFIDENCE"],
+                "source_block_id": block.id,
+                "confidence": block.confidence,
+                "raw_text_excerpt": (block.raw_text or "")[:240],
+            }
+        )
+
     unrepresented_pages = sorted(set(range(1, expected_page_count + 1)) - represented_pages)
     cross_page = [candidate for candidate in candidates if len(candidate.page_numbers) > 1]
     for page_number in unrepresented_pages:
@@ -111,10 +158,18 @@ def audit_full_book(
         "status": status,
         "source_document_sha256": actual_sha,
         "source_page_count": expected_page_count,
-        "native_text_pages": len(represented_pages),
-        "native_page_coverage": len(represented_pages) / expected_page_count,
+        "native_text_pages": len(native_pages),
+        "native_page_coverage": len(native_pages) / expected_page_count,
+        "ocr_engine": ocr_adapter.name if ocr_adapter is not None else None,
+        "ocr_pages_attempted": len(ocr_pages_attempted),
+        "ocr_text_pages": len(ocr_pages_represented),
+        "page_representation_coverage": len(represented_pages) / expected_page_count,
         "unrepresented_pages": unrepresented_pages,
         "source_block_count": len(blocks),
+        "ocr_source_block_count": sum(
+            block.source_engine.startswith("ocr:") for block in blocks
+        ),
+        "low_confidence_ocr_block_count": len(low_confidence_ocr),
         "entry_candidate_count": len(candidates),
         "parsed_entry_count": parsed_count,
         "cross_page_entry_count": len(cross_page),

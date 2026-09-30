@@ -8,6 +8,13 @@ WORKDIR /app
 
 RUN groupadd --system vie && useradd --system --gid vie --home-dir /app vie
 
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends \
+        tesseract-ocr \
+        tesseract-ocr-chi-sim \
+        tesseract-ocr-eng \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY pyproject.toml ./
 COPY app ./app
 COPY migrations ./migrations

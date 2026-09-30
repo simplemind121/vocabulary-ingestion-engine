@@ -39,6 +39,9 @@ compose exec -T api python -c \
   "from app.settings import get_settings; from app.storage import build_storage_adapter; adapter=build_storage_adapter(get_settings()); expected=b'vie-g6-smoke'; stored=adapter.put_bytes('smoke/runtime.txt', expected); assert stored['sha256'] == '0ac61cb56f969acbd48ca077a0a0ebd6cfef482872ab1f7d39289f6d6f23fb63'; assert adapter.read_bytes('smoke/runtime.txt') == expected"
 
 compose exec -T api python -c \
+  "import fitz; from app.adapters.ocr_base import OcrPageInput; from app.services.ocr_factory import build_ocr_adapter; from app.settings import get_settings; document=fitz.open(); page=document.new_page(); page.insert_text((72, 100), 'vocabulary engine', fontsize=32); image=page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False).tobytes('png'); result=build_ocr_adapter(get_settings()).extract_page(OcrPageInput(page_number=1, image_bytes=image)); assert 'vocabulary' in ' '.join(block.text for block in result.blocks).lower()"
+
+compose exec -T api python -c \
   "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text('select version_num from alembic_version')).scalar() == '0007_gold_xlsx'; connection.close()"
 
 compose exec -T worker celery -A app.worker.celery_app inspect ping --timeout 5 | grep -q pong

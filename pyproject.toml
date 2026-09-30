@@ -16,6 +16,7 @@ dependencies = [
   "pydantic-settings>=2.5",
   "python-multipart>=0.0.12",
   "pymupdf==1.26.7",
+  "openpyxl>=3.1",
   "redis>=5.0",
   "celery>=5.4",
 ]

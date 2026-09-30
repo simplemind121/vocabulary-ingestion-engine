@@ -9,6 +9,7 @@ from app.services.gold import (
     publish_gold_release,
     serialize_gold_csv,
     serialize_gold_json,
+    serialize_gold_xlsx,
 )
 from app.services.segmentation import segment_source_entries
 from app.services.structured_extraction import extract_canonical_fields
@@ -28,6 +29,8 @@ def test_g5_g6_and_gold_release_are_deterministic(client, sample_pdf_bytes, tmp_
         dataset = build_gold_dataset(db, run_id); json_a = serialize_gold_json(dataset); json_b = serialize_gold_json(dataset)
         assert json_a == json_b
         assert serialize_gold_csv(dataset).startswith(b"id,lemma,language,verification_status")
+        assert serialize_gold_xlsx(dataset) == serialize_gold_xlsx(dataset)
+        assert serialize_gold_xlsx(dataset).startswith(b"PK")
         storage = LocalStorageAdapter(tmp_path / "gold-storage")
         release_a = publish_gold_release(db, run_id, storage); release_b = publish_gold_release(db, run_id, storage)
         assert release_a.id == release_b.id
@@ -35,11 +38,15 @@ def test_g5_g6_and_gold_release_are_deterministic(client, sample_pdf_bytes, tmp_
         assert release_a.record_count == dataset["record_count"]
         assert release_a.json_artifact_id is not None
         assert release_a.csv_artifact_id is not None
+        assert release_a.xlsx_artifact_id is not None
         json_artifact = db.get(Artifact, release_a.json_artifact_id)
         csv_artifact = db.get(Artifact, release_a.csv_artifact_id)
+        xlsx_artifact = db.get(Artifact, release_a.xlsx_artifact_id)
         assert json_artifact is not None and storage.exists(json_artifact.object_key)
         assert csv_artifact is not None and storage.exists(csv_artifact.object_key)
+        assert xlsx_artifact is not None and storage.exists(xlsx_artifact.object_key)
         assert storage.read_bytes(json_artifact.object_key) == json_a
         assert storage.read_bytes(csv_artifact.object_key) == serialize_gold_csv(dataset)
+        assert storage.read_bytes(xlsx_artifact.object_key) == serialize_gold_xlsx(dataset)
     finally:
         db.close()

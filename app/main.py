@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Annotated
 
 import fitz
-from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
+from fastapi import Depends, FastAPI, File, HTTPException, Response, UploadFile
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
@@ -27,6 +27,7 @@ from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
 from app.settings import get_settings
+from app.storage import LocalStorageAdapter
 
 APP_VERSION = "0.1.0-alpha.4"
 DATA_DIR = Path("data")
@@ -157,14 +158,44 @@ def get_gold(run_id: str, db: DbSession) -> dict:
 def publish_gold(run_id: str, db: DbSession) -> dict:
     try: release = publish_gold_release(db, run_id)
     except ValueError as exc: raise HTTPException(409, str(exc)) from exc
-    return {"release_id": release.id, "version": release.version, "sha256": release.sha256, "record_count": release.record_count, "json_artifact_id": release.json_artifact_id, "csv_artifact_id": release.csv_artifact_id}
+    return {"release_id": release.id, "version": release.version, "sha256": release.sha256, "record_count": release.record_count, "json_artifact_id": release.json_artifact_id, "csv_artifact_id": release.csv_artifact_id, "xlsx_artifact_id": release.xlsx_artifact_id}
 
 
 @app.get("/api/v1/gold/releases/{release_id}")
 def get_gold_release(release_id: str, db: DbSession) -> dict:
     release = db.get(GoldRelease, release_id)
     if not release: raise HTTPException(404, "Gold release not found")
-    return {"release_id": release.id, "processing_run_id": release.processing_run_id, "version": release.version, "schema_version": release.schema_version, "record_count": release.record_count, "sha256": release.sha256, "json_artifact_id": release.json_artifact_id, "csv_artifact_id": release.csv_artifact_id}
+    return {"release_id": release.id, "processing_run_id": release.processing_run_id, "version": release.version, "schema_version": release.schema_version, "record_count": release.record_count, "sha256": release.sha256, "json_artifact_id": release.json_artifact_id, "csv_artifact_id": release.csv_artifact_id, "xlsx_artifact_id": release.xlsx_artifact_id}
+
+
+@app.get("/api/v1/gold/releases/{release_id}/download/{artifact_format}")
+def download_gold_release(release_id: str, artifact_format: str, db: DbSession) -> Response:
+    release = db.get(GoldRelease, release_id)
+    if not release:
+        raise HTTPException(404, "Gold release not found")
+    formats = {
+        "json": (release.json_artifact_id, "application/json"),
+        "csv": (release.csv_artifact_id, "text/csv; charset=utf-8"),
+        "xlsx": (
+            release.xlsx_artifact_id,
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        ),
+    }
+    selected = formats.get(artifact_format.lower())
+    if selected is None:
+        raise HTTPException(404, "Gold artifact format not found")
+    artifact = db.get(Artifact, selected[0]) if selected[0] else None
+    if artifact is None:
+        raise HTTPException(404, "Gold artifact not found")
+    try:
+        payload = LocalStorageAdapter("data").read_bytes(artifact.object_key)
+    except OSError as exc:
+        raise HTTPException(503, "Gold artifact storage unavailable") from exc
+    return Response(
+        content=payload,
+        media_type=selected[1],
+        headers={"Content-Disposition": f'attachment; filename="gold-v{release.version:04d}.{artifact_format.lower()}"'},
+    )
 
 
 @app.post("/api/v1/gold/preflight")

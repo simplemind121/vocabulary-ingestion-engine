@@ -265,6 +265,9 @@ class GoldRelease(Base):
     sha256: Mapped[str] = mapped_column(String(64))
     json_artifact_id: Mapped[str | None] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"), nullable=True)
     csv_artifact_id: Mapped[str | None] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"), nullable=True)
+    xlsx_artifact_id: Mapped[str | None] = mapped_column(
+        ForeignKey("artifacts.id", ondelete="RESTRICT"), nullable=True
+    )
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
 

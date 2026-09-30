@@ -37,6 +37,23 @@ def test_completed_pipeline_exposes_gold_and_release(client, sample_pdf_bytes):
     detail = client.get(f"/api/v1/gold/releases/{release_id}")
     assert detail.status_code == 200
     assert detail.json()["sha256"] == release.json()["sha256"]
+    assert detail.json()["xlsx_artifact_id"] is not None
+
+    for artifact_format, expected_content_type in (
+        ("json", "application/json"),
+        ("csv", "text/csv; charset=utf-8"),
+        (
+            "xlsx",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        ),
+    ):
+        download = client.get(
+            f"/api/v1/gold/releases/{release_id}/download/{artifact_format}"
+        )
+        assert download.status_code == 200
+        assert download.headers["content-type"] == expected_content_type
+        assert "attachment" in download.headers["content-disposition"]
+        assert download.content
 
 
 def test_missing_run_execute_is_404(client):

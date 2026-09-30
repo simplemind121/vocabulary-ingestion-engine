@@ -9,6 +9,7 @@ from app.models import (
     ProcessingRun,
     SourceBlock,
     SourceEntry,
+    SourceEntryBlock,
     VocabularyEntry,
 )
 from app.services.gold_run_preflight import inspect_gold_run_candidates
@@ -58,6 +59,13 @@ def _seed_candidate(db, *, source_sha: str, render_sha: str, populated: bool):
         db.add_all([block, entry])
         db.flush()
         db.add(
+            SourceEntryBlock(
+                source_entry_id=entry.id,
+                source_block_id=block.id,
+                block_order=1,
+            )
+        )
+        db.add(
             VocabularyEntry(
                 source_entry_id=entry.id,
                 processing_run_id=run.id,
@@ -83,6 +91,9 @@ def test_preflight_reports_ready_persisted_run(client) -> None:
         assert len(candidates) == 1
         assert candidates[0]["processing_run_id"] == run.id
         assert candidates[0]["ready_for_gold_draft"] is True
+        assert candidates[0]["frozen_pages_with_blocks"] == 1
+        assert candidates[0]["frozen_pages_with_entries"] == 1
+        assert candidates[0]["frozen_pages_with_vocabulary"] == 1
         assert candidates[0]["blockers"] == []
     finally:
         db.rollback()
@@ -105,10 +116,13 @@ def test_preflight_is_fail_closed_for_render_and_missing_pipeline_layers(client)
         assert candidates[0]["blockers"] == [
             "FROZEN_RENDER_SHA256_MISMATCH",
             "FROZEN_PAGES_WITHOUT_SOURCE_BLOCKS",
-            "SOURCE_ENTRIES_MISSING",
-            "VOCABULARY_ENTRIES_MISSING",
+            "FROZEN_PAGES_WITHOUT_SOURCE_ENTRIES",
+            "FROZEN_PAGES_WITHOUT_VOCABULARY_ENTRIES",
         ]
         assert candidates[0]["render_sha256_mismatches"] == [1]
+        assert candidates[0]["pages_without_blocks"] == [1]
+        assert candidates[0]["pages_without_entries"] == [1]
+        assert candidates[0]["pages_without_vocabulary"] == [1]
     finally:
         db.rollback()
         db.close()

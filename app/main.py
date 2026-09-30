@@ -2,13 +2,15 @@ from __future__ import annotations
 
 import hashlib
 import json
+import secrets
 from pathlib import Path
 from typing import Annotated
 
 import fitz
 import redis
 from botocore.exceptions import BotoCoreError, ClientError
-from fastapi import Depends, FastAPI, File, HTTPException, Response, UploadFile
+from fastapi import Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
@@ -42,6 +44,22 @@ BRONZE_DIR.mkdir(parents=True, exist_ok=True)
 PAGE_DIR.mkdir(parents=True, exist_ok=True)
 app = FastAPI(title="Vocabulary Ingestion Engine", version=APP_VERSION)
 DbSession = Annotated[Session, Depends(get_db)]
+
+
+@app.middleware("http")
+async def require_api_key(request: Request, call_next):
+    expected_secret = get_settings().api_key
+    if request.url.path.startswith("/api/") and expected_secret is not None:
+        authorization = request.headers.get("authorization", "")
+        scheme, _, supplied = authorization.partition(" ")
+        expected = expected_secret.get_secret_value()
+        if scheme.lower() != "bearer" or not supplied or not secrets.compare_digest(supplied, expected):
+            return JSONResponse(
+                status_code=401,
+                content={"detail": "Valid bearer token required"},
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+    return await call_next(request)
 
 
 class PublishRequest(BaseModel):

@@ -2,14 +2,17 @@
 set -eu
 
 project="vie-smoke-${VIE_SMOKE_SUFFIX:-$$}"
+export COMPOSE_PROJECT_NAME="$project"
 export POSTGRES_DB="vie"
 export POSTGRES_USER="vie"
 export POSTGRES_PASSWORD="vie-smoke-postgres-password"
 export DATABASE_URL="postgresql+psycopg://vie:${POSTGRES_PASSWORD}@postgres:5432/vie"
+export VIE_API_KEY="vie-smoke-api-key"
 export S3_ACCESS_KEY_ID="vie-smoke-access"
 export S3_SECRET_ACCESS_KEY="vie-smoke-secret-password"
 export S3_BUCKET="vie-smoke-artifacts"
 export API_PORT="0"
+backup_parent=""
 
 compose() {
   docker compose -p "$project" "$@"
@@ -22,6 +25,7 @@ cleanup() {
     compose logs --no-color --tail 200 || true
   fi
   compose down --volumes --remove-orphans >/dev/null 2>&1 || true
+  if [ -n "$backup_parent" ]; then rm -rf "$backup_parent"; fi
   exit "$status"
 }
 trap cleanup EXIT INT TERM
@@ -38,5 +42,27 @@ compose exec -T api python -c \
   "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text('select version_num from alembic_version')).scalar() == '0007_gold_xlsx'; connection.close()"
 
 compose exec -T worker celery -A app.worker.celery_app inspect ping --timeout 5 | grep -q pong
+
+compose exec -T api python -c \
+  "from pathlib import Path; path=Path('/app/data/smoke/original.txt'); path.parent.mkdir(parents=True, exist_ok=True); path.write_text('original', encoding='utf-8')"
+backup_parent=$(mktemp -d)
+scripts/backup.sh "$backup_parent/snapshot"
+
+compose exec -T api python -c \
+  "from app.settings import get_settings; from app.storage import build_storage_adapter; adapter=build_storage_adapter(get_settings()); adapter.delete('smoke/runtime.txt'); adapter.put_bytes('smoke/stale.txt', b'stale')"
+compose exec -T api python -c \
+  "from pathlib import Path; Path('/app/data/smoke/original.txt').unlink(); Path('/app/data/smoke/stale.txt').write_text('stale', encoding='utf-8')"
+compose exec -T postgres sh -c \
+  'psql --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1 --command="CREATE TABLE restore_smoke (id integer)"' \
+  >/dev/null
+
+scripts/restore.sh --confirm "$backup_parent/snapshot"
+
+compose exec -T api python -c \
+  "from app.settings import get_settings; from app.storage import build_storage_adapter; adapter=build_storage_adapter(get_settings()); assert adapter.read_bytes('smoke/runtime.txt') == b'vie-g6-smoke'; assert not adapter.exists('smoke/stale.txt')"
+compose exec -T api python -c \
+  "from pathlib import Path; assert Path('/app/data/smoke/original.txt').read_text(encoding='utf-8') == 'original'; assert not Path('/app/data/smoke/stale.txt').exists()"
+compose exec -T api python -c \
+  "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text(\"select to_regclass('public.restore_smoke')\")).scalar() is None; connection.close()"
 
 echo "Production topology smoke test passed."

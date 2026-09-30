@@ -43,6 +43,20 @@ class FakeS3Client:
     def head_bucket(self, *, Bucket):
         return {"Bucket": Bucket}
 
+    def list_objects_v2(self, *, Bucket, ContinuationToken=None):
+        assert ContinuationToken is None
+        return {
+            "Contents": [
+                {"Key": key}
+                for bucket, key in self.objects
+                if bucket == Bucket
+            ],
+            "IsTruncated": False,
+        }
+
+    def delete_object(self, *, Bucket, Key):
+        self.objects.pop((Bucket, Key), None)
+
 
 def test_s3_storage_roundtrip_and_healthcheck():
     client = FakeS3Client()
@@ -56,3 +70,6 @@ def test_s3_storage_roundtrip_and_healthcheck():
     assert not storage.exists("gold/missing.json")
     assert storage.read_bytes("gold/release.json") == b"verified"
     assert storage.healthcheck() is True
+    assert storage.list_keys() == ["gold/release.json"]
+    storage.delete("gold/release.json")
+    assert not storage.exists("gold/release.json")

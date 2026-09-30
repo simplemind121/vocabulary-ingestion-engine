@@ -25,6 +25,12 @@ class StorageAdapter(Protocol):
     def healthcheck(self) -> bool:
         ...
 
+    def list_keys(self) -> list[str]:
+        ...
+
+    def delete(self, key: str) -> None:
+        ...
+
 
 class LocalStorageAdapter:
     provider = "local"
@@ -60,6 +66,17 @@ class LocalStorageAdapter:
 
     def healthcheck(self) -> bool:
         return self.root.is_dir()
+
+    def list_keys(self) -> list[str]:
+        root = self.root.resolve()
+        return sorted(
+            path.relative_to(root).as_posix()
+            for path in root.rglob("*")
+            if path.is_file() and not path.is_symlink()
+        )
+
+    def delete(self, key: str) -> None:
+        self._path(key).unlink(missing_ok=True)
 
 
 class S3StorageAdapter:
@@ -112,6 +129,25 @@ class S3StorageAdapter:
     def healthcheck(self) -> bool:
         self._client.head_bucket(Bucket=self.bucket)
         return True
+
+    def list_keys(self) -> list[str]:
+        keys: list[str] = []
+        continuation_token: str | None = None
+        while True:
+            request = {"Bucket": self.bucket}
+            if continuation_token is not None:
+                request["ContinuationToken"] = continuation_token
+            response = self._client.list_objects_v2(**request)
+            keys.extend(item["Key"] for item in response.get("Contents", []))
+            if not response.get("IsTruncated"):
+                break
+            continuation_token = response.get("NextContinuationToken")
+            if not continuation_token:
+                raise RuntimeError("S3 listing was truncated without a continuation token")
+        return sorted(keys)
+
+    def delete(self, key: str) -> None:
+        self._client.delete_object(Bucket=self.bucket, Key=key)
 
 
 def build_storage_adapter(settings: Settings) -> StorageAdapter:

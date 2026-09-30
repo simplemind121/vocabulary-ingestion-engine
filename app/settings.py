@@ -3,6 +3,7 @@ from __future__ import annotations
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -11,6 +12,7 @@ class Settings(BaseSettings):
 
     ocr_engine: str = "none"
     ocr_min_confidence: float = 0.85
+    api_key: SecretStr | None = None
     redis_url: str | None = None
     storage_backend: str = "local"
     storage_root: Path = Path("data")

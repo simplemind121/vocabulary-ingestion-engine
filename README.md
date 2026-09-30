@@ -4,9 +4,9 @@ Production-oriented, provenance-first vocabulary database factory.
 
 > Upload PDF → Bronze → Render/IDR → OCR/Layout adapters → Entry Segmentation → Canonical Vocabulary → Validation/Review → Verified Gold.
 
-## v0.1.0-alpha bootstrap
+## Current alpha state
 
-The first executable slice implements PDF ingestion, SHA-256 source preservation, PyMuPDF page rendering, Processing Run identity, G0 document-integrity evidence, and a G6 Gold preflight guard. PostgreSQL and Redis are present in the deployment topology; persistent repositories, migrations, OCR adapters, Review UI and Gold snapshots follow in the next slices.
+The pipeline, persistent schema, migrations, review workflow, deterministic Gold publication, JSON/CSV/XLSX exports, API, worker, and production service topology are implemented. The real 30-page Gold Sample remains fail-closed until all pages receive explicit human verification; machine preannotation never grants `HUMAN_VERIFIED`.
 
 ## Non-negotiable Gold contract
 
@@ -15,18 +15,26 @@ Gold permits only resolved, validated and traceable records. Unresolved records,
 ## Run
 
 ```bash
-docker compose up --build
+cp .env.example .env
+# Replace every placeholder in .env before starting.
+docker compose up --detach --build --wait
 ```
 
 API: `http://localhost:8000`
 
 OpenAPI: `http://localhost:8000/docs`
 
-Health: `GET /health`
+Liveness: `GET /health/live`
+
+Readiness: `GET /health/ready`
+
+API calls require `Authorization: Bearer <VIE_API_KEY>` in the Compose deployment.
 
 Upload: `POST /api/v1/documents` using multipart field `file`.
 
 Gold preflight: `POST /api/v1/gold/preflight`.
+
+See [Production operations](docs/OPERATIONS.md) for install, backup, restore, upgrade, and rollback procedures.
 
 ## Development
 
@@ -42,7 +50,7 @@ pytest -q
 - Python / FastAPI
 - PostgreSQL / SQLAlchemy / Alembic
 - Redis + worker queue
-- S3-compatible object storage / Backblaze B2 target
+- S3-compatible object storage (SeaweedFS locally; AWS S3/Backblaze B2 compatible adapter)
 - Next.js / React target UI
 - PyMuPDF baseline renderer
 - Replaceable OCR/parser adapters (MinerU, PaddleOCR/PP-Structure, vision fallback)

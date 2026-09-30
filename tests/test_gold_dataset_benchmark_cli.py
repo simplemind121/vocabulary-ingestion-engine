@@ -62,6 +62,8 @@ def test_real_dataset_benchmark_requires_verified_annotations_and_exact_predicti
     assert report["status"] == "PASS"
     assert report["page_count"] == 30
     assert report["failed_samples"] == []
+    assert report["source_document_sha256"] == "a" * 64
+    assert len(report["gold_manifest_sha256"]) == 64
     assert "PASS" in capsys.readouterr().out
 
 

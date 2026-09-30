@@ -58,6 +58,11 @@ jobs:
           python -m app.gold_corpus_cli
           --annotations gold_samples/annotations
           --output gold-readiness.json
+      - name: Validate source-bound full-book audit evidence
+        run: >-
+          python -m app.full_book_evidence_check_cli
+          release_evidence/full-book-audit-v1.json
+          --source-metadata gold_samples/source_document.json
       - name: Publish Gold readiness summary
         if: always()
         run: |

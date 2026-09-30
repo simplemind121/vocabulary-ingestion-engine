@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from app.services.benchmark import run_gold_benchmark
-from app.services.gold_corpus import evaluate_corpus_readiness
+from app.services.gold_corpus import evaluate_corpus_readiness, freeze_manifest
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -42,6 +42,12 @@ def main(argv: Sequence[str] | None = None) -> int:
                 }
             )
         report = _aggregate(page_reports)
+        frozen_manifest = freeze_manifest(list(truth.values()))
+        source_hashes = {item.get("document_sha256") for item in truth.values()}
+        if len(source_hashes) != 1:
+            raise ValueError("verified annotations must have one source document identity")
+        report["source_document_sha256"] = source_hashes.pop()
+        report["gold_manifest_sha256"] = frozen_manifest["manifest_sha256"]
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(
             json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",

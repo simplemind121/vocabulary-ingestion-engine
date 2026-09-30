@@ -69,3 +69,14 @@ compose exec -T api python -c \
   "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text(\"select to_regclass('public.restore_smoke')\")).scalar() is None; connection.close()"
 
 echo "Production topology smoke test passed."
+
+if [ -n "${VIE_SMOKE_EVIDENCE:-}" ]; then
+  git_sha="${GITHUB_SHA:-}"
+  if [ -z "$git_sha" ]; then git_sha=$(git rev-parse HEAD); fi
+  image_name="${VIE_IMAGE:-vocabulary-ingestion-engine:local}"
+  image_id=$(docker image inspect "$image_name" --format '{{.Id}}')
+  python3 -m app.production_smoke_evidence_cli \
+    --output "$VIE_SMOKE_EVIDENCE" \
+    --git-sha "$git_sha" \
+    --image-id "$image_id"
+fi

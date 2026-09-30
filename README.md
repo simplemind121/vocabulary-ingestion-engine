@@ -47,6 +47,9 @@ Gold preflight: `POST /api/v1/gold/preflight`.
 
 See [Production operations](docs/OPERATIONS.md) for install, backup, restore, upgrade, and rollback procedures.
 
+See [G6 production release Gate](docs/G6_RELEASE.md) for the aggregate,
+source-bound release evidence contract and current acceptance status.
+
 ## Development
 
 ```bash

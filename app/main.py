@@ -3,8 +3,11 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import math
+import os
 import re
 import secrets
+import tempfile
 import time
 import uuid
 from pathlib import Path
@@ -41,7 +44,7 @@ from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
 from app.services.review_view import review_task_detail
 from app.services.run_queue import queue_processing_run
-from app.settings import get_settings
+from app.settings import Settings, get_settings
 from app.storage import build_storage_adapter, read_artifact_bytes
 from app.worker import run_pipeline_task
 
@@ -157,6 +160,89 @@ def _get_or_create_source_artifact(
         return existing
 
 
+async def _stage_pdf_upload(file: UploadFile) -> tuple[Path, str, int]:
+    settings = get_settings()
+    digest = hashlib.sha256()
+    byte_size = 0
+    staged_path: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="wb",
+            dir=BRONZE_DIR,
+            prefix=".upload-",
+            suffix=".pdf",
+            delete=False,
+        ) as staged:
+            staged_path = Path(staged.name)
+            while chunk := await file.read(1024 * 1024):
+                byte_size += len(chunk)
+                if byte_size > settings.max_upload_bytes:
+                    raise HTTPException(
+                        413,
+                        f"PDF exceeds configured {settings.max_upload_bytes}-byte upload limit",
+                    )
+                digest.update(chunk)
+                staged.write(chunk)
+        if byte_size == 0:
+            raise HTTPException(400, "Empty upload")
+        _validate_pdf_policy(staged_path, settings=settings)
+
+        sha256 = digest.hexdigest()
+        source_path = BRONZE_DIR / f"{sha256}.pdf"
+        if source_path.exists() and _sha256_file(source_path) == sha256:
+            staged_path.unlink()
+        else:
+            os.replace(staged_path, source_path)
+        staged_path = None
+        return source_path, sha256, byte_size
+    finally:
+        if staged_path is not None:
+            staged_path.unlink(missing_ok=True)
+
+
+def _validate_pdf_policy(path: Path, *, settings: Settings) -> None:
+    try:
+        pdf = fitz.open(path)
+    except Exception as exc:
+        raise HTTPException(422, f"Unreadable PDF: {exc}") from exc
+    try:
+        if pdf.needs_pass:
+            raise HTTPException(422, "Encrypted PDFs are not supported")
+        if pdf.page_count == 0:
+            raise HTTPException(422, "PDF contains no pages")
+        if pdf.page_count > settings.max_pdf_pages:
+            raise HTTPException(
+                422,
+                f"PDF exceeds configured {settings.max_pdf_pages}-page limit",
+            )
+        scale_x, scale_y = GOLD_RENDER_CONTRACT["matrix"]
+        for page_number, page in enumerate(pdf, start=1):
+            width = page.rect.width * scale_x
+            height = page.rect.height * scale_y
+            pixels = width * height
+            if not math.isfinite(pixels) or pixels > settings.max_render_pixels_per_page:
+                raise HTTPException(
+                    422,
+                    "PDF page "
+                    f"{page_number} exceeds configured "
+                    f"{settings.max_render_pixels_per_page}-pixel render limit",
+                )
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(422, f"PDF validation failed: {exc}") from exc
+    finally:
+        pdf.close()
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        while chunk := source.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "version": APP_VERSION}
@@ -216,21 +302,17 @@ def review_ui() -> str:
 @app.post("/api/v1/documents")
 async def ingest_document(file: Annotated[UploadFile, File()], db: DbSession) -> dict:
     if file.content_type not in {"application/pdf", "application/x-pdf"}: raise HTTPException(415, "Only PDF is supported in v0.1")
-    payload = await file.read()
-    if not payload: raise HTTPException(400, "Empty upload")
-    digest = hashlib.sha256(payload).hexdigest(); source_path = BRONZE_DIR / f"{digest}.pdf"; source_path.write_bytes(payload)
-    try: pdf = fitz.open(stream=payload, filetype="pdf")
-    except Exception as exc:
-        source_path.unlink(missing_ok=True); raise HTTPException(422, f"Unreadable PDF: {exc}") from exc
+    source_path, digest, byte_size = await _stage_pdf_upload(file)
+    pdf = fitz.open(source_path)
     document = Document(original_filename=file.filename or "upload.pdf"); db.add(document); db.flush()
     source_artifact = _get_or_create_source_artifact(
         db,
         source_path=source_path,
         content_type=file.content_type,
-        byte_size=len(payload),
+        byte_size=byte_size,
         digest=digest,
     )
-    version = DocumentVersion(document_id=document.id, source_artifact_id=source_artifact.id, sha256=digest, mime_type=file.content_type or "application/pdf", file_size=len(payload), page_count=pdf.page_count); db.add(version); db.flush()
+    version = DocumentVersion(document_id=document.id, source_artifact_id=source_artifact.id, sha256=digest, mime_type=file.content_type or "application/pdf", file_size=byte_size, page_count=pdf.page_count); db.add(version); db.flush()
     run = ProcessingRun(
         document_version_id=version.id,
         configuration_snapshot={"render_contract": GOLD_RENDER_CONTRACT},

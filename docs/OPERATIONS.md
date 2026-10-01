@@ -30,6 +30,13 @@ through OCR; low-confidence blocks remain blocking review work. Change the
 engine or languages only after the production smoke test succeeds with the new
 runtime.
 
+Uploads are streamed to a private staging file and accepted only after PDF
+validation. The default limits are 512 MiB, 5,000 pages, and 40 million rendered
+pixels per page; they leave substantial headroom for the accepted 33 MiB,
+1,120-page source while bounding memory, disk, and renderer abuse. Configure
+`VIE_MAX_UPLOAD_BYTES`, `VIE_MAX_PDF_PAGES`, and
+`VIE_MAX_RENDER_PIXELS_PER_PAGE` only after testing the replacement limits.
+
 For an automated destructive test using disposable volumes, run `scripts/compose-smoke.sh`. It builds all services, applies migrations, checks the worker and object storage, then proves backup and restore before deleting only its temporary project and volumes.
 
 The smoke also uploads a real PDF through the authenticated API, enqueues it in

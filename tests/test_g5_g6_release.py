@@ -1,4 +1,5 @@
 import hashlib
+import time
 
 from app.db import SessionLocal
 from app.models import Artifact
@@ -29,8 +30,11 @@ def test_g5_g6_and_gold_release_are_deterministic(client, sample_pdf_bytes, tmp_
         dataset = build_gold_dataset(db, run_id); json_a = serialize_gold_json(dataset); json_b = serialize_gold_json(dataset)
         assert json_a == json_b
         assert serialize_gold_csv(dataset).startswith(b"id,lemma,language,verification_status")
-        assert serialize_gold_xlsx(dataset) == serialize_gold_xlsx(dataset)
-        assert serialize_gold_xlsx(dataset).startswith(b"PK")
+        xlsx_a = serialize_gold_xlsx(dataset)
+        time.sleep(1.1)
+        xlsx_b = serialize_gold_xlsx(dataset)
+        assert xlsx_a == xlsx_b
+        assert xlsx_a.startswith(b"PK")
         storage = LocalStorageAdapter(tmp_path / "gold-storage")
         release_a = publish_gold_release(db, run_id, storage); release_b = publish_gold_release(db, run_id, storage)
         assert release_a.id == release_b.id

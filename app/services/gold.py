@@ -4,6 +4,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 import zipfile
 from datetime import UTC, datetime
 
@@ -24,6 +25,10 @@ from app.settings import get_settings
 from app.storage import StorageAdapter, build_storage_adapter
 
 _VERIFIED = {"AUTO_VERIFIED", "HUMAN_VERIFIED"}
+_CORE_MODIFIED_TIMESTAMP = re.compile(
+    rb"(<dcterms:modified\b[^>]*>)[^<]*(</dcterms:modified>)"
+)
+_DETERMINISTIC_TIMESTAMP = b"1980-01-01T00:00:00Z"
 
 
 def build_gold_dataset(db: Session, run_id: str) -> dict:
@@ -103,7 +108,18 @@ def _normalize_zip(payload: bytes) -> bytes:
             info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o600 << 16
-            target.writestr(info, source.read(name))
+            content = source.read(name)
+            if name == "docProps/core.xml":
+                # openpyxl overwrites the modified property with the wall clock
+                # during every save, even when Workbook.properties.modified was
+                # explicitly fixed. Normalize that last source of XLSX entropy.
+                content = _CORE_MODIFIED_TIMESTAMP.sub(
+                    lambda match: match.group(1)
+                    + _DETERMINISTIC_TIMESTAMP
+                    + match.group(2),
+                    content,
+                )
+            target.writestr(info, content)
     return output.getvalue()
 
 

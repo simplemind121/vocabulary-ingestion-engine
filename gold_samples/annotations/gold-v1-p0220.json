@@ -13,7 +13,7 @@
   "page_image_sha256": "2fc7c893c8d55897c99250b1ec57175994aa86f23876f618352fcbe5ac222edd",
   "blocks": [
     {
-      "source_block_id": "native-p0220-b0000",
+      "source_block_id": "48cbbbc5-337f-418e-9ebc-ed4ebd80ccce",
       "text": "219",
       "raw_text": "219",
       "block_type": "TEXT",
@@ -29,7 +29,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0001",
+      "source_block_id": "53aedb20-3957-4dff-a219-8b9b7c115d43",
       "text": "earthwork* [ˈɜːθwɜːk]",
       "raw_text": "earthwork* [ˈɜːθwɜːk]",
       "block_type": "TEXT",
@@ -45,7 +45,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0002",
+      "source_block_id": "a77301e1-5a47-4cc0-a289-3165eedc630b",
       "text": "n. 【建】土方工程；土木工事",
       "raw_text": "n. 【建】土方工程；土木工事",
       "block_type": "TEXT",
@@ -61,7 +61,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0003",
+      "source_block_id": "1d55fa8e-27cb-4a6a-ba9f-b8e827ef2529",
       "text": "例 Some contemporary tribes still live among the earthworks of\nearlier cultures. 一些现存的部落依然生活在早期文化的土垒建筑\n里。",
       "raw_text": "例 Some contemporary tribes still live among the earthworks of\nearlier cultures. 一些现存的部落依然生活在早期文化的土垒建筑\n里。",
       "block_type": "TEXT",
@@ -77,7 +77,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0004",
+      "source_block_id": "fd09f33e-57d1-4222-b462-e652355db5db",
       "text": "surround [səˈraʊnd]",
       "raw_text": "surround [səˈraʊnd]",
       "block_type": "TEXT",
@@ -93,7 +93,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0005",
+      "source_block_id": "e5445867-9e3c-499d-a3f0-bd37ce5a27a4",
       "text": "vt. 围绕；包围",
       "raw_text": "vt. 围绕；包围",
       "block_type": "TEXT",
@@ -109,7 +109,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0006",
+      "source_block_id": "a0694164-5ac8-4412-92a5-20a9f2b60b1e",
       "text": "记 联想记忆：sur+round（圆）→在圆的外边→围绕；包围",
       "raw_text": "记 联想记忆：sur+round（圆）→在圆的外边→围绕；包围",
       "block_type": "TEXT",
@@ -125,7 +125,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0007",
+      "source_block_id": "c2964786-a8ac-4521-91df-e2864fc17da6",
       "text": "搭 be surrounded by sth. 被…围绕；surround oneself with sth.\n用…把自己包围住",
       "raw_text": "搭 be surrounded by sth. 被…围绕；surround oneself with sth.\n用…把自己包围住",
       "block_type": "TEXT",
@@ -141,7 +141,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0008",
+      "source_block_id": "ace7c314-fe21-4439-abbc-a155484b68be",
       "text": "例 For the most part, we breathe in the aromas which surround us\nwithout being consciously aware of their importance to us. 大多数时\n候，我们呼吸着周围的香气，却没有意识到它们对我们的重要性。",
       "raw_text": "例 For the most part, we breathe in the aromas which surround us\nwithout being consciously aware of their importance to us. 大多数时\n候，我们呼吸着周围的香气，却没有意识到它们对我们的重要性。",
       "block_type": "TEXT",
@@ -157,7 +157,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0009",
+      "source_block_id": "330cdc52-4341-4ba9-bdbc-8df97b919418",
       "text": "impression* [ɪmˈpreʃn]",
       "raw_text": "impression* [ɪmˈpreʃn]",
       "block_type": "TEXT",
@@ -173,7 +173,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0010",
+      "source_block_id": "a969cc14-3f19-4ab3-addb-a1569db4b98f",
       "text": "n. 印象，感想；印记，压痕",
       "raw_text": "n. 印象，感想；印记，压痕",
       "block_type": "TEXT",
@@ -189,7 +189,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0011",
+      "source_block_id": "eccdf192-9a23-4acd-be9d-1cec36231d6f",
       "text": "记 联想记忆：impress（印，盖印）+ion→印象；印记",
       "raw_text": "记 联想记忆：impress（印，盖印）+ion→印象；印记",
       "block_type": "TEXT",
@@ -205,7 +205,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0012",
+      "source_block_id": "662b7a63-1220-4f73-a55c-8c742e594d64",
       "text": "搭 first impression 第一印象",
       "raw_text": "搭 first impression 第一印象",
       "block_type": "TEXT",
@@ -221,7 +221,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0013",
+      "source_block_id": "776c09b5-94fd-420a-a539-24a07183f729",
       "text": "例 Could you tell us something about your first impression of the\ntown when you arrived? 你能不能告诉我当你初到这个小镇时，你的\n第一印象是什么？",
       "raw_text": "例 Could you tell us something about your first impression of the\ntown when you arrived? 你能不能告诉我当你初到这个小镇时，你的\n第一印象是什么？",
       "block_type": "TEXT",
@@ -237,7 +237,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0014",
+      "source_block_id": "f32fb30c-17d4-4e5e-a5fa-79ae79bd266e",
       "text": "horrify* [ˈhɒrɪfaɪ]",
       "raw_text": "horrify* [ˈhɒrɪfaɪ]",
       "block_type": "TEXT",
@@ -253,7 +253,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0015",
+      "source_block_id": "9a4b3fcd-3e1c-44de-b30c-4b5aff955fc0",
       "text": "vt. 使恐惧，使惊骇；使震惊；使感到厌恶",
       "raw_text": "vt. 使恐惧，使惊骇；使震惊；使感到厌恶",
       "block_type": "TEXT",
@@ -269,7 +269,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0016",
+      "source_block_id": "d1d32823-af59-4f5e-ada8-0a4069d829e4",
       "text": "记 词根记忆：horr（害怕）+ify（使…）→使恐惧，使惊骇",
       "raw_text": "记 词根记忆：horr（害怕）+ify（使…）→使恐惧，使惊骇",
       "block_type": "TEXT",
@@ -285,7 +285,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0017",
+      "source_block_id": "9af4a421-9e38-4069-b3f3-5f03aa530c7f",
       "text": "例 I had been horrified by several newspaper reports. 我对几篇新\n闻报道的内容感到震惊。",
       "raw_text": "例 I had been horrified by several newspaper reports. 我对几篇新\n闻报道的内容感到震惊。",
       "block_type": "TEXT",
@@ -301,7 +301,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0018",
+      "source_block_id": "90babd3f-2a59-4f02-8ba2-42282b1faece",
       "text": "introduction* [ˌɪntrəˈdʌkʃn]",
       "raw_text": "introduction* [ˌɪntrəˈdʌkʃn]",
       "block_type": "TEXT",
@@ -317,7 +317,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0019",
+      "source_block_id": "bce82bd2-bae0-4eb1-a9af-0c76229a61b8",
       "text": "n. 介绍；传入，引进；导言，绪论",
       "raw_text": "n. 介绍；传入，引进；导言，绪论",
       "block_type": "TEXT",
@@ -333,7 +333,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0220-b0020",
+      "source_block_id": "79ce4dc5-d5f2-49a7-af5e-8dda1af94a81",
       "text": "记 词根记忆：intro（向内）+duc（引导）+tion→介绍；传\n入，引进",
       "raw_text": "记 词根记忆：intro（向内）+duc（引导）+tion→介绍；传\n入，引进",
       "block_type": "TEXT",
@@ -351,128 +351,117 @@
   ],
   "entries": [
     {
+      "source_entry_id": "2a418f0d-5e06-4405-8d09-97adb9d7f4b0",
       "lemma": "earthwork",
       "raw_text": "earthwork* [ˈɜːθwɜːk]\nn. 【建】土方工程；土木工事\n例 Some contemporary tribes still live among the earthworks of\nearlier cultures. 一些现存的部落依然生活在早期文化的土垒建筑\n里。",
+      "entry_order": 807,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         220
-      ],
-      "source_block_ids": [
-        "native-p0220-b0001",
-        "native-p0220-b0002",
-        "native-p0220-b0003"
       ]
     },
     {
+      "source_entry_id": "969ac03d-234f-49ef-b737-5fb51b82713f",
       "lemma": "surround",
       "raw_text": "surround [səˈraʊnd]\nvt. 围绕；包围\n记 联想记忆：sur+round（圆）→在圆的外边→围绕；包围\n搭 be surrounded by sth. 被…围绕；surround oneself with sth.\n用…把自己包围住\n例 For the most part, we breathe in the aromas which surround us\nwithout being consciously aware of their importance to us. 大多数时\n候，我们呼吸着周围的香气，却没有意识到它们对我们的重要性。",
+      "entry_order": 808,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         220
-      ],
-      "source_block_ids": [
-        "native-p0220-b0004",
-        "native-p0220-b0005",
-        "native-p0220-b0006",
-        "native-p0220-b0007",
-        "native-p0220-b0008"
       ]
     },
     {
+      "source_entry_id": "0fc0bdd9-ddbd-46da-8e9b-e6f34f9a106b",
       "lemma": "impression",
       "raw_text": "impression* [ɪmˈpreʃn]\nn. 印象，感想；印记，压痕\n记 联想记忆：impress（印，盖印）+ion→印象；印记\n搭 first impression 第一印象\n例 Could you tell us something about your first impression of the\ntown when you arrived? 你能不能告诉我当你初到这个小镇时，你的\n第一印象是什么？",
+      "entry_order": 809,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         220
-      ],
-      "source_block_ids": [
-        "native-p0220-b0009",
-        "native-p0220-b0010",
-        "native-p0220-b0011",
-        "native-p0220-b0012",
-        "native-p0220-b0013"
       ]
     },
     {
+      "source_entry_id": "d7277498-3ef8-4ee4-97e6-96a77e8b7bd8",
       "lemma": "horrify",
       "raw_text": "horrify* [ˈhɒrɪfaɪ]\nvt. 使恐惧，使惊骇；使震惊；使感到厌恶\n记 词根记忆：horr（害怕）+ify（使…）→使恐惧，使惊骇\n例 I had been horrified by several newspaper reports. 我对几篇新\n闻报道的内容感到震惊。",
+      "entry_order": 810,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         220
-      ],
-      "source_block_ids": [
-        "native-p0220-b0014",
-        "native-p0220-b0015",
-        "native-p0220-b0016",
-        "native-p0220-b0017"
       ]
     },
     {
+      "source_entry_id": "16f79a18-d29e-4407-a139-eea770921954",
       "lemma": "introduction",
       "raw_text": "introduction* [ˌɪntrəˈdʌkʃn]\nn. 介绍；传入，引进；导言，绪论\n记 词根记忆：intro（向内）+duc（引导）+tion→介绍；传\n入，引进\n例 By way of introduction, I shall give you the background of the\nsubject. 通过介绍，我将向你讲述该学科的相关背景。",
+      "entry_order": 811,
       "segmentation_confidence": 0.98,
       "continuation_type": "CROSS_PAGE",
       "source_pages": [
         220,
         221
-      ],
-      "source_block_ids": [
-        "native-p0220-b0018",
-        "native-p0220-b0019",
-        "native-p0220-b0020",
-        "native-p0221-b0001"
       ]
     }
   ],
   "vocabulary": [
     {
+      "vocabulary_entry_id": "4ba6f66f-d2fe-4c28-be54-b56418f4f23b",
+      "source_entry_id": "2a418f0d-5e06-4405-8d09-97adb9d7f4b0",
       "lemma": "earthwork",
       "display_form": "earthwork",
       "ipa": "ˈɜːθwɜːk",
       "part_of_speech": "n.",
       "definition": "【建】土方工程；土木工事",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "ebe3d5cc-4b79-418d-b1a8-a327295bab72",
+      "source_entry_id": "969ac03d-234f-49ef-b737-5fb51b82713f",
       "lemma": "surround",
       "display_form": "surround",
       "ipa": "səˈraʊnd",
       "part_of_speech": "vt.",
       "definition": "围绕；包围",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "5e857c10-0fe9-4ded-bbea-32fa977d4760",
+      "source_entry_id": "0fc0bdd9-ddbd-46da-8e9b-e6f34f9a106b",
       "lemma": "impression",
       "display_form": "impression",
       "ipa": "ɪmˈpreʃn",
       "part_of_speech": "n.",
       "definition": "印象，感想；印记，压痕",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "022ec748-d0cc-4daa-a721-958f062a2299",
+      "source_entry_id": "d7277498-3ef8-4ee4-97e6-96a77e8b7bd8",
       "lemma": "horrify",
       "display_form": "horrify",
       "ipa": "ˈhɒrɪfaɪ",
       "part_of_speech": "vt.",
       "definition": "使恐惧，使惊骇；使震惊；使感到厌恶",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "6e498eb4-b9fe-4147-91c0-9b78fbc53f20",
+      "source_entry_id": "16f79a18-d29e-4407-a139-eea770921954",
       "lemma": "introduction",
       "display_form": "introduction",
       "ipa": "ˌɪntrəˈdʌkʃn",
       "part_of_speech": "n.",
       "definition": "介绍；传入，引进；导言，绪论",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     }
   ],
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@a60ffcf"
   ]
 }

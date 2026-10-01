@@ -12,7 +12,7 @@
   "page_image_sha256": "9738a4be54cb04d6e26bf8f1ad91904e22ad74136f6028f6cd3f504cd0036c35",
   "blocks": [
     {
-      "source_block_id": "native-p0930-b0000",
+      "source_block_id": "4f615326-9e92-4103-a9eb-22c39bf43199",
       "text": "929",
       "raw_text": "929",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0001",
+      "source_block_id": "9b9b3c6d-1e06-44c5-993c-95d997931339",
       "text": "Unit 4 表示“是非、否定、相反、拒绝”",
       "raw_text": "Unit 4 表示“是非、否定、相反、拒绝”",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0002",
+      "source_block_id": "dcf1f1b7-e328-494a-9a06-1ace87acb14c",
       "text": "词根/词缀\n具体含义\n例词及释义",
       "raw_text": "词根/词缀\n具体含义\n例词及释义",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0003",
+      "source_block_id": "06c9dfda-7e6e-4eaf-b322-1741976c5e95",
       "text": "dis-\n不，没有\ndisharmony n. 不一致；不和谐",
       "raw_text": "dis-\n不，没有\ndisharmony n. 不一致；不和谐",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0004",
+      "source_block_id": "fe5a2195-d8fa-485e-aa55-f457db99dbf6",
       "text": "ob-, op-\n逆，反",
       "raw_text": "ob-, op-\n逆，反",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0005",
+      "source_block_id": "f4007b19-26e4-4043-9b3a-7425a636cb86",
       "text": "obsession n. 困扰；萦绕于心的事物或人 o",
       "raw_text": "obsession n. 困扰；萦绕于心的事物或人 o",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0006",
+      "source_block_id": "e39fdf94-b217-4c7a-9b3b-64d3b323ec9d",
       "text": "ppose v. 反对，反抗",
       "raw_text": "ppose v. 反对，反抗",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0007",
+      "source_block_id": "676b924e-99b2-44be-98b8-05f6e4a3b60a",
       "text": "neg",
       "raw_text": "neg",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0008",
+      "source_block_id": "8464ca7c-42e5-48ce-8dfa-bfc88d3555b4",
       "text": "否认，拒",
       "raw_text": "否认，拒",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0009",
+      "source_block_id": "4c627ab9-4362-4b2c-b1e8-884db5032280",
       "text": "绝",
       "raw_text": "绝",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0010",
+      "source_block_id": "375b7570-e00c-4787-8bac-87b505c40a19",
       "text": "negative adj. 否定的；负面的；消极的",
       "raw_text": "negative adj. 否定的；负面的；消极的",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0011",
+      "source_block_id": "9b4a0297-da3c-4012-a2a4-e2b338674478",
       "text": "counter-, con",
       "raw_text": "counter-, con",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0012",
+      "source_block_id": "917179ec-de0e-4676-b105-d656b05b4252",
       "text": "tra-, contro-",
       "raw_text": "tra-, contro-",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0013",
+      "source_block_id": "ac45b02e-dc13-49f4-9ca9-ad25cc1595ef",
       "text": "相反",
       "raw_text": "相反",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0014",
+      "source_block_id": "2e8f35a7-5e2c-47cd-81ab-954e44cac766",
       "text": "counterproductive adj. 产生相反效果的 con",
       "raw_text": "counterproductive adj. 产生相反效果的 con",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0015",
+      "source_block_id": "7dad7f09-a65e-4505-8399-9844e6af20c2",
       "text": "tradict v. 反驳 controversy n. 争论",
       "raw_text": "tradict v. 反驳 controversy n. 争论",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0016",
+      "source_block_id": "b1abfd79-c5bc-4acd-b11c-0fdb1920578b",
       "text": "abs-",
       "raw_text": "abs-",
       "block_type": "TEXT",
@@ -284,7 +284,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0017",
+      "source_block_id": "a37ffef0-1a52-4b31-bc98-74c992f47ffb",
       "text": "相反，去",
       "raw_text": "相反，去",
       "block_type": "TEXT",
@@ -300,7 +300,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0018",
+      "source_block_id": "719dbbdf-ef57-4489-b7a5-ef9e061db2d2",
       "text": "掉，离去",
       "raw_text": "掉，离去",
       "block_type": "TEXT",
@@ -316,7 +316,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0930-b0019",
+      "source_block_id": "6d22fa22-300a-4e53-a827-40c9e9106bfc",
       "text": "absent adj. 不在场的；心不在焉的",
       "raw_text": "absent adj. 不在场的；心不在焉的",
       "block_type": "TEXT",
@@ -337,6 +337,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@a60ffcf"
   ]
 }

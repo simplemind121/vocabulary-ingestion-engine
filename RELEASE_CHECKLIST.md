@@ -4,7 +4,7 @@ This file is the single source of truth for Vocabulary Ingestion Engine v0.1 rel
 
 Allowed statuses: `NOT_STARTED`, `IN_PROGRESS`, `BLOCKED`, `PASS`, `FAIL`.
 
-Last audited: 2026-10-01 (Asia/Taipei)  
+Last audited: 2026-10-02 (Asia/Taipei)
 Branch: `bootstrap/v0.1.0-alpha`  
 Audited code commit: `8b3191aa50b1c8c3446b3f99ba05bacac1f06b46`
 Pull request: [#1](https://github.com/simplemind121/vocabulary-ingestion-engine/pull/1) (`OPEN`, `MERGEABLE`)  
@@ -15,13 +15,13 @@ Database schema: `0007_gold_xlsx`
 
 | Gate | Status | Release evidence | Current blocker / next executable action |
 |---|---|---|---|
-| R0 — Repository / CI | PASS | Local `ruff` passed and `pytest` passed with 186 tests at `8b3191a`. Push and PR CI both passed test, Gold readiness/evidence validation, and production-topology container smoke for the same code commit in [run 36869743619](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869743619) and [run 36869750969](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869750969). PR #1 is open and mergeable. | Keep this gate green; any code, migration, workflow, or release-evidence change requires a new successful CI run before release. |
-| R1 — Gold Dataset | BLOCKED | 30 annotation files and all required layout tags are present. The executable readiness result is `annotation_count=30`, `human_verified_count=0`, `publish_allowed=false`, `status=NOT_READY`. The real PostgreSQL run has all 30 selected pages represented by SourceBlocks, but 0/19 entry-bearing pages currently have persisted SourceEntry/Vocabulary rows. | A real human must resolve six low-confidence OCR tasks before retrying the persisted pipeline. Then generate the 30-page machine draft/review packet, obtain 30/30 real reviewer sign-offs, prove unresolved/schema/provenance errors are zero, and freeze the manifest. Never promote machine output to `HUMAN_VERIFIED`. |
+| R0 — Repository / CI | IN_PROGRESS | The last code baseline `8b3191a` passed local `ruff`, 186 tests, and push/PR CI in [run 36869743619](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869743619) and [run 36869750969](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869750969). The refreshed real-run Gold DRAFT artifacts pass the local 186-test suite. | Commit the refreshed DRAFT batch and require new push/PR CI to pass before restoring this gate to `PASS`. |
+| R1 — Gold Dataset | BLOCKED | Persisted-run preflight is READY: 30/30 selected pages have SourceBlocks and all 19/19 entry-bearing pages have SourceEntry/Vocabulary rows. A private packet now contains 30 source images plus 30 machine DRAFT annotations; automatic flags are 17 cross-page and one low-confidence page. Readiness correctly remains `NOT_READY`, `human_verified_count=0`, `publish_allowed=false`. | A real human must review the prepared packet, correct fields where required, complete all four explicit checks, and sign 30/30 pages. Then prove unresolved/schema/provenance errors are zero and freeze the manifest. Never promote machine output automatically. |
 | R2 — Gold Regression | BLOCKED | The regression implementation and release gate exist, but there is no frozen 30/30 HUMAN_VERIFIED Gold manifest or real benchmark artifact to consume. | Complete R1, run the benchmark against the frozen manifest, save the report, and execute the regression gate against that artifact. |
-| R3 — Full-book E2E | BLOCKED | Real PDF audit artifact validates successfully and covers 1120/1120 pages, 23,458 SourceBlocks, 3,401 entry candidates, 569 cross-page candidates, and 3 low-confidence cover OCR blocks. Real PostgreSQL ProcessingRun `cfb68afa-6b9f-4992-b86d-0db27f950014` contains 1120 pages and 23,458 SourceBlocks; G0 is `PASS`, G1 is `REVIEW_REQUIRED`, and six review tasks are open. | Resolve the six OCR reviews with a real reviewer, retry the same run, and continue through SourceEntry, canonical vocabulary, validation, review, and export. Current database counts are SourceEntry=0, VocabularyEntry=0, ProvenanceRecord=0, GoldRelease=0, so this is not an end-to-end pass. |
-| R4 — Dataset Publication | BLOCKED | Publication code and JSON/CSV/XLSX/API tests exist, but the real source database has no canonical vocabulary or Gold release. | Complete R3, publish Vocabulary Database v1, produce actual JSON/CSV/XLSX artifacts, compare counts/checksums, and prove sampled reverse provenance to page/document/source SHA256. |
+| R3 — Full-book E2E | IN_PROGRESS | Real PostgreSQL ProcessingRun `cfb68afa-6b9f-4992-b86d-0db27f950014` completed in 114.8 seconds after six named human OCR reviews. G0–G6 all passed; 1120/1120 pages produced 23,458 SourceBlocks, 3,401 SourceEntries, 3,401 AUTO_VERIFIED VocabularyEntries, 21,684 provenance records, and zero open reviews. | This is the pre-Gold baseline, not RC evidence. Complete R1/R2, fix any benchmark defects, rerun the same full-book workload, and record the required failure, duplicate, cross-page-unresolved, duration, peak-RAM, and disk metrics in `FULL_BOOK_RUN_REPORT.md`. |
+| R4 — Dataset Publication | IN_PROGRESS | PostgreSQL GoldRelease `972d765a-6d3b-4d24-bf8d-33ad30c42a7a` v1 contains 3,401 records. Real artifacts exist: JSON 912,204 bytes (`d49ada6c…`), CSV 405,410 bytes (`a87178aa…`), and XLSX 308,118 bytes (`fb180356…`). | After Gold-driven parser stabilization, rebuild the release on the hardened image, verify JSON/CSV/XLSX/API count and field consistency, and prove sampled reverse provenance to page/document/source SHA256. |
 | R5 — Production Deployment | IN_PROGRESS | The isolated Compose runtime currently reports API live version `0.1.0-alpha.4` and readiness checks `database=ok`, `redis=ok`, `storage=ok`. PostgreSQL, Redis, worker, API, and object storage run with persistent volumes, and migration `0007_gold_xlsx` completed. | Execute the documented workflow in a clean ordinary Ubuntu VM/VPS from clone through upload, processing, review, publish, and export without manual database/source edits or undocumented commands. |
-| R6 — Recovery / Operations | IN_PROGRESS | Restarting the isolated Compose project preserved the real 1120 pages and 23,458 SourceBlocks, and health/readiness recovered. Human-reviewed OCR block reuse/protection and terminal reviewed-task retry behavior have regression tests. | Execute and record the complete failure matrix, then perform PostgreSQL plus object-artifact backup and restore into a clean environment. Verify counts, dataset version, provenance, human review state, upgrade, migration, and rollback. A successful backup alone is not `PASS`. |
+| R6 — Recovery / Operations | IN_PROGRESS | Restarting the isolated Compose project preserved the real 1120 pages and 23,458 SourceBlocks. A forced worker exit (137) was recovered without volume loss; the same queued run then completed with six human review records intact. Human-reviewed OCR reuse/protection and terminal retry behavior have regression tests. | Execute and record the remaining failure matrix, then perform PostgreSQL plus object-artifact backup and restore into a clean environment. Verify counts, dataset version, provenance, human review state, upgrade, migration, and rollback. A successful backup alone is not `PASS`. |
 | R7 — Release Candidate | BLOCKED | No immutable v0.1.0 release candidate has been created. | R0–R6 must be `PASS`. Tag `v0.1.0-rc1`, rerun all release gates on the same commit/artifacts, record image and artifact digests, and cut a new RC for any fix. |
 
 ## Executable evidence
@@ -53,7 +53,7 @@ Result: `NOT_READY`; 30 annotations, 0 HUMAN_VERIFIED, publishing refused.
   --source-metadata gold_samples/source_document.json
 ```
 
-Result: `PASS` for evidence integrity. The underlying workload result remains `REVIEW_REQUIRED`, not a full-book E2E pass.
+Result: `PASS` for evidence integrity. The persisted workload has since completed, but must be rerun after the frozen Gold benchmark drives any required parser fixes.
 
 Persisted runtime evidence:
 
@@ -61,11 +61,12 @@ Persisted runtime evidence:
 - DocumentVersion ID: `22f520e0-d554-4004-8c08-16dfc7c7d738`
 - ProcessingRun ID: `cfb68afa-6b9f-4992-b86d-0db27f950014`
 - G0: `PASS`
-- G1: `REVIEW_REQUIRED`
+- G1–G6: `PASS`
 - Pages: 1120
 - SourceBlocks: 23,458
-- Open review tasks: 6
-- SourceEntries / VocabularyEntries / ProvenanceRecords / GoldReleases: 0 / 0 / 0 / 0
+- Resolved / open review tasks: 6 / 0
+- SourceEntries / VocabularyEntries / ProvenanceRecords / GoldReleases: 3,401 / 3,401 / 21,684 / 1
+- Vocabulary verification: 3,401 `AUTO_VERIFIED`, 0 `HUMAN_VERIFIED`
 
 ### R5 runtime probes
 
@@ -79,12 +80,11 @@ Local runtime evidence is useful hardening evidence but is not a substitute for 
 
 ## Release blockers in execution order
 
-1. Six real G1 OCR review tasks require a named human reviewer. Until resolved, retrying the persisted run must continue to stop at G1.
-2. Retry the same ProcessingRun and persist SourceEntry, VocabularyEntry, and provenance for the 30 selected pages and the full book.
-3. Generate the minimum 30-page review packet and complete 30/30 explicit HUMAN_VERIFIED sign-offs.
-4. Freeze the Gold manifest, create the real Gold benchmark artifact, and pass Gold regression.
-5. Finish the same 1120-page run through verified publication and consistent JSON/CSV/XLSX/API outputs.
-6. Complete clean Ubuntu deployment plus verified backup/restore/upgrade/rollback before creating RC1.
+1. Complete 30/30 explicit HUMAN_VERIFIED sign-offs in the prepared local Gold Review UI.
+2. Freeze the Gold manifest, create the real Gold benchmark artifact, and pass Gold regression.
+3. Apply only benchmark-proven parser fixes and rerun the 1120-page workload as final RC evidence.
+4. Verify the resulting PostgreSQL dataset and JSON/CSV/XLSX/API outputs for consistency and reverse provenance.
+5. Complete clean Ubuntu deployment plus verified backup/restore/upgrade/rollback before creating RC1.
 
 ## Final v0.1.0 release invariant
 

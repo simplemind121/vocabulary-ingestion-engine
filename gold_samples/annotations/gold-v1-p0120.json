@@ -12,7 +12,7 @@
   "page_image_sha256": "f92a2f7d8505818048a34c94b1e15607e68eda620daded865a7fae44b44ef4e3",
   "blocks": [
     {
-      "source_block_id": "native-p0120-b0000",
+      "source_block_id": "de255846-94b8-460a-a8dd-191f7126224f",
       "text": "119",
       "raw_text": "119",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0001",
+      "source_block_id": "23472b12-42cf-427f-bc32-c00ebbda63fe",
       "text": "Word List 07",
       "raw_text": "Word List 07",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0002",
+      "source_block_id": "fcf08674-2bd7-4b05-943e-a7252a1b8dcb",
       "text": "音频",
       "raw_text": "音频",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0003",
+      "source_block_id": "56c06076-9f0a-4016-8838-85d2fc54d7b6",
       "text": "影视剧场景",
       "raw_text": "影视剧场景",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0004",
+      "source_block_id": "b011af0c-2429-484a-b4b3-3edbb6a4c639",
       "text": "词根/词缀预习表",
       "raw_text": "词根/词缀预习表",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0005",
+      "source_block_id": "78f5e710-93ff-446f-9384-223d24dc0ebc",
       "text": "词根/",
       "raw_text": "词根/",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0006",
+      "source_block_id": "622792d4-8143-4314-8098-6ed4b33986ed",
       "text": "词缀",
       "raw_text": "词缀",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0007",
+      "source_block_id": "be56b74c-ff57-41d6-b311-a41775f145da",
       "text": "含义例词及释义",
       "raw_text": "含义例词及释义",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0008",
+      "source_block_id": "faba9a63-b64e-41f2-ad54-c0edbd969859",
       "text": "词根/",
       "raw_text": "词根/",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0009",
+      "source_block_id": "19c5d211-53a6-4b0b-b8f0-79a7497158ab",
       "text": "词缀",
       "raw_text": "词缀",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0010",
+      "source_block_id": "6445e589-14d0-4aca-a7b2-9f1d08a5bfad",
       "text": "含",
       "raw_text": "含",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0011",
+      "source_block_id": "e0568643-c0e6-405d-835f-e7b8b16890ee",
       "text": "义",
       "raw_text": "义",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0012",
+      "source_block_id": "24059bcc-ba4d-4fcb-8ba8-a0b3c6d8095b",
       "text": "例词及释义",
       "raw_text": "例词及释义",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0013",
+      "source_block_id": "8193f6ee-5a98-4d0a-b966-43e9f60f1f86",
       "text": "flour\n花",
       "raw_text": "flour\n花",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0014",
+      "source_block_id": "5b2bbcfa-ef0c-4a16-ae05-4420501ca369",
       "text": "flourish v. 繁荣；茂",
       "raw_text": "flourish v. 繁荣；茂",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0015",
+      "source_block_id": "c05cf7d1-08d5-4093-876b-7befd62f081b",
       "text": "盛",
       "raw_text": "盛",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0016",
+      "source_block_id": "b6e90c04-384d-4d19-9c60-9a0ba49a9df7",
       "text": "monstr",
       "raw_text": "monstr",
       "block_type": "TEXT",
@@ -284,7 +284,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0017",
+      "source_block_id": "c592a5b4-4d36-43d8-b653-76d670e082ce",
       "text": "显",
       "raw_text": "显",
       "block_type": "TEXT",
@@ -300,7 +300,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0018",
+      "source_block_id": "7ca1f510-fa98-48eb-87fc-416fa8eb2aaa",
       "text": "示",
       "raw_text": "示",
       "block_type": "TEXT",
@@ -316,7 +316,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0019",
+      "source_block_id": "cb282641-ccc3-435d-9a61-90f0331da77c",
       "text": "demonstrate v. 论",
       "raw_text": "demonstrate v. 论",
       "block_type": "TEXT",
@@ -332,7 +332,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0020",
+      "source_block_id": "c55e6a00-b882-427c-a37a-2e45847d4c30",
       "text": "证；说明",
       "raw_text": "证；说明",
       "block_type": "TEXT",
@@ -348,7 +348,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0021",
+      "source_block_id": "7a757b54-8479-49bd-84c6-3cd3c038587d",
       "text": "serv\n保持",
       "raw_text": "serv\n保持",
       "block_type": "TEXT",
@@ -364,7 +364,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0022",
+      "source_block_id": "de9af844-4ff7-4b40-a0b2-b4c5da13a784",
       "text": "reserve vt. 预订；保",
       "raw_text": "reserve vt. 预订；保",
       "block_type": "TEXT",
@@ -380,7 +380,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0023",
+      "source_block_id": "03f0ad6a-fe3f-4cec-8773-acb784be011d",
       "text": "留",
       "raw_text": "留",
       "block_type": "TEXT",
@@ -396,7 +396,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0120-b0024",
+      "source_block_id": "a4fe5877-54b2-4e96-849b-31cc2586a363",
       "text": "ag\n做agenda n. 议程",
       "raw_text": "ag\n做agenda n. 议程",
       "block_type": "TEXT",
@@ -417,6 +417,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@a60ffcf"
   ]
 }

@@ -13,7 +13,7 @@
   "page_image_sha256": "8baba3c3b2d387a2535916813f4b6c57f58c109c32478f34eadb381aa0166802",
   "blocks": [
     {
-      "source_block_id": "native-p1112-b0000",
+      "source_block_id": "5d0d0726-55a7-4a11-a518-acf360c48eba",
       "text": "1111",
       "raw_text": "1111",
       "block_type": "TEXT",
@@ -29,7 +29,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0001",
+      "source_block_id": "b2beb512-5aa7-49c3-a86d-f362428225fd",
       "text": "六 雅思听力单词英美发音比较",
       "raw_text": "六 雅思听力单词英美发音比较",
       "block_type": "TEXT",
@@ -45,7 +45,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0002",
+      "source_block_id": "fea9d75b-c2e8-466e-a537-0648fd9f33e1",
       "text": "单词\n英音\n美音\n单词\n英音\n美音",
       "raw_text": "单词\n英音\n美音\n单词\n英音\n美音",
       "block_type": "TEXT",
@@ -61,7 +61,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0003",
+      "source_block_id": "61e33718-0f0e-4149-a12e-a3c92c4c11f4",
       "text": "aboard\n[əˈbɔːd]\n[əˈbɔːrd]\nabsolve\n[əbˈzɒlv]\n[əbˈzɑːlv]",
       "raw_text": "aboard\n[əˈbɔːd]\n[əˈbɔːrd]\nabsolve\n[əbˈzɒlv]\n[əbˈzɑːlv]",
       "block_type": "TEXT",
@@ -77,7 +77,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0004",
+      "source_block_id": "97e97ad5-4179-4383-a7c2-0cee079460bf",
       "text": "accost\n[əˈkɒst]\n[əˈkɔːst]\nacross\n[əˈkrɒs]\n[əˈkrɔːs]",
       "raw_text": "accost\n[əˈkɒst]\n[əˈkɔːst]\nacross\n[əˈkrɒs]\n[əˈkrɔːs]",
       "block_type": "TEXT",
@@ -93,7 +93,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0005",
+      "source_block_id": "5204d3ef-d11f-4350-a4a9-0d5da842bff5",
       "text": "adieu\n[əˈdjuː]\n[əˈduː]\naeration\n[eəˈreɪʃn]\n[eˈreɪʃn]",
       "raw_text": "adieu\n[əˈdjuː]\n[əˈduː]\naeration\n[eəˈreɪʃn]\n[eˈreɪʃn]",
       "block_type": "TEXT",
@@ -109,7 +109,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0006",
+      "source_block_id": "35b8eeb6-70ee-4bd0-ab44-1636de85f773",
       "text": "after\n[ˈɑːftə(r)] [ˈæftər]\narm\n[ɑːm]\n[ɑːrm]",
       "raw_text": "after\n[ˈɑːftə(r)] [ˈæftər]\narm\n[ɑːm]\n[ɑːrm]",
       "block_type": "TEXT",
@@ -125,7 +125,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0007",
+      "source_block_id": "0fc658cf-3ed3-486a-9df1-5fe5daf6821b",
       "text": "assume\n[əˈsjuːm]\n[əˈsuːm]\nbanana\n[bəˈnɑːnə] [bəˈnænə]",
       "raw_text": "assume\n[əˈsjuːm]\n[əˈsuːm]\nbanana\n[bəˈnɑːnə] [bəˈnænə]",
       "block_type": "TEXT",
@@ -141,7 +141,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0008",
+      "source_block_id": "df5d26c4-d954-4e3a-8486-ca5a782c7c25",
       "text": "border",
       "raw_text": "border",
       "block_type": "TEXT",
@@ -157,7 +157,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0009",
+      "source_block_id": "1ef464da-1562-4593-b5d6-779398316342",
       "text": "[ˈbɔːdə",
       "raw_text": "[ˈbɔːdə",
       "block_type": "TEXT",
@@ -173,7 +173,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0010",
+      "source_block_id": "d6ecf661-40aa-4867-b826-1a29c5e6630d",
       "text": "(r)]",
       "raw_text": "(r)]",
       "block_type": "TEXT",
@@ -189,7 +189,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0011",
+      "source_block_id": "b6df25cd-309e-4527-a4b8-abfe9787b0ba",
       "text": "[ˈbɔːrdər]\nborrow\n[ˈbɒrəʊ]\n[ˈbɔːrəʊ]",
       "raw_text": "[ˈbɔːrdər]\nborrow\n[ˈbɒrəʊ]\n[ˈbɔːrəʊ]",
       "block_type": "TEXT",
@@ -205,7 +205,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0012",
+      "source_block_id": "8e1a047c-8d66-4d34-9384-1ac7f0118514",
       "text": "brochur",
       "raw_text": "brochur",
       "block_type": "TEXT",
@@ -221,7 +221,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0013",
+      "source_block_id": "0570c015-087f-4a4e-9824-a647638cd2f9",
       "text": "e",
       "raw_text": "e",
       "block_type": "TEXT",
@@ -237,7 +237,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0014",
+      "source_block_id": "453ef805-e1e7-4c28-a535-7657d2974d3c",
       "text": "[ˈbrəʊʃə",
       "raw_text": "[ˈbrəʊʃə",
       "block_type": "TEXT",
@@ -253,7 +253,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0015",
+      "source_block_id": "1fe39dc1-4f01-4e23-98b2-f373b39eaad8",
       "text": "(r)]",
       "raw_text": "(r)]",
       "block_type": "TEXT",
@@ -269,7 +269,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0016",
+      "source_block_id": "d7d0bf7d-2abb-4190-b0a9-35d519623d9b",
       "text": "[brəʊˈʃʊr]\ncadre\n[ˈkɑːdə(r)] [ˈkædri]",
       "raw_text": "[brəʊˈʃʊr]\ncadre\n[ˈkɑːdə(r)] [ˈkædri]",
       "block_type": "TEXT",
@@ -285,7 +285,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0017",
+      "source_block_id": "49280344-70d2-4a88-a0c3-ea7c8460ce2c",
       "text": "calf\n[kɑːf]\n[kæf]\ncarbon\n[ˈkɑːbən]\n[ˈkɑːrbən]",
       "raw_text": "calf\n[kɑːf]\n[kæf]\ncarbon\n[ˈkɑːbən]\n[ˈkɑːrbən]",
       "block_type": "TEXT",
@@ -301,7 +301,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0018",
+      "source_block_id": "a3727292-390d-41d0-acb8-dcc1ae060fd1",
       "text": "career\n[kəˈrɪə(r)] [kəˈrɪr]\ncast\n[kɑːst]\n[kæst]",
       "raw_text": "career\n[kəˈrɪə(r)] [kəˈrɪr]\ncast\n[kɑːst]\n[kæst]",
       "block_type": "TEXT",
@@ -317,7 +317,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0019",
+      "source_block_id": "92716c47-df22-4d5c-86da-6370d60b1645",
       "text": "ceremon",
       "raw_text": "ceremon",
       "block_type": "TEXT",
@@ -333,7 +333,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0020",
+      "source_block_id": "f7569d68-b47d-49df-bc5f-4b32a1b81302",
       "text": "y",
       "raw_text": "y",
       "block_type": "TEXT",
@@ -349,7 +349,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0021",
+      "source_block_id": "d4cfdf1d-7e4d-4226-a00a-2e0d13df4670",
       "text": "[ˈserəmən",
       "raw_text": "[ˈserəmən",
       "block_type": "TEXT",
@@ -365,7 +365,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0022",
+      "source_block_id": "5e1b7e78-291c-4e4c-ab07-74d4568d7d01",
       "text": "i]",
       "raw_text": "i]",
       "block_type": "TEXT",
@@ -381,7 +381,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0023",
+      "source_block_id": "6259ab54-2830-4de7-bf75-3f4269ded009",
       "text": "[ˈserəməʊ",
       "raw_text": "[ˈserəməʊ",
       "block_type": "TEXT",
@@ -397,7 +397,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0024",
+      "source_block_id": "583d1eaf-f162-4de1-8bb7-66bc7bbd6c9f",
       "text": "ni]",
       "raw_text": "ni]",
       "block_type": "TEXT",
@@ -413,7 +413,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0025",
+      "source_block_id": "bb6f0e5a-d23e-49ca-bf01-f7f739d6ddb6",
       "text": "coarse\n[kɔːs]\n[kɔːrs]",
       "raw_text": "coarse\n[kɔːs]\n[kɔːrs]",
       "block_type": "TEXT",
@@ -429,7 +429,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0026",
+      "source_block_id": "304baa0b-23e8-47bf-a94c-d9376bbcc015",
       "text": "comet\n[ˈkɒmɪt]\n[ˈkɑːmət]\ncostume",
       "raw_text": "comet\n[ˈkɒmɪt]\n[ˈkɑːmət]\ncostume",
       "block_type": "TEXT",
@@ -445,7 +445,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0027",
+      "source_block_id": "e63361c8-f18f-4e02-98c5-9113a07da1d2",
       "text": "[ˈkɒstjuː",
       "raw_text": "[ˈkɒstjuː",
       "block_type": "TEXT",
@@ -461,7 +461,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0028",
+      "source_block_id": "3c4ef572-6761-43eb-bf39-0bf47e932ae4",
       "text": "m]",
       "raw_text": "m]",
       "block_type": "TEXT",
@@ -477,7 +477,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0029",
+      "source_block_id": "285592c0-34da-47c6-865e-c4785a4f2331",
       "text": "[ˈkɑːstuːm]",
       "raw_text": "[ˈkɑːstuːm]",
       "block_type": "TEXT",
@@ -493,7 +493,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0030",
+      "source_block_id": "04e0b154-2a4c-4f5e-ac67-c8fb64c71b41",
       "text": "courage [ˈkʌrɪdʒ]\n[ˈkɜːrɪdʒ]\ncraft\n[krɑːft]\n[kræft]",
       "raw_text": "courage [ˈkʌrɪdʒ]\n[ˈkɜːrɪdʒ]\ncraft\n[krɑːft]\n[kræft]",
       "block_type": "TEXT",
@@ -509,7 +509,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1112-b0031",
+      "source_block_id": "e92649ee-09ff-4f3d-94bb-c35e8fb8bb32",
       "text": "curative [ˈkjʊərətɪ\n[ˈkjʊrətɪv] curious\n[ˈkjʊəriəs] [ˈkjʊriəs]",
       "raw_text": "curative [ˈkjʊərətɪ\n[ˈkjʊrətɪv] curious\n[ˈkjʊəriəs] [ˈkjʊriəs]",
       "block_type": "TEXT",
@@ -530,6 +530,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@a60ffcf"
   ]
 }

@@ -13,7 +13,7 @@
   "page_image_sha256": "10d040ad8d224a6fb50770dda3d5723fd483a797fe8c004944fc05fc6ff523c5",
   "blocks": [
     {
-      "source_block_id": "native-p1114-b0000",
+      "source_block_id": "57700cfd-bf4d-4263-8f7b-bf93c68063d1",
       "text": "1113",
       "raw_text": "1113",
       "block_type": "TEXT",
@@ -29,7 +29,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0001",
+      "source_block_id": "defa58ef-2810-444b-9465-cae4452b9f2b",
       "text": "rural\n[ˈrʊərəl]\n[ˈrurəl]\nsample\n[ˈsɑːmpl]\n[ˈsæmpl]",
       "raw_text": "rural\n[ˈrʊərəl]\n[ˈrurəl]\nsample\n[ˈsɑːmpl]\n[ˈsæmpl]",
       "block_type": "TEXT",
@@ -45,7 +45,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0002",
+      "source_block_id": "27061cd9-dada-4166-9197-1a57e49547f5",
       "text": "schedule [ˈʃedjuːl]\n[ˈskedʒuːl] secretary\n[ˈsekrətri]\n[ˈsekrəteri]",
       "raw_text": "schedule [ˈʃedjuːl]\n[ˈskedʒuːl] secretary\n[ˈsekrətri]\n[ˈsekrəteri]",
       "block_type": "TEXT",
@@ -61,7 +61,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0003",
+      "source_block_id": "60c55395-c08b-4186-b103-2ad0cf4644c6",
       "text": "stationar",
       "raw_text": "stationar",
       "block_type": "TEXT",
@@ -77,7 +77,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0004",
+      "source_block_id": "69909bea-b98a-48a6-b2e2-a9bee4011849",
       "text": "y",
       "raw_text": "y",
       "block_type": "TEXT",
@@ -93,7 +93,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0005",
+      "source_block_id": "96f6ae9d-a3e4-4464-aac6-270d05760b90",
       "text": "[ˈsteɪʃənr",
       "raw_text": "[ˈsteɪʃənr",
       "block_type": "TEXT",
@@ -109,7 +109,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0006",
+      "source_block_id": "9dd66d9e-6f30-4b01-8b3f-e9304f561561",
       "text": "i]",
       "raw_text": "i]",
       "block_type": "TEXT",
@@ -125,7 +125,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0007",
+      "source_block_id": "9155cce2-ae05-4e6d-87d6-884dfa9de3a3",
       "text": "[ˈsteɪʃəner",
       "raw_text": "[ˈsteɪʃəner",
       "block_type": "TEXT",
@@ -141,7 +141,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0008",
+      "source_block_id": "7dbc80e5-8ea6-46f9-93bf-2b1c5894f30e",
       "text": "i]",
       "raw_text": "i]",
       "block_type": "TEXT",
@@ -157,7 +157,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p1114-b0009",
+      "source_block_id": "ba5a8a96-6528-40f9-8dca-9cfe5f64cc89",
       "text": "turbine\n[ˈtɜːbaɪn]\n[ˈtɜːrbaɪn]",
       "raw_text": "turbine\n[ˈtɜːbaɪn]\n[ˈtɜːrbaɪn]",
       "block_type": "TEXT",
@@ -178,6 +178,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@a60ffcf"
   ]
 }

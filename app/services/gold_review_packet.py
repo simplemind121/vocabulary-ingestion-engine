@@ -173,7 +173,14 @@ def _serialize_block(block: SourceBlock) -> dict[str, Any]:
     metadata = block.metadata_json or {}
     review = metadata.get("human_ocr_review") or {}
     reviewed = metadata.get("reviewed_text")
-    effective_text = reviewed if reviewed and review.get("decision") == "ACCEPT" else block.raw_text
+    if review.get("decision") == "DISCARD":
+        effective_text = ""
+    else:
+        effective_text = (
+            reviewed
+            if reviewed and review.get("decision") == "ACCEPT"
+            else block.raw_text
+        )
     return {
         "source_block_id": block.id,
         "text": effective_text or "",

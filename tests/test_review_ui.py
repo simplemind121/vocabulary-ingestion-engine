@@ -42,6 +42,7 @@ def test_review_ui_queue_detail_and_source_image(client, sample_pdf_bytes):
 
     assert ui.status_code == 200
     assert "人工复核" in ui.text
+    assert "标记为非文本噪声" in ui.text
     assert queue.status_code == 200
     assert queue.json()["count"] >= queue.json()["returned_count"]
     assert queue.json()["limit"] == 100

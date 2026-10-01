@@ -85,6 +85,8 @@ def _effective_text(block: SourceBlock) -> str:
     metadata = block.metadata_json or {}
     review = metadata.get("human_ocr_review") or {}
     reviewed = metadata.get("reviewed_text")
+    if review.get("decision") == "DISCARD":
+        return ""
     if reviewed and review.get("decision") == "ACCEPT":
         return str(reviewed)
     return block.raw_text or ""

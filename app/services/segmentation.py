@@ -35,6 +35,8 @@ def _effective_block_text(block: SourceBlock) -> str:
     metadata = getattr(block, "metadata_json", None) or {}
     reviewed_text = metadata.get("reviewed_text")
     review = metadata.get("human_ocr_review") or {}
+    if review.get("decision") == "DISCARD":
+        return ""
     if reviewed_text and review.get("decision") == "ACCEPT":
         return str(reviewed_text)
     return getattr(block, "raw_text", "") or ""

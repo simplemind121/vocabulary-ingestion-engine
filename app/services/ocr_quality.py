@@ -25,6 +25,8 @@ def route_ocr_quality_reviews(
         block
         for block in blocks
         if block.confidence is None or float(block.confidence) < min_confidence
+        if (block.metadata_json or {}).get("human_ocr_review", {}).get("decision")
+        not in {"ACCEPT", "DISCARD"}
     ]
 
     for block in low:

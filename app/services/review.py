@@ -28,8 +28,10 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         raise ValueError("reviewer_id is required")
 
     decision = str(resolution.get("decision", "ACCEPT")).upper()
-    if decision not in {"ACCEPT", "REJECT"}:
-        raise ValueError("review decision must be ACCEPT or REJECT")
+    if decision not in {"ACCEPT", "REJECT", "DISCARD"}:
+        raise ValueError("review decision must be ACCEPT, REJECT, or DISCARD")
+    if decision == "DISCARD" and task.target_entity_type != "SourceBlock":
+        raise ValueError("DISCARD is only supported for SourceBlock reviews")
 
     audit = {
         "decision": decision,
@@ -81,7 +83,9 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         if block is None:
             raise ValueError("review target not found")
 
-        corrected_text = resolution.get("corrected_text")
+        corrected_text = (
+            None if decision == "DISCARD" else resolution.get("corrected_text")
+        )
         if corrected_text is not None:
             corrected_text = str(corrected_text).strip()
             if not corrected_text:
@@ -114,7 +118,7 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
             )
         )
 
-        if decision == "ACCEPT":
+        if decision in {"ACCEPT", "DISCARD"}:
             task.status = "RESOLVED"
         else:
             task.status = "ESCALATED"
@@ -124,7 +128,13 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
             "task_id": task.id,
             "status": task.status,
             "source_block_id": block.id,
-            "verification_status": "HUMAN_VERIFIED" if decision == "ACCEPT" else "REVIEW_REQUIRED",
+            "verification_status": (
+                "HUMAN_DISCARDED"
+                if decision == "DISCARD"
+                else "HUMAN_VERIFIED"
+                if decision == "ACCEPT"
+                else "REVIEW_REQUIRED"
+            ),
             "decision": decision,
             "reviewed_text": corrected_text,
         }

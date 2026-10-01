@@ -374,8 +374,8 @@
       "lemma": "shave",
       "display_form": "shave",
       "ipa": "ʃeɪv",
-      "part_of_speech": "n.",
-      "definition": "/v. 修面",
+      "part_of_speech": "n./v.",
+      "definition": "修面",
       "machine_verification_status": "PARSED"
     }
   ],

@@ -9,7 +9,10 @@ _HEAD = re.compile(
     r"^\s*(?P<lemma>[A-Za-z][A-Za-z'’-]*(?:-[A-Za-z][A-Za-z'’-]*)?)"
     r"(?P<star>\*)?\s+\[(?P<ipa>[^\]]+)\]\s*(?P<body>.*)$"
 )
-_POS = re.compile(r"^(?P<pos>(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\.)\s*(?P<definition>.*)$")
+_POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\."
+_POS = re.compile(
+    rf"^(?P<pos>{_POS_TOKEN}(?:/{_POS_TOKEN})*)\s*(?P<definition>.*)$"
+)
 _MARKERS = {"记": "memory_notes", "搭": "collocations", "例": "examples", "派": "derivatives", "同": "synonyms", "反": "antonyms"}
 
 

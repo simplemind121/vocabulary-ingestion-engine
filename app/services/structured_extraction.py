@@ -19,10 +19,11 @@ from app.models import (
 )
 from app.services.field_parser import parse_source_entry as parse_real_book_entry
 
+_POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|det|excl)\."
 _ENTRY = re.compile(
     r"^(?P<lemma>[A-Za-z][A-Za-z'’-]{1,63})"
     r"(?:\s+/(?P<ipa>[^/]+)/)?"
-    r"(?:\s+(?P<pos>n\.|v\.|adj\.|adv\.|prep\.|conj\.|pron\.|det\.|excl\.))?"
+    rf"(?:\s+(?P<pos>{_POS_TOKEN}(?:/{_POS_TOKEN})*))?"
     r"(?:\s+(?P<definition>.+))?$"
 )
 

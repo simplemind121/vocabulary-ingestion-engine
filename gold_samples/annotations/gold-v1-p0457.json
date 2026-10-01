@@ -469,8 +469,8 @@
       "lemma": "attack",
       "display_form": "attack",
       "ipa": "əˈtæk",
-      "part_of_speech": "n.",
-      "definition": "/v. 进攻；抨击；（疾病等）突然发作",
+      "part_of_speech": "n./v.",
+      "definition": "进攻；抨击；（疾病等）突然发作",
       "machine_verification_status": "PARSED"
     },
     {

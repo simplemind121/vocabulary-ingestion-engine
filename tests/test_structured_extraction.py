@@ -23,6 +23,22 @@ def test_parse_real_book_source_entry_text():
     assert parsed.definition == "药；药物"
 
 
+def test_parse_compound_part_of_speech_without_leaking_it_into_definition():
+    parsed = parse_source_entry_text(
+        "attack* [əˈtæk]\nn./v. 进攻；抨击；（疾病等）突然发作"
+    )
+
+    assert parsed.part_of_speech == "n./v."
+    assert parsed.definition == "进攻；抨击；（疾病等）突然发作"
+
+
+def test_parse_legacy_compound_part_of_speech():
+    parsed = parse_source_entry_text("record /ˈrekɔːd/ n./v. 记录；录制")
+
+    assert parsed.part_of_speech == "n./v."
+    assert parsed.definition == "记录；录制"
+
+
 def test_structured_extraction_persists_canonical_fields_and_provenance(client, sample_pdf_bytes):
     response = client.post(
         "/api/v1/documents",

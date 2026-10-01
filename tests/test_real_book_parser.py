@@ -35,6 +35,19 @@ def test_real_book_marked_fields_are_preserved_without_enrichment():
     assert not parsed.derivatives
 
 
+def test_compound_part_of_speech_remains_source_exact():
+    parsed = parse_source_entry(
+        [
+            "interview* [ˈɪntəvjuː]",
+            "v./n. 接见，会见；采访；面试",
+        ]
+    )
+
+    assert parsed.senses == [
+        {"pos": "v./n.", "definition": "接见，会见；采访；面试"}
+    ]
+
+
 def test_derivative_synonym_and_antonym_fields_remain_separate():
     parsed = parse_source_entry(
         [

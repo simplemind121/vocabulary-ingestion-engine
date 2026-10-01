@@ -14,6 +14,7 @@ REQUIRED_PRODUCTION_CHECKS = {
     "container_build",
     "database_migration",
     "object_storage",
+    "observability_metrics",
     "ocr_runtime",
     "queued_pipeline_g0_g6",
     "worker_readiness",

@@ -16,7 +16,8 @@ valid for the same source, code, commit, and production image:
 4. The production Compose topology passes image build, migrations, API and
    worker readiness, object storage, real Tesseract OCR, backup, destructive
    pollution, exact restore, and a real queued G0-G6 pipeline. The evidence is
-   bound to the Git SHA and Docker image digest.
+   bound to the Git SHA and Docker image digest. Authenticated operational
+   metrics must also report the completed run and persisted release.
 
 The final decision is produced by `python -m app.g6_release_cli`. It is
 fail-closed and emits `g6-release-report.json`. The GitHub Release Gate workflow

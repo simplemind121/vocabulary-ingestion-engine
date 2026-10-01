@@ -101,4 +101,16 @@ docker compose exec -T worker celery -A app.worker.celery_app inspect ping --tim
 docker compose exec -T api alembic current
 ```
 
+Every API response includes `X-Request-ID`; a valid caller-supplied identifier
+is preserved, otherwise the API generates one. API and worker logs are
+structured JSON events and deliberately omit authorization headers, query
+strings, source text, and uploaded content. Use the request/run/task identifiers
+to correlate work without copying copyrighted or secret data into logs.
+
+`GET /metrics` exposes bounded Prometheus text metrics for processing-run,
+review-task and Gate states plus the persisted Gold release count. It requires
+the same bearer token as the API when `VIE_API_KEY` is configured. Keep it on the
+private interface or configure the reverse proxy to allow only the monitoring
+system.
+
 Investigate any restart loop, `not_ready` result, open required review, or failed Gate before publishing Gold. Never bypass a Gate to recover availability.

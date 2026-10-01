@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
+import re
 import secrets
+import time
+import uuid
 from pathlib import Path
 from typing import Annotated
 
@@ -27,6 +31,7 @@ from app.models import (
     ProcessingRun,
     ReviewTask,
 )
+from app.observability import PROMETHEUS_CONTENT_TYPE, log_event, render_metrics
 from app.review_ui import REVIEW_UI_HTML
 from app.services.gates import evaluate_g5_review_resolution
 from app.services.gold import build_gold_dataset, publish_gold_release
@@ -48,12 +53,15 @@ BRONZE_DIR.mkdir(parents=True, exist_ok=True)
 PAGE_DIR.mkdir(parents=True, exist_ok=True)
 app = FastAPI(title="Vocabulary Ingestion Engine", version=APP_VERSION)
 DbSession = Annotated[Session, Depends(get_db)]
+logger = logging.getLogger("uvicorn.error")
+_REQUEST_ID = re.compile(r"^[A-Za-z0-9._:-]{1,128}$")
 
 
 @app.middleware("http")
 async def require_api_key(request: Request, call_next):
     expected_secret = get_settings().api_key
-    if request.url.path.startswith("/api/") and expected_secret is not None:
+    protected = request.url.path.startswith("/api/") or request.url.path == "/metrics"
+    if protected and expected_secret is not None:
         authorization = request.headers.get("authorization", "")
         scheme, _, supplied = authorization.partition(" ")
         expected = expected_secret.get_secret_value()
@@ -64,6 +72,33 @@ async def require_api_key(request: Request, call_next):
                 headers={"WWW-Authenticate": "Bearer"},
             )
     return await call_next(request)
+
+
+@app.middleware("http")
+async def observe_request(request: Request, call_next):
+    supplied_request_id = request.headers.get("x-request-id", "")
+    request_id = (
+        supplied_request_id
+        if _REQUEST_ID.fullmatch(supplied_request_id)
+        else str(uuid.uuid4())
+    )
+    started = time.perf_counter()
+    status_code = 500
+    try:
+        response = await call_next(request)
+        status_code = response.status_code
+        response.headers["X-Request-ID"] = request_id
+        return response
+    finally:
+        log_event(
+            logger,
+            "http_request",
+            request_id=request_id,
+            method=request.method,
+            path=request.url.path,
+            status_code=status_code,
+            duration_ms=round((time.perf_counter() - started) * 1000, 3),
+        )
 
 
 class PublishRequest(BaseModel):
@@ -162,6 +197,14 @@ def health_ready(db: DbSession) -> Response:
         content=json.dumps({"status": "ready" if ready else "not_ready", "checks": checks}),
         media_type="application/json",
         status_code=200 if ready else 503,
+    )
+
+
+@app.get("/metrics", include_in_schema=False)
+def metrics(db: DbSession) -> Response:
+    return Response(
+        content=render_metrics(db, version=APP_VERSION),
+        media_type=PROMETHEUS_CONTENT_TYPE,
     )
 
 
@@ -279,12 +322,25 @@ def list_all_reviews(
     db: DbSession,
     status: str | None = "OPEN",
     limit: int = Query(default=100, ge=1, le=500),
+    offset: int = Query(default=0, ge=0),
 ) -> dict:
     query = db.query(ReviewTask)
     if status:
         query = query.filter(ReviewTask.status == status.upper())
-    tasks = query.order_by(ReviewTask.created_at, ReviewTask.id).limit(limit).all()
-    return {"count": len(tasks), "items": [review_task_detail(db, task) for task in tasks]}
+    count = query.count()
+    tasks = (
+        query.order_by(ReviewTask.created_at.desc(), ReviewTask.id.desc())
+        .offset(offset)
+        .limit(limit)
+        .all()
+    )
+    return {
+        "count": count,
+        "returned_count": len(tasks),
+        "limit": limit,
+        "offset": offset,
+        "items": [review_task_detail(db, task) for task in tasks],
+    }
 
 
 @app.get("/api/v1/reviews/{task_id}")

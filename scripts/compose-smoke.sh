@@ -46,6 +46,8 @@ compose exec -T api python -c \
 
 compose exec -T worker celery -A app.worker.celery_app inspect ping --timeout 5 | grep -q pong
 compose exec -T api python -m app.production_pipeline_smoke_cli
+compose exec -T api python -c \
+  "import urllib.request; request=urllib.request.Request('http://127.0.0.1:8000/metrics', headers={'Authorization': 'Bearer vie-smoke-api-key'}); payload=urllib.request.urlopen(request).read().decode(); assert 'vie_build_info' in payload; assert 'vie_processing_runs{status=\"COMPLETED\"} 1' in payload; assert 'vie_gold_releases_total 1' in payload"
 
 compose exec -T api python -c \
   "from pathlib import Path; path=Path('/app/data/smoke/original.txt'); path.parent.mkdir(parents=True, exist_ok=True); path.write_text('original', encoding='utf-8')"

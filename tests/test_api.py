@@ -27,22 +27,51 @@ def test_liveness_and_readiness_are_separate():
     }
 
 
+def test_metrics_exposes_bounded_operational_state_and_request_ids():
+    response = client.get("/metrics", headers={"X-Request-ID": "operator-check-1"})
+
+    assert response.status_code == 200
+    assert response.headers["x-request-id"] == "operator-check-1"
+    assert response.headers["content-type"].startswith("text/plain")
+    assert 'vie_build_info{version="0.1.0-alpha.4"} 1' in response.text
+    assert "vie_processing_runs" in response.text
+    assert "vie_review_tasks" in response.text
+    assert "vie_gate_evaluations" in response.text
+    assert "vie_gold_releases_total" in response.text
+
+
+def test_invalid_request_id_is_not_reflected():
+    response = client.get("/health/live", headers={"X-Request-ID": "bad id\nvalue"})
+
+    assert response.status_code == 200
+    assert response.headers["x-request-id"] != "bad id\nvalue"
+    assert len(response.headers["x-request-id"]) == 36
+
+
 def test_api_key_protects_api_routes(monkeypatch):
     monkeypatch.setenv("VIE_API_KEY", "test-secret-token")
     get_settings.cache_clear()
     try:
         unauthorized = client.post("/api/v1/gold/preflight", json={})
+        metrics_unauthorized = client.get("/metrics")
         authorized = client.post(
             "/api/v1/gold/preflight",
             json={},
             headers={"Authorization": "Bearer test-secret-token"},
         )
+        metrics_authorized = client.get(
+            "/metrics", headers={"Authorization": "Bearer test-secret-token"}
+        )
+        health = client.get("/health/ready")
     finally:
         get_settings.cache_clear()
 
     assert unauthorized.status_code == 401
     assert unauthorized.headers["www-authenticate"] == "Bearer"
     assert authorized.status_code == 200
+    assert metrics_unauthorized.status_code == 401
+    assert metrics_authorized.status_code == 200
+    assert health.status_code == 200
 
 
 def test_gold_preflight_passes_only_with_zero_unresolved_state():

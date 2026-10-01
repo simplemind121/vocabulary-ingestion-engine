@@ -6,7 +6,7 @@ Allowed statuses: `NOT_STARTED`, `IN_PROGRESS`, `BLOCKED`, `PASS`, `FAIL`.
 
 Last audited: 2026-10-02 (Asia/Taipei)
 Branch: `bootstrap/v0.1.0-alpha`  
-Audited code commit: `8b3191aa50b1c8c3446b3f99ba05bacac1f06b46`
+Audited code commit: `d55e54303244b649d603d0b028466d52613f8bc5`
 Pull request: [#1](https://github.com/simplemind121/vocabulary-ingestion-engine/pull/1) (`OPEN`, `MERGEABLE`)  
 Source PDF SHA256: `485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd`  
 Database schema: `0007_gold_xlsx`
@@ -15,7 +15,7 @@ Database schema: `0007_gold_xlsx`
 
 | Gate | Status | Release evidence | Current blocker / next executable action |
 |---|---|---|---|
-| R0 — Repository / CI | IN_PROGRESS | The last code baseline `8b3191a` passed local `ruff`, 186 tests, and push/PR CI in [run 36869743619](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869743619) and [run 36869750969](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869750969). The refreshed real-run Gold DRAFT artifacts pass the local 186-test suite. | Commit the refreshed DRAFT batch and require new push/PR CI to pass before restoring this gate to `PASS`. |
+| R0 — Repository / CI | PASS | Commit `d55e543` contains the refreshed real-run Gold DRAFT artifacts and passed local `ruff` plus 186 tests. Its push and PR CI both passed tests, Gold readiness validation, and the production-topology smoke test in [run 36910563523](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36910563523) and [run 36910572010](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36910572010). | Keep subsequent commits green; any failure returns this gate to `FAIL` until repaired. |
 | R1 — Gold Dataset | BLOCKED | Persisted-run preflight is READY: 30/30 selected pages have SourceBlocks and all 19/19 entry-bearing pages have SourceEntry/Vocabulary rows. A private packet now contains 30 source images plus 30 machine DRAFT annotations; automatic flags are 17 cross-page and one low-confidence page. Readiness correctly remains `NOT_READY`, `human_verified_count=0`, `publish_allowed=false`. | A real human must review the prepared packet, correct fields where required, complete all four explicit checks, and sign 30/30 pages. Then prove unresolved/schema/provenance errors are zero and freeze the manifest. Never promote machine output automatically. |
 | R2 — Gold Regression | BLOCKED | The regression implementation and release gate exist, but there is no frozen 30/30 HUMAN_VERIFIED Gold manifest or real benchmark artifact to consume. | Complete R1, run the benchmark against the frozen manifest, save the report, and execute the regression gate against that artifact. |
 | R3 — Full-book E2E | IN_PROGRESS | Real PostgreSQL ProcessingRun `cfb68afa-6b9f-4992-b86d-0db27f950014` completed in 114.8 seconds after six named human OCR reviews. G0–G6 all passed; 1120/1120 pages produced 23,458 SourceBlocks, 3,401 SourceEntries, 3,401 AUTO_VERIFIED VocabularyEntries, 21,684 provenance records, and zero open reviews. | This is the pre-Gold baseline, not RC evidence. Complete R1/R2, fix any benchmark defects, rerun the same full-book workload, and record the required failure, duplicate, cross-page-unresolved, duration, peak-RAM, and disk metrics in `FULL_BOOK_RUN_REPORT.md`. |

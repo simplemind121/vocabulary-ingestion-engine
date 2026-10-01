@@ -32,6 +32,57 @@ def extract_ocr_blocks(
         raise ValueError("processing run has no rendered pages selected for OCR")
 
     selected_page_ids = [page.id for page in pages]
+    selected_page_numbers = [page.page_number for page in pages]
+    source_engine = f"ocr:{adapter.name}"
+    existing_blocks = (
+        db.query(SourceBlock)
+        .filter(
+            SourceBlock.processing_run_id == run_id,
+            SourceBlock.page_id.in_(selected_page_ids),
+            SourceBlock.source_engine.like("ocr:%"),
+        )
+        .all()
+    )
+    matching_blocks = [
+        block
+        for block in existing_blocks
+        if block.source_engine == source_engine
+        and block.source_engine_version == adapter.version
+    ]
+    metrics = dict(run.metrics or {})
+    recorded_pages = metrics.get("ocr_page_numbers")
+    selection_matches = recorded_pages == selected_page_numbers
+    if recorded_pages is None and matching_blocks:
+        selection_matches = {block.page_id for block in matching_blocks} == set(
+            selected_page_ids
+        )
+    if (
+        selection_matches
+        and metrics.get("ocr_engine") == adapter.name
+        and metrics.get("ocr_engine_version") == adapter.version
+    ):
+        confidences = [
+            float(block.confidence)
+            for block in matching_blocks
+            if block.confidence is not None
+        ]
+        mean_confidence = (
+            sum(confidences) / len(confidences) if confidences else None
+        )
+        return {
+            "run_id": run_id,
+            "engine": adapter.name,
+            "engine_version": adapter.version,
+            "page_count": len(pages),
+            "page_numbers": selected_page_numbers,
+            "block_count": len(matching_blocks),
+            "mean_confidence": mean_confidence,
+            "reused": True,
+        }
+
+    if any((block.metadata_json or {}).get("human_ocr_review") for block in existing_blocks):
+        raise ValueError("cannot replace human-reviewed OCR blocks")
+
     db.query(SourceBlock).filter(
         SourceBlock.processing_run_id == run_id,
         SourceBlock.page_id.in_(selected_page_ids),
@@ -92,6 +143,7 @@ def extract_ocr_blocks(
         "ocr_engine": adapter.name,
         "ocr_engine_version": adapter.version,
         "ocr_pages": page_count,
+        "ocr_page_numbers": selected_page_numbers,
         "ocr_blocks": block_count,
         "ocr_mean_confidence": mean_confidence,
     }
@@ -104,4 +156,5 @@ def extract_ocr_blocks(
         "page_numbers": [page.page_number for page in pages],
         "block_count": block_count,
         "mean_confidence": mean_confidence,
+        "reused": False,
     }

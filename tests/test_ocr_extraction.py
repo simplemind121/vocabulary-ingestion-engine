@@ -1,3 +1,5 @@
+import pytest
+
 from app.adapters.ocr_base import OcrPageInput, OcrPageResult
 from app.db import SessionLocal
 from app.idr import BoundingBox, TextBlock
@@ -36,6 +38,10 @@ class FakeOcrAdapter:
         )
 
 
+class ChangedOcrAdapter(FakeOcrAdapter):
+    version = "2.0"
+
+
 def test_ocr_extraction_persists_traceable_source_blocks(client, sample_pdf_bytes):
     response = client.post(
         "/api/v1/documents",
@@ -66,5 +72,79 @@ def test_ocr_extraction_persists_traceable_source_blocks(client, sample_pdf_byte
         assert blocks[0].page_id is not None
         assert blocks[0].source_engine_version == "1.0"
         assert blocks[0].metadata_json["ocr_result_metadata"]["mode"] == "test"
+    finally:
+        db.close()
+
+
+def test_ocr_extraction_reuses_blocks_and_preserves_human_review(
+    client, sample_pdf_bytes
+):
+    response = client.post(
+        "/api/v1/documents",
+        files={"file": ("ocr-reuse.pdf", sample_pdf_bytes, "application/pdf")},
+    )
+    run_id = response.json()["run_id"]
+
+    db = SessionLocal()
+    try:
+        first = extract_ocr_blocks(db, run_id, FakeOcrAdapter())
+        block = (
+            db.query(SourceBlock)
+            .filter(
+                SourceBlock.processing_run_id == run_id,
+                SourceBlock.source_engine == "ocr:fake",
+            )
+            .first()
+        )
+        assert block is not None
+        block.metadata_json = {
+            **(block.metadata_json or {}),
+            "reviewed_text": "human reviewed text",
+            "human_ocr_review": {"decision": "ACCEPT", "reviewer_id": "human-1"},
+        }
+        block_id = block.id
+        db.commit()
+
+        second = extract_ocr_blocks(db, run_id, FakeOcrAdapter())
+        preserved = db.get(SourceBlock, block_id)
+
+        assert first["reused"] is False
+        assert second["reused"] is True
+        assert second["block_count"] == first["block_count"]
+        assert preserved is not None
+        assert preserved.metadata_json["reviewed_text"] == "human reviewed text"
+    finally:
+        db.close()
+
+
+def test_ocr_extraction_refuses_to_replace_human_reviewed_blocks(
+    client, sample_pdf_bytes
+):
+    response = client.post(
+        "/api/v1/documents",
+        files={"file": ("ocr-review-lock.pdf", sample_pdf_bytes, "application/pdf")},
+    )
+    run_id = response.json()["run_id"]
+
+    db = SessionLocal()
+    try:
+        extract_ocr_blocks(db, run_id, FakeOcrAdapter())
+        block = (
+            db.query(SourceBlock)
+            .filter(
+                SourceBlock.processing_run_id == run_id,
+                SourceBlock.source_engine == "ocr:fake",
+            )
+            .first()
+        )
+        assert block is not None
+        block.metadata_json = {
+            **(block.metadata_json or {}),
+            "human_ocr_review": {"decision": "ACCEPT", "reviewer_id": "human-1"},
+        }
+        db.commit()
+
+        with pytest.raises(ValueError, match="cannot replace human-reviewed OCR blocks"):
+            extract_ocr_blocks(db, run_id, ChangedOcrAdapter())
     finally:
         db.close()

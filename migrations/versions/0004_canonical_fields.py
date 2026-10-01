@@ -3,8 +3,8 @@
 Revision ID: 0004_canonical_fields
 Revises: 0003_entries
 """
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
 revision = "0004_canonical_fields"
 down_revision = "0003_entries"

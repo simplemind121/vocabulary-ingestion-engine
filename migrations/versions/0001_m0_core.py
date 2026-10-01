@@ -3,8 +3,8 @@
 Revision ID: 0001_m0_core
 Revises:
 """
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
 revision = "0001_m0_core"
 down_revision = None

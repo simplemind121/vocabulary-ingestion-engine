@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import os
+
 from alembic import context
 from sqlalchemy import engine_from_config, pool
-from app.db import Base
+
 import app.models  # noqa: F401
+from app.db import Base
 
 config = context.config
 config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL", config.get_main_option("sqlalchemy.url")))

@@ -3,8 +3,8 @@
 Revision ID: 0006_vocabulary_fields
 Revises: 0005_gold_releases
 """
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
 revision = "0006_vocabulary_fields"
 down_revision = "0005_gold_releases"

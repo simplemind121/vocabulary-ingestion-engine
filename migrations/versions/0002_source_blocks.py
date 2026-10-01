@@ -3,8 +3,8 @@
 Revision ID: 0002_source_blocks
 Revises: 0001_m0_core
 """
-from alembic import op
 import sqlalchemy as sa
+from alembic import op
 
 revision = "0002_source_blocks"
 down_revision = "0001_m0_core"

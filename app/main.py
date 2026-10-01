@@ -13,7 +13,7 @@ from fastapi import Depends, FastAPI, File, HTTPException, Query, Request, Respo
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from sqlalchemy import text
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from app.db import get_db
@@ -35,8 +35,10 @@ from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
 from app.services.review_view import review_task_detail
+from app.services.run_queue import queue_processing_run
 from app.settings import get_settings
 from app.storage import build_storage_adapter, read_artifact_bytes
+from app.worker import run_pipeline_task
 
 APP_VERSION = "0.1.0-alpha.4"
 DATA_DIR = Path("data")
@@ -78,6 +80,46 @@ class ReviewResolutionRequest(BaseModel):
     corrected_text: str | None = None
     classification: str | None = None
     notes: str | None = None
+
+
+def _get_or_create_source_artifact(
+    db: Session,
+    *,
+    source_path: Path,
+    content_type: str | None,
+    byte_size: int,
+    digest: str,
+) -> Artifact:
+    object_key = str(source_path)
+    existing = db.query(Artifact).filter(Artifact.object_key == object_key).one_or_none()
+    if existing is not None:
+        if existing.artifact_type != "ORIGINAL_PDF" or existing.sha256 != digest:
+            raise RuntimeError(f"source artifact identity conflict: {object_key}")
+        return existing
+
+    candidate = Artifact(
+        artifact_type="ORIGINAL_PDF",
+        object_key=object_key,
+        mime_type=content_type,
+        byte_size=byte_size,
+        sha256=digest,
+    )
+    try:
+        # The savepoint keeps concurrent, identical uploads from invalidating the
+        # outer document transaction when the unique object key wins elsewhere.
+        with db.begin_nested():
+            db.add(candidate)
+            db.flush()
+        return candidate
+    except IntegrityError:
+        existing = db.query(Artifact).filter(Artifact.object_key == object_key).one_or_none()
+        if (
+            existing is None
+            or existing.artifact_type != "ORIGINAL_PDF"
+            or existing.sha256 != digest
+        ):
+            raise
+        return existing
 
 
 @app.get("/health")
@@ -138,7 +180,13 @@ async def ingest_document(file: Annotated[UploadFile, File()], db: DbSession) ->
     except Exception as exc:
         source_path.unlink(missing_ok=True); raise HTTPException(422, f"Unreadable PDF: {exc}") from exc
     document = Document(original_filename=file.filename or "upload.pdf"); db.add(document); db.flush()
-    source_artifact = Artifact(artifact_type="ORIGINAL_PDF", object_key=str(source_path), mime_type=file.content_type, byte_size=len(payload), sha256=digest); db.add(source_artifact); db.flush()
+    source_artifact = _get_or_create_source_artifact(
+        db,
+        source_path=source_path,
+        content_type=file.content_type,
+        byte_size=len(payload),
+        digest=digest,
+    )
     version = DocumentVersion(document_id=document.id, source_artifact_id=source_artifact.id, sha256=digest, mime_type=file.content_type or "application/pdf", file_size=len(payload), page_count=pdf.page_count); db.add(version); db.flush()
     run = ProcessingRun(
         document_version_id=version.id,
@@ -170,11 +218,33 @@ def get_run(run_id: str, db: DbSession) -> dict:
     run = db.get(ProcessingRun, run_id)
     if not run: raise HTTPException(404, "Processing run not found")
     gates = db.query(GateEvaluation).filter(GateEvaluation.processing_run_id == run_id).all()
-    return {"id": run.id, "document_version_id": run.document_version_id, "status": run.status, "pipeline_version": run.pipeline_version, "error_summary": run.error_summary, "gates": [{"gate": g.gate, "status": g.status, "metrics": g.metrics} for g in gates]}
+    return {"id": run.id, "document_version_id": run.document_version_id, "status": run.status, "pipeline_version": run.pipeline_version, "metrics": run.metrics, "error_summary": run.error_summary, "started_at": run.started_at, "finished_at": run.finished_at, "gates": [{"gate": g.gate, "status": g.status, "metrics": g.metrics} for g in gates]}
+
+
+@app.post("/api/v1/runs/{run_id}/enqueue", status_code=202)
+def enqueue_run(run_id: str, db: DbSession) -> dict:
+    try:
+        return queue_processing_run(
+            db,
+            run_id,
+            dispatch=lambda queued_run_id, task_id: run_pipeline_task.apply_async(
+                args=[queued_run_id], task_id=task_id
+            ),
+        )
+    except ValueError as exc:
+        message = str(exc)
+        raise HTTPException(404 if "not found" in message else 409, message) from exc
+    except RuntimeError as exc:
+        raise HTTPException(503, str(exc)) from exc
 
 
 @app.post("/api/v1/runs/{run_id}/execute")
 def execute_run(run_id: str, db: DbSession) -> dict:
+    run = db.get(ProcessingRun, run_id)
+    if run is None:
+        raise HTTPException(404, "processing run not found")
+    if run.status in {"QUEUED", "STARTING", "RUNNING"}:
+        raise HTTPException(409, f"processing run is already active: {run.status}")
     try:
         settings = get_settings()
         adapter = build_ocr_adapter(settings)

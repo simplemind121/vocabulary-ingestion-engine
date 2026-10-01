@@ -43,6 +43,12 @@ API calls require `Authorization: Bearer <VIE_API_KEY>` in the Compose deploymen
 
 Upload: `POST /api/v1/documents` using multipart field `file`.
 
+Queue a run on the worker: `POST /api/v1/runs/{run_id}/enqueue`.
+
+Poll run and Gate status: `GET /api/v1/runs/{run_id}`. The synchronous
+`POST /api/v1/runs/{run_id}/execute` endpoint is retained for development and
+operator recovery; production clients should enqueue long-running books.
+
 Gold preflight: `POST /api/v1/gold/preflight`.
 
 See [Production operations](docs/OPERATIONS.md) for install, backup, restore, upgrade, and rollback procedures.

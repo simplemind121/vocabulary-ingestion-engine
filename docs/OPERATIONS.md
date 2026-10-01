@@ -32,6 +32,11 @@ runtime.
 
 For an automated destructive test using disposable volumes, run `scripts/compose-smoke.sh`. It builds all services, applies migrations, checks the worker and object storage, then proves backup and restore before deleting only its temporary project and volumes.
 
+The smoke also uploads a real PDF through the authenticated API, enqueues it in
+Redis, waits for the separate Celery worker to pass G0-G6, and requires a Gold
+release artifact. This prevents a healthy worker ping from masquerading as a
+working production pipeline.
+
 ## Authentication and secrets
 
 All `/api/` routes require `Authorization: Bearer <VIE_API_KEY>` when the key is configured. The production Compose file requires it. Liveness and readiness remain unauthenticated for the orchestrator.

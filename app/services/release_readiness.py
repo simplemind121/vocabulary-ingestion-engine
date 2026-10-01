@@ -15,6 +15,7 @@ REQUIRED_PRODUCTION_CHECKS = {
     "database_migration",
     "object_storage",
     "ocr_runtime",
+    "queued_pipeline_g0_g6",
     "worker_readiness",
 }
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")

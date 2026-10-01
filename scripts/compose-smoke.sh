@@ -45,6 +45,7 @@ compose exec -T api python -c \
   "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text('select version_num from alembic_version')).scalar() == '0007_gold_xlsx'; connection.close()"
 
 compose exec -T worker celery -A app.worker.celery_app inspect ping --timeout 5 | grep -q pong
+compose exec -T api python -m app.production_pipeline_smoke_cli
 
 compose exec -T api python -c \
   "from pathlib import Path; path=Path('/app/data/smoke/original.txt'); path.parent.mkdir(parents=True, exist_ok=True); path.write_text('original', encoding='utf-8')"

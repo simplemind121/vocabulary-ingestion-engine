@@ -6,7 +6,7 @@ Allowed statuses: `NOT_STARTED`, `IN_PROGRESS`, `BLOCKED`, `PASS`, `FAIL`.
 
 Last audited: 2026-10-01 (Asia/Taipei)  
 Branch: `bootstrap/v0.1.0-alpha`  
-Audited code commit: `e9d9995823e2feb12abd4ff7851674298507ca3c`  
+Audited code commit: `8b3191aa50b1c8c3446b3f99ba05bacac1f06b46`
 Pull request: [#1](https://github.com/simplemind121/vocabulary-ingestion-engine/pull/1) (`OPEN`, `MERGEABLE`)  
 Source PDF SHA256: `485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd`  
 Database schema: `0007_gold_xlsx`
@@ -15,7 +15,7 @@ Database schema: `0007_gold_xlsx`
 
 | Gate | Status | Release evidence | Current blocker / next executable action |
 |---|---|---|---|
-| R0 — Repository / CI | PASS | Local `ruff` passed and `pytest` passed with 186 tests at `e9d9995`. Remote test, Gold readiness/evidence validation, and production-topology container smoke all passed for the same code commit in [CI run 36867104793](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36867104793). PR #1 is open and mergeable. | Keep this gate green; any code, migration, workflow, or release-evidence change requires a new successful CI run before release. |
+| R0 — Repository / CI | PASS | Local `ruff` passed and `pytest` passed with 186 tests at `8b3191a`. Push and PR CI both passed test, Gold readiness/evidence validation, and production-topology container smoke for the same code commit in [run 36869743619](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869743619) and [run 36869750969](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/36869750969). PR #1 is open and mergeable. | Keep this gate green; any code, migration, workflow, or release-evidence change requires a new successful CI run before release. |
 | R1 — Gold Dataset | BLOCKED | 30 annotation files and all required layout tags are present. The executable readiness result is `annotation_count=30`, `human_verified_count=0`, `publish_allowed=false`, `status=NOT_READY`. The real PostgreSQL run has all 30 selected pages represented by SourceBlocks, but 0/19 entry-bearing pages currently have persisted SourceEntry/Vocabulary rows. | A real human must resolve six low-confidence OCR tasks before retrying the persisted pipeline. Then generate the 30-page machine draft/review packet, obtain 30/30 real reviewer sign-offs, prove unresolved/schema/provenance errors are zero, and freeze the manifest. Never promote machine output to `HUMAN_VERIFIED`. |
 | R2 — Gold Regression | BLOCKED | The regression implementation and release gate exist, but there is no frozen 30/30 HUMAN_VERIFIED Gold manifest or real benchmark artifact to consume. | Complete R1, run the benchmark against the frozen manifest, save the report, and execute the regression gate against that artifact. |
 | R3 — Full-book E2E | BLOCKED | Real PDF audit artifact validates successfully and covers 1120/1120 pages, 23,458 SourceBlocks, 3,401 entry candidates, 569 cross-page candidates, and 3 low-confidence cover OCR blocks. Real PostgreSQL ProcessingRun `cfb68afa-6b9f-4992-b86d-0db27f950014` contains 1120 pages and 23,458 SourceBlocks; G0 is `PASS`, G1 is `REVIEW_REQUIRED`, and six review tasks are open. | Resolve the six OCR reviews with a real reviewer, retry the same run, and continue through SourceEntry, canonical vocabulary, validation, review, and export. Current database counts are SourceEntry=0, VocabularyEntry=0, ProvenanceRecord=0, GoldRelease=0, so this is not an end-to-end pass. |

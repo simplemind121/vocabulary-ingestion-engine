@@ -1,0 +1,23 @@
+{
+  "annotation_count": 30,
+  "covered_layout_tags": [
+    "BOUNDARY_ENTRY",
+    "CROSS_PAGE_ENTRY",
+    "DOUBLE_COLUMN",
+    "IMAGE",
+    "INDEX",
+    "IPA_DENSE",
+    "NORMAL",
+    "OCR_HARD",
+    "SPECIAL_LAYOUT",
+    "TABLE"
+  ],
+  "errors": [],
+  "gate": "GOLD_CORPUS_READINESS",
+  "human_verified_count": 30,
+  "manifest_path": "gold_samples/manifest_v1.json",
+  "manifest_sha256": "d09d2782dea239613083f6ce938e260c97c1f87c0138ec378ba00a76e6e65360",
+  "missing_layout_tags": [],
+  "publish_allowed": true,
+  "status": "READY_TO_FREEZE"
+}

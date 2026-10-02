@@ -8,8 +8,8 @@
     "IPA_DENSE",
     "TABLE"
   ],
-  "review_status": "DRAFT",
-  "reviewer_id": null,
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
   "page_image_sha256": "97d019fe165fedb5d93c8263492a045400f073755346a27f939d8239b3cf5d89",
   "blocks": [
     {
@@ -754,6 +754,7 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@a60ffcf"
+    "generator=vie-pipeline@a60ffcf",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:48:12.428747+00:00\"}"
   ]
 }

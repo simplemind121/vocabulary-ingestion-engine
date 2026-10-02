@@ -1,0 +1,464 @@
+{
+  "dataset_version": "1.0",
+  "freeze_status": "FROZEN",
+  "manifest_sha256": "d09d2782dea239613083f6ce938e260c97c1f87c0138ec378ba00a76e6e65360",
+  "pages": [
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0001.json",
+      "ground_truth_sha256": "f22694c55e10fdc6235c2d935742236e794c3d832cb596f15532fd23a33d093c",
+      "layout_tags": [
+        "IMAGE",
+        "OCR_HARD",
+        "SPECIAL_LAYOUT"
+      ],
+      "page_image_sha256": "2fbae16a5092669bc5afba99100c13ed80064ed095ca89704be68906fd6bc0e8",
+      "page_number": 1,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0001"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0003.json",
+      "ground_truth_sha256": "509e902ddb189ca3b3e00b9f278700c2134a7b2abde95ef6e467208ef982b608",
+      "layout_tags": [
+        "SPECIAL_LAYOUT"
+      ],
+      "page_image_sha256": "70e447dfd4ed58e22d356ed006ca81bff5c9652a09e1cdda3bb39fc4797b0464",
+      "page_number": 3,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0003"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0030.json",
+      "ground_truth_sha256": "49e118d9441d9268c84d1e7aa8bb10a92a5ff7ad3f953db927d4cf4a7e7ec02e",
+      "layout_tags": [
+        "IMAGE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "4ee49ca0be7e61d85819fb9ee16583211b394a77de0bc9f856304d1b2ec9f49b",
+      "page_number": 30,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0030"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0050.json",
+      "ground_truth_sha256": "e09cc6bee14ee4ffd74e6eec4736a36ca4a8c18cb1aeabae985318283bf7053d",
+      "layout_tags": [
+        "IMAGE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "38e518fa33ad35ac5d50ea5b03567405aa0fe484da2cb4ceaa82dee0e6c603ed",
+      "page_number": 50,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0050"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0060.json",
+      "ground_truth_sha256": "dc103e170c0930ac7e619594caddacc88ed10ea330166e0775afd4bff595382e",
+      "layout_tags": [
+        "NORMAL"
+      ],
+      "page_image_sha256": "76083276c9e031d114e511d71c1ca806a3286824b8af80e3090541741342b758",
+      "page_number": 60,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0060"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0082.json",
+      "ground_truth_sha256": "d0465169a75f4f9497cdb627f09846ab02892626626f640ca68a8ac42184fd67",
+      "layout_tags": [
+        "IMAGE",
+        "SPECIAL_LAYOUT"
+      ],
+      "page_image_sha256": "bb796a07c26be3a009b4403b5df6b2f74864b69915c716eb369646c5dff795f2",
+      "page_number": 82,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0082"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0090.json",
+      "ground_truth_sha256": "b7222477681d626228b7f8e431ae9f145cf300e5243d113fe9d3ccd9a61961a3",
+      "layout_tags": [
+        "NORMAL"
+      ],
+      "page_image_sha256": "823b5c4e9e6d42052a9f6a9c3277efe0abc6565844abc4df056f02180f18f9d2",
+      "page_number": 90,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0090"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0120.json",
+      "ground_truth_sha256": "7a0e507bb3a5e6be5cb3238f690e2416446282fdf795e18d7d4a6cc2bf7e7305",
+      "layout_tags": [
+        "SPECIAL_LAYOUT",
+        "TABLE"
+      ],
+      "page_image_sha256": "f92a2f7d8505818048a34c94b1e15607e68eda620daded865a7fae44b44ef4e3",
+      "page_number": 120,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0120"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0150.json",
+      "ground_truth_sha256": "628f3b7414ee77761a2063296fd498d1de18970fdb5e9c3733850e536533027a",
+      "layout_tags": [
+        "IMAGE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "b641f41b6653f81d7e9c65205a66569d02434523a3f3e18d876dce390ee19ca4",
+      "page_number": 150,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0150"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0180.json",
+      "ground_truth_sha256": "3ea8166ec0762bf88f6304f268f637e427613b6cd4e7be0cbceb778ed517fab6",
+      "layout_tags": [
+        "IPA_DENSE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "6c3ac6451c2305e865c0f84d7d8d662cdec832a96fd7930978d4dc6708695925",
+      "page_number": 180,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0180"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0210.json",
+      "ground_truth_sha256": "70c4dc7b00c8da533169c11ca3f150068e3a02098c61eff143bd3773eea6a1bc",
+      "layout_tags": [
+        "IPA_DENSE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "32936628b2f4c320b2e919ac26863cd7bf96d3452761cb7ec20f69fece02b4fd",
+      "page_number": 210,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0210"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0220.json",
+      "ground_truth_sha256": "c65977bc406050ac3e2a99a82b6259ccaf372f1b3b3d23057415abb607eeb6a5",
+      "layout_tags": [
+        "BOUNDARY_ENTRY",
+        "CROSS_PAGE_ENTRY",
+        "NORMAL"
+      ],
+      "page_image_sha256": "2fc7c893c8d55897c99250b1ec57175994aa86f23876f618352fcbe5ac222edd",
+      "page_number": 220,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0220"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0221.json",
+      "ground_truth_sha256": "90fe494e6ac7d2337b5add7f34fdf08db0855ef7ba8bc05a278b423fc76216cc",
+      "layout_tags": [
+        "BOUNDARY_ENTRY",
+        "CROSS_PAGE_ENTRY",
+        "NORMAL"
+      ],
+      "page_image_sha256": "5a96fc6751a72e782a5542478b03e86a4e964e50501023eb312b79ae3855d356",
+      "page_number": 221,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0221"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0240.json",
+      "ground_truth_sha256": "69ada9407d2aae9aa677a4817cfc0ec569375ae0c9b756a2dd3eeab102c90982",
+      "layout_tags": [
+        "IPA_DENSE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "4c8d7c0bd2661fcabbc850e18ab064db57852a9e2a422ca3b3b3d6a2dae44547",
+      "page_number": 240,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0240"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0300.json",
+      "ground_truth_sha256": "17a23ee41c9f6baf178352033d0c2a76e87b9be6f40c08cf8fea20ff6f377547",
+      "layout_tags": [
+        "NORMAL"
+      ],
+      "page_image_sha256": "b3732e9cd53014c5edb81df5912cfaa284721a278faebc37261bdf602fb7989e",
+      "page_number": 300,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0300"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0330.json",
+      "ground_truth_sha256": "1d03a008507fb18c376d312c3abd04a0be745142e8950167ab323fd568168585",
+      "layout_tags": [
+        "NORMAL"
+      ],
+      "page_image_sha256": "b5ee6384e703691f67eba5962427b948af19242e959204aaa4fafefd95cd9769",
+      "page_number": 330,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0330"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0420.json",
+      "ground_truth_sha256": "e5c8dcfa8fa3d5f336877bcedddb2c890d7abdf0086dfb49103427c72f7b65a6",
+      "layout_tags": [
+        "IMAGE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "07cbde2c4f9703824bc6b0d35ea5011f97c04f7e66d2be877d3b03ba04405dc8",
+      "page_number": 420,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0420"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0457.json",
+      "ground_truth_sha256": "239f46f649f331819aa37d0622bb39704ece920853169486e3f5432f79a299b0",
+      "layout_tags": [
+        "BOUNDARY_ENTRY",
+        "CROSS_PAGE_ENTRY",
+        "NORMAL"
+      ],
+      "page_image_sha256": "71b1d7e5fdf0e785d3a9f088c0e2fe2aa30d53429e44825b7b856f4a32e83867",
+      "page_number": 457,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0457"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0458.json",
+      "ground_truth_sha256": "bc4decce6d07bd7b6043f729483cac81a982816aecf236894fd9562d1d751335",
+      "layout_tags": [
+        "BOUNDARY_ENTRY",
+        "CROSS_PAGE_ENTRY",
+        "NORMAL"
+      ],
+      "page_image_sha256": "4006ec3341d7edf485c909b8b37949fbc51ed366edf3e8d440ce2fe7479deac1",
+      "page_number": 458,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0458"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0460.json",
+      "ground_truth_sha256": "a48fc2d66657784ece77ca862234c06f974d2daab0e774eca5ab0f92731df069",
+      "layout_tags": [
+        "BOUNDARY_ENTRY",
+        "CROSS_PAGE_ENTRY",
+        "NORMAL"
+      ],
+      "page_image_sha256": "b7719888488e894517543ef490e9546f78186fcfe38dc56ac0c4bc2e93d218c6",
+      "page_number": 460,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0460"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0461.json",
+      "ground_truth_sha256": "d8787ddc66807ff0f6aa54b4170c96e591c2d13111049ea6fd3fb37c8cb507f7",
+      "layout_tags": [
+        "BOUNDARY_ENTRY",
+        "CROSS_PAGE_ENTRY",
+        "NORMAL"
+      ],
+      "page_image_sha256": "d045d3ec433bd8ad429de30112899501760fd693a72e579b76bb6a7725037ad2",
+      "page_number": 461,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0461"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0462.json",
+      "ground_truth_sha256": "40f85860f8d0e4060a72ae13dfe6bf7f31f808cc1cf782e42f6030299267eb28",
+      "layout_tags": [
+        "BOUNDARY_ENTRY",
+        "CROSS_PAGE_ENTRY",
+        "NORMAL"
+      ],
+      "page_image_sha256": "9e91dec03c822ec71f0a17e1576782ed0d5cad33fddc62489b18bbc822f3b4ce",
+      "page_number": 462,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0462"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0463.json",
+      "ground_truth_sha256": "6c67d6beabe17c2674711df19d3c701cf64ec842225e062b94b01246f7c89d6e",
+      "layout_tags": [
+        "SPECIAL_LAYOUT",
+        "TABLE"
+      ],
+      "page_image_sha256": "065a2348e4d57f8c8d4560921d863bab199efd44b7e5717a574aa8f59cdd1e21",
+      "page_number": 463,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0463"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0750.json",
+      "ground_truth_sha256": "2718851ffe9d4b8b769739b4fa419b9ab399a9116eb4a354b4eca63c89635d9f",
+      "layout_tags": [
+        "IPA_DENSE",
+        "NORMAL"
+      ],
+      "page_image_sha256": "47f9bfb250a5ff9eec45e6f7044b2d7bdaaf8dd0c46c45f305709a2ad182b8ac",
+      "page_number": 750,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0750"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p0930.json",
+      "ground_truth_sha256": "7cd4ff833bab1c75de6af5f23b43665be97d1cdf39d20e846b6627a304acb135",
+      "layout_tags": [
+        "SPECIAL_LAYOUT",
+        "TABLE"
+      ],
+      "page_image_sha256": "9738a4be54cb04d6e26bf8f1ad91904e22ad74136f6028f6cd3f504cd0036c35",
+      "page_number": 930,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p0930"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p1006.json",
+      "ground_truth_sha256": "4a2017dbb1f2c083ccd06bc62c9dc9e3d2b32ade301deb96c4a3f5bc22b9272c",
+      "layout_tags": [
+        "INDEX",
+        "SPECIAL_LAYOUT"
+      ],
+      "page_image_sha256": "b065878f307895fb9b447a0553c4e2028cf5bfd8ffd01891a8041f9b86132093",
+      "page_number": 1006,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p1006"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p1112.json",
+      "ground_truth_sha256": "2acde773418bd7efffb55785b2f9618021a0135495c93657839f0e76ce8d6ed4",
+      "layout_tags": [
+        "DOUBLE_COLUMN",
+        "IPA_DENSE",
+        "TABLE"
+      ],
+      "page_image_sha256": "8baba3c3b2d387a2535916813f4b6c57f58c109c32478f34eadb381aa0166802",
+      "page_number": 1112,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p1112"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p1113.json",
+      "ground_truth_sha256": "4891abd69ec1be2ba986c023de9c0582d107ab6c9c52835ffdbef9c0678739fc",
+      "layout_tags": [
+        "DOUBLE_COLUMN",
+        "IPA_DENSE",
+        "TABLE"
+      ],
+      "page_image_sha256": "97d019fe165fedb5d93c8263492a045400f073755346a27f939d8239b3cf5d89",
+      "page_number": 1113,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p1113"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p1114.json",
+      "ground_truth_sha256": "8fbd4538bcbdef9be05957fd83c1283d667c067a24839d400d3a41e17f8f54eb",
+      "layout_tags": [
+        "DOUBLE_COLUMN",
+        "IPA_DENSE",
+        "TABLE"
+      ],
+      "page_image_sha256": "10d040ad8d224a6fb50770dda3d5723fd483a797fe8c004944fc05fc6ff523c5",
+      "page_number": 1114,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p1114"
+    },
+    {
+      "annotation_schema_version": "1.0",
+      "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+      "ground_truth_path": "annotations/gold-v1-p1115.json",
+      "ground_truth_sha256": "d471cce68b386236c234a195a484f06483ccf5ca7d123e6b621d8883990d9cd0",
+      "layout_tags": [
+        "DOUBLE_COLUMN",
+        "SPECIAL_LAYOUT",
+        "TABLE"
+      ],
+      "page_image_sha256": "b8e789fbbf67c6d78a140492e76f18cbe413a853968b051a516e21238412a6e1",
+      "page_number": 1115,
+      "review_status": "HUMAN_VERIFIED",
+      "reviewer_id": "wangsanqiang",
+      "sample_id": "gold-v1-p1115"
+    }
+  ]
+}

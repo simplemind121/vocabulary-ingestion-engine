@@ -7,8 +7,8 @@
     "IMAGE",
     "NORMAL"
   ],
-  "review_status": "DRAFT",
-  "reviewer_id": null,
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
   "page_image_sha256": "07cbde2c4f9703824bc6b0d35ea5011f97c04f7e66d2be877d3b03ba04405dc8",
   "blocks": [
     {
@@ -413,6 +413,7 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@a60ffcf"
+    "generator=vie-pipeline@a60ffcf",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:43:31.587366+00:00\"}"
   ]
 }

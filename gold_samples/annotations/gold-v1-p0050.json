@@ -7,8 +7,8 @@
     "IMAGE",
     "NORMAL"
   ],
-  "review_status": "DRAFT",
-  "reviewer_id": null,
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
   "page_image_sha256": "38e518fa33ad35ac5d50ea5b03567405aa0fe484da2cb4ceaa82dee0e6c603ed",
   "blocks": [
     {
@@ -332,13 +332,15 @@
       "display_form": "exchange",
       "ipa": "ɪksˈtʃeɪndʒ",
       "part_of_speech": "v.",
-      "definition": "交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交",
+      "definition": "交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交换，调换；交易（所）；兑换（率）；交流",
       "machine_verification_status": "AUTO_VERIFIED"
     }
   ],
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@a60ffcf"
+    "generator=vie-pipeline@a60ffcf",
+    "HUMAN_REVIEW_NOTE:换，调换；交易（所）；兑换（率）；交流 有遗漏,未归纳",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:23:45.639424+00:00\"}"
   ]
 }

@@ -6,8 +6,8 @@
   "layout_tags": [
     "NORMAL"
   ],
-  "review_status": "DRAFT",
-  "reviewer_id": null,
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
   "page_image_sha256": "76083276c9e031d114e511d71c1ca806a3286824b8af80e3090541741342b758",
   "blocks": [
     {
@@ -347,7 +347,7 @@
       "display_form": "cruise",
       "ipa": "kruːz",
       "part_of_speech": "v.",
-      "definition": "乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；",
+      "definition": "乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；航行",
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
@@ -374,6 +374,7 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@a60ffcf"
+    "generator=vie-pipeline@a60ffcf",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:25:07.332517+00:00\"}"
   ]
 }

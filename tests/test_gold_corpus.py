@@ -67,7 +67,7 @@ def test_30_complete_human_verified_annotations_freeze_manifest():
     assert all(page["review_status"] == "HUMAN_VERIFIED" for page in manifest["pages"])
 
 
-def test_repository_corpus_truthfully_reports_30_drafts_and_zero_verified():
+def test_repository_corpus_truthfully_reports_frozen_verified_dataset():
     annotations = [
         json.loads(path.read_text(encoding="utf-8"))
         for path in sorted((ROOT / "gold_samples" / "annotations").glob("*.json"))
@@ -76,7 +76,7 @@ def test_repository_corpus_truthfully_reports_30_drafts_and_zero_verified():
     readiness = evaluate_corpus_readiness(annotations)
 
     assert readiness["annotation_count"] == 30
-    assert readiness["human_verified_count"] == 0
+    assert readiness["human_verified_count"] == 30
     assert readiness["missing_layout_tags"] == []
-    assert readiness["status"] == "NOT_READY"
-    assert readiness["errors"] == ["human_verified_count_must_equal_30:0"]
+    assert readiness["status"] == "READY_TO_FREEZE"
+    assert readiness["errors"] == []

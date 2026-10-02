@@ -48,6 +48,36 @@ def test_compound_part_of_speech_remains_source_exact():
     ]
 
 
+def test_wrapped_cjk_definition_is_joined_without_losing_text():
+    parsed = parse_source_entry(
+        [
+            "exchange [ɪksˈtʃeɪndʒ]",
+            "v. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交",
+            "换，调换；交易（所）；兑换（率）；交流",
+            "搭 in exchange for 交换",
+        ]
+    )
+
+    assert parsed.senses == [
+        {
+            "pos": "v.",
+            "definition": "交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交换，调换；交易（所）；兑换（率）；交流",
+        }
+    ]
+
+
+def test_single_line_secondary_part_of_speech_remains_in_definition():
+    parsed = parse_source_entry(
+        [
+            "gang [gæŋ]",
+            "n. 一帮 v. 结成一伙",
+            "例 A gang of young men attacked the police station.",
+        ]
+    )
+
+    assert parsed.senses == [{"pos": "n.", "definition": "n.一帮 v. 结成一伙"}]
+
+
 def test_derivative_synonym_and_antonym_fields_remain_separate():
     parsed = parse_source_entry(
         [

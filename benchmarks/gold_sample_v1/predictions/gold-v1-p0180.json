@@ -12,7 +12,7 @@
   "page_image_sha256": "6c3ac6451c2305e865c0f84d7d8d662cdec832a96fd7930978d4dc6708695925",
   "blocks": [
     {
-      "source_block_id": "native-p0180-b0000",
+      "source_block_id": "4aad7b3b-a8aa-4c3a-a480-c11195e90a95",
       "text": "179",
       "raw_text": "179",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0001",
+      "source_block_id": "5f68ca6f-38a6-43b9-8b8b-61a080add74c",
       "text": "specialise* [ˈspeʃəlaɪz]",
       "raw_text": "specialise* [ˈspeʃəlaɪz]",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0002",
+      "source_block_id": "76268b71-c5c1-43c5-b422-598a8ae9b164",
       "text": "v. 专门研究，专攻；专用于，使适应特殊目的",
       "raw_text": "v. 专门研究，专攻；专用于，使适应特殊目的",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0003",
+      "source_block_id": "a1a2da9c-f0c1-4585-8629-fd4c35083bac",
       "text": "记 来自special （adj. 特殊的，专门的）",
       "raw_text": "记 来自special （adj. 特殊的，专门的）",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0004",
+      "source_block_id": "88001ac3-d83c-4278-89e7-45f9c1169c9e",
       "text": "搭 specialised equipment 专用设备",
       "raw_text": "搭 specialised equipment 专用设备",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0005",
+      "source_block_id": "ca13646c-460d-4ae5-a78a-b99eb4813961",
       "text": "例 Two years later, we will specialise and take courses in one or\ntwo subjects. 两年后，我们将专攻一两门学科并学习这些学科的课\n程。// As the brain evolved, one side became specialised for fine control\nof movement. 随着大脑的进化，大脑的一边开始专门负责对运动进\n行精密控制。",
       "raw_text": "例 Two years later, we will specialise and take courses in one or\ntwo subjects. 两年后，我们将专攻一两门学科并学习这些学科的课\n程。// As the brain evolved, one side became specialised for fine control\nof movement. 随着大脑的进化，大脑的一边开始专门负责对运动进\n行精密控制。",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0006",
+      "source_block_id": "fa83d476-3c91-41b3-a9b1-4e1e8cee4b4b",
       "text": "派 specialisation （n. 专门化，特殊化）",
       "raw_text": "派 specialisation （n. 专门化，特殊化）",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0007",
+      "source_block_id": "1c25e79b-816e-4e80-a5e2-46c2ac1b7e9d",
       "text": "magnificent* [mægˈnɪfɪsnt]",
       "raw_text": "magnificent* [mægˈnɪfɪsnt]",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0008",
+      "source_block_id": "4b4acfef-8b2b-4c11-985e-9f53d2edf6ec",
       "text": "adj. 壮丽的，宏伟的，华丽的；高尚的",
       "raw_text": "adj. 壮丽的，宏伟的，华丽的；高尚的",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0009",
+      "source_block_id": "78238121-374e-462e-bdc6-bfe874991a8f",
       "text": "记 词根记忆：magni（大）+fic（做）+ent（有…性质的）→\n做得很大的→宏伟的，壮丽的",
       "raw_text": "记 词根记忆：magni（大）+fic（做）+ent（有…性质的）→\n做得很大的→宏伟的，壮丽的",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0010",
+      "source_block_id": "78acd2cb-32fe-48ba-83f4-19dce78d44a2",
       "text": "搭 magnificent performance 出色表演",
       "raw_text": "搭 magnificent performance 出色表演",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0011",
+      "source_block_id": "35410745-113e-4110-a464-ce3206ac790a",
       "text": "例 The garage around the corner contains the magnificent old\nRolls-Royce which used to belong to George. 街角的车库里停着一辆\n华丽的老式劳斯莱斯，它曾经是乔治的。",
       "raw_text": "例 The garage around the corner contains the magnificent old\nRolls-Royce which used to belong to George. 街角的车库里停着一辆\n华丽的老式劳斯莱斯，它曾经是乔治的。",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0012",
+      "source_block_id": "f96c84b6-166b-4b73-9745-3531cd63086a",
       "text": "派 magnificently （adv. 壮观地；宏伟地）；magnificence （n.\n壮丽，宏伟；华丽）",
       "raw_text": "派 magnificently （adv. 壮观地；宏伟地）；magnificence （n.\n壮丽，宏伟；华丽）",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0013",
+      "source_block_id": "2dee04c5-e3c4-4c92-a1eb-436f41b5b35a",
       "text": "spasmodic [spæzˈmɒdɪk]",
       "raw_text": "spasmodic [spæzˈmɒdɪk]",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0014",
+      "source_block_id": "09f61f87-d84e-4602-ad45-94732841e40c",
       "text": "adj. 痉挛的；间歇性的",
       "raw_text": "adj. 痉挛的；间歇性的",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0015",
+      "source_block_id": "f36b4401-6110-4740-b8c8-28e3ab1c4b97",
       "text": "记 联想记忆：spasm（痉挛，一阵发作）+odic→痉挛的",
       "raw_text": "记 联想记忆：spasm（痉挛，一阵发作）+odic→痉挛的",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0180-b0016",
+      "source_block_id": "88f6e4b5-c51d-4270-896b-268d502f7532",
       "text": "例 Since the arrival of Europeans, the region experienced a period\nof spasmodic activity, between 1831 and 1857. 自从欧洲人来到这个地",
       "raw_text": "例 Since the arrival of Europeans, the region experienced a period\nof spasmodic activity, between 1831 and 1857. 自从欧洲人来到这个地",
       "block_type": "TEXT",
@@ -286,84 +286,75 @@
   ],
   "entries": [
     {
+      "source_entry_id": "be5db848-9453-4a83-a2b2-d4aa4134f3ed",
       "lemma": "specialise",
       "raw_text": "specialise* [ˈspeʃəlaɪz]\nv. 专门研究，专攻；专用于，使适应特殊目的\n记 来自special （adj. 特殊的，专门的）\n搭 specialised equipment 专用设备\n例 Two years later, we will specialise and take courses in one or\ntwo subjects. 两年后，我们将专攻一两门学科并学习这些学科的课\n程。// As the brain evolved, one side became specialised for fine control\nof movement. 随着大脑的进化，大脑的一边开始专门负责对运动进\n行精密控制。\n派 specialisation （n. 专门化，特殊化）",
+      "entry_order": 653,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         180
-      ],
-      "source_block_ids": [
-        "native-p0180-b0001",
-        "native-p0180-b0002",
-        "native-p0180-b0003",
-        "native-p0180-b0004",
-        "native-p0180-b0005",
-        "native-p0180-b0006"
       ]
     },
     {
+      "source_entry_id": "ed99b11e-ead8-496b-83e3-20e6ffdfb533",
       "lemma": "magnificent",
       "raw_text": "magnificent* [mægˈnɪfɪsnt]\nadj. 壮丽的，宏伟的，华丽的；高尚的\n记 词根记忆：magni（大）+fic（做）+ent（有…性质的）→\n做得很大的→宏伟的，壮丽的\n搭 magnificent performance 出色表演\n例 The garage around the corner contains the magnificent old\nRolls-Royce which used to belong to George. 街角的车库里停着一辆\n华丽的老式劳斯莱斯，它曾经是乔治的。\n派 magnificently （adv. 壮观地；宏伟地）；magnificence （n.\n壮丽，宏伟；华丽）",
+      "entry_order": 654,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         180
-      ],
-      "source_block_ids": [
-        "native-p0180-b0007",
-        "native-p0180-b0008",
-        "native-p0180-b0009",
-        "native-p0180-b0010",
-        "native-p0180-b0011",
-        "native-p0180-b0012"
       ]
     },
     {
+      "source_entry_id": "b2a53b3f-3228-4b96-86b6-560a4d8d6779",
       "lemma": "spasmodic",
-      "raw_text": "spasmodic [spæzˈmɒdɪk]\nadj. 痉挛的；间歇性的\n记 联想记忆：spasm（痉挛，一阵发作）+odic→痉挛的\n例 Since the arrival of Europeans, the region experienced a period\nof spasmodic activity, between 1831 and 1857. 自从欧洲人来到这个地",
+      "raw_text": "spasmodic [spæzˈmɒdɪk]\nadj. 痉挛的；间歇性的\n记 联想记忆：spasm（痉挛，一阵发作）+odic→痉挛的\n例 Since the arrival of Europeans, the region experienced a period\nof spasmodic activity, between 1831 and 1857. 自从欧洲人来到这个地\n区，在1831到1857年间，它经历了一个间歇性的活跃时期。",
+      "entry_order": 655,
       "segmentation_confidence": 0.98,
-      "continuation_type": null,
+      "continuation_type": "CROSS_PAGE",
       "source_pages": [
-        180
-      ],
-      "source_block_ids": [
-        "native-p0180-b0013",
-        "native-p0180-b0014",
-        "native-p0180-b0015",
-        "native-p0180-b0016"
+        180,
+        181
       ]
     }
   ],
   "vocabulary": [
     {
+      "vocabulary_entry_id": "ef08f658-b28b-49e6-bf1d-1fad2d3a6ccb",
+      "source_entry_id": "be5db848-9453-4a83-a2b2-d4aa4134f3ed",
       "lemma": "specialise",
       "display_form": "specialise",
       "ipa": "ˈspeʃəlaɪz",
       "part_of_speech": "v.",
       "definition": "专门研究，专攻；专用于，使适应特殊目的",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "151a80de-f200-4129-858e-03a83cf6d0d5",
+      "source_entry_id": "ed99b11e-ead8-496b-83e3-20e6ffdfb533",
       "lemma": "magnificent",
       "display_form": "magnificent",
       "ipa": "mægˈnɪfɪsnt",
       "part_of_speech": "adj.",
       "definition": "壮丽的，宏伟的，华丽的；高尚的",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "8d2d4bf7-c058-42c2-ac99-b2ad9ccbf3bd",
+      "source_entry_id": "b2a53b3f-3228-4b96-86b6-560a4d8d6779",
       "lemma": "spasmodic",
       "display_form": "spasmodic",
       "ipa": "spæzˈmɒdɪk",
       "part_of_speech": "adj.",
       "definition": "痉挛的；间歇性的",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     }
   ],
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@b93486c"
   ]
 }

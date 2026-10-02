@@ -13,7 +13,7 @@
   "page_image_sha256": "b7719888488e894517543ef490e9546f78186fcfe38dc56ac0c4bc2e93d218c6",
   "blocks": [
     {
-      "source_block_id": "native-p0460-b0000",
+      "source_block_id": "c4ba901b-32da-4ff2-9ce6-549ef3bf50f9",
       "text": "459",
       "raw_text": "459",
       "block_type": "TEXT",
@@ -29,7 +29,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0001",
+      "source_block_id": "44820b72-a5a7-490f-ba97-5d0e4d0d945b",
       "text": "例 Doctors have been instrumental in improving living standards\nin Western society. 在西方社会，医生在提高人们生活质量方面一直\n发挥着重要作用。",
       "raw_text": "例 Doctors have been instrumental in improving living standards\nin Western society. 在西方社会，医生在提高人们生活质量方面一直\n发挥着重要作用。",
       "block_type": "TEXT",
@@ -45,7 +45,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0002",
+      "source_block_id": "7f4b20e7-7a9e-4c35-b3c2-45d36b2edce1",
       "text": "load [ləʊd]",
       "raw_text": "load [ləʊd]",
       "block_type": "TEXT",
@@ -61,7 +61,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0003",
+      "source_block_id": "332f1ee2-19b6-4357-955e-32e39c10e764",
       "text": "v. 装载；装（胶卷、弹药等） n. 负荷；装载",
       "raw_text": "v. 装载；装（胶卷、弹药等） n. 负荷；装载",
       "block_type": "TEXT",
@@ -77,7 +77,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0004",
+      "source_block_id": "10fc1ea3-f211-4a03-992d-748709ebf03d",
       "text": "例 Our camera could be loaded in daylight. 我们的相机可以在日\n光下装胶卷。",
       "raw_text": "例 Our camera could be loaded in daylight. 我们的相机可以在日\n光下装胶卷。",
       "block_type": "TEXT",
@@ -93,7 +93,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0005",
+      "source_block_id": "405eb23f-7835-4ce8-9f5d-f5c8eef31122",
       "text": "improve* [ɪmˈpruːv]",
       "raw_text": "improve* [ɪmˈpruːv]",
       "block_type": "TEXT",
@@ -109,7 +109,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0006",
+      "source_block_id": "48518cb4-df3b-4f5d-a45b-d186609989ef",
       "text": "v. 改善，改进",
       "raw_text": "v. 改善，改进",
       "block_type": "TEXT",
@@ -125,7 +125,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0007",
+      "source_block_id": "b1c5d119-f956-43f3-a858-e99d82f737f3",
       "text": "搭 improve on/upon sth. 改进；做出更好的业绩",
       "raw_text": "搭 improve on/upon sth. 改进；做出更好的业绩",
       "block_type": "TEXT",
@@ -141,7 +141,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0008",
+      "source_block_id": "057618c0-3419-4525-9347-f6fe38d5faa4",
       "text": "例 In an English course with Atlas English Language College, you\nimprove your language skills and make friends from all over the world!\n在阿特拉斯英语学院的英语课堂，你可以提高自己的英语水平，同\n时结识来自世界各地的朋友！",
       "raw_text": "例 In an English course with Atlas English Language College, you\nimprove your language skills and make friends from all over the world!\n在阿特拉斯英语学院的英语课堂，你可以提高自己的英语水平，同\n时结识来自世界各地的朋友！",
       "block_type": "TEXT",
@@ -157,7 +157,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0009",
+      "source_block_id": "9e00bb03-856b-4de7-9d81-3f191f9cd235",
       "text": "sensitive* [ˈsensətɪv]",
       "raw_text": "sensitive* [ˈsensətɪv]",
       "block_type": "TEXT",
@@ -173,7 +173,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0010",
+      "source_block_id": "13a05cbe-8be2-492d-9ea1-acd5ca8eb1b6",
       "text": "adj. 敏感的，灵敏的；神经过敏的，容易生气的；易受伤害的",
       "raw_text": "adj. 敏感的，灵敏的；神经过敏的，容易生气的；易受伤害的",
       "block_type": "TEXT",
@@ -189,7 +189,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0011",
+      "source_block_id": "da1b8617-8d6f-444d-ae94-2ac7ff473099",
       "text": "记 词根记忆：sens（感觉）+itive（有…性质的）→敏感的",
       "raw_text": "记 词根记忆：sens（感觉）+itive（有…性质的）→敏感的",
       "block_type": "TEXT",
@@ -205,7 +205,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0012",
+      "source_block_id": "9910dd21-f23a-4476-8005-25e08417e15a",
       "text": "例 The “environmentally sensitive” landscape was threatened by\nsome buildings. 这处“易受环境影响的”风景受到了一些建筑物的威\n胁。",
       "raw_text": "例 The “environmentally sensitive” landscape was threatened by\nsome buildings. 这处“易受环境影响的”风景受到了一些建筑物的威\n胁。",
       "block_type": "TEXT",
@@ -221,7 +221,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0013",
+      "source_block_id": "4ac1285d-d63d-44a0-8fdf-1c953a76892a",
       "text": "派 sensitivity （n. 敏感，灵敏性）",
       "raw_text": "派 sensitivity （n. 敏感，灵敏性）",
       "block_type": "TEXT",
@@ -237,7 +237,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0014",
+      "source_block_id": "1ae5b6a0-d491-4e45-8ece-b8b56dd83274",
       "text": "abolish [əˈbɒlɪʃ]",
       "raw_text": "abolish [əˈbɒlɪʃ]",
       "block_type": "TEXT",
@@ -253,7 +253,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0015",
+      "source_block_id": "39bb9c59-b987-416d-a254-1cf9493e3fbf",
       "text": "vt. 废止，废除",
       "raw_text": "vt. 废止，废除",
       "block_type": "TEXT",
@@ -269,7 +269,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0460-b0016",
+      "source_block_id": "407dfebd-d209-4ddb-9a52-2c51fdd4d5ab",
       "text": "例 The ancient Olympics were abolished by the Roman Emperor\nTheodosius in 393 AD, after Greece lost its independence. 在希腊丧失",
       "raw_text": "例 The ancient Olympics were abolished by the Roman Emperor\nTheodosius in 393 AD, after Greece lost its independence. 在希腊丧失",
       "block_type": "TEXT",
@@ -287,125 +287,118 @@
   ],
   "entries": [
     {
-      "lemma": "in",
-      "raw_text": "in Western society. 在西方社会，医生在提高人们生活质量方面一直\n发挥着重要作用。",
-      "segmentation_confidence": 0.8,
-      "continuation_type": null,
+      "source_entry_id": "e4a7a68f-5c5d-4e51-940b-73869dc08ca2",
+      "lemma": "instrumental",
+      "raw_text": "instrumental [ˌɪnstrəˈmentl]\nadj. 有帮助的，起作用的；用乐器演奏的\n记 来自instrument （n. 手段；器具）\n例 Doctors have been instrumental in improving living standards\nin Western society. 在西方社会，医生在提高人们生活质量方面一直\n发挥着重要作用。",
+      "entry_order": 1716,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
       "source_pages": [
+        459,
         460
-      ],
-      "source_block_ids": [
-        "native-p0460-b0001"
       ]
     },
     {
+      "source_entry_id": "b4cdf4b8-af5e-4ff2-a4a3-76a3c4b09ac9",
       "lemma": "load",
       "raw_text": "load [ləʊd]\nv. 装载；装（胶卷、弹药等） n. 负荷；装载\n例 Our camera could be loaded in daylight. 我们的相机可以在日\n光下装胶卷。",
+      "entry_order": 1717,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         460
-      ],
-      "source_block_ids": [
-        "native-p0460-b0002",
-        "native-p0460-b0003",
-        "native-p0460-b0004"
       ]
     },
     {
+      "source_entry_id": "ce3adde8-a3dd-4786-bf85-a4047723043e",
       "lemma": "improve",
       "raw_text": "improve* [ɪmˈpruːv]\nv. 改善，改进\n搭 improve on/upon sth. 改进；做出更好的业绩\n例 In an English course with Atlas English Language College, you\nimprove your language skills and make friends from all over the world!\n在阿特拉斯英语学院的英语课堂，你可以提高自己的英语水平，同\n时结识来自世界各地的朋友！",
+      "entry_order": 1718,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         460
-      ],
-      "source_block_ids": [
-        "native-p0460-b0005",
-        "native-p0460-b0006",
-        "native-p0460-b0007",
-        "native-p0460-b0008"
       ]
     },
     {
+      "source_entry_id": "fde33c69-641c-49ac-922e-02d49dc03aa3",
       "lemma": "sensitive",
       "raw_text": "sensitive* [ˈsensətɪv]\nadj. 敏感的，灵敏的；神经过敏的，容易生气的；易受伤害的\n记 词根记忆：sens（感觉）+itive（有…性质的）→敏感的\n例 The “environmentally sensitive” landscape was threatened by\nsome buildings. 这处“易受环境影响的”风景受到了一些建筑物的威\n胁。\n派 sensitivity （n. 敏感，灵敏性）",
+      "entry_order": 1719,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         460
-      ],
-      "source_block_ids": [
-        "native-p0460-b0009",
-        "native-p0460-b0010",
-        "native-p0460-b0011",
-        "native-p0460-b0012",
-        "native-p0460-b0013"
       ]
     },
     {
+      "source_entry_id": "c4b19a3e-c6c4-4c22-8176-1e291c975481",
       "lemma": "abolish",
       "raw_text": "abolish [əˈbɒlɪʃ]\nvt. 废止，废除\n例 The ancient Olympics were abolished by the Roman Emperor\nTheodosius in 393 AD, after Greece lost its independence. 在希腊丧失\n主权之后，罗马皇帝狄奥多西于公元393年废除了古代奥林匹克运\n动会。\n同 annul （vt. 废除，取消）；destroy （vt. 破坏，消灭）",
+      "entry_order": 1720,
       "segmentation_confidence": 0.98,
       "continuation_type": "CROSS_PAGE",
       "source_pages": [
         460,
         461
-      ],
-      "source_block_ids": [
-        "native-p0460-b0014",
-        "native-p0460-b0015",
-        "native-p0460-b0016",
-        "native-p0461-b0001",
-        "native-p0461-b0002"
       ]
     }
   ],
   "vocabulary": [
     {
-      "lemma": "in",
-      "display_form": "in",
-      "ipa": null,
-      "part_of_speech": null,
-      "definition": "Western society. 在西方社会，医生在提高人们生活质量方面一直 发挥着重要作用。",
-      "machine_verification_status": "PARSED"
+      "vocabulary_entry_id": "9f6c7b35-b5a0-4aae-a1a4-9421397ca524",
+      "source_entry_id": "e4a7a68f-5c5d-4e51-940b-73869dc08ca2",
+      "lemma": "instrumental",
+      "display_form": "instrumental",
+      "ipa": "ˌɪnstrəˈmentl",
+      "part_of_speech": "adj.",
+      "definition": "有帮助的，起作用的；用乐器演奏的",
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "64929623-cedc-44d2-ba92-8aeb9b19584a",
+      "source_entry_id": "b4cdf4b8-af5e-4ff2-a4a3-76a3c4b09ac9",
       "lemma": "load",
       "display_form": "load",
       "ipa": "ləʊd",
       "part_of_speech": "v.",
       "definition": "装载；装（胶卷、弹药等） n. 负荷；装载",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "53e50f09-f406-4c5a-94bd-09130d443e81",
+      "source_entry_id": "ce3adde8-a3dd-4786-bf85-a4047723043e",
       "lemma": "improve",
       "display_form": "improve",
       "ipa": "ɪmˈpruːv",
       "part_of_speech": "v.",
       "definition": "改善，改进",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "f5beba6d-8a1e-453c-b245-a40d80d8000f",
+      "source_entry_id": "fde33c69-641c-49ac-922e-02d49dc03aa3",
       "lemma": "sensitive",
       "display_form": "sensitive",
       "ipa": "ˈsensətɪv",
       "part_of_speech": "adj.",
       "definition": "敏感的，灵敏的；神经过敏的，容易生气的；易受伤害的",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "883077fd-6fbd-4b6d-8a99-bc512156b722",
+      "source_entry_id": "c4b19a3e-c6c4-4c22-8176-1e291c975481",
       "lemma": "abolish",
       "display_form": "abolish",
       "ipa": "əˈbɒlɪʃ",
       "part_of_speech": "vt.",
       "definition": "废止，废除",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     }
   ],
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@b93486c"
   ]
 }

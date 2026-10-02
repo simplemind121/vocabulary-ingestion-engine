@@ -1,0 +1,1913 @@
+{
+  "benchmark_schema_version": "1.0",
+  "dataset_version": "1.0",
+  "exact_match": true,
+  "failed_samples": [],
+  "gold_manifest_sha256": "c24afe5e1403e920222ce3c3dc9e5389ae3197e996f0ba1029ef16429847f9d5",
+  "layers": {
+    "canonical": {
+      "field_accuracy": 1.0
+    },
+    "ocr": {
+      "f1": 1.0
+    },
+    "segmentation": {
+      "f1": 1.0
+    }
+  },
+  "page_count": 30,
+  "pages": [
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 3
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 1,
+      "sample_id": "gold-v1-p0001",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 3
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 3,
+      "sample_id": "gold-v1-p0003",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 18
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 4
+        }
+      },
+      "page_number": 30,
+      "sample_id": "gold-v1-p0030",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 16
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 3
+        }
+      },
+      "page_number": 50,
+      "sample_id": "gold-v1-p0050",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 17
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 4
+        }
+      },
+      "page_number": 60,
+      "sample_id": "gold-v1-p0060",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 26
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 82,
+      "sample_id": "gold-v1-p0082",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 17
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 90,
+      "sample_id": "gold-v1-p0090",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 25
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 120,
+      "sample_id": "gold-v1-p0120",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 18
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 150,
+      "sample_id": "gold-v1-p0150",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 3,
+              "expected": 3
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 17
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 3
+        }
+      },
+      "page_number": 180,
+      "sample_id": "gold-v1-p0180",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 21
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 6
+        }
+      },
+      "page_number": 210,
+      "sample_id": "gold-v1-p0210",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 21
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 220,
+      "sample_id": "gold-v1-p0220",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 22
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 6
+        }
+      },
+      "page_number": 221,
+      "sample_id": "gold-v1-p0221",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 23
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 4
+        }
+      },
+      "page_number": 240,
+      "sample_id": "gold-v1-p0240",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 20
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 4
+        }
+      },
+      "page_number": 300,
+      "sample_id": "gold-v1-p0300",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 20
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 330,
+      "sample_id": "gold-v1-p0330",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 18
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 420,
+      "sample_id": "gold-v1-p0420",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 23
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 457,
+      "sample_id": "gold-v1-p0457",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 4,
+              "expected": 4
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 18
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 4
+        }
+      },
+      "page_number": 458,
+      "sample_id": "gold-v1-p0458",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 17
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 460,
+      "sample_id": "gold-v1-p0460",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 22
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 461,
+      "sample_id": "gold-v1-p0461",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 5,
+              "expected": 5
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 17
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 5
+        }
+      },
+      "page_number": 462,
+      "sample_id": "gold-v1-p0462",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 29
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 463,
+      "sample_id": "gold-v1-p0463",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 6,
+              "expected": 6
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 22
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 6
+        }
+      },
+      "page_number": 750,
+      "sample_id": "gold-v1-p0750",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 20
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 930,
+      "sample_id": "gold-v1-p0930",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 31
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 1006,
+      "sample_id": "gold-v1-p1006",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 32
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 1112,
+      "sample_id": "gold-v1-p1112",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 46
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 1113,
+      "sample_id": "gold-v1-p1113",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 10
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 1114,
+      "sample_id": "gold-v1-p1114",
+      "status": "PASS"
+    },
+    {
+      "benchmark_schema_version": "1.0",
+      "exact_match": true,
+      "layers": {
+        "canonical": {
+          "exact_match": true,
+          "field_accuracy": 1.0,
+          "fields": {
+            "definition": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "display_form": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "ipa": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "lemma": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            },
+            "part_of_speech": {
+              "accuracy": 1.0,
+              "correct": 0,
+              "expected": 0
+            }
+          },
+          "layer": "CANONICAL_EXTRACTION",
+          "missing_lemmas": [],
+          "unexpected_lemmas": []
+        },
+        "ocr": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "OCR_BLOCK",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 36
+        },
+        "segmentation": {
+          "exact_match": true,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "layer": "ENTRY_SEGMENTATION",
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 0
+        }
+      },
+      "page_number": 1115,
+      "sample_id": "gold-v1-p1115",
+      "status": "PASS"
+    }
+  ],
+  "source_document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "status": "PASS"
+}

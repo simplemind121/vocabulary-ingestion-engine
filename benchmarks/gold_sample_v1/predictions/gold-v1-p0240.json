@@ -12,7 +12,7 @@
   "page_image_sha256": "4c8d7c0bd2661fcabbc850e18ab064db57852a9e2a422ca3b3b3d6a2dae44547",
   "blocks": [
     {
-      "source_block_id": "native-p0240-b0000",
+      "source_block_id": "7e16c8fe-85e4-431a-b6df-dcc70dd53c25",
       "text": "239",
       "raw_text": "239",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0001",
+      "source_block_id": "ccbfae4a-f1c7-4062-9463-dcb84ad3e4d5",
       "text": "aggravate* [ˈæɡrəveɪt]",
       "raw_text": "aggravate* [ˈæɡrəveɪt]",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0002",
+      "source_block_id": "4fc146d1-2a90-41b8-afc5-28529b201f66",
       "text": "vt. 恶化，加重，加剧",
       "raw_text": "vt. 恶化，加重，加剧",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0003",
+      "source_block_id": "d26504c7-568f-464c-9782-ef7757913129",
       "text": "记 词根记忆：ag（表加强）+grav（重）+ate（使…）→使…\n更重→加重，恶化",
       "raw_text": "记 词根记忆：ag（表加强）+grav（重）+ate（使…）→使…\n更重→加重，恶化",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0004",
+      "source_block_id": "50f68d9d-a9e8-45c8-b042-9bd46c00b81f",
       "text": "搭 aggravate poverty 加重贫困；aggravate the situation 使情况恶\n化",
       "raw_text": "搭 aggravate poverty 加重贫困；aggravate the situation 使情况恶\n化",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0005",
+      "source_block_id": "e7b15b5c-b897-49ce-9c43-de09eeddaf86",
       "text": "例 The pollution problems in the area will be further aggravated by\nthe heavy industry. 重工业的发展将使该地区的污染问题进一步恶\n化。",
       "raw_text": "例 The pollution problems in the area will be further aggravated by\nthe heavy industry. 重工业的发展将使该地区的污染问题进一步恶\n化。",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0006",
+      "source_block_id": "8511a476-f9e1-4c32-b0b5-6eec120b4c61",
       "text": "派 aggravation （n. 恶化，激怒；恼人的事物）",
       "raw_text": "派 aggravation （n. 恶化，激怒；恼人的事物）",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0007",
+      "source_block_id": "bf4f8103-46a3-4375-8152-26b261e388b8",
       "text": "同 burden （vt. 使担负）；increase （v. 增加）",
       "raw_text": "同 burden （vt. 使担负）；increase （v. 增加）",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0008",
+      "source_block_id": "c364dc05-027c-46bf-badf-d0e34cd22421",
       "text": "反 decrease （v. 减少）；lessen （v. 减少，减轻）",
       "raw_text": "反 decrease （v. 减少）；lessen （v. 减少，减轻）",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0009",
+      "source_block_id": "22a38d8a-93a9-4d2b-8c31-b190cbe26751",
       "text": "deception* [dɪˈsepʃn]",
       "raw_text": "deception* [dɪˈsepʃn]",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0010",
+      "source_block_id": "9e0765d8-6b56-40bc-807f-9d38869d0b73",
       "text": "n. 欺骗；诡计",
       "raw_text": "n. 欺骗；诡计",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0011",
+      "source_block_id": "f86db2e9-32ad-42f8-8be9-19281d93811c",
       "text": "记 词根记忆：de（非）+cept（拿）+ion→不拿来→欺骗",
       "raw_text": "记 词根记忆：de（非）+cept（拿）+ion→不拿来→欺骗",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0012",
+      "source_block_id": "48cb1323-b067-4f5d-8061-891c5b410cbb",
       "text": "搭 intentional deception 故意的欺骗行为",
       "raw_text": "搭 intentional deception 故意的欺骗行为",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0013",
+      "source_block_id": "57fb0bde-dc33-49d2-8b0f-4fb4e57ab1e8",
       "text": "例 The young boy didn't have the courage to admit his deception.\n那个男孩没有勇气承认他的欺骗行为。",
       "raw_text": "例 The young boy didn't have the courage to admit his deception.\n那个男孩没有勇气承认他的欺骗行为。",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0014",
+      "source_block_id": "0e7dd791-ba9f-493e-a6fe-48c36772a0ce",
       "text": "sharpen* [ˈʃɑːpən]",
       "raw_text": "sharpen* [ˈʃɑːpən]",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0015",
+      "source_block_id": "0625cd63-7727-4c46-9ddb-b9a14a71d1ba",
       "text": "v. 削尖，磨快；使敏锐，使敏捷；提高，改善",
       "raw_text": "v. 削尖，磨快；使敏锐，使敏捷；提高，改善",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0016",
+      "source_block_id": "e2a66e07-2dda-4a91-8900-dcead01cea0d",
       "text": "记 联想记忆：sharp（锋利的）+en（使…）→使变锋利的→削\n尖；使敏锐",
       "raw_text": "记 联想记忆：sharp（锋利的）+en（使…）→使变锋利的→削\n尖；使敏锐",
       "block_type": "TEXT",
@@ -284,7 +284,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0017",
+      "source_block_id": "17010f5c-d077-4a89-88da-a0be61d2dc31",
       "text": "搭 sharpen pencils 削铅笔",
       "raw_text": "搭 sharpen pencils 削铅笔",
       "block_type": "TEXT",
@@ -300,7 +300,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0018",
+      "source_block_id": "561037c6-a13b-45aa-a788-b078b23ac0ca",
       "text": "例 The course can help the students sharpen their oral skills. 这门\n课程可以帮助学生们提高口语表达能力。",
       "raw_text": "例 The course can help the students sharpen their oral skills. 这门\n课程可以帮助学生们提高口语表达能力。",
       "block_type": "TEXT",
@@ -316,7 +316,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0019",
+      "source_block_id": "c160d0ac-3e16-448b-9c9a-71992c2df6f2",
       "text": "practical* [ˈpræktɪkl]",
       "raw_text": "practical* [ˈpræktɪkl]",
       "block_type": "TEXT",
@@ -332,7 +332,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0020",
+      "source_block_id": "dd8b5db7-cc19-4130-a212-59ef3f6367d7",
       "text": "adj. 实际的，实用的；实践的，应用的",
       "raw_text": "adj. 实际的，实用的；实践的，应用的",
       "block_type": "TEXT",
@@ -348,7 +348,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0021",
+      "source_block_id": "3b35ea6e-1dda-4889-adc1-06f89a768efb",
       "text": "记 来自practice （v./n. 实践）",
       "raw_text": "记 来自practice （v./n. 实践）",
       "block_type": "TEXT",
@@ -364,7 +364,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0240-b0022",
+      "source_block_id": "3475e879-1920-459c-a83f-8371db3f9277",
       "text": "搭 practical experience 实践经验；practical value 实用价值；\npractical material 实用材料",
       "raw_text": "搭 practical experience 实践经验；practical value 实用价值；\npractical material 实用材料",
       "block_type": "TEXT",
@@ -382,109 +382,96 @@
   ],
   "entries": [
     {
+      "source_entry_id": "660a8ac0-0313-4915-b537-18da69dff87d",
       "lemma": "aggravate",
       "raw_text": "aggravate* [ˈæɡrəveɪt]\nvt. 恶化，加重，加剧\n记 词根记忆：ag（表加强）+grav（重）+ate（使…）→使…\n更重→加重，恶化\n搭 aggravate poverty 加重贫困；aggravate the situation 使情况恶\n化\n例 The pollution problems in the area will be further aggravated by\nthe heavy industry. 重工业的发展将使该地区的污染问题进一步恶\n化。\n派 aggravation （n. 恶化，激怒；恼人的事物）\n同 burden （vt. 使担负）；increase （v. 增加）\n反 decrease （v. 减少）；lessen （v. 减少，减轻）",
+      "entry_order": 888,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         240
-      ],
-      "source_block_ids": [
-        "native-p0240-b0001",
-        "native-p0240-b0002",
-        "native-p0240-b0003",
-        "native-p0240-b0004",
-        "native-p0240-b0005",
-        "native-p0240-b0006",
-        "native-p0240-b0007",
-        "native-p0240-b0008"
       ]
     },
     {
+      "source_entry_id": "249428da-93b0-4468-91d9-f4061333f4d2",
       "lemma": "deception",
       "raw_text": "deception* [dɪˈsepʃn]\nn. 欺骗；诡计\n记 词根记忆：de（非）+cept（拿）+ion→不拿来→欺骗\n搭 intentional deception 故意的欺骗行为\n例 The young boy didn't have the courage to admit his deception.\n那个男孩没有勇气承认他的欺骗行为。",
+      "entry_order": 889,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         240
-      ],
-      "source_block_ids": [
-        "native-p0240-b0009",
-        "native-p0240-b0010",
-        "native-p0240-b0011",
-        "native-p0240-b0012",
-        "native-p0240-b0013"
       ]
     },
     {
+      "source_entry_id": "9305671f-50aa-4a77-afbf-301d9737dab0",
       "lemma": "sharpen",
       "raw_text": "sharpen* [ˈʃɑːpən]\nv. 削尖，磨快；使敏锐，使敏捷；提高，改善\n记 联想记忆：sharp（锋利的）+en（使…）→使变锋利的→削\n尖；使敏锐\n搭 sharpen pencils 削铅笔\n例 The course can help the students sharpen their oral skills. 这门\n课程可以帮助学生们提高口语表达能力。",
+      "entry_order": 890,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         240
-      ],
-      "source_block_ids": [
-        "native-p0240-b0014",
-        "native-p0240-b0015",
-        "native-p0240-b0016",
-        "native-p0240-b0017",
-        "native-p0240-b0018"
       ]
     },
     {
+      "source_entry_id": "7229daa2-9f90-44aa-a124-adac824e7164",
       "lemma": "practical",
-      "raw_text": "practical* [ˈpræktɪkl]\nadj. 实际的，实用的；实践的，应用的\n记 来自practice （v./n. 实践）\n搭 practical experience 实践经验；practical value 实用价值；\npractical material 实用材料",
+      "raw_text": "practical* [ˈpræktɪkl]\nadj. 实际的，实用的；实践的，应用的\n记 来自practice （v./n. 实践）\n搭 practical experience 实践经验；practical value 实用价值；\npractical material 实用材料\n例 The new invention was very practical. 这项新发明很实用。",
+      "entry_order": 891,
       "segmentation_confidence": 0.98,
-      "continuation_type": null,
+      "continuation_type": "CROSS_PAGE",
       "source_pages": [
-        240
-      ],
-      "source_block_ids": [
-        "native-p0240-b0019",
-        "native-p0240-b0020",
-        "native-p0240-b0021",
-        "native-p0240-b0022"
+        240,
+        241
       ]
     }
   ],
   "vocabulary": [
     {
+      "vocabulary_entry_id": "ed8a74b4-0278-4b58-a166-0541d3e0aac1",
+      "source_entry_id": "660a8ac0-0313-4915-b537-18da69dff87d",
       "lemma": "aggravate",
       "display_form": "aggravate",
       "ipa": "ˈæɡrəveɪt",
       "part_of_speech": "vt.",
       "definition": "恶化，加重，加剧",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "73db5a8a-1acd-47f8-9c8a-046424abe6a9",
+      "source_entry_id": "249428da-93b0-4468-91d9-f4061333f4d2",
       "lemma": "deception",
       "display_form": "deception",
       "ipa": "dɪˈsepʃn",
       "part_of_speech": "n.",
       "definition": "欺骗；诡计",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "4c375446-ad12-45a1-9795-c0e2b696e183",
+      "source_entry_id": "9305671f-50aa-4a77-afbf-301d9737dab0",
       "lemma": "sharpen",
       "display_form": "sharpen",
       "ipa": "ˈʃɑːpən",
       "part_of_speech": "v.",
       "definition": "削尖，磨快；使敏锐，使敏捷；提高，改善",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "2153b8aa-1a67-40f7-9f53-f58b40eadbfa",
+      "source_entry_id": "7229daa2-9f90-44aa-a124-adac824e7164",
       "lemma": "practical",
       "display_form": "practical",
       "ipa": "ˈpræktɪkl",
       "part_of_speech": "adj.",
       "definition": "实际的，实用的；实践的，应用的",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     }
   ],
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@b93486c"
   ]
 }

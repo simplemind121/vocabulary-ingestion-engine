@@ -11,12 +11,61 @@
   "review_status": "DRAFT",
   "reviewer_id": null,
   "page_image_sha256": "2fbae16a5092669bc5afba99100c13ed80064ed095ca89704be68906fd6bc0e8",
-  "blocks": [],
+  "blocks": [
+    {
+      "source_block_id": "5e045960-6541-4eec-9c99-0739169a5a19",
+      "text": "乱序版",
+      "raw_text": "200",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.3907563025210084,
+        "y1": 0.18705463182897863,
+        "x2": 0.6042016806722689,
+        "y2": 0.2327790973871734,
+        "unit": "normalized"
+      },
+      "confidence": 0.8436290700000001,
+      "source_engine": "ocr:tesseract"
+    },
+    {
+      "source_block_id": "22c4e49d-f310-4960-9dcd-4219df921a79",
+      "text": "科学记忆法 + 背词小程序 +影视剧场景",
+      "raw_text": "科学 记忆 法 Be 背 词 小 程序 BS 影视 剧场 景",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1361344537815126,
+        "y1": 0.8212589073634204,
+        "x2": 0.846218487394958,
+        "y2": 0.8568883610451307,
+        "unit": "normalized"
+      },
+      "confidence": 0.8165886316666666,
+      "source_engine": "ocr:tesseract"
+    },
+    {
+      "source_block_id": "a79fa879-a9e9-4202-a9ae-de8501f67af2",
+      "text": "浙江教育出版社",
+      "raw_text": "号 放下 人 和",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.3915966386554622,
+        "y1": 0.918646080760095,
+        "x2": 0.607563025210084,
+        "y2": 0.9614014251781473,
+        "unit": "normalized"
+      },
+      "confidence": 0.1539671125,
+      "source_engine": "ocr:tesseract"
+    }
+  ],
   "entries": [],
   "vocabulary": [],
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@b93486c"
   ]
 }

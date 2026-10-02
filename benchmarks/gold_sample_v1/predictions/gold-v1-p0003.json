@@ -11,7 +11,7 @@
   "page_image_sha256": "70e447dfd4ed58e22d356ed006ca81bff5c9652a09e1cdda3bb39fc4797b0464",
   "blocks": [
     {
-      "source_block_id": "native-p0003-b0000",
+      "source_block_id": "503b628a-50e0-4e61-badf-0f3008a2f5f6",
       "text": "2",
       "raw_text": "2",
       "block_type": "TEXT",
@@ -27,7 +27,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0003-b0001",
+      "source_block_id": "c1b08325-3b39-435e-ad6c-b970e8567fff",
       "text": "目录\nCONTENTS",
       "raw_text": "目录\nCONTENTS",
       "block_type": "TEXT",
@@ -43,7 +43,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0003-b0002",
+      "source_block_id": "74c4132c-1f34-4e69-9a85-4575bba667ca",
       "text": "Word List 01\nWord List 02\nWord List 03\nWord List 04\nWord List 05\nWord List 06\nWord List 07\nWord List 08\nWord List 09\nWord List 10\nWord List 11\nWord List 12\nWord List 13\nWord List 14\nWord List 15\nWord List 16\nWord List 17\nWord List 18\nWord List 19\nWord List 20\nWord List 21\nWord List 22\nWord List 23\nWord List 24\nWord List 25\nWord List 26\nWord List 27\nWord List 28\nWord List 29\nWord List 30\nWord List 31\nWord List 32",
       "raw_text": "Word List 01\nWord List 02\nWord List 03\nWord List 04\nWord List 05\nWord List 06\nWord List 07\nWord List 08\nWord List 09\nWord List 10\nWord List 11\nWord List 12\nWord List 13\nWord List 14\nWord List 15\nWord List 16\nWord List 17\nWord List 18\nWord List 19\nWord List 20\nWord List 21\nWord List 22\nWord List 23\nWord List 24\nWord List 25\nWord List 26\nWord List 27\nWord List 28\nWord List 29\nWord List 30\nWord List 31\nWord List 32",
       "block_type": "TEXT",
@@ -64,6 +64,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@b93486c"
   ]
 }

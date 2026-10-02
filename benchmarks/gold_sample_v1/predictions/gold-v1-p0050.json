@@ -12,7 +12,7 @@
   "page_image_sha256": "38e518fa33ad35ac5d50ea5b03567405aa0fe484da2cb4ceaa82dee0e6c603ed",
   "blocks": [
     {
-      "source_block_id": "native-p0050-b0000",
+      "source_block_id": "2f1236fd-7c5f-4d77-b9e3-c1323e40e35d",
       "text": "49",
       "raw_text": "49",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0001",
+      "source_block_id": "c629ed06-c3ad-4265-a02c-44c155fe7ef1",
       "text": "originate* [əˈrɪdʒɪneɪt]",
       "raw_text": "originate* [əˈrɪdʒɪneɪt]",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0002",
+      "source_block_id": "651ad231-ef0e-42db-b311-6bc8f7ade4d9",
       "text": "v. 起源，发生；首创，创造",
       "raw_text": "v. 起源，发生；首创，创造",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0003",
+      "source_block_id": "3cfff48c-5b8f-454a-be89-516524ab03d4",
       "text": "记 联想记忆：origin（起源，产生）+ate（表动词）→起源，\n发生",
       "raw_text": "记 联想记忆：origin（起源，产生）+ate（表动词）→起源，\n发生",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0004",
+      "source_block_id": "cd36d428-2911-4486-b09a-488ca5e96978",
       "text": "搭 originate in/from 起源于，由…引起/产生",
       "raw_text": "搭 originate in/from 起源于，由…引起/产生",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0005",
+      "source_block_id": "a4acb1ab-1c1e-4a4d-b672-902775ee9dee",
       "text": "例 According to my research, this type of banana actually\noriginated in China. 根据我的研究，事实上，这种香蕉起源于中\n国。",
       "raw_text": "例 According to my research, this type of banana actually\noriginated in China. 根据我的研究，事实上，这种香蕉起源于中\n国。",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0006",
+      "source_block_id": "3f83e926-4588-45f5-8692-882b0528beab",
       "text": "派 origination （n. 起源）；originator （n. 发起者，发明人）；\noriginative （adj. 有创作力的）",
       "raw_text": "派 origination （n. 起源）；originator （n. 发起者，发明人）；\noriginative （adj. 有创作力的）",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0007",
+      "source_block_id": "3bad4e5d-d148-48b5-8da2-c71f73c29d78",
       "text": "induce* [ɪnˈdjuːs]",
       "raw_text": "induce* [ɪnˈdjuːs]",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0008",
+      "source_block_id": "05c29795-4a8b-4f3f-bd8b-28ce65aaaa1a",
       "text": "vt. 引诱，劝使；引起，导致；感应",
       "raw_text": "vt. 引诱，劝使；引起，导致；感应",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0009",
+      "source_block_id": "f54d73c0-1aa6-4546-b0aa-756e2c8ab2cb",
       "text": "记 词根记忆：in（进入）+duc（引导）+e→引进去→引诱；引\n起",
       "raw_text": "记 词根记忆：in（进入）+duc（引导）+e→引进去→引诱；引\n起",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0010",
+      "source_block_id": "df90b04f-8cc8-4e4f-9494-7ce014bb52b2",
       "text": "搭 induce sb. to do sth. 引诱某人做某事；drug-induced coma 药\n物引起的昏迷",
       "raw_text": "搭 induce sb. to do sth. 引诱某人做某事；drug-induced coma 药\n物引起的昏迷",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0011",
+      "source_block_id": "5f1bad08-749f-4349-aaf2-23d3809eb3f6",
       "text": "例 Nothing would induce me to change my idea. 任何事都不能使\n我改变主意。",
       "raw_text": "例 Nothing would induce me to change my idea. 任何事都不能使\n我改变主意。",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0012",
+      "source_block_id": "b392ebf7-a485-42a8-8c25-36d8b92f606c",
       "text": "派 inducement （n. 引诱；劝诱）；inducible （adj. 可诱导的，\n可诱发的）",
       "raw_text": "派 inducement （n. 引诱；劝诱）；inducible （adj. 可诱导的，\n可诱发的）",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0013",
+      "source_block_id": "1f3fe09a-f639-4ae7-8ca0-36569f33bd33",
       "text": "exchange [ɪksˈtʃeɪndʒ]",
       "raw_text": "exchange [ɪksˈtʃeɪndʒ]",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0014",
+      "source_block_id": "f38b8ae4-c1dd-4ec7-bf84-cd699d77865b",
       "text": "v. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交\n换，调换；交易（所）；兑换（率）；交流",
       "raw_text": "v. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交\n换，调换；交易（所）；兑换（率）；交流",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "native-p0050-b0015",
+      "source_block_id": "5d1ae912-e768-4c0b-b88f-b195dcf9e2c8",
       "text": "搭 in exchange for 交换；stock exchange 证券交易（所）；part\nexchange 部分抵价交易；exchange rate 汇率",
       "raw_text": "搭 in exchange for 交换；stock exchange 证券交易（所）；part\nexchange 部分抵价交易；exchange rate 汇率",
       "block_type": "TEXT",
@@ -270,83 +270,75 @@
   ],
   "entries": [
     {
+      "source_entry_id": "b4d67a10-53d5-4b7f-a90c-cba8d2b9d1ba",
       "lemma": "originate",
       "raw_text": "originate* [əˈrɪdʒɪneɪt]\nv. 起源，发生；首创，创造\n记 联想记忆：origin（起源，产生）+ate（表动词）→起源，\n发生\n搭 originate in/from 起源于，由…引起/产生\n例 According to my research, this type of banana actually\noriginated in China. 根据我的研究，事实上，这种香蕉起源于中\n国。\n派 origination （n. 起源）；originator （n. 发起者，发明人）；\noriginative （adj. 有创作力的）",
+      "entry_order": 171,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         50
-      ],
-      "source_block_ids": [
-        "native-p0050-b0001",
-        "native-p0050-b0002",
-        "native-p0050-b0003",
-        "native-p0050-b0004",
-        "native-p0050-b0005",
-        "native-p0050-b0006"
       ]
     },
     {
+      "source_entry_id": "c2b213ab-688b-49b6-beb8-86991bf36e2e",
       "lemma": "induce",
       "raw_text": "induce* [ɪnˈdjuːs]\nvt. 引诱，劝使；引起，导致；感应\n记 词根记忆：in（进入）+duc（引导）+e→引进去→引诱；引\n起\n搭 induce sb. to do sth. 引诱某人做某事；drug-induced coma 药\n物引起的昏迷\n例 Nothing would induce me to change my idea. 任何事都不能使\n我改变主意。\n派 inducement （n. 引诱；劝诱）；inducible （adj. 可诱导的，\n可诱发的）",
+      "entry_order": 172,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
         50
-      ],
-      "source_block_ids": [
-        "native-p0050-b0007",
-        "native-p0050-b0008",
-        "native-p0050-b0009",
-        "native-p0050-b0010",
-        "native-p0050-b0011",
-        "native-p0050-b0012"
       ]
     },
     {
+      "source_entry_id": "7f4d4913-560a-42a2-a563-b6f80740e46c",
       "lemma": "exchange",
-      "raw_text": "exchange [ɪksˈtʃeɪndʒ]\nv. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交\n换，调换；交易（所）；兑换（率）；交流\n搭 in exchange for 交换；stock exchange 证券交易（所）；part\nexchange 部分抵价交易；exchange rate 汇率",
+      "raw_text": "exchange [ɪksˈtʃeɪndʒ]\nv. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交\n换，调换；交易（所）；兑换（率）；交流\n搭 in exchange for 交换；stock exchange 证券交易（所）；part\nexchange 部分抵价交易；exchange rate 汇率\n例 Are you one of the exchange students? 你是交换生之一吗？//\nI shook hands and exchanged a few words with the manager. 我与经理\n握手并交谈了几句。",
+      "entry_order": 173,
       "segmentation_confidence": 0.98,
-      "continuation_type": null,
+      "continuation_type": "CROSS_PAGE",
       "source_pages": [
-        50
-      ],
-      "source_block_ids": [
-        "native-p0050-b0013",
-        "native-p0050-b0014",
-        "native-p0050-b0015"
+        50,
+        51
       ]
     }
   ],
   "vocabulary": [
     {
+      "vocabulary_entry_id": "e0090ce0-4caf-42f7-bc83-b4faf36b6bbf",
+      "source_entry_id": "b4d67a10-53d5-4b7f-a90c-cba8d2b9d1ba",
       "lemma": "originate",
       "display_form": "originate",
       "ipa": "əˈrɪdʒɪneɪt",
       "part_of_speech": "v.",
       "definition": "起源，发生；首创，创造",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "e279854d-cbd8-4f6a-b988-1dc832eb3feb",
+      "source_entry_id": "c2b213ab-688b-49b6-beb8-86991bf36e2e",
       "lemma": "induce",
       "display_form": "induce",
       "ipa": "ɪnˈdjuːs",
       "part_of_speech": "vt.",
       "definition": "引诱，劝使；引起，导致；感应",
-      "machine_verification_status": "PARSED"
+      "machine_verification_status": "AUTO_VERIFIED"
     },
     {
+      "vocabulary_entry_id": "0b3bfda7-2cf4-456a-834c-28c592f9b6f1",
+      "source_entry_id": "7f4d4913-560a-42a2-a563-b6f80740e46c",
       "lemma": "exchange",
       "display_form": "exchange",
       "ipa": "ɪksˈtʃeɪndʒ",
       "part_of_speech": "v.",
-      "definition": "交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交",
-      "machine_verification_status": "PARSED"
+      "definition": "交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交换，调换；交易（所）；兑换（率）；交流",
+      "machine_verification_status": "AUTO_VERIFIED"
     }
   ],
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=pymupdf-native@1.26.7"
+    "generator=vie-pipeline@b93486c"
   ]
 }

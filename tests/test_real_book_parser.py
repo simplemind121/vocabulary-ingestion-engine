@@ -66,7 +66,7 @@ def test_wrapped_cjk_definition_is_joined_without_losing_text():
     ]
 
 
-def test_single_line_secondary_part_of_speech_remains_in_definition():
+def test_single_line_secondary_part_of_speech_keeps_primary_pos_separate():
     parsed = parse_source_entry(
         [
             "gang [gæŋ]",
@@ -75,7 +75,7 @@ def test_single_line_secondary_part_of_speech_remains_in_definition():
         ]
     )
 
-    assert parsed.senses == [{"pos": "n.", "definition": "n.一帮 v. 结成一伙"}]
+    assert parsed.senses == [{"pos": "n.", "definition": "一帮 v. 结成一伙"}]
 
 
 def test_derivative_synonym_and_antonym_fields_remain_separate():

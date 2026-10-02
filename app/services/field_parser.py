@@ -13,7 +13,6 @@ _POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\."
 _POS = re.compile(
     rf"^(?P<pos>{_POS_TOKEN}(?:/{_POS_TOKEN})*)\s*(?P<definition>.*)$"
 )
-_INLINE_POS = re.compile(rf"(?:^|\s){_POS_TOKEN}(?=\s|$)")
 _MARKERS = {"记": "memory_notes", "搭": "collocations", "例": "examples", "派": "derivatives", "同": "synonyms", "反": "antonyms"}
 
 
@@ -81,18 +80,12 @@ def parse_source_entry(lines: list[str]) -> ParsedSourceEntry:
 def _consume_unmarked(parsed: ParsedSourceEntry, text: str) -> None:
     pos = _POS.match(text)
     if pos:
-        definition = pos.group("definition").strip()
-        if _INLINE_POS.search(definition):
-            definition = f"{pos.group('pos')}{definition}"
         parsed.senses.append(
-            {"pos": pos.group("pos"), "definition": definition}
+            {"pos": pos.group("pos"), "definition": pos.group("definition").strip()}
         )
     elif parsed.senses:
         sense = parsed.senses[-1]
         definition = sense["definition"]
-        primary_pos = sense["pos"]
-        if definition.startswith(primary_pos) and _INLINE_POS.search(definition[len(primary_pos) :]):
-            definition = definition[len(primary_pos) :]
         sense["definition"] = _join_wrapped_text(definition, text)
     else:
         parsed.unclassified.append(text)

@@ -16,7 +16,7 @@
   "gate": "GOLD_CORPUS_READINESS",
   "human_verified_count": 30,
   "manifest_path": "gold_samples/manifest_v1.json",
-  "manifest_sha256": "d09d2782dea239613083f6ce938e260c97c1f87c0138ec378ba00a76e6e65360",
+  "manifest_sha256": "c24afe5e1403e920222ce3c3dc9e5389ae3197e996f0ba1029ef16429847f9d5",
   "missing_layout_tags": [],
   "publish_allowed": true,
   "status": "READY_TO_FREEZE"

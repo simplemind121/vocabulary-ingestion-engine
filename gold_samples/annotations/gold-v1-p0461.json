@@ -462,7 +462,7 @@
       "display_form": "bubble",
       "ipa": "ˈbʌbl",
       "part_of_speech": "vi.",
-      "definition": "冒泡，起泡；发出冒泡的声音 n. 泡，泡沫；气泡；幻想的",
+      "definition": "冒泡，起泡；发出冒泡的声音 n. 泡，泡沫；气泡；幻想的计划",
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
@@ -480,6 +480,7 @@
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
     "generator=vie-pipeline@a60ffcf",
-    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:45:55.705999+00:00\"}"
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:45:55.705999+00:00\"}",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-02T03:10:43.508132+00:00\"}"
   ]
 }

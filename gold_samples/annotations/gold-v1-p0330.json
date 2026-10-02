@@ -396,7 +396,7 @@
       "display_form": "premise",
       "ipa": "ˈpremɪs",
       "part_of_speech": "n.",
-      "definition": "前提，假设；[pl.] （企业、机构等使用的）房屋和地基，经",
+      "definition": "前提，假设；[pl.] （企业、机构等使用的）房屋和地基，经营场址",
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
@@ -444,6 +444,7 @@
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
     "generator=vie-pipeline@a60ffcf",
-    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:42:36.851927+00:00\"}"
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:42:36.851927+00:00\"}",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-02T03:10:27.428301+00:00\"}"
   ]
 }

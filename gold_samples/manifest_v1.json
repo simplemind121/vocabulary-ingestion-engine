@@ -1,7 +1,7 @@
 {
   "dataset_version": "1.0",
   "freeze_status": "FROZEN",
-  "manifest_sha256": "d09d2782dea239613083f6ce938e260c97c1f87c0138ec378ba00a76e6e65360",
+  "manifest_sha256": "c24afe5e1403e920222ce3c3dc9e5389ae3197e996f0ba1029ef16429847f9d5",
   "pages": [
     {
       "annotation_schema_version": "1.0",
@@ -186,7 +186,7 @@
       "annotation_schema_version": "1.0",
       "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
       "ground_truth_path": "annotations/gold-v1-p0221.json",
-      "ground_truth_sha256": "90fe494e6ac7d2337b5add7f34fdf08db0855ef7ba8bc05a278b423fc76216cc",
+      "ground_truth_sha256": "cbac4a98ab68516a8dbe0964f1c4d91b1728cfe9e30ce752aefd0021f80826c8",
       "layout_tags": [
         "BOUNDARY_ENTRY",
         "CROSS_PAGE_ENTRY",
@@ -231,7 +231,7 @@
       "annotation_schema_version": "1.0",
       "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
       "ground_truth_path": "annotations/gold-v1-p0330.json",
-      "ground_truth_sha256": "1d03a008507fb18c376d312c3abd04a0be745142e8950167ab323fd568168585",
+      "ground_truth_sha256": "9d9f59dbda6d3733b92896f1a85782037105bf1a3dfa360a14f115c827539a99",
       "layout_tags": [
         "NORMAL"
       ],
@@ -308,7 +308,7 @@
       "annotation_schema_version": "1.0",
       "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
       "ground_truth_path": "annotations/gold-v1-p0461.json",
-      "ground_truth_sha256": "d8787ddc66807ff0f6aa54b4170c96e591c2d13111049ea6fd3fb37c8cb507f7",
+      "ground_truth_sha256": "1ec0cbd4e49aa4447e87b4e30367d7c4e499a098a8ebb5e8e73e46cd66c51f04",
       "layout_tags": [
         "BOUNDARY_ENTRY",
         "CROSS_PAGE_ENTRY",
@@ -324,7 +324,7 @@
       "annotation_schema_version": "1.0",
       "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
       "ground_truth_path": "annotations/gold-v1-p0462.json",
-      "ground_truth_sha256": "40f85860f8d0e4060a72ae13dfe6bf7f31f808cc1cf782e42f6030299267eb28",
+      "ground_truth_sha256": "1f4fd8d171ba0edca79a2af44ee16a97bfa95afd39cbc4c1fc70004899e6ff1d",
       "layout_tags": [
         "BOUNDARY_ENTRY",
         "CROSS_PAGE_ENTRY",

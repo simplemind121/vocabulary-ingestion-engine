@@ -109,6 +109,9 @@ def _production_smoke():
         "status": "PASS",
         "git_sha": GIT_SHA,
         "image_id": "sha256:" + "d" * 64,
+        "upgrade_from_git_sha": "e" * 40,
+        "upgrade_from_image_id": "sha256:" + "f" * 64,
+        "recovery_state_sha256": "1" * 64,
         "checks": sorted(REQUIRED_PRODUCTION_CHECKS),
     }
 
@@ -167,6 +170,36 @@ def test_g6_release_rejects_stale_full_book_pipeline_evidence():
     )
 
     assert "full_book_audit_stale_for_pipeline" in result["blocking_failures"]
+
+
+def test_g6_release_requires_upgrade_and_rollback_evidence():
+    annotations = _verified_annotations()
+    production_smoke = _production_smoke()
+    production_smoke["checks"].remove("upgrade_rollback")
+
+    result = _evaluate(
+        annotations,
+        manifest=freeze_manifest(annotations),
+        production_smoke=production_smoke,
+    )
+
+    assert result["status"] == "FAIL"
+    assert "production_smoke_checks_incomplete" in result["blocking_failures"]
+
+
+def test_g6_release_rejects_unbound_upgrade_and_rollback_evidence():
+    annotations = _verified_annotations()
+    production_smoke = _production_smoke()
+    production_smoke["upgrade_from_git_sha"] = GIT_SHA
+
+    result = _evaluate(
+        annotations,
+        manifest=freeze_manifest(annotations),
+        production_smoke=production_smoke,
+    )
+
+    assert result["status"] == "FAIL"
+    assert "upgrade_rollback_evidence_invalid" in result["blocking_failures"]
 
 
 def test_full_book_release_evidence_removes_copyrighted_excerpts():

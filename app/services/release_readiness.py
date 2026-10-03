@@ -17,6 +17,7 @@ REQUIRED_PRODUCTION_CHECKS = {
     "observability_metrics",
     "ocr_runtime",
     "queued_pipeline_g0_g6",
+    "upgrade_rollback",
     "worker_readiness",
 }
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
@@ -123,6 +124,9 @@ def evaluate_g6_release_readiness(
             "audit_pipeline_sha256": full_book_evidence.get("audit_pipeline_sha256"),
             "production_image_id": production_smoke.get("image_id"),
             "production_git_sha": production_smoke.get("git_sha"),
+            "upgrade_from_git_sha": production_smoke.get("upgrade_from_git_sha"),
+            "upgrade_from_image_id": production_smoke.get("upgrade_from_image_id"),
+            "recovery_state_sha256": production_smoke.get("recovery_state_sha256"),
             "outstanding_full_book_review_items": outstanding_reviews,
         },
         "component_results": {
@@ -220,3 +224,17 @@ def _evaluate_production_smoke(
     image_id = evidence.get("image_id")
     if not isinstance(image_id, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", image_id):
         blockers.append("production_image_identity_invalid")
+    upgrade_from_git_sha = evidence.get("upgrade_from_git_sha")
+    upgrade_from_image_id = evidence.get("upgrade_from_image_id")
+    recovery_state_sha256 = evidence.get("recovery_state_sha256")
+    if (
+        not isinstance(upgrade_from_git_sha, str)
+        or not re.fullmatch(r"[0-9a-f]{40}", upgrade_from_git_sha)
+        or upgrade_from_git_sha == expected_git_sha
+        or not isinstance(upgrade_from_image_id, str)
+        or not re.fullmatch(r"sha256:[0-9a-f]{64}", upgrade_from_image_id)
+        or upgrade_from_image_id == image_id
+        or not isinstance(recovery_state_sha256, str)
+        or not re.fullmatch(r"[0-9a-f]{64}", recovery_state_sha256)
+    ):
+        blockers.append("upgrade_rollback_evidence_invalid")

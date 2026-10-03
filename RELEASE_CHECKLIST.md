@@ -28,7 +28,7 @@ covered). The tag is untouched. The candidate is `v0.1.0-rc2`. Promotion to
 | R4 — Dataset Publication | PASS | GoldRelease `66055ec7-d539-401b-bc92-ecad2235e9f6`, schema 1.1, 3,540 records, 272 with source media. API = JSON; CSV = XLSX; JSON and CSV agree per record. JSON `1f746429…dda4`, CSV `2cc93a32…f289`, XLSX `383dc7b2…266e`. All 374 media objects served by the API match their SHA256. | Immutable. |
 | R5 — Production Deployment | PASS | CI `container-smoke` on clean Ubuntu: image build, migration `0008`, PostgreSQL/Redis/worker/API/object storage, Tesseract, queued G0–G6 with a source illustration stored, bound, served and exported, and a reviewed run. | Reproduced by the tag-triggered Release Gate. |
 | R6 — Recovery / Operations | PASS | Same smoke: backup, pollution, exact restore; schema-aware drill (downgrade `0008`→`0007`, previous image `17d453b`, upgrade, new workload, rollback, byte-identical state). | Reproduced by the tag-triggered Release Gate. |
-| R7 — Release Candidate | IN_PROGRESS | — | Tag `v0.1.0-rc2`; the Release Gate must pass on that exact commit and image. |
+| R7 — Release Candidate | PASS | `v0.1.0-rc2` = commit `71c065f333810f20fa7803897798a2e438467f77`. Tag-triggered [Release Gate 37110786120](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/37110786120): Gold regression, production topology smoke and aggregate G6 all `PASS` (10/10 production checks, no blockers). Image `sha256:d80680f9…fe87b`; upgrade from `17d453b` image `sha256:9d4b9962…2462`; recovery state `3d48220f…0527`; G6 report `6c0300e2…cd71`. | Awaiting explicit user approval to promote this commit to `v0.1.0`. |
 
 ## Executable evidence
 
@@ -98,8 +98,7 @@ python -m app.gold_media_cli --require-pass
 
 ## Release blockers in execution order
 
-1. Tag `v0.1.0-rc2` and pass the tag-triggered Release Gate on that commit.
-2. Explicit user approval before promoting to `v0.1.0`.
+1. Explicit user approval to promote `v0.1.0-rc2` (`71c065f`) to `v0.1.0`. Commits after the tag change documentation only.
 
 ## Final v0.1.0 release invariant
 

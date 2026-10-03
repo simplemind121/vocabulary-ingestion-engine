@@ -8,6 +8,7 @@ from app.models import (
     SourceBlock,
     SourceEntry,
     SourceEntryBlock,
+    SourceMedia,
     VocabularyEntry,
 )
 
@@ -47,6 +48,33 @@ def review_task_detail(db: Session, task: ReviewTask) -> dict:
     if task.target_entity_type == "Page":
         payload["page"] = _page_context(db, task.target_entity_id)
         payload["current_value"] = task.source_context.get("classification")
+        return payload
+
+    if task.target_entity_type == "SourceMedia":
+        media = db.get(SourceMedia, task.target_entity_id)
+        if media is not None:
+            candidates = []
+            for entry_id in task.source_context.get("candidate_entry_ids") or []:
+                vocabulary = (
+                    db.query(VocabularyEntry)
+                    .filter(VocabularyEntry.source_entry_id == entry_id)
+                    .one_or_none()
+                )
+                candidates.append(
+                    {"source_entry_id": entry_id, "lemma": vocabulary.lemma if vocabulary else None}
+                )
+            payload.update(
+                {
+                    "current_value": media.source_entry_id,
+                    "verification_status": media.verification_status,
+                    "source_text": "; ".join(task.source_context.get("warnings") or []),
+                    "confidence": media.confidence,
+                    "bbox": media.bbox,
+                    "page": _page_context(db, media.page_id),
+                    "media_url": f"/api/v1/source-media/{media.id}/content",
+                    "media_candidates": candidates,
+                }
+            )
         return payload
 
     if task.target_entity_type == "SourceBlock":

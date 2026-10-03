@@ -14,6 +14,7 @@ from app.models import (
     SourceEntryBlock,
     VocabularyEntry,
 )
+from app.services.source_media import source_media_metrics
 
 
 def _save_gate(db: Session, run: ProcessingRun, gate_name: str, status: str, metrics: dict, blocking: list, evidence: dict) -> dict:
@@ -124,3 +125,27 @@ def evaluate_g6_gold_publication(db: Session, run_id: str) -> dict:
     open_reviews = db.query(ReviewTask).filter(ReviewTask.processing_run_id == run.id, ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"])).count(); releases = db.query(GoldRelease).filter(GoldRelease.processing_run_id == run.id).count()
     metrics = {"vocabulary_entry_count": len(entries), "unresolved_entries": len(unresolved), "open_review_tasks": open_reviews, "gold_release_count": releases}; blocking = ([] if entries else ["no_vocabulary_entries"]) + (["unresolved_entries"] if unresolved else []) + (["open_review_tasks"] if open_reviews else [])
     return _save_gate(db, run, "G6", "PASS" if not blocking else "FAIL", metrics, blocking, {"gold_release_count": releases})
+
+
+def evaluate_source_media_gate(db: Session, run_id: str) -> dict:
+    """Source Media Fidelity: every detected illustration is stored, hashed and traceable."""
+    run = _run(db, run_id)
+    metrics = source_media_metrics(db, run_id)
+    blocking = [
+        name
+        for name in (
+            "missing_media",
+            "missing_artifact",
+            "missing_sha256",
+            "broken_artifact",
+            "broken_provenance",
+            "unbound_media",
+        )
+        if metrics[name]
+    ]
+    if metrics["pages_scanned"] != metrics["total_pages"]:
+        blocking.append("pages_not_scanned")
+    status = "FAIL" if blocking else ("REVIEW_REQUIRED" if metrics["unresolved_media"] else "PASS")
+    return _save_gate(
+        db, run, "G3_MEDIA", status, metrics, blocking, {"namespace": "SOURCE_MEDIA"}
+    )

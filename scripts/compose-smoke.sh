@@ -68,7 +68,6 @@ with SessionLocal() as db:
         raise RuntimeError("resolved review audit is missing reviewer identity")
     count = lambda model: db.scalar(select(func.count()).select_from(model))
     payload = {
-        "schema": db.execute(text("select version_num from alembic_version")).scalar_one(),
         "counts": {
             "gold_releases": count(GoldRelease),
             "processing_runs": count(ProcessingRun),
@@ -105,6 +104,12 @@ with SessionLocal() as db:
     }
 print(json.dumps(payload, separators=(",", ":"), sort_keys=True))
 PY
+}
+
+schema_version() {
+  compose exec -T postgres sh -c \
+    'psql --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --tuples-only --no-align --command="select version_num from alembic_version"' \
+    | tr -d '[:space:]'
 }
 
 assert_recovery_state() {
@@ -157,7 +162,7 @@ compose exec -T api python -c \
   "import fitz; from app.adapters.ocr_base import OcrPageInput; from app.services.ocr_factory import build_ocr_adapter; from app.settings import get_settings; document=fitz.open(); page=document.new_page(); page.insert_text((72, 100), 'vocabulary engine', fontsize=32); image=page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False).tobytes('png'); result=build_ocr_adapter(get_settings()).extract_page(OcrPageInput(page_number=1, image_bytes=image)); assert 'vocabulary' in ' '.join(block.text for block in result.blocks).lower()"
 
 compose exec -T api python -c \
-  "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text('select version_num from alembic_version')).scalar() == '0007_gold_xlsx'; connection.close()"
+  "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text('select version_num from alembic_version')).scalar() == '0008_source_media'; connection.close()"
 
 compose exec -T worker celery -A app.worker.celery_app inspect ping --timeout 5 | grep -q pong
 compose exec -T api python -m app.production_pipeline_smoke_cli
@@ -196,10 +201,19 @@ rm "$previous_source/source.tar"
 docker build --tag "$previous_image" "$previous_source"
 previous_image_id=$(docker image inspect "$previous_image" --format '{{.Id}}')
 
+# A release that changes the schema is rolled back by downgrading the schema
+# with the new image first; only then can the previous image own the database.
+previous_schema=$(sed -n 's/^revision = "\(.*\)"$/\1/p' \
+  "$(ls "$previous_source"/migrations/versions/*.py | sort | tail -n 1)")
+current_schema=$(schema_version)
+compose stop --timeout 30 api worker >/dev/null
+compose run --rm --no-deps -T migrate alembic downgrade "$previous_schema"
+
 export VIE_IMAGE="$previous_image"
 compose up --detach --no-build --wait --wait-timeout 180
 running_image_id=$(docker inspect "$(compose ps -q api)" --format '{{.Image}}')
 test "$running_image_id" = "$previous_image_id"
+test "$(schema_version)" = "$previous_schema"
 capture_recovery_state > "$backup_parent/pre-upgrade-state.json"
 scripts/backup.sh "$backup_parent/pre-upgrade"
 
@@ -207,6 +221,7 @@ export VIE_IMAGE="$current_image_name"
 compose up --detach --no-build --wait --wait-timeout 180
 running_image_id=$(docker inspect "$(compose ps -q api)" --format '{{.Image}}')
 test "$running_image_id" = "$current_image_id"
+test "$(schema_version)" = "$current_schema"
 assert_recovery_state \
   "$backup_parent/pre-upgrade-state.json" \
   "$backup_parent/post-upgrade-state.json"
@@ -216,6 +231,7 @@ export VIE_IMAGE="$previous_image"
 scripts/restore.sh --confirm "$backup_parent/pre-upgrade"
 running_image_id=$(docker inspect "$(compose ps -q api)" --format '{{.Image}}')
 test "$running_image_id" = "$previous_image_id"
+test "$(schema_version)" = "$previous_schema"
 assert_recovery_state \
   "$backup_parent/pre-upgrade-state.json" \
   "$backup_parent/post-rollback-state.json"

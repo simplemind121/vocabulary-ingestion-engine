@@ -293,3 +293,44 @@ class VocabularyField(Base):
         String(50), default="PARSED", index=True
     )
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class SourceMedia(Base):
+    """An illustration printed in the source book. Never AI enrichment media."""
+
+    __tablename__ = "source_media"
+    __table_args__ = (
+        UniqueConstraint(
+            "processing_run_id", "page_id", "media_order", name="uq_source_media_run_page_order"
+        ),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    document_version_id: Mapped[str] = mapped_column(
+        ForeignKey("document_versions.id", ondelete="RESTRICT"), index=True
+    )
+    processing_run_id: Mapped[str] = mapped_column(
+        ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True
+    )
+    page_id: Mapped[str] = mapped_column(ForeignKey("pages.id", ondelete="RESTRICT"), index=True)
+    page_number: Mapped[int] = mapped_column(Integer)
+    media_order: Mapped[int] = mapped_column(Integer)
+    artifact_id: Mapped[str] = mapped_column(ForeignKey("artifacts.id", ondelete="RESTRICT"))
+    source_entry_id: Mapped[str | None] = mapped_column(
+        ForeignKey("source_entries.id", ondelete="RESTRICT"), index=True, nullable=True
+    )
+    vocabulary_entry_id: Mapped[str | None] = mapped_column(
+        ForeignKey("vocabulary_entries.id", ondelete="RESTRICT"), index=True, nullable=True
+    )
+    media_type: Mapped[str] = mapped_column(String(50), default="IMAGE")
+    media_role: Mapped[str] = mapped_column(String(50), index=True)
+    bbox: Mapped[dict] = mapped_column(JSON)
+    mime_type: Mapped[str] = mapped_column(String(255))
+    width: Mapped[int] = mapped_column(Integer)
+    height: Mapped[int] = mapped_column(Integer)
+    sha256: Mapped[str] = mapped_column(String(64), index=True)
+    extraction_method: Mapped[str] = mapped_column(String(100))
+    association_method: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    confidence: Mapped[float | None] = mapped_column(nullable=True)
+    verification_status: Mapped[str] = mapped_column(String(50), default="REVIEW_REQUIRED", index=True)
+    metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)

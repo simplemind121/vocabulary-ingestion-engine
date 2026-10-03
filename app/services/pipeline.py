@@ -15,12 +15,14 @@ from app.services.gates import (
     evaluate_g4_validation,
     evaluate_g5_review_resolution,
     evaluate_g6_gold_publication,
+    evaluate_source_media_gate,
 )
 from app.services.gold import publish_gold_release
 from app.services.ocr_extraction import extract_ocr_blocks
 from app.services.ocr_quality import route_ocr_quality_reviews
 from app.services.page_quality import route_no_text_page_reviews
 from app.services.segmentation import segment_source_entries
+from app.services.source_media import extract_source_media
 from app.services.structured_extraction import extract_canonical_fields
 from app.services.validation import validate_canonical_entries
 
@@ -108,6 +110,12 @@ def run_pipeline(
         structured = extract_canonical_fields(db, run_id)
         stages.append({"stage": "structured_extraction", "result": structured})
         _require_pass("G3", evaluate_g3_structured_extraction(db, run_id), stages)
+        media = extract_source_media(db, run_id)
+        stages.append({"stage": "source_media", "result": media})
+        media_gate = evaluate_source_media_gate(db, run_id)
+        stages.append({"stage": "G3_MEDIA", "result": media_gate})
+        if media_gate["status"] == "FAIL":
+            raise PipelineBlocked("G3_MEDIA", media_gate)
         validation = validate_canonical_entries(db, run_id)
         stages.append({"stage": "validation", "result": validation})
         g4 = evaluate_g4_validation(db, run_id)
@@ -115,6 +123,7 @@ def run_pipeline(
         if g4["status"] == "FAIL":
             raise PipelineBlocked("G4", g4)
         _require_pass("G5", evaluate_g5_review_resolution(db, run_id), stages)
+        _require_pass("G3_MEDIA", evaluate_source_media_gate(db, run_id), stages)
         _require_pass("G6", evaluate_g6_gold_publication(db, run_id), stages)
 
         release = publish_gold_release(db, run_id) if publish else None

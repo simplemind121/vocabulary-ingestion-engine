@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import time
 import urllib.request
@@ -50,6 +51,20 @@ def main() -> int:
     gates = {item["gate"]: item["status"] for item in result.get("gates", [])}
     if any(gates.get(f"G{number}") != "PASS" for number in range(7)):
         raise RuntimeError(f"queued pipeline Gates did not all pass: {gates}")
+    if gates.get("G3_MEDIA") != "PASS":
+        raise RuntimeError(f"Source Media Fidelity Gate did not pass: {gates}")
+    media = _request(f"/api/v1/runs/{run_id}/source-media", headers=headers)
+    media_metrics = media.get("metrics") or {}
+    if (
+        len(media.get("items") or []) != 1
+        or media_metrics.get("associated_with_vocabulary_entry") != 1
+        or media_metrics.get("unresolved_media") != 0
+    ):
+        raise RuntimeError(f"source media was not extracted and bound: {media_metrics}")
+    media_item = media["items"][0]
+    media_bytes = _request_bytes(media_item["content_url"], headers=headers)
+    if hashlib.sha256(media_bytes).hexdigest() != media_item["sha256"]:
+        raise RuntimeError("stored source media does not match its recorded SHA-256")
     if not (result.get("metrics") or {}).get("gold_release_id"):
         raise RuntimeError("queued pipeline did not publish its verified Gold artifact")
 
@@ -67,6 +82,11 @@ def main() -> int:
     exported_json = json.loads(exports["json"])
     if exported_json.get("record_count") != 1:
         raise RuntimeError("downloaded Gold JSON has the wrong record count")
+    exported_media = exported_json["records"][0].get("source_media") or []
+    if [item.get("sha256") for item in exported_media] != [media_item["sha256"]]:
+        raise RuntimeError("downloaded Gold JSON does not carry the entry's source media")
+    if media_item["sha256"].encode() not in exports["csv"]:
+        raise RuntimeError("downloaded Gold CSV does not reference the entry's source media")
     if not exports["csv"].startswith(b"id,lemma,language,verification_status"):
         raise RuntimeError("downloaded Gold CSV has the wrong header")
     if not exports["xlsx"].startswith(b"PK"):
@@ -150,6 +170,7 @@ def main() -> int:
                 "task_id": queued["task_id"],
                 "gates": gates,
                 "exports": sorted(exports),
+                "source_media": media_metrics,
                 "review_run_id": review_run_id,
                 "resolved_reviews": reviews["count"],
             },
@@ -200,6 +221,12 @@ def _sample_pdf() -> bytes:
     document = fitz.open()
     page = document.new_page()
     page.insert_text((72, 72), "abandon* [əˈbændən] v. to leave permanently")
+    # A source illustration inside the entry band, closed by the book's rule.
+    page.draw_line((60, 50), (535, 50), width=0.5)
+    illustration = fitz.Pixmap(fitz.csRGB, fitz.IRect(0, 0, 64, 64), False)
+    illustration.set_rect(illustration.irect, (30, 110, 200))
+    page.insert_image(fitz.Rect(250, 100, 340, 190), stream=illustration.tobytes("png"))
+    page.draw_line((60, 205), (535, 205), width=0.5)
     payload = document.tobytes()
     document.close()
     return payload

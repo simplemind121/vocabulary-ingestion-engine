@@ -19,8 +19,12 @@ from app.models import (
     Pronunciation,
     ReviewTask,
     Sense,
+    SourceEntry,
+    SourceMedia,
     VocabularyEntry,
+    VocabularyField,
 )
+from app.services.source_media import ROLE_ENTRY, serialize_source_media
 from app.settings import get_settings
 from app.storage import StorageAdapter, build_storage_adapter
 
@@ -38,6 +42,38 @@ def build_gold_dataset(db: Session, run_id: str) -> dict:
     if not entries: raise ValueError("cannot publish empty gold dataset")
     if unresolved: raise ValueError(f"cannot publish gold dataset with unresolved entries: {len(unresolved)}")
     if open_reviews: raise ValueError(f"cannot publish gold dataset with open review tasks: {open_reviews}")
+    media_rows = (
+        db.query(SourceMedia)
+        .filter(SourceMedia.processing_run_id == run_id)
+        .order_by(SourceMedia.page_number, SourceMedia.media_order)
+        .all()
+    )
+    unresolved_media = [m.id for m in media_rows if m.verification_status not in _VERIFIED]
+    if unresolved_media:
+        raise ValueError(f"cannot publish gold dataset with unresolved source media: {len(unresolved_media)}")
+    media_by_entry: dict[str, list[dict]] = {}
+    page_level_media = []
+    for media in media_rows:
+        item = serialize_source_media(db, media)
+        if media.media_role == ROLE_ENTRY and media.vocabulary_entry_id:
+            media_by_entry.setdefault(media.vocabulary_entry_id, []).append(item)
+        else:
+            page_level_media.append(item)
+    source_pages = {
+        item.id: (item.metadata_json or {}).get("pages") or []
+        for item in db.query(SourceEntry).filter(SourceEntry.processing_run_id == run_id).all()
+    }
+    fields_by_entry: dict[str, dict[str, list[str]]] = {}
+    for item in (
+        db.query(VocabularyField)
+        .join(VocabularyEntry, VocabularyEntry.id == VocabularyField.vocabulary_entry_id)
+        .filter(VocabularyEntry.processing_run_id == run_id)
+        .order_by(VocabularyField.field_type, VocabularyField.field_order)
+        .all()
+    ):
+        fields_by_entry.setdefault(item.vocabulary_entry_id, {}).setdefault(
+            item.field_type, []
+        ).append(item.text)
     records = []
     for entry in entries:
         pronunciations = db.query(Pronunciation).filter(Pronunciation.vocabulary_entry_id == entry.id).order_by(Pronunciation.pronunciation_order).all()
@@ -45,8 +81,49 @@ def build_gold_dataset(db: Session, run_id: str) -> dict:
         for sense in senses:
             definitions = db.query(Definition).filter(Definition.sense_id == sense.id).order_by(Definition.definition_order).all()
             sense_records.append({"part_of_speech": sense.part_of_speech, "definitions": [d.text for d in definitions]})
-        records.append({"id": entry.id, "lemma": entry.lemma, "language": entry.language, "verification_status": entry.verification_status, "pronunciations": [{"ipa": p.ipa, "dialect": p.dialect} for p in pronunciations], "senses": sense_records})
-    return {"schema_version": "1.0", "processing_run_id": run_id, "record_count": len(records), "records": records}
+        records.append({"id": entry.id, "lemma": entry.lemma, "language": entry.language, "verification_status": entry.verification_status, "pronunciations": [{"ipa": p.ipa, "dialect": p.dialect} for p in pronunciations], "senses": sense_records, "source_fields": fields_by_entry.get(entry.id, {}), "source_entry_id": entry.source_entry_id, "source_pages": source_pages.get(entry.source_entry_id, []), "source_media": media_by_entry.get(entry.id, [])})
+    return {
+        "schema_version": "1.1",
+        "processing_run_id": run_id,
+        "record_count": len(records),
+        "source_media_count": sum(len(items) for items in media_by_entry.values()),
+        # Media printed in the book that illustrates no vocabulary entry
+        # (cover scans, Word List QR codes). Kept so nothing is silently lost.
+        "page_level_source_media": page_level_media,
+        "records": records,
+    }
+
+
+_TABULAR_HEADER = [
+    "id",
+    "lemma",
+    "language",
+    "verification_status",
+    "ipa",
+    "part_of_speech",
+    "definitions",
+    "source_pages",
+    "source_media_count",
+    "source_media_refs",
+    "source_media_sha256",
+]
+
+
+def _tabular_row(record: dict) -> list:
+    media = record.get("source_media") or []
+    return [
+        record["id"],
+        record["lemma"],
+        record["language"],
+        record["verification_status"],
+        " | ".join(item["ipa"] or "" for item in record["pronunciations"]),
+        " | ".join(item["part_of_speech"] or "" for item in record["senses"]),
+        " | ".join(d for sense in record["senses"] for d in sense["definitions"]),
+        " | ".join(str(page) for page in record.get("source_pages") or []),
+        len(media),
+        " | ".join(item["artifact"]["object_key"] or "" for item in media),
+        " | ".join(item["sha256"] for item in media),
+    ]
 
 
 def serialize_gold_json(dataset: dict) -> bytes:
@@ -54,12 +131,11 @@ def serialize_gold_json(dataset: dict) -> bytes:
 
 
 def serialize_gold_csv(dataset: dict) -> bytes:
-    output = io.StringIO(newline=""); writer = csv.writer(output); writer.writerow(["id", "lemma", "language", "verification_status", "ipa", "part_of_speech", "definitions"])
+    output = io.StringIO(newline="")
+    writer = csv.writer(output)
+    writer.writerow(_TABULAR_HEADER)
     for record in dataset["records"]:
-        ipa = " | ".join(p["ipa"] or "" for p in record["pronunciations"])
-        pos = " | ".join(s["part_of_speech"] or "" for s in record["senses"])
-        definitions = " | ".join(d for s in record["senses"] for d in s["definitions"])
-        writer.writerow([record["id"], record["lemma"], record["language"], record["verification_status"], ipa, pos, definitions])
+        writer.writerow(_tabular_row(record))
     return output.getvalue().encode("utf-8")
 
 
@@ -69,33 +145,9 @@ def serialize_gold_xlsx(dataset: dict) -> bytes:
     workbook.properties.created = datetime(1980, 1, 1, tzinfo=UTC)
     workbook.properties.modified = datetime(1980, 1, 1, tzinfo=UTC)
     sheet = workbook.create_sheet("Verified Gold")
-    sheet.append(
-        [
-            "id",
-            "lemma",
-            "language",
-            "verification_status",
-            "ipa",
-            "part_of_speech",
-            "definitions",
-        ]
-    )
+    sheet.append(_TABULAR_HEADER)
     for record in dataset["records"]:
-        sheet.append(
-            [
-                record["id"],
-                record["lemma"],
-                record["language"],
-                record["verification_status"],
-                " | ".join(item["ipa"] or "" for item in record["pronunciations"]),
-                " | ".join(item["part_of_speech"] or "" for item in record["senses"]),
-                " | ".join(
-                    definition
-                    for sense in record["senses"]
-                    for definition in sense["definitions"]
-                ),
-            ]
-        )
+        sheet.append(_tabular_row(record))
     workbook.save(output)
     return _normalize_zip(output.getvalue())
 

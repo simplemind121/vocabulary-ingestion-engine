@@ -33,6 +33,7 @@ from app.models import (
     Page,
     ProcessingRun,
     ReviewTask,
+    SourceMedia,
 )
 from app.observability import PROMETHEUS_CONTENT_TYPE, log_event, render_metrics
 from app.review_ui import REVIEW_UI_HTML
@@ -44,6 +45,7 @@ from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
 from app.services.review_view import review_task_detail
 from app.services.run_queue import queue_processing_run
+from app.services.source_media import serialize_source_media, source_media_metrics
 from app.settings import Settings, get_settings
 from app.storage import build_storage_adapter, read_artifact_bytes
 from app.worker import run_pipeline_task
@@ -117,6 +119,7 @@ class ReviewResolutionRequest(BaseModel):
     lemma: str | None = None
     corrected_text: str | None = None
     classification: str | None = None
+    source_entry_id: str | None = None
     notes: str | None = None
 
 
@@ -456,12 +459,61 @@ def get_page_image(page_id: str, db: DbSession) -> Response:
     )
 
 
+@app.get("/api/v1/runs/{run_id}/source-media")
+def list_source_media(run_id: str, db: DbSession) -> dict:
+    if db.get(ProcessingRun, run_id) is None:
+        raise HTTPException(404, "Run not found")
+    rows = (
+        db.query(SourceMedia)
+        .filter(SourceMedia.processing_run_id == run_id)
+        .order_by(SourceMedia.page_number, SourceMedia.media_order)
+        .all()
+    )
+    return {
+        "run_id": run_id,
+        "namespace": "SOURCE_MEDIA",
+        "metrics": source_media_metrics(db, run_id, verify_bytes=False),
+        "items": [
+            {
+                **serialize_source_media(db, row),
+                "vocabulary_entry_id": row.vocabulary_entry_id,
+                "content_url": f"/api/v1/source-media/{row.id}/content",
+            }
+            for row in rows
+        ],
+    }
+
+
+@app.get("/api/v1/source-media/{media_id}/content")
+def get_source_media_content(media_id: str, db: DbSession) -> Response:
+    media = db.get(SourceMedia, media_id)
+    if media is None:
+        raise HTTPException(404, "Source media not found")
+    artifact = db.get(Artifact, media.artifact_id)
+    if artifact is None:
+        raise HTTPException(404, "Source media artifact not found")
+    try:
+        payload = read_artifact_bytes(
+            storage_provider=artifact.storage_provider,
+            object_key=artifact.object_key,
+            settings=get_settings(),
+        )
+    except (BotoCoreError, ClientError, OSError, ValueError) as exc:
+        raise HTTPException(503, "Source media storage unavailable") from exc
+    return Response(
+        content=payload,
+        media_type=media.mime_type,
+        headers={"Cache-Control": "private, max-age=300", "X-Content-SHA256": media.sha256},
+    )
+
+
 @app.post("/api/v1/reviews/{task_id}/resolve")
 def resolve_review(task_id: str, request: ReviewResolutionRequest, db: DbSession) -> dict:
     resolution = {"decision": request.decision, "notes": request.notes}
     if request.lemma is not None: resolution["lemma"] = request.lemma
     if request.corrected_text is not None: resolution["corrected_text"] = request.corrected_text
     if request.classification is not None: resolution["classification"] = request.classification
+    if request.source_entry_id is not None: resolution["source_entry_id"] = request.source_entry_id
     try:
         result = resolve_review_task(db, task_id, resolution=resolution, reviewer_id=request.reviewer_id)
         result["g5"] = evaluate_g5_review_resolution(db, result["run_id"])

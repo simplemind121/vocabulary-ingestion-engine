@@ -5,6 +5,7 @@ from datetime import UTC, datetime
 from sqlalchemy.orm import Session
 
 from app.models import Page, ProvenanceRecord, ReviewTask, SourceBlock, VocabularyEntry
+from app.services.source_media import resolve_source_media_review
 
 OPEN_REVIEW_STATUSES = {"OPEN", "IN_PROGRESS", "ESCALATED"}
 
@@ -22,7 +23,7 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         raise ValueError("review task not found")
     if task.status not in OPEN_REVIEW_STATUSES:
         raise ValueError("review task is already resolved")
-    if task.target_entity_type not in {"VocabularyEntry", "SourceBlock", "Page"}:
+    if task.target_entity_type not in {"VocabularyEntry", "SourceBlock", "Page", "SourceMedia"}:
         raise ValueError("unsupported review target")
     if not reviewer_id or not reviewer_id.strip():
         raise ValueError("reviewer_id is required")
@@ -40,6 +41,11 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         "resolution": resolution,
     }
     task.candidate_values = [audit]
+
+    if task.target_entity_type == "SourceMedia":
+        return resolve_source_media_review(
+            db, task, resolution=resolution, reviewer_id=reviewer_id, audit=audit
+        )
 
     if task.target_entity_type == "Page":
         page = db.get(Page, task.target_entity_id)

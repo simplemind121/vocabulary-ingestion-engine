@@ -4,7 +4,15 @@ import fitz
 from sqlalchemy.orm import Session
 
 from app.adapters.pdf_native import PyMuPDFNativeAdapter
-from app.models import Artifact, DocumentVersion, Page, ProcessingRun, ProcessingStep, SourceBlock
+from app.models import (
+    Artifact,
+    DocumentVersion,
+    Page,
+    ProcessingRun,
+    ProcessingStep,
+    SourceBlock,
+    SourceEntry,
+)
 
 
 def extract_native_blocks(
@@ -41,7 +49,12 @@ def extract_native_blocks(
         SourceBlock.page_id.in_(selected_page_ids),
         SourceBlock.source_engine == PyMuPDFNativeAdapter.name,
     ).count()
-    if existing and page_numbers is None:
+    segmented = (
+        db.query(SourceEntry).filter(SourceEntry.processing_run_id == run.id).first() is not None
+    )
+    if existing and (page_numbers is None or segmented):
+        # Once entries reference these blocks they are immutable evidence: a
+        # resumed run must reuse them, never delete and re-extract them.
         return {"run_id": run.id, "source_blocks": existing, "reused": True}
 
     if page_numbers is not None:

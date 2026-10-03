@@ -154,6 +154,10 @@ def run_pipeline(
             "stages": stages,
         }
     except Exception as exc:
+        # A failed flush leaves the session unusable; without this the run
+        # would stay RUNNING forever and could never be queued again.
+        db.rollback()
+        run = db.get(ProcessingRun, run_id)
         run.status = "FAILED"
         run.finished_at = datetime.now(UTC)
         run.error_summary = {"error_type": type(exc).__name__, "message": str(exc)}

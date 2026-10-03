@@ -85,3 +85,25 @@ It cannot auto-check the human controls, invent a reviewer, or promote an
 already verified page. Frozen document, page-image, page-number, schema, and
 layout identity fields must still match the private packet. The corpus remains
 unpublishable until all 30 annotations independently satisfy the readiness Gate.
+
+## Source media overlay
+
+`media_annotations/` holds one overlay per Gold page recording the source media
+on that page and the entry each item belongs to. The text annotations are never
+edited for this. Build the private packet from a run and review it at
+`http://127.0.0.1:8765/media`:
+
+```bash
+python -m app.source_media_cli packet RUN_ID \
+  --annotations gold_samples/annotations \
+  --page-images data-private/gold-source-pages-v1 \
+  --output data-private/gold-media-review-packet-v1 \
+  --predictions-out benchmarks/gold_sample_v1/media_predictions
+python -m app.gold_review_server_cli
+```
+
+Each image needs an explicit decision — approve, correct the association, or
+mark as not vocabulary media — and every page, including pages without media,
+needs the three confirmation checks. A page with an undetected image is reported
+as missing and stays `DRAFT`. Manifest 1.1 binds every overlay; a text-only
+manifest does not pass the release Gate.

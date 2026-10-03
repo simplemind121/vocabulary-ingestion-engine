@@ -3,7 +3,7 @@
   "dataset_version": "1.0",
   "exact_match": true,
   "failed_samples": [],
-  "gold_manifest_sha256": "c24afe5e1403e920222ce3c3dc9e5389ae3197e996f0ba1029ef16429847f9d5",
+  "gold_manifest_sha256": "cbe2e7303cc96b647a3e6d961d72b2f361f4d8497ba5da0191283d816492e31e",
   "layers": {
     "canonical": {
       "field_accuracy": 1.0
@@ -909,28 +909,28 @@
           "fields": {
             "definition": {
               "accuracy": 1.0,
-              "correct": 4,
-              "expected": 4
+              "correct": 5,
+              "expected": 5
             },
             "display_form": {
               "accuracy": 1.0,
-              "correct": 4,
-              "expected": 4
+              "correct": 5,
+              "expected": 5
             },
             "ipa": {
               "accuracy": 1.0,
-              "correct": 4,
-              "expected": 4
+              "correct": 5,
+              "expected": 5
             },
             "lemma": {
               "accuracy": 1.0,
-              "correct": 4,
-              "expected": 4
+              "correct": 5,
+              "expected": 5
             },
             "part_of_speech": {
               "accuracy": 1.0,
-              "correct": 4,
-              "expected": 4
+              "correct": 5,
+              "expected": 5
             }
           },
           "layer": "CANONICAL_EXTRACTION",
@@ -955,7 +955,7 @@
           "layer": "ENTRY_SEGMENTATION",
           "precision": 1.0,
           "recall": 1.0,
-          "tp": 4
+          "tp": 5
         }
       },
       "page_number": 300,

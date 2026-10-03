@@ -13,7 +13,7 @@
   "page_image_sha256": "9e91dec03c822ec71f0a17e1576782ed0d5cad33fddc62489b18bbc822f3b4ce",
   "blocks": [
     {
-      "source_block_id": "b60ec970-5710-4c85-bf01-ba5afe070a39",
+      "source_block_id": "4335b219-e5bb-4782-b774-635c7bb48a18",
       "text": "461",
       "raw_text": "461",
       "block_type": "TEXT",
@@ -29,7 +29,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "5a0a3ce0-0285-4ea1-9e00-34136db81fb2",
+      "source_block_id": "2eb9c0bd-0dec-4f49-ad28-0ddee68b78e2",
       "text": "大也不能太小。",
       "raw_text": "大也不能太小。",
       "block_type": "TEXT",
@@ -45,7 +45,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "db8f04f5-2752-4daf-8287-adba643b03bc",
+      "source_block_id": "8caff382-150c-4571-99c5-906da2c41ec6",
       "text": "qualitative [ˈkwɒlɪtətɪv]",
       "raw_text": "qualitative [ˈkwɒlɪtətɪv]",
       "block_type": "TEXT",
@@ -61,7 +61,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "faa9acf0-e73a-48b5-95f9-5fca4cb6f67f",
+      "source_block_id": "c7da22a0-d41d-45b6-aabf-d37fbc9ef97c",
       "text": "adj. 性质的，质量的；定性的",
       "raw_text": "adj. 性质的，质量的；定性的",
       "block_type": "TEXT",
@@ -77,7 +77,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ec6555fd-18f3-48df-82c5-86eb1aaa9750",
+      "source_block_id": "3902d261-91bb-4f3a-8b2c-236d789fee66",
       "text": "记 联想记忆：qualit(y)（质量）+ative→质量的；定性的",
       "raw_text": "记 联想记忆：qualit(y)（质量）+ative→质量的；定性的",
       "block_type": "TEXT",
@@ -93,7 +93,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "7342d3cd-30fc-4998-9abd-589485cf40ec",
+      "source_block_id": "d26981cd-d484-4ff1-ab1a-048d25e63c3d",
       "text": "例 There is little qualitative improvement in their work. 他们的工\n作没有什么实质性的改进。",
       "raw_text": "例 There is little qualitative improvement in their work. 他们的工\n作没有什么实质性的改进。",
       "block_type": "TEXT",
@@ -109,7 +109,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "44db172e-c7c2-4dad-9ece-abe9250c9c3c",
+      "source_block_id": "98546e65-72e9-4fd2-b84e-2463b5364f15",
       "text": "accountant [əˈkaʊntənt]",
       "raw_text": "accountant [əˈkaʊntənt]",
       "block_type": "TEXT",
@@ -125,7 +125,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "a0894c70-14ca-4362-b3c9-38725c6dce96",
+      "source_block_id": "e16634b4-9556-41a4-923e-234fc993a677",
       "text": "n. 会计师",
       "raw_text": "n. 会计师",
       "block_type": "TEXT",
@@ -141,7 +141,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "a2aec388-6e9b-4146-b633-413e775b4fce",
+      "source_block_id": "da23d2fd-90cd-404c-b4ae-9c9c8fd65f06",
       "text": "记 联想记忆：account（账目）+ant（表人）→管账的人→会\n计师",
       "raw_text": "记 联想记忆：account（账目）+ant（表人）→管账的人→会\n计师",
       "block_type": "TEXT",
@@ -157,7 +157,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "dec0df9d-e3bf-4996-8b74-09af9d137d43",
+      "source_block_id": "882d1088-98ee-494e-ba9c-07a8f0aba356",
       "text": "搭 Certified Public Accountant 注册会计师",
       "raw_text": "搭 Certified Public Accountant 注册会计师",
       "block_type": "TEXT",
@@ -173,7 +173,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "f072f622-0c0f-4202-a079-ab0c52d0f22f",
+      "source_block_id": "cc388f18-17de-462f-bf0f-c71835fd9e23",
       "text": "storey [ˈstɔːri]",
       "raw_text": "storey [ˈstɔːri]",
       "block_type": "TEXT",
@@ -189,7 +189,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c2c16c55-1186-4a13-b240-0f9fc14249da",
+      "source_block_id": "08fa5f63-7bc4-49b1-b691-7ba859f68482",
       "text": "n. 楼层",
       "raw_text": "n. 楼层",
       "block_type": "TEXT",
@@ -205,7 +205,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "99eaa23c-0b97-4f9f-a35b-764bf8dafde9",
+      "source_block_id": "d1281295-cfa2-42a1-9a3c-87d88fc5fbc2",
       "text": "记 联想记忆：可与store （n. 商店）一起记",
       "raw_text": "记 联想记忆：可与store （n. 商店）一起记",
       "block_type": "TEXT",
@@ -221,7 +221,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "eb59ac25-149b-4101-bc51-098bfb889af9",
+      "source_block_id": "4566bad6-1547-469f-b2b0-dec8c65b9a87",
       "text": "例 To the west of where I'm standing, we can see the construction\nof a seventeen-storey building. 从我站的地方往西，可以看到一座17\n层的建筑。",
       "raw_text": "例 To the west of where I'm standing, we can see the construction\nof a seventeen-storey building. 从我站的地方往西，可以看到一座17\n层的建筑。",
       "block_type": "TEXT",
@@ -237,7 +237,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "400fd110-ea31-4398-bf55-2a5cd0bc9960",
+      "source_block_id": "7a3c4f51-6fae-47c1-a89f-cc941ec3aca9",
       "text": "gang [gæŋ]",
       "raw_text": "gang [gæŋ]",
       "block_type": "TEXT",
@@ -253,7 +253,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "257ad7ec-4afd-4982-89bb-b394a4969e20",
+      "source_block_id": "e3c7f7d2-b3af-45f6-8cdb-62ab71547d55",
       "text": "n. 一帮 v. 结成一伙",
       "raw_text": "n. 一帮 v. 结成一伙",
       "block_type": "TEXT",
@@ -269,7 +269,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "4cfcf682-184b-4848-b15d-d7d1d43b585a",
+      "source_block_id": "03f183c2-acf9-4aea-9e51-54f0cb00c9f3",
       "text": "例 A gang of young men attacked the police station with machine\nguns. 一群手持机关枪的年轻人袭击了警察局。",
       "raw_text": "例 A gang of young men attacked the police station with machine\nguns. 一群手持机关枪的年轻人袭击了警察局。",
       "block_type": "TEXT",
@@ -287,10 +287,10 @@
   ],
   "entries": [
     {
-      "source_entry_id": "4a546204-34b3-44f9-b01e-c5ebc3dba3b7",
+      "source_entry_id": "b9dfb46c-5b6f-47a0-9188-4c2ea8a5b07c",
       "lemma": "sample",
       "raw_text": "sample* [ˈsɑːmpl]\nn. 样品，样本 vt. 从…抽样，采样；品尝\n记 联想记忆：简单的（simple）样品（sample）\n搭 blood sample 血液样本；size of sample 样本的大小\n例 The main thing is to make sure we have the right size sample,\nnot too big or too small. 最主要是确保我们有合适的样本量，不能太\n大也不能太小。",
-      "entry_order": 1724,
+      "entry_order": 1751,
       "segmentation_confidence": 0.98,
       "continuation_type": "CROSS_PAGE",
       "source_pages": [
@@ -299,10 +299,10 @@
       ]
     },
     {
-      "source_entry_id": "e0abd7fd-ad72-48a2-99b6-6e0d54f93916",
+      "source_entry_id": "d83aa6e1-c573-456c-af68-3f1b0eb7a44a",
       "lemma": "qualitative",
       "raw_text": "qualitative [ˈkwɒlɪtətɪv]\nadj. 性质的，质量的；定性的\n记 联想记忆：qualit(y)（质量）+ative→质量的；定性的\n例 There is little qualitative improvement in their work. 他们的工\n作没有什么实质性的改进。",
-      "entry_order": 1725,
+      "entry_order": 1752,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -310,10 +310,10 @@
       ]
     },
     {
-      "source_entry_id": "b3b735ec-ef9e-4174-8e44-d88a2538078c",
+      "source_entry_id": "135b86cd-813f-4d12-89aa-fa658e694cb4",
       "lemma": "accountant",
       "raw_text": "accountant [əˈkaʊntənt]\nn. 会计师\n记 联想记忆：account（账目）+ant（表人）→管账的人→会\n计师\n搭 Certified Public Accountant 注册会计师",
-      "entry_order": 1726,
+      "entry_order": 1753,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -321,10 +321,10 @@
       ]
     },
     {
-      "source_entry_id": "2a56b980-f145-4796-86fa-c2062ee00c5e",
+      "source_entry_id": "5b307ffc-62ca-4906-965f-0eb117c9fd50",
       "lemma": "storey",
       "raw_text": "storey [ˈstɔːri]\nn. 楼层\n记 联想记忆：可与store （n. 商店）一起记\n例 To the west of where I'm standing, we can see the construction\nof a seventeen-storey building. 从我站的地方往西，可以看到一座17\n层的建筑。",
-      "entry_order": 1727,
+      "entry_order": 1754,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -332,10 +332,10 @@
       ]
     },
     {
-      "source_entry_id": "30ad3b9c-4e88-46f5-950d-cb6f06678048",
+      "source_entry_id": "00569044-456d-41e7-851a-199f737c95ee",
       "lemma": "gang",
       "raw_text": "gang [gæŋ]\nn. 一帮 v. 结成一伙\n例 A gang of young men attacked the police station with machine\nguns. 一群手持机关枪的年轻人袭击了警察局。",
-      "entry_order": 1728,
+      "entry_order": 1755,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -345,8 +345,8 @@
   ],
   "vocabulary": [
     {
-      "vocabulary_entry_id": "7ecd7584-83f3-43f4-8f83-65fea483b0bd",
-      "source_entry_id": "4a546204-34b3-44f9-b01e-c5ebc3dba3b7",
+      "vocabulary_entry_id": "86fbdaef-85b9-4b42-bfb6-527e7a19d4cf",
+      "source_entry_id": "b9dfb46c-5b6f-47a0-9188-4c2ea8a5b07c",
       "lemma": "sample",
       "display_form": "sample",
       "ipa": "ˈsɑːmpl",
@@ -355,8 +355,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "741f07be-7a0f-4a16-9150-7c3da5442f37",
-      "source_entry_id": "e0abd7fd-ad72-48a2-99b6-6e0d54f93916",
+      "vocabulary_entry_id": "e16a24bc-37db-451a-bc25-bd696c925282",
+      "source_entry_id": "d83aa6e1-c573-456c-af68-3f1b0eb7a44a",
       "lemma": "qualitative",
       "display_form": "qualitative",
       "ipa": "ˈkwɒlɪtətɪv",
@@ -365,8 +365,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "9efab4e4-0f09-4396-a55d-67e8f0890ca6",
-      "source_entry_id": "b3b735ec-ef9e-4174-8e44-d88a2538078c",
+      "vocabulary_entry_id": "2f64f16a-35b0-48a3-bb56-19e65e48f045",
+      "source_entry_id": "135b86cd-813f-4d12-89aa-fa658e694cb4",
       "lemma": "accountant",
       "display_form": "accountant",
       "ipa": "əˈkaʊntənt",
@@ -375,8 +375,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "7fd075d2-c978-4f7d-aa6c-1ed363fe9b2f",
-      "source_entry_id": "2a56b980-f145-4796-86fa-c2062ee00c5e",
+      "vocabulary_entry_id": "afc82b4e-a4b5-475c-b3d8-ecce01fa0465",
+      "source_entry_id": "5b307ffc-62ca-4906-965f-0eb117c9fd50",
       "lemma": "storey",
       "display_form": "storey",
       "ipa": "ˈstɔːri",
@@ -385,8 +385,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "e9915fe7-6b4f-469d-94b7-b5336e774e97",
-      "source_entry_id": "30ad3b9c-4e88-46f5-950d-cb6f06678048",
+      "vocabulary_entry_id": "4588255b-6076-42c4-90c4-da6ce54aff62",
+      "source_entry_id": "00569044-456d-41e7-851a-199f737c95ee",
       "lemma": "gang",
       "display_form": "gang",
       "ipa": "gæŋ",
@@ -398,6 +398,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@b93486c"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

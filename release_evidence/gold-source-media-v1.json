@@ -1,0 +1,22 @@
+{
+  "blocking_failures": [],
+  "failed_samples": [],
+  "gate": "GOLD_SOURCE_MEDIA_FIDELITY",
+  "metrics": {
+    "correct_entry_association": 15,
+    "detected_source_media": 15,
+    "expected_source_media": 15,
+    "extracted_source_media": 15,
+    "gold_pages_checked": 30,
+    "gold_pages_total": 30,
+    "missing_sha256": 0,
+    "pages_verified_without_media": 18,
+    "pages_with_media": 12,
+    "unbound": 0,
+    "unresolved": 0,
+    "verified_source_media": 15
+  },
+  "readiness_errors": [],
+  "ruleset_version": "1.0.0",
+  "status": "PASS"
+}

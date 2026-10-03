@@ -13,7 +13,7 @@
   "page_image_sha256": "2fbae16a5092669bc5afba99100c13ed80064ed095ca89704be68906fd6bc0e8",
   "blocks": [
     {
-      "source_block_id": "5e045960-6541-4eec-9c99-0739169a5a19",
+      "source_block_id": "8a1efd8c-3c63-428b-babb-5503c6e316f6",
       "text": "乱序版",
       "raw_text": "200",
       "block_type": "TEXT",
@@ -29,7 +29,7 @@
       "source_engine": "ocr:tesseract"
     },
     {
-      "source_block_id": "22c4e49d-f310-4960-9dcd-4219df921a79",
+      "source_block_id": "57bc10e7-a354-46e7-966a-6214c40572b9",
       "text": "科学记忆法 + 背词小程序 +影视剧场景",
       "raw_text": "科学 记忆 法 Be 背 词 小 程序 BS 影视 剧场 景",
       "block_type": "TEXT",
@@ -45,7 +45,7 @@
       "source_engine": "ocr:tesseract"
     },
     {
-      "source_block_id": "a79fa879-a9e9-4202-a9ae-de8501f67af2",
+      "source_block_id": "b636fae5-66f2-4412-bb3f-9dacca0361ee",
       "text": "浙江教育出版社",
       "raw_text": "号 放下 人 和",
       "block_type": "TEXT",
@@ -66,6 +66,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@b93486c"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

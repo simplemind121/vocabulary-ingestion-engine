@@ -10,26 +10,25 @@ Pull request: [#1](https://github.com/simplemind121/vocabulary-ingestion-engine/
 Source PDF SHA256: `485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd`  
 Database schema: `0008_source_media`
 
-**v0.1.0 promotion is paused.** `v0.1.0-rc1` (commit `976555a`) passed its
-Release Gate on evidence that this audit found to be wrong: 139 entries were
-missing and source media was not covered. The tag stays untouched; the next
-candidate is `v0.1.0-rc2`. See `docs/KNOWN_ISSUES.md` and
-`docs/SOURCE_MEDIA_REPORT.md`.
+`v0.1.0-rc1` (commit `976555a`) is superseded: it passed its Release Gate on
+evidence this audit found to be wrong (139 entries missing, source media not
+covered). The tag is untouched. The candidate is `v0.1.0-rc2`. Promotion to
+`v0.1.0` requires explicit user approval.
 
 ## Gate summary
 
 | Gate | Status | Release evidence | Current blocker / next executable action |
 |---|---|---|---|
-| R0 — Repository / CI | PASS | `ruff` and 231 tests pass locally; push and PR CI must be green on the head commit. | Keep subsequent commits green. |
-| R1 — Gold Dataset (text) | BLOCKED | 28/30 pages `HUMAN_VERIFIED`. Pages 300 and 750 were reopened as `DRAFT`: their verified annotations merged `contrast` into `tunnel` and `bow` into `renew`. The other 28 pages match the corrected pipeline exactly and are unchanged. Manifest `c24afe5e…f9d5` no longer represents the corpus. | Human re-review of pages 300 and 750. |
-| R1M — Gold Source Media | BLOCKED | Review packet built from the real PDF: 12 of 30 pages contain media, 15 images. 0/30 overlays are human-verified. | Human media review of the 30 pages (`/media` in the local review UI). |
-| R2 — Gold Regression | BLOCKED | The committed predictions predate the segmentation fix. | After R1/R1M: regenerate text and media predictions from the completed PostgreSQL run, freeze manifest 1.1, require exact match. |
-| R3 — Full-book E2E (text) | IN_PROGRESS | Source-bound audit regenerated on the fixed pipeline: 1120/1120 pages represented, 23,458 blocks, 3,540 candidates, 3,540 parsed, 576 cross-page (`release_evidence/full-book-audit-v1.json`). PostgreSQL run `a5ba88aa-2b04-4208-a8e8-cf9a70692c93` passed G0 and stopped at G1 with 6 open low-confidence OCR reviews. | Human OCR review, then the run continues. |
-| R3M — Full-book Source Media | IN_PROGRESS | Pre-review pass over the real PDF: 374 detected = extracted = persisted, 270 bound, 101 non-vocabulary, 3 unresolved, 0 missing, 0 broken. | Human decision on 3 images (pages 5, 665, 816) in the run's Review Queue; then write `release_evidence/source-media-full-book-v1.json`. |
-| R4 — Dataset Publication | BLOCKED | GoldRelease `13e45a80…` (3,401 records, schema 1.0) is superseded. Schema 1.1 adds `source_media`, `source_fields`, `source_pages`; CSV/XLSX add `source_pages`, `source_media_count`, `source_media_refs`, `source_media_sha256`. | Publish from the completed run; verify API = JSON = CSV = XLSX. |
-| R5 — Production Deployment | IN_PROGRESS | Local clean Compose smoke passed on the new code, including one source illustration stored in S3-compatible storage, bound, served by the API with a matching SHA256, and exported. | CI `container-smoke` on the head commit; then the tag-triggered Release Gate. |
-| R6 — Recovery / Operations | IN_PROGRESS | Local smoke passed backup, destructive pollution, exact restore, and a schema-aware drill: downgrade `0008`→`0007`, previous image `17d453b`, upgrade to `0008`, new workload, rollback and byte-identical state. | Same as R5. |
-| R7 — Release Candidate | BLOCKED | `v0.1.0-rc1` is superseded and unchanged. | All gates above `PASS`, then tag `v0.1.0-rc2` and rerun the full Release Gate on that commit. |
+| R0 — Repository / CI | PASS | `ruff` and 233 tests pass; push and PR CI green on the branch head. | Keep green. |
+| R1 — Gold Dataset (text) | PASS | 30/30 pages `HUMAN_VERIFIED` by `wangsanqiang`; pages 300 and 750 re-reviewed after the segmentation fix. | Immutable; any change needs re-review and a new manifest. |
+| R1M — Gold Source Media | PASS | 30/30 overlays `HUMAN_VERIFIED`: 12 pages with 15 images, 18 pages verified as zero media. Manifest 1.1 SHA256 `cbe2e7303cc96b647a3e6d961d72b2f361f4d8497ba5da0191283d816492e31e` (`gold_samples/manifest_v1_1.json`). | Same. |
+| R2 — Gold Regression | PASS | Predictions from PostgreSQL run `a5ba88aa…`: text 30/30 exact match (OCR F1, segmentation F1, canonical accuracy all 1.0); media 15/15 detected, extracted and correctly associated. Both bound to manifest `cbe2e730…e31e`. | CI consumes the committed predictions. |
+| R3 — Full-book E2E (text) | PASS | Run `a5ba88aa-2b04-4208-a8e8-cf9a70692c93` `COMPLETED`, G0–G6 `PASS`, 1120/1120 pages, 23,458 blocks, 3,540 SourceEntries, 3,540 `AUTO_VERIFIED` VocabularyEntries, 23,134 provenance records, 577 cross-page, 0 duplicate lemmas, 9/9 reviews resolved. Source-bound audit: 3,540 candidates, 3,540 parsed. | See `docs/FULL_BOOK_RUN_REPORT.md`. |
+| R3M — Full-book Source Media | PASS | 1120/1120 pages scanned; 374 detected = extracted = persisted; 272 bound to entries (270 layout, 2 human); 102 non-vocabulary; 0 unbound, unresolved, missing, broken artifact or broken provenance. `release_evidence/source-media-full-book-v1.json`. | See `docs/SOURCE_MEDIA_REPORT.md`. |
+| R4 — Dataset Publication | PASS | GoldRelease `66055ec7-d539-401b-bc92-ecad2235e9f6`, schema 1.1, 3,540 records, 272 with source media. API = JSON; CSV = XLSX; JSON and CSV agree per record. JSON `1f746429…dda4`, CSV `2cc93a32…f289`, XLSX `383dc7b2…266e`. All 374 media objects served by the API match their SHA256. | Immutable. |
+| R5 — Production Deployment | PASS | CI `container-smoke` on clean Ubuntu: image build, migration `0008`, PostgreSQL/Redis/worker/API/object storage, Tesseract, queued G0–G6 with a source illustration stored, bound, served and exported, and a reviewed run. | Reproduced by the tag-triggered Release Gate. |
+| R6 — Recovery / Operations | PASS | Same smoke: backup, pollution, exact restore; schema-aware drill (downgrade `0008`→`0007`, previous image `17d453b`, upgrade, new workload, rollback, byte-identical state). | Reproduced by the tag-triggered Release Gate. |
+| R7 — Release Candidate | IN_PROGRESS | — | Tag `v0.1.0-rc2`; the Release Gate must pass on that exact commit and image. |
 
 ## Executable evidence
 
@@ -50,7 +49,7 @@ gh run list --branch bootstrap/v0.1.0-alpha --limit 6
   --output data-private/release-audit/gold-readiness.json
 ```
 
-Result: `READY_TO_FREEZE`; 30 annotations, 30 HUMAN_VERIFIED, publishing allowed. Frozen manifest SHA256: `c24afe5e1403e920222ce3c3dc9e5389ae3197e996f0ba1029ef16429847f9d5`.
+Result: `READY_TO_FREEZE`; 30 text annotations and 30 media overlays HUMAN_VERIFIED. Frozen manifest 1.1 SHA256: `cbe2e7303cc96b647a3e6d961d72b2f361f4d8497ba5da0191283d816492e31e`.
 
 ### R2 exact-match result
 
@@ -66,7 +65,7 @@ Result: `READY_TO_FREEZE`; 30 annotations, 30 HUMAN_VERIFIED, publishing allowed
 Result: `PASS`; 30/30 pages exact-match, with OCR, segmentation, and canonical
 metrics all `1.0` and no blocking failures.
 
-### R3 full-book evidence commands and audited result
+### R3 full-book evidence
 
 ```bash
 .venv/bin/python -m app.full_book_evidence_check_cli \
@@ -74,22 +73,7 @@ metrics all `1.0` and no blocking failures.
   --source-metadata gold_samples/source_document.json
 ```
 
-Result: `PASS` for source-bound evidence integrity. The final persisted workload after Gold-driven parser stabilization also passed.
-
-Persisted runtime evidence:
-
-- Document ID: `cfcb9160-6d63-4ecf-bfce-7e91f7fcac45`
-- DocumentVersion ID: `1345d2b5-1197-4928-bb43-405ea84a1b18`
-- ProcessingRun ID: `5d6557a5-b63c-47a8-b638-e86b412e5d7c`
-- G0: `PASS`
-- G1–G6: `PASS`
-- Pages: 1120
-- SourceBlocks: 23,458
-- Resolved / open review tasks: 6 / 0
-- SourceEntries / VocabularyEntries / ProvenanceRecords / GoldReleases: 3,401 / 3,401 / 21,684 / 1
-- Vocabulary verification: 3,401 `AUTO_VERIFIED`, 0 `HUMAN_VERIFIED`
-- Cross-page / unresolved cross-page / duplicate lemma / duplicate source-entry rows: 570 / 0 / 0 / 0
-- GoldRelease ID: `13e45a80-ed86-4737-8dfe-7278c913630b`
+Result: `PASS`. Runtime evidence is in `docs/FULL_BOOK_RUN_REPORT.md`.
 
 ### R5 runtime probes
 
@@ -114,11 +98,8 @@ python -m app.gold_media_cli --require-pass
 
 ## Release blockers in execution order
 
-1. Human review: Gold text pages 300 and 750; Gold media on all 30 pages; the
-   release run's Review Queue (6 OCR blocks, then 3 images).
-2. Regenerate predictions and evidence from the completed run; freeze manifest 1.1.
-3. Green CI on the evidence commit; tag `v0.1.0-rc2`; full Release Gate on that tag.
-4. Release Readiness Report, then explicit user approval before `v0.1.0`.
+1. Tag `v0.1.0-rc2` and pass the tag-triggered Release Gate on that commit.
+2. Explicit user approval before promoting to `v0.1.0`.
 
 ## Final v0.1.0 release invariant
 

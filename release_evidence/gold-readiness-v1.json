@@ -15,9 +15,19 @@
   "errors": [],
   "gate": "GOLD_CORPUS_READINESS",
   "human_verified_count": 30,
-  "manifest_path": "gold_samples/manifest_v1.json",
-  "manifest_sha256": "c24afe5e1403e920222ce3c3dc9e5389ae3197e996f0ba1029ef16429847f9d5",
+  "manifest_path": "gold_samples/manifest_v1_1.json",
+  "manifest_sha256": "cbe2e7303cc96b647a3e6d961d72b2f361f4d8497ba5da0191283d816492e31e",
   "missing_layout_tags": [],
   "publish_allowed": true,
+  "source_media": {
+    "entry_illustrations": 8,
+    "errors": [],
+    "expected_source_media": 15,
+    "gold_pages_checked": 30,
+    "non_vocabulary_media": 7,
+    "pages_verified_without_media": 18,
+    "pages_with_media": 12,
+    "status": "READY_TO_FREEZE"
+  },
   "status": "READY_TO_FREEZE"
 }

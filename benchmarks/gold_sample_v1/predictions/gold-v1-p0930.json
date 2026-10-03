@@ -12,7 +12,7 @@
   "page_image_sha256": "9738a4be54cb04d6e26bf8f1ad91904e22ad74136f6028f6cd3f504cd0036c35",
   "blocks": [
     {
-      "source_block_id": "e426b4dd-c201-4aea-b062-09518d658d6e",
+      "source_block_id": "add939d3-c51f-4d96-a54b-346468999c5d",
       "text": "929",
       "raw_text": "929",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "72084fdb-1940-4fb4-aabb-eecd52413902",
+      "source_block_id": "f1052641-fd06-4c36-86a3-a2a108e9f6d1",
       "text": "Unit 4 表示“是非、否定、相反、拒绝”",
       "raw_text": "Unit 4 表示“是非、否定、相反、拒绝”",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "e6097520-96ce-4a37-bc8f-68e1f8fad4f1",
+      "source_block_id": "db1570a0-8be7-4bd8-a94e-dae28a8def51",
       "text": "词根/词缀\n具体含义\n例词及释义",
       "raw_text": "词根/词缀\n具体含义\n例词及释义",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "930f639e-9d31-4a15-bfa2-26747ca9dd8b",
+      "source_block_id": "5cd0b8c2-91e3-408a-a936-40c63098f858",
       "text": "dis-\n不，没有\ndisharmony n. 不一致；不和谐",
       "raw_text": "dis-\n不，没有\ndisharmony n. 不一致；不和谐",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "fbe7ee46-3856-450f-8966-83cc02a58dd8",
+      "source_block_id": "f40e8fd8-320f-49a0-8f8f-091aea49be0c",
       "text": "ob-, op-\n逆，反",
       "raw_text": "ob-, op-\n逆，反",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "3c9c041b-8030-40ba-817b-803122d6a087",
+      "source_block_id": "c30498b1-ae07-4883-95c1-c8924b245574",
       "text": "obsession n. 困扰；萦绕于心的事物或人 o",
       "raw_text": "obsession n. 困扰；萦绕于心的事物或人 o",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "d4afb7a2-e2a8-4ee1-aa38-53fdec8854f2",
+      "source_block_id": "92fe5595-1330-40a3-b9c4-6259536513f0",
       "text": "ppose v. 反对，反抗",
       "raw_text": "ppose v. 反对，反抗",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "9162bb2e-8c0f-4a03-8002-4ff266053178",
+      "source_block_id": "9143932d-8a35-4eb9-b94a-10652c85b187",
       "text": "neg",
       "raw_text": "neg",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "8ec4988f-3c75-4a99-8b93-9551da2422b2",
+      "source_block_id": "2124f416-8895-471d-abaa-49304081b088",
       "text": "否认，拒",
       "raw_text": "否认，拒",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "3f27bc99-08fe-4ce9-b529-4d27efd93384",
+      "source_block_id": "2657e2bb-a433-47b5-accd-479c007b8ceb",
       "text": "绝",
       "raw_text": "绝",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "9ad1657f-f687-48b2-ac27-70ce2b972ab9",
+      "source_block_id": "45ff9062-8f0d-465b-ad84-64e944cc0cbe",
       "text": "negative adj. 否定的；负面的；消极的",
       "raw_text": "negative adj. 否定的；负面的；消极的",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "e426bc82-0024-42f4-a218-da65c7f67fa1",
+      "source_block_id": "fcf36108-6788-4cb2-8a08-c3c58ac3adc4",
       "text": "counter-, con",
       "raw_text": "counter-, con",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "042ea26f-0ccc-4f7a-8751-15b89d7de1c0",
+      "source_block_id": "e34c2190-69e0-4bd4-85cd-e6ee6440e1a0",
       "text": "tra-, contro-",
       "raw_text": "tra-, contro-",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "34915c49-6cf1-4348-a1a6-0b9a439c5c7a",
+      "source_block_id": "526fa734-77a3-43ce-89ff-cb29d3162d28",
       "text": "相反",
       "raw_text": "相反",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "5ccbb41b-34ad-4608-b466-a55309578369",
+      "source_block_id": "5ff76fa0-02de-437e-af20-59ce9a81a331",
       "text": "counterproductive adj. 产生相反效果的 con",
       "raw_text": "counterproductive adj. 产生相反效果的 con",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "43e05fd8-9462-4043-87c1-f1e970b22f05",
+      "source_block_id": "12e97288-52d8-45d1-b557-85dd893149ef",
       "text": "tradict v. 反驳 controversy n. 争论",
       "raw_text": "tradict v. 反驳 controversy n. 争论",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "459120f4-016f-4abb-9913-20580965a9cf",
+      "source_block_id": "119ae3fd-501b-4134-b51d-d658fc4edd85",
       "text": "abs-",
       "raw_text": "abs-",
       "block_type": "TEXT",
@@ -284,7 +284,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "61bc266e-33aa-4aa4-8d90-e4bc2ad64ee0",
+      "source_block_id": "9336a82e-54cd-4b5e-a918-85d663dd04a0",
       "text": "相反，去",
       "raw_text": "相反，去",
       "block_type": "TEXT",
@@ -300,7 +300,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "0fc3616f-fb42-4df1-b6d2-35bf001902f3",
+      "source_block_id": "dc29e871-bb2b-4dc0-80f9-3fea22466f64",
       "text": "掉，离去",
       "raw_text": "掉，离去",
       "block_type": "TEXT",
@@ -316,7 +316,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "1786ba7f-d795-480d-8337-716842076190",
+      "source_block_id": "da5ca298-d4e7-4bc0-b317-01f3f663a9c2",
       "text": "absent adj. 不在场的；心不在焉的",
       "raw_text": "absent adj. 不在场的；心不在焉的",
       "block_type": "TEXT",
@@ -337,6 +337,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@b93486c"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

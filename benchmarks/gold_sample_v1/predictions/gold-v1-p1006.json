@@ -12,7 +12,7 @@
   "page_image_sha256": "b065878f307895fb9b447a0553c4e2028cf5bfd8ffd01891a8041f9b86132093",
   "blocks": [
     {
-      "source_block_id": "1e2f947e-4fda-4622-973f-d30958f574ae",
+      "source_block_id": "058638b2-1353-4612-8bb3-387284793e6a",
       "text": "1005",
       "raw_text": "1005",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c4b88a93-eab3-42ec-ad68-de2a0234a727",
+      "source_block_id": "3cbc712f-c7c7-4785-8603-6fd7ea97e011",
       "text": "□ booked up (旅馆、饭店等)预订一空的",
       "raw_text": "□ booked up (旅馆、饭店等)预订一空的",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "6e5b4dc0-3b01-488f-a69e-a236efcac04b",
+      "source_block_id": "f17a7e3c-e138-4351-900d-490c348d7a35",
       "text": "□ brain circuits 脑回路",
       "raw_text": "□ brain circuits 脑回路",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "05cc447b-cc70-4ea3-bebc-dc62c2353b3c",
+      "source_block_id": "938cfecf-95e5-4c5a-934e-f437cf7f4090",
       "text": "□ by degrees 逐渐地；渐渐地",
       "raw_text": "□ by degrees 逐渐地；渐渐地",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "a954f7b6-0ffd-4644-8648-fafd7797c669",
+      "source_block_id": "0cffff67-f030-44e3-8536-71e99ead610c",
       "text": "□ carbon dioxide emission 二氧化碳排放",
       "raw_text": "□ carbon dioxide emission 二氧化碳排放",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "1abe6e49-88f9-4558-b7a3-9eeb580fe10a",
+      "source_block_id": "50058972-5b30-451a-bc66-2062c6b1d3e9",
       "text": "□ card index 卡片目录(或索引)",
       "raw_text": "□ card index 卡片目录(或索引)",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "177432b6-a808-444a-9325-b26e584d5044",
+      "source_block_id": "5345fe7e-2f66-4012-997a-a8618e487801",
       "text": "□ casual clothes 便装",
       "raw_text": "□ casual clothes 便装",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "6c7fe471-f2a5-444c-953d-2bfd4487bb12",
+      "source_block_id": "0da7d095-0559-4648-9b7b-5af1cf57d786",
       "text": "□ cellular fluid 细胞液",
       "raw_text": "□ cellular fluid 细胞液",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "73dba97b-a94a-4dd3-818e-3ce2e55dafaf",
+      "source_block_id": "4ca31043-21e5-47a0-a568-f9ff4300e81c",
       "text": "□ chemical industry 化学工业",
       "raw_text": "□ chemical industry 化学工业",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "03c43fdc-a680-450d-84e7-aab7719cf872",
+      "source_block_id": "87fc62f3-45ab-47bb-bed9-956f74516a0f",
       "text": "□ chief assistant 首席助理",
       "raw_text": "□ chief assistant 首席助理",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "4ed3cc8a-da82-410a-93fd-d48558e88068",
+      "source_block_id": "84d72e85-40e0-4a26-8d0e-f8c5dabedc2d",
       "text": "□ collaborative interaction 协作交互",
       "raw_text": "□ collaborative interaction 协作交互",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ee2d0494-1cfe-48f3-a382-62bf784e2f74",
+      "source_block_id": "c889dfa6-593c-4e78-983b-bacdf2edfe50",
       "text": "□ come to the fore 涌现；崭露头角",
       "raw_text": "□ come to the fore 涌现；崭露头角",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "4e4ade0f-5721-4605-b6a0-ff4c275753a6",
+      "source_block_id": "6afd699c-f6a0-4b43-b3de-0dda95c0bf4b",
       "text": "□ communication channel 通信电路，通信信道",
       "raw_text": "□ communication channel 通信电路，通信信道",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "d92314e3-b857-4a6c-9eb8-845224ba5a12",
+      "source_block_id": "e360ff6b-fecd-425f-a7fc-0ec006bfe676",
       "text": "□ company logo 公司标志",
       "raw_text": "□ company logo 公司标志",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "45d74625-af04-4238-897b-73c4bf03aff7",
+      "source_block_id": "529002b9-6eaf-441a-aa80-d7441194ec8e",
       "text": "□ confront with 遭遇；面对",
       "raw_text": "□ confront with 遭遇；面对",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "39514038-61d4-4792-87d6-03021ae97517",
+      "source_block_id": "4c020540-f821-4f94-8a8f-40416ded8daf",
       "text": "□ conservative assumption 保守假设",
       "raw_text": "□ conservative assumption 保守假设",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "5c6a7856-567a-43d5-9dd3-875ca019eb5d",
+      "source_block_id": "0210ce45-3cfc-4c7c-a209-a7a602200877",
       "text": "□ cultural tradition 文化传统",
       "raw_text": "□ cultural tradition 文化传统",
       "block_type": "TEXT",
@@ -284,7 +284,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "59703545-33a6-4ec3-975e-88a365b6abd2",
+      "source_block_id": "1b84546e-0faa-46fd-bbc7-f59363df30b3",
       "text": "□ culture shock 文化冲突",
       "raw_text": "□ culture shock 文化冲突",
       "block_type": "TEXT",
@@ -300,7 +300,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "b1aa4699-7a7b-4929-b9dd-1b09b72e1d12",
+      "source_block_id": "557d0ee1-4fbd-4375-86bc-33229820e229",
       "text": "□ deteriorate into 恶化",
       "raw_text": "□ deteriorate into 恶化",
       "block_type": "TEXT",
@@ -316,7 +316,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "4d818cf4-c762-4d45-92b6-a7198d8c6972",
+      "source_block_id": "f594e7fc-d46a-41f9-a7ab-7fdc4f770368",
       "text": "□ distinguish between 辨别，弄清",
       "raw_text": "□ distinguish between 辨别，弄清",
       "block_type": "TEXT",
@@ -332,7 +332,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "5445e346-a78a-4d4d-9b28-c6e73d472448",
+      "source_block_id": "1dd05f5b-fdaa-48e5-be4a-d79b40810a38",
       "text": "□ draw on 凭借；利用",
       "raw_text": "□ draw on 凭借；利用",
       "block_type": "TEXT",
@@ -348,7 +348,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "2ea9fc72-dcfa-4303-8ac1-ae279a096827",
+      "source_block_id": "6e410b26-ac0f-401c-b167-11bacdfb18fd",
       "text": "□ dress down (与平时比较)穿着随便",
       "raw_text": "□ dress down (与平时比较)穿着随便",
       "block_type": "TEXT",
@@ -364,7 +364,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "11de00c8-a631-4189-ae5e-b14cef3abf6b",
+      "source_block_id": "baf1989d-c316-4f80-97d7-042639d07ef4",
       "text": "□ driving licence 驾照",
       "raw_text": "□ driving licence 驾照",
       "block_type": "TEXT",
@@ -380,7 +380,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "0dff8749-611b-408c-8193-fc0ecc59d41d",
+      "source_block_id": "1106b198-7589-4b93-a773-0574581df37e",
       "text": "□ education system 教育体制",
       "raw_text": "□ education system 教育体制",
       "block_type": "TEXT",
@@ -396,7 +396,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "1a6299c0-7117-458b-a079-e98794349ef2",
+      "source_block_id": "3b7ebec0-8db8-4609-8383-52d1244d9cc2",
       "text": "□ electricity indicator 电量指示灯",
       "raw_text": "□ electricity indicator 电量指示灯",
       "block_type": "TEXT",
@@ -412,7 +412,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "04f3b49f-b69f-4f31-a0df-a331c0f0fa5f",
+      "source_block_id": "95ffe867-4756-466e-9e39-e75a1590f441",
       "text": "□ end up with 以…结束",
       "raw_text": "□ end up with 以…结束",
       "block_type": "TEXT",
@@ -428,7 +428,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "7a9cdd5c-c30b-41a1-9a80-a351ea16e484",
+      "source_block_id": "f700deb0-335b-48cf-9379-228b0c4db438",
       "text": "□ entertainment programme 娱乐节目",
       "raw_text": "□ entertainment programme 娱乐节目",
       "block_type": "TEXT",
@@ -444,7 +444,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "baa286c9-348f-4847-8230-d22653a9c49d",
+      "source_block_id": "8595b010-7c23-4bf0-8fdb-3a149b6fb4f5",
       "text": "□ equal opportunity 平等机会",
       "raw_text": "□ equal opportunity 平等机会",
       "block_type": "TEXT",
@@ -460,7 +460,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "b5017041-bb73-497e-b93b-1c44052f98d1",
+      "source_block_id": "a1a1151c-6037-4bb8-bae8-fa8259036778",
       "text": "□ exhaust pipe 排气管",
       "raw_text": "□ exhaust pipe 排气管",
       "block_type": "TEXT",
@@ -476,7 +476,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "07f8908b-8a77-4741-afc2-e47ef907467c",
+      "source_block_id": "c5c9a442-0d04-43b2-9e65-83c1781754a5",
       "text": "□ experimental demonstration 实验示范",
       "raw_text": "□ experimental demonstration 实验示范",
       "block_type": "TEXT",
@@ -492,7 +492,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c9ab4547-f6a2-4a9a-93fc-7c7287cc53cf",
+      "source_block_id": "b4be242a-2452-4928-8dda-c56ef01a08b8",
       "text": "□ extraordinary polymath 非凡的博学者",
       "raw_text": "□ extraordinary polymath 非凡的博学者",
       "block_type": "TEXT",
@@ -513,6 +513,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@b93486c"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

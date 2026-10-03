@@ -11,7 +11,7 @@
   "page_image_sha256": "76083276c9e031d114e511d71c1ca806a3286824b8af80e3090541741342b758",
   "blocks": [
     {
-      "source_block_id": "7ca0294e-906d-433c-b4c0-6221e7d30622",
+      "source_block_id": "346c9a64-0e06-4ee6-b121-a3448c4afdb8",
       "text": "59",
       "raw_text": "59",
       "block_type": "TEXT",
@@ -27,7 +27,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "50f7860d-a881-40c9-acb7-1de245f60973",
+      "source_block_id": "c23d8e1c-033b-408b-8f16-bf976c74773c",
       "text": "internal [ɪnˈtɜːnl]",
       "raw_text": "internal [ɪnˈtɜːnl]",
       "block_type": "TEXT",
@@ -43,7 +43,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ab110ad7-47b5-4521-b65a-f4beb9a18887",
+      "source_block_id": "4c93a6ef-f618-4bd2-9d6f-c275f0687280",
       "text": "adj. 内部的；国内的",
       "raw_text": "adj. 内部的；国内的",
       "block_type": "TEXT",
@@ -59,7 +59,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "1bd307b9-947b-42b7-bc09-dc672f2a328a",
+      "source_block_id": "06038872-f011-4ba0-a851-5cc7205a70fe",
       "text": "搭 internal organ 内脏；internal clock 生物钟；internal trade 国\n内贸易",
       "raw_text": "搭 internal organ 内脏；internal clock 生物钟；internal trade 国\n内贸易",
       "block_type": "TEXT",
@@ -75,7 +75,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "b6ef33a1-ea28-4af5-b008-00f5cdc7df96",
+      "source_block_id": "86c01774-d9c1-471e-bf18-d84ab62b31c1",
       "text": "例 The theory lacks internal consistency. 这种理论缺乏内在统一\n性。",
       "raw_text": "例 The theory lacks internal consistency. 这种理论缺乏内在统一\n性。",
       "block_type": "TEXT",
@@ -91,7 +91,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "016c4ac0-d521-491e-b0ec-92626b1cc31a",
+      "source_block_id": "37814a69-777f-4b11-9805-d7c6b1eeef1f",
       "text": "cruise [kruːz]",
       "raw_text": "cruise [kruːz]",
       "block_type": "TEXT",
@@ -107,7 +107,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "9c2055ef-4205-4898-a96b-c69beadc55b0",
+      "source_block_id": "4522dc6e-c5d5-4961-b2b1-61e0991ba879",
       "text": "v. 乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；\n航行",
       "raw_text": "v. 乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；\n航行",
       "block_type": "TEXT",
@@ -123,7 +123,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "dd43f4e8-3cc5-48fa-9dc2-8a12f692b173",
+      "source_block_id": "2680af3d-2ba0-4f01-a47a-ddef471067b2",
       "text": "例 The famous Crocodile Cruise leaves at 11 a.m. each day. 著名\n的“鳄鱼”号巡游艇每天上午11点出航。",
       "raw_text": "例 The famous Crocodile Cruise leaves at 11 a.m. each day. 著名\n的“鳄鱼”号巡游艇每天上午11点出航。",
       "block_type": "TEXT",
@@ -139,7 +139,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "14b951b6-e5f5-4637-93a3-bc7c81b29c16",
+      "source_block_id": "7d60c297-bf86-4d79-84de-456f80670fc7",
       "text": "illusion [ɪˈluːʒn]",
       "raw_text": "illusion [ɪˈluːʒn]",
       "block_type": "TEXT",
@@ -155,7 +155,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "4ee93cca-50ab-4c59-b346-8d55dc4bbd1e",
+      "source_block_id": "dd09d57b-54fd-4992-adef-51e6c40141f8",
       "text": "n. 幻想中的事物，错误的观念；错觉，幻觉，假象",
       "raw_text": "n. 幻想中的事物，错误的观念；错觉，幻觉，假象",
       "block_type": "TEXT",
@@ -171,7 +171,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "e124f65c-91b7-44ad-8b6a-4c69b83bc2bd",
+      "source_block_id": "0c34d983-a99e-46d0-be7b-4e485820b828",
       "text": "记 联想记忆：il（不，无）+lus（看作lust，光）+ion（表名\n词）→看到根本没有的光→幻觉，假象",
       "raw_text": "记 联想记忆：il（不，无）+lus（看作lust，光）+ion（表名\n词）→看到根本没有的光→幻觉，假象",
       "block_type": "TEXT",
@@ -187,7 +187,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "648b0670-27fa-4d24-8e87-50dda82438d2",
+      "source_block_id": "73289e06-38a3-4f9e-8856-56021e58dcb3",
       "text": "例 He will be presenting his show of magic illusion and mystery at\n9:30. 他将在9点30分表演神秘魔幻节目。",
       "raw_text": "例 He will be presenting his show of magic illusion and mystery at\n9:30. 他将在9点30分表演神秘魔幻节目。",
       "block_type": "TEXT",
@@ -203,7 +203,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "96132f62-727a-44db-a349-d428aec459c4",
+      "source_block_id": "1fef129f-2d53-4ae5-8bc1-3b3c339b24d7",
       "text": "同 mirage （n. 幻景，幻想）",
       "raw_text": "同 mirage （n. 幻景，幻想）",
       "block_type": "TEXT",
@@ -219,7 +219,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c4f3dcfc-43d8-4215-ad06-a8eb17f48dc5",
+      "source_block_id": "8abc7e37-0397-46d0-abe6-0e4e20d3c49d",
       "text": "shave [ʃeɪv]",
       "raw_text": "shave [ʃeɪv]",
       "block_type": "TEXT",
@@ -235,7 +235,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "3d54a030-079d-4a06-aee3-a7f20c075d3f",
+      "source_block_id": "6593e6f4-7c82-49ec-b848-9b62688cc344",
       "text": "n./v. 修面",
       "raw_text": "n./v. 修面",
       "block_type": "TEXT",
@@ -251,7 +251,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c40f9f55-5c4e-4b0d-9283-67c5213d72b1",
+      "source_block_id": "2dd3e0b1-c585-46bc-91fa-213a09d8698e",
       "text": "记 联想记忆：不要在阴暗处（shade）修面（shave）",
       "raw_text": "记 联想记忆：不要在阴暗处（shade）修面（shave）",
       "block_type": "TEXT",
@@ -267,7 +267,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c4001f16-5411-4e08-aa11-cf45d602c8bf",
+      "source_block_id": "6bea8d14-695e-4572-a8ea-9f374c252b1a",
       "text": "例 How do you shave your beard so clean? 你是怎样把胡须刮得\n那么干净的？",
       "raw_text": "例 How do you shave your beard so clean? 你是怎样把胡须刮得\n那么干净的？",
       "block_type": "TEXT",
@@ -285,31 +285,9 @@
   ],
   "entries": [
     {
-      "source_entry_id": "f2d8433d-2eba-4384-9c96-5c2551d70ccd",
+      "source_entry_id": "a43261d7-1f13-430c-adad-861444410bca",
       "lemma": "internal",
       "raw_text": "internal [ɪnˈtɜːnl]\nadj. 内部的；国内的\n搭 internal organ 内脏；internal clock 生物钟；internal trade 国\n内贸易\n例 The theory lacks internal consistency. 这种理论缺乏内在统一\n性。",
-      "entry_order": 211,
-      "segmentation_confidence": 0.98,
-      "continuation_type": null,
-      "source_pages": [
-        60
-      ]
-    },
-    {
-      "source_entry_id": "8181375b-5562-4a08-b048-2d5d90bac22e",
-      "lemma": "cruise",
-      "raw_text": "cruise [kruːz]\nv. 乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；\n航行\n例 The famous Crocodile Cruise leaves at 11 a.m. each day. 著名\n的“鳄鱼”号巡游艇每天上午11点出航。",
-      "entry_order": 212,
-      "segmentation_confidence": 0.98,
-      "continuation_type": null,
-      "source_pages": [
-        60
-      ]
-    },
-    {
-      "source_entry_id": "88473ffa-b6ed-4904-bed6-2898a7785ed2",
-      "lemma": "illusion",
-      "raw_text": "illusion [ɪˈluːʒn]\nn. 幻想中的事物，错误的观念；错觉，幻觉，假象\n记 联想记忆：il（不，无）+lus（看作lust，光）+ion（表名\n词）→看到根本没有的光→幻觉，假象\n例 He will be presenting his show of magic illusion and mystery at\n9:30. 他将在9点30分表演神秘魔幻节目。\n同 mirage （n. 幻景，幻想）",
       "entry_order": 213,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
@@ -318,10 +296,32 @@
       ]
     },
     {
-      "source_entry_id": "b422e188-ee29-4fe8-a910-0ce12a89ef80",
+      "source_entry_id": "5c08e6b0-e054-41d6-8750-1928e6302bfa",
+      "lemma": "cruise",
+      "raw_text": "cruise [kruːz]\nv. 乘船游览；（出租车、船等）缓慢巡行 n. 乘船游览，巡游；\n航行\n例 The famous Crocodile Cruise leaves at 11 a.m. each day. 著名\n的“鳄鱼”号巡游艇每天上午11点出航。",
+      "entry_order": 214,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        60
+      ]
+    },
+    {
+      "source_entry_id": "4d86881d-ba7c-42a0-b404-6b6e133f5ef8",
+      "lemma": "illusion",
+      "raw_text": "illusion [ɪˈluːʒn]\nn. 幻想中的事物，错误的观念；错觉，幻觉，假象\n记 联想记忆：il（不，无）+lus（看作lust，光）+ion（表名\n词）→看到根本没有的光→幻觉，假象\n例 He will be presenting his show of magic illusion and mystery at\n9:30. 他将在9点30分表演神秘魔幻节目。\n同 mirage （n. 幻景，幻想）",
+      "entry_order": 215,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        60
+      ]
+    },
+    {
+      "source_entry_id": "06ad5267-427a-47ec-b698-e1f08e3418b7",
       "lemma": "shave",
       "raw_text": "shave [ʃeɪv]\nn./v. 修面\n记 联想记忆：不要在阴暗处（shade）修面（shave）\n例 How do you shave your beard so clean? 你是怎样把胡须刮得\n那么干净的？",
-      "entry_order": 214,
+      "entry_order": 216,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -331,8 +331,8 @@
   ],
   "vocabulary": [
     {
-      "vocabulary_entry_id": "358d491c-4d91-4997-8dbe-bebc2629b1ee",
-      "source_entry_id": "f2d8433d-2eba-4384-9c96-5c2551d70ccd",
+      "vocabulary_entry_id": "97c2bf74-1bc5-4fc5-8dac-468ee9de757e",
+      "source_entry_id": "a43261d7-1f13-430c-adad-861444410bca",
       "lemma": "internal",
       "display_form": "internal",
       "ipa": "ɪnˈtɜːnl",
@@ -341,8 +341,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "2c2925db-437e-4393-ae41-266c514da10f",
-      "source_entry_id": "8181375b-5562-4a08-b048-2d5d90bac22e",
+      "vocabulary_entry_id": "9723754b-d675-4a56-ba13-13d1d12885c9",
+      "source_entry_id": "5c08e6b0-e054-41d6-8750-1928e6302bfa",
       "lemma": "cruise",
       "display_form": "cruise",
       "ipa": "kruːz",
@@ -351,8 +351,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "89ef2250-4a15-4990-b708-a8f272446c31",
-      "source_entry_id": "88473ffa-b6ed-4904-bed6-2898a7785ed2",
+      "vocabulary_entry_id": "3ac4d2b9-af87-47b5-bd5a-f0eeb26e755c",
+      "source_entry_id": "4d86881d-ba7c-42a0-b404-6b6e133f5ef8",
       "lemma": "illusion",
       "display_form": "illusion",
       "ipa": "ɪˈluːʒn",
@@ -361,8 +361,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "88c2d6b6-f380-4577-8003-358f43ae476c",
-      "source_entry_id": "b422e188-ee29-4fe8-a910-0ce12a89ef80",
+      "vocabulary_entry_id": "74e5f056-d8d3-4d97-9175-2b36cc45237f",
+      "source_entry_id": "06ad5267-427a-47ec-b698-e1f08e3418b7",
       "lemma": "shave",
       "display_form": "shave",
       "ipa": "ʃeɪv",
@@ -374,6 +374,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@b93486c"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

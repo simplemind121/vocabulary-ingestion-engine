@@ -24,14 +24,13 @@ fail-closed and emits `g6-release-report.json`. The GitHub Release Gate workflow
 runs the production and Gold tracks independently, then permits the aggregate
 job only after both succeed.
 
-## Current source acceptance status
+5. Every Gold page carries a human-verified source media overlay, the machine
+   media predictions match it exactly, and the frozen manifest (dataset 1.1)
+   binds both text and media ground truth.
+6. The 1120-page source media pass is complete: every detected image is stored,
+   hashed and traceable, with no unresolved, unbound or missing item, and its
+   evidence is bound to the current media pipeline source hash.
 
-The latest source-bound audit represents all 1120 pages: 1119 through the native
-text layer and the scanned cover through Tesseract. It contains 23,458 source
-blocks, 3,401 parsed candidates, and 569 cross-page candidates. Three
-low-confidence OCR blocks on source page 1 remain in the redacted Review Queue.
-They are not silently accepted; the source-page Gold sign-off must resolve them.
+## Current acceptance status
 
-The production topology smoke test passes locally. The G6 Gate remains blocked
-until the real 30-page corpus is signed by a human and the resulting exact-match
-benchmark succeeds.
+See `G6_ACCEPTANCE_REPORT.md`.

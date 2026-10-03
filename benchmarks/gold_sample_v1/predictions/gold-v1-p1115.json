@@ -13,7 +13,7 @@
   "page_image_sha256": "b8e789fbbf67c6d78a140492e76f18cbe413a853968b051a516e21238412a6e1",
   "blocks": [
     {
-      "source_block_id": "9155e628-56d3-407f-a2d3-93484275d08e",
+      "source_block_id": "ebe903f8-9c85-4e9c-8c9f-71014fdad90e",
       "text": "1114",
       "raw_text": "1114",
       "block_type": "TEXT",
@@ -29,7 +29,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ad12ce1f-eb83-47c4-b02b-28dd8f3842ae",
+      "source_block_id": "1b226df4-fc77-4628-b405-3d85f6fc5b92",
       "text": "七 雅思常考单词英美对照表",
       "raw_text": "七 雅思常考单词英美对照表",
       "block_type": "TEXT",
@@ -45,7 +45,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c22980cf-2de4-4cc1-9a85-3922cdb0bf8a",
+      "source_block_id": "7c72fb54-b62e-4406-9710-2d6e5c58aa10",
       "text": "中文",
       "raw_text": "中文",
       "block_type": "TEXT",
@@ -61,7 +61,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "d4f333cb-9d7c-4533-8033-c0e466eb35c2",
+      "source_block_id": "82bdcbc8-eb1f-40e7-86c9-4d8a5532aec1",
       "text": "British",
       "raw_text": "British",
       "block_type": "TEXT",
@@ -77,7 +77,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "3dbf7724-19b5-4440-8680-4a99534ae3c2",
+      "source_block_id": "d92927b9-6d34-47e1-bc19-dfecd0005b83",
       "text": "English",
       "raw_text": "English",
       "block_type": "TEXT",
@@ -93,7 +93,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "98af3cf3-8e4c-452f-97fa-e9a98da7ceb9",
+      "source_block_id": "dac5e80f-965d-4431-a8ac-03b478092ebb",
       "text": "American",
       "raw_text": "American",
       "block_type": "TEXT",
@@ -109,7 +109,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "67d0a9b9-e54d-42ad-a847-fe101dd013ab",
+      "source_block_id": "b096d73c-2d01-4d88-afff-4f182ee4fce3",
       "text": "English",
       "raw_text": "English",
       "block_type": "TEXT",
@@ -125,7 +125,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "57ae27a7-f09c-4792-8080-9a47f129e7da",
+      "source_block_id": "bda7f03d-0363-4521-8a22-36568f89a99a",
       "text": "中文",
       "raw_text": "中文",
       "block_type": "TEXT",
@@ -141,7 +141,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "f93767b3-b44f-4eaf-89b6-1e28e244bc6c",
+      "source_block_id": "01c010e2-76c4-4cfb-b332-7a5a36eb78aa",
       "text": "British",
       "raw_text": "British",
       "block_type": "TEXT",
@@ -157,7 +157,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "238a3cbf-9b03-4820-9aca-ad1edc391a68",
+      "source_block_id": "bed87a46-7aa4-4f24-83cd-4e063b4a3de4",
       "text": "English",
       "raw_text": "English",
       "block_type": "TEXT",
@@ -173,7 +173,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "b502218d-89cf-479e-a06d-617e50e86330",
+      "source_block_id": "52149c4c-2ec4-446f-85d1-8b831a59561d",
       "text": "American",
       "raw_text": "American",
       "block_type": "TEXT",
@@ -189,7 +189,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "d97ccb37-489d-41d5-a668-3a038af351a0",
+      "source_block_id": "23f5db09-9e5d-4e4f-b7d9-a23abeccea25",
       "text": "English",
       "raw_text": "English",
       "block_type": "TEXT",
@@ -205,7 +205,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "0957c979-4a45-4096-8fdf-450289e034a2",
+      "source_block_id": "f5296ffb-3d89-4dd9-a1eb-7ba1132f0027",
       "text": "足球\nfootball\nsoccer\n软饮\nmineral\nsoft-drink",
       "raw_text": "足球\nfootball\nsoccer\n软饮\nmineral\nsoft-drink",
       "block_type": "TEXT",
@@ -221,7 +221,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "392fa672-6e57-4ac9-a421-5d828885ec2d",
+      "source_block_id": "d10fe9f6-b0a5-42c3-8a29-5c8538b6eb19",
       "text": "账单\nbill\ncheck\n二楼\nfirst floor",
       "raw_text": "账单\nbill\ncheck\n二楼\nfirst floor",
       "block_type": "TEXT",
@@ -237,7 +237,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "1190c6bb-60ce-4366-b2c6-8e89656a63da",
+      "source_block_id": "74333268-772f-4e32-b3d9-48cc934a3c5d",
       "text": "second fl",
       "raw_text": "second fl",
       "block_type": "TEXT",
@@ -253,7 +253,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ef9e65f7-83eb-4b3e-a4cc-b6a178df58d8",
+      "source_block_id": "81d58693-f9b1-40b0-8f75-843d647f7104",
       "text": "oor",
       "raw_text": "oor",
       "block_type": "TEXT",
@@ -269,7 +269,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "d4b4110f-cfc9-418c-89f2-da20f80ad3d4",
+      "source_block_id": "25cffac9-c281-40fb-b90d-3dfe3874a06c",
       "text": "纸币\nnote\nbill\n秋天\nautumn\nfall",
       "raw_text": "纸币\nnote\nbill\n秋天\nautumn\nfall",
       "block_type": "TEXT",
@@ -285,7 +285,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "8a64eb1f-073f-45d1-be39-765771695926",
+      "source_block_id": "dd477e34-5487-4746-8867-7c4ce3ffbe39",
       "text": "数学\nmaths\nmath\n洗澡\nbath\nbathe",
       "raw_text": "数学\nmaths\nmath\n洗澡\nbath\nbathe",
       "block_type": "TEXT",
@@ -301,7 +301,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "0585eaa2-e649-4bab-ba05-861b91d0741c",
+      "source_block_id": "c4bdfb2e-ce5c-42bd-9262-72e409d8391c",
       "text": "图钉",
       "raw_text": "图钉",
       "block_type": "TEXT",
@@ -317,7 +317,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "53745984-340e-4b2f-b367-f1a952c91c1e",
+      "source_block_id": "577ad071-0805-4504-936e-59eb7b9f74c2",
       "text": "drawing p",
       "raw_text": "drawing p",
       "block_type": "TEXT",
@@ -333,7 +333,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "b1c2e728-5232-4fe8-9798-29139628e586",
+      "source_block_id": "7aba21ef-19f8-4bb8-a5f5-c636d4bdef99",
       "text": "in",
       "raw_text": "in",
       "block_type": "TEXT",
@@ -349,7 +349,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "a01b5866-7dfa-4002-9b02-abebce22e029",
+      "source_block_id": "302b3bba-3212-40ff-83a9-af9048eb0fc1",
       "text": "thumb tack\n硬盘\ndisc\ndisk",
       "raw_text": "thumb tack\n硬盘\ndisc\ndisk",
       "block_type": "TEXT",
@@ -365,7 +365,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "903a27a8-54ea-462b-904a-929b733de3ed",
+      "source_block_id": "21205cd0-3fd2-44e7-ba73-fcdb33eba54d",
       "text": "背心\nwaistcoat vest\n电影\nfilm\nmovie",
       "raw_text": "背心\nwaistcoat vest\n电影\nfilm\nmovie",
       "block_type": "TEXT",
@@ -381,7 +381,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c90667a7-37a8-4345-b618-5e193702a373",
+      "source_block_id": "e893315e-3b2a-4977-ac8a-359ceb0829f9",
       "text": "紧身裤\ntights\n(panty) hose\n公寓\nflat\napartment",
       "raw_text": "紧身裤\ntights\n(panty) hose\n公寓\nflat\napartment",
       "block_type": "TEXT",
@@ -397,7 +397,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "9da63c0a-e378-42d1-8173-eb6850c3a86f",
+      "source_block_id": "5b6f8ea8-8844-4a57-b022-f59a2c47dfbf",
       "text": "男士长裤\ntrousers\npants\n电梯\nlift\nelevator",
       "raw_text": "男士长裤\ntrousers\npants\n电梯\nlift\nelevator",
       "block_type": "TEXT",
@@ -413,7 +413,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "778028a7-2e70-44e7-b1be-fdfbb43d960c",
+      "source_block_id": "6dca6fac-2981-4a55-8a5f-f41edbaf1136",
       "text": "吊带\nbraces\nsuspenders\n假期\nholiday\nvacation",
       "raw_text": "吊带\nbraces\nsuspenders\n假期\nholiday\nvacation",
       "block_type": "TEXT",
@@ -429,7 +429,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "f825242c-3a9d-4ae1-8429-2744b726ce1a",
+      "source_block_id": "81e25e81-06a3-4cf9-a215-ccbcfa197c5a",
       "text": "酒吧\npub\nbar\n人行道pavement sidewalk",
       "raw_text": "酒吧\npub\nbar\n人行道pavement sidewalk",
       "block_type": "TEXT",
@@ -445,7 +445,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "798a2674-f74d-4048-98c5-5d3a577675a9",
+      "source_block_id": "beba3259-d37e-4f87-b198-d8831401eba9",
       "text": "飞机\naeroplane airplane\n商店\nshop\nstore",
       "raw_text": "飞机\naeroplane airplane\n商店\nshop\nstore",
       "block_type": "TEXT",
@@ -461,7 +461,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "480b0623-45a7-4231-a21d-bd11fc692997",
+      "source_block_id": "cb6343ba-3858-47d6-b3a8-59ee3d9d01b4",
       "text": "保证\nensure\ninsure\n病\nill\nsick",
       "raw_text": "保证\nensure\ninsure\n病\nill\nsick",
       "block_type": "TEXT",
@@ -477,7 +477,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "f5354147-aea5-4f1b-82d8-a7cd7f6a959f",
+      "source_block_id": "f09c9b96-4d51-4ef0-b32c-c67054868b39",
       "text": "商业区",
       "raw_text": "商业区",
       "block_type": "TEXT",
@@ -493,7 +493,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "544670af-c083-4f0b-a5bd-36b19513c2cd",
+      "source_block_id": "c97c3bf0-93bb-4031-9423-3570810a3708",
       "text": "town cent",
       "raw_text": "town cent",
       "block_type": "TEXT",
@@ -509,7 +509,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "7b4cd434-bf5c-414a-8ca6-aced220e1941",
+      "source_block_id": "7a1528ed-f014-40ac-b8a7-5d210c3dd447",
       "text": "er",
       "raw_text": "er",
       "block_type": "TEXT",
@@ -525,7 +525,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c24da029-29f4-4ded-b79e-0acf0bb2f96b",
+      "source_block_id": "e2bbb02c-7a70-4deb-b407-3efc16c8d786",
       "text": "downtown\n红绿灯",
       "raw_text": "downtown\n红绿灯",
       "block_type": "TEXT",
@@ -541,7 +541,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ee2e6c29-5969-41ee-bb91-00a57f2b73b1",
+      "source_block_id": "8fe0e909-789f-4f1e-a086-02f209d387bf",
       "text": "traffic lig",
       "raw_text": "traffic lig",
       "block_type": "TEXT",
@@ -557,7 +557,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "3b623ae5-1365-48b7-a1db-1e92c9b00551",
+      "source_block_id": "4fa55d24-ad89-493f-84f8-799cf54b3b22",
       "text": "ht",
       "raw_text": "ht",
       "block_type": "TEXT",
@@ -573,7 +573,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "0fd20266-d9f1-4cd3-8c68-5fd75592c35b",
+      "source_block_id": "05ff7233-ccf9-46f1-8fee-1219c6a3bf60",
       "text": "stoplight",
       "raw_text": "stoplight",
       "block_type": "TEXT",
@@ -594,6 +594,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@b93486c"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

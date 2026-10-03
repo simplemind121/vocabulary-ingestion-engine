@@ -12,7 +12,7 @@
   "page_image_sha256": "4ee49ca0be7e61d85819fb9ee16583211b394a77de0bc9f856304d1b2ec9f49b",
   "blocks": [
     {
-      "source_block_id": "743e216a-0282-4936-ad75-4c7265d2d1ee",
+      "source_block_id": "9a747b59-f1ff-44a6-9cb6-9d89f4ec2ed6",
       "text": "29",
       "raw_text": "29",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "22b518b2-991a-4a2f-b19a-33cd388d3ea6",
+      "source_block_id": "0733e176-0df9-439e-91cc-e2b715597a0b",
       "text": "interview* [ˈɪntəvjuː]",
       "raw_text": "interview* [ˈɪntəvjuː]",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "15d045f3-faf1-4554-beb1-a76bdbce3b00",
+      "source_block_id": "6bb7188a-6875-4e5d-81dd-d4bc3b7c5667",
       "text": "v./n. 接见，会见；采访；面试",
       "raw_text": "v./n. 接见，会见；采访；面试",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "70311159-00eb-43f1-b304-2bc59d03b04d",
+      "source_block_id": "4983fc65-751e-4b40-a89e-d83ec2cc7201",
       "text": "记 联想记忆：inter（相互）+view（看）→接见；面试",
       "raw_text": "记 联想记忆：inter（相互）+view（看）→接见；面试",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "dfc2ef76-4602-438d-a3f8-41b809011fc9",
+      "source_block_id": "6be43e8d-0760-4ce8-a0fe-acd409d9adfc",
       "text": "搭 personal interview 私人会晤；have an interview with sb. 会见\n某人；job interview 求职面试；group interview 集体面试",
       "raw_text": "搭 personal interview 私人会晤；have an interview with sb. 会见\n某人；job interview 求职面试；group interview 集体面试",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "bf0458a9-e261-43a3-861a-aae8d2945037",
+      "source_block_id": "4d4ba76e-9793-4625-81a2-dd9bc9d502bd",
       "text": "例 We will talk about how applicants put through a short interview.\n我们将讨论求职者如何进行简短的面试。",
       "raw_text": "例 We will talk about how applicants put through a short interview.\n我们将讨论求职者如何进行简短的面试。",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "779f4a92-9413-40da-85d1-82476e75cf62",
+      "source_block_id": "e99be4c8-0d1c-4dd2-9f90-ba094bb0694f",
       "text": "extent* [ɪkˈstent]",
       "raw_text": "extent* [ɪkˈstent]",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ab9389d9-fa15-49ad-b8fb-0f8e260e8d26",
+      "source_block_id": "f6193e65-5c3c-4f35-b39d-a64d00a1f9a7",
       "text": "n. 范围；面积；广度，长度；程度",
       "raw_text": "n. 范围；面积；广度，长度；程度",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "311ebafc-2f21-4c99-8452-1b75ddcb98a3",
+      "source_block_id": "d081f2ef-68f2-4eb3-9ee6-5bb0710b4de2",
       "text": "记 词根记忆：ex（出）+tent（伸展）→伸展出的距离→范\n围；长度",
       "raw_text": "记 词根记忆：ex（出）+tent（伸展）→伸展出的距离→范\n围；长度",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "85e80d55-2324-4ec6-8c2a-ae741f33fc1f",
+      "source_block_id": "111f3392-f72a-40c3-8454-f9ba7b769b4a",
       "text": "搭 to some extent 在某种程度上",
       "raw_text": "搭 to some extent 在某种程度上",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "8ea3ba26-57cd-4a75-81e3-047cf1d2a505",
+      "source_block_id": "4c61291b-8be0-48f4-96b1-403dca070c7e",
       "text": "例 That old race track in the sport centre is nearly six miles in\nextent. 体育中心的旧跑道将近六英里长。",
       "raw_text": "例 That old race track in the sport centre is nearly six miles in\nextent. 体育中心的旧跑道将近六英里长。",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "4a84ea30-01bb-4b77-a191-4122c1e55593",
+      "source_block_id": "e6f28b69-b9a9-4991-b5b0-fe04adf05829",
       "text": "stint [stɪnt]",
       "raw_text": "stint [stɪnt]",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "fd19ea46-a0b9-4b82-8c08-8f12d4167c94",
+      "source_block_id": "228ace98-7acc-485f-bb50-4ba116ee02d4",
       "text": "n. 定量；限额",
       "raw_text": "n. 定量；限额",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "0f5453ac-7a65-4158-b77f-1838a6571f01",
+      "source_block_id": "9bffb53d-52ed-4e6f-8a7c-f926fef9eaa6",
       "text": "记 联想记忆：定量（stint）支取染发剂（tint）",
       "raw_text": "记 联想记忆：定量（stint）支取染发剂（tint）",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ea591fc0-e9d8-47fe-94dd-b342f1cd1bf5",
+      "source_block_id": "fae4a4eb-fd38-4dbc-bffe-13d32ea52248",
       "text": "evacuate [ɪˈvækjueɪt]",
       "raw_text": "evacuate [ɪˈvækjueɪt]",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "11d846cd-5b18-4fa3-9f78-f243046c2a72",
+      "source_block_id": "13aba69a-2acb-448b-99f9-3e1974532177",
       "text": "v. 疏散；撤离",
       "raw_text": "v. 疏散；撤离",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "f802b550-4654-405f-9c3d-f1f9d2932053",
+      "source_block_id": "8028fa46-d2d8-4d8f-9c30-1050b978010f",
       "text": "记 词根记忆：e（出）+vacu（空）+ate（使…）→空出去→疏\n散；撤离",
       "raw_text": "记 词根记忆：e（出）+vacu（空）+ate（使…）→空出去→疏\n散；撤离",
       "block_type": "TEXT",
@@ -284,7 +284,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "abdfc154-f655-4c59-952e-68cbfa1c6a1d",
+      "source_block_id": "2287f6ea-9a9f-4fdc-b076-7e75c1cb54f7",
       "text": "例 The hotel's fire officer will instruct you in how to evacuate the\nbuilding if a fire breaks out. 旅馆的消防人员会告诉你们万一着火该\n如何撤离。",
       "raw_text": "例 The hotel's fire officer will instruct you in how to evacuate the\nbuilding if a fire breaks out. 旅馆的消防人员会告诉你们万一着火该\n如何撤离。",
       "block_type": "TEXT",
@@ -302,20 +302,9 @@
   ],
   "entries": [
     {
-      "source_entry_id": "e2f4a990-d222-453d-ab79-26496a6bedea",
+      "source_entry_id": "7cb10f0b-0c96-49b3-8820-e5fd0b145b8e",
       "lemma": "interview",
       "raw_text": "interview* [ˈɪntəvjuː]\nv./n. 接见，会见；采访；面试\n记 联想记忆：inter（相互）+view（看）→接见；面试\n搭 personal interview 私人会晤；have an interview with sb. 会见\n某人；job interview 求职面试；group interview 集体面试\n例 We will talk about how applicants put through a short interview.\n我们将讨论求职者如何进行简短的面试。",
-      "entry_order": 93,
-      "segmentation_confidence": 0.98,
-      "continuation_type": null,
-      "source_pages": [
-        30
-      ]
-    },
-    {
-      "source_entry_id": "921604e5-6b40-4726-a870-3dd4227bab50",
-      "lemma": "extent",
-      "raw_text": "extent* [ɪkˈstent]\nn. 范围；面积；广度，长度；程度\n记 词根记忆：ex（出）+tent（伸展）→伸展出的距离→范\n围；长度\n搭 to some extent 在某种程度上\n例 That old race track in the sport centre is nearly six miles in\nextent. 体育中心的旧跑道将近六英里长。",
       "entry_order": 94,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
@@ -324,9 +313,9 @@
       ]
     },
     {
-      "source_entry_id": "3a696450-f638-47b5-8ae4-6988cae8b73c",
-      "lemma": "stint",
-      "raw_text": "stint [stɪnt]\nn. 定量；限额\n记 联想记忆：定量（stint）支取染发剂（tint）",
+      "source_entry_id": "4c46d2aa-8fff-4854-9f68-73993be0394d",
+      "lemma": "extent",
+      "raw_text": "extent* [ɪkˈstent]\nn. 范围；面积；广度，长度；程度\n记 词根记忆：ex（出）+tent（伸展）→伸展出的距离→范\n围；长度\n搭 to some extent 在某种程度上\n例 That old race track in the sport centre is nearly six miles in\nextent. 体育中心的旧跑道将近六英里长。",
       "entry_order": 95,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
@@ -335,10 +324,21 @@
       ]
     },
     {
-      "source_entry_id": "2914ff7b-7ef9-4f6b-9a6a-8c1109a9a6bb",
+      "source_entry_id": "cf7f2c27-5afb-40db-911a-0d098950ad1c",
+      "lemma": "stint",
+      "raw_text": "stint [stɪnt]\nn. 定量；限额\n记 联想记忆：定量（stint）支取染发剂（tint）",
+      "entry_order": 96,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        30
+      ]
+    },
+    {
+      "source_entry_id": "2bd367b0-40b4-4e9c-870c-26749a1bc50a",
       "lemma": "evacuate",
       "raw_text": "evacuate [ɪˈvækjueɪt]\nv. 疏散；撤离\n记 词根记忆：e（出）+vacu（空）+ate（使…）→空出去→疏\n散；撤离\n例 The hotel's fire officer will instruct you in how to evacuate the\nbuilding if a fire breaks out. 旅馆的消防人员会告诉你们万一着火该\n如何撤离。\n派 evacuation （n. 撤退，撤离）\n同 remove （vt. 移动；开除）；depart （v. 离开）",
-      "entry_order": 96,
+      "entry_order": 97,
       "segmentation_confidence": 0.98,
       "continuation_type": "CROSS_PAGE",
       "source_pages": [
@@ -349,8 +349,8 @@
   ],
   "vocabulary": [
     {
-      "vocabulary_entry_id": "ed6575f0-2c29-4464-b406-b67ba4e4951b",
-      "source_entry_id": "e2f4a990-d222-453d-ab79-26496a6bedea",
+      "vocabulary_entry_id": "5d61cf4f-0519-4bf1-b63a-468143fbba4c",
+      "source_entry_id": "7cb10f0b-0c96-49b3-8820-e5fd0b145b8e",
       "lemma": "interview",
       "display_form": "interview",
       "ipa": "ˈɪntəvjuː",
@@ -359,8 +359,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "8d455219-409c-479e-9835-2aebfeea09be",
-      "source_entry_id": "921604e5-6b40-4726-a870-3dd4227bab50",
+      "vocabulary_entry_id": "12e0b2b8-a06b-47f6-b1d2-7fa18c64addd",
+      "source_entry_id": "4c46d2aa-8fff-4854-9f68-73993be0394d",
       "lemma": "extent",
       "display_form": "extent",
       "ipa": "ɪkˈstent",
@@ -369,8 +369,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "fe061774-ff8b-49b6-9d37-818e5093f756",
-      "source_entry_id": "3a696450-f638-47b5-8ae4-6988cae8b73c",
+      "vocabulary_entry_id": "96632e6d-604f-4bbc-8694-93a0b0a8fd3c",
+      "source_entry_id": "cf7f2c27-5afb-40db-911a-0d098950ad1c",
       "lemma": "stint",
       "display_form": "stint",
       "ipa": "stɪnt",
@@ -379,8 +379,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "e6544c90-a4e0-44d2-bc63-a3f2aa05c23d",
-      "source_entry_id": "2914ff7b-7ef9-4f6b-9a6a-8c1109a9a6bb",
+      "vocabulary_entry_id": "bdbcd097-1d9c-46a6-95cf-85d0112b5be5",
+      "source_entry_id": "2bd367b0-40b4-4e9c-870c-26749a1bc50a",
       "lemma": "evacuate",
       "display_form": "evacuate",
       "ipa": "ɪˈvækjueɪt",
@@ -392,6 +392,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@b93486c"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

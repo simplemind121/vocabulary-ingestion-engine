@@ -1,18 +1,12 @@
 # Known Issues
 
-## Open — block v0.1.0
+## Open
 
-- **Gold text pages 300 and 750 await human re-review.** Their previously
-  verified annotations reproduced a segmentation defect (see below) and were
-  reopened as `DRAFT`. Text Gold is 28/30.
-- **Source Media Gold is unreviewed.** 0/30 pages carry a human-verified media
-  overlay.
-- **The release run is stopped at its Review Queue.** PostgreSQL run
-  `a5ba88aa-2b04-4208-a8e8-cf9a70692c93` holds 6 open low-confidence OCR
-  reviews (pages 1, 665, 972, 1096). Three source media reviews follow.
 - **`v0.1.0-rc1` is superseded.** It was cut on evidence now known to be wrong
-  (3,401 entries, no source media). The tag is left untouched; the next
-  candidate is `v0.1.0-rc2`.
+  (3,401 entries, no source media). The tag is left untouched.
+- **262 automatic media bindings are not individually human-checked.** They use
+  the rule that was correct on all 8 Gold illustrations.
+- **One Gold media overlay (page 1) records its reviewer as `wangsanqaing`.**
 
 ## Fixed in this cycle
 
@@ -24,6 +18,10 @@
   see it.
 - **Second pronunciations and senses were dropped.** Only the first of each
   reached the database. All are now stored with provenance.
+
+- **A reviewed run could resume only once.** The third pass re-extracted native
+  blocks already referenced by entries, failed on a foreign key, and left the
+  run stuck in `RUNNING`.
 
 ## Accepted limitations in v0.1.0
 

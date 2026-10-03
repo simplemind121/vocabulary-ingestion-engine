@@ -267,3 +267,16 @@ def test_gate_cli_fails_closed_without_media_annotations(tmp_path, capsys):
     )
     assert code == 1
     assert json.loads(capsys.readouterr().out)["status"] == "FAIL"
+
+
+def test_release_gate_modules_import_without_application_dependencies():
+    # The smoke script builds its evidence with the bare system interpreter.
+    import subprocess
+    import sys
+
+    code = (
+        "import sys; import app.production_smoke_evidence_cli; "
+        "import app.services.release_readiness; "
+        "sys.exit(any(name in sys.modules for name in ('sqlalchemy', 'fitz', 'fastapi')))"
+    )
+    assert subprocess.run([sys.executable, "-c", code], check=False).returncode == 0

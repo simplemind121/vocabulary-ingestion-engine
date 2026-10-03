@@ -16,11 +16,10 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from sqlalchemy.orm import Session
-
-from app.models import Page, ProcessingRun, SourceMedia, VocabularyEntry
-from app.services.source_media import ROLE_ENTRY, ROLE_NON_VOCABULARY
-
+# This module is imported by release gates that run without the application
+# dependencies installed, so it must stay standard-library only at import time.
+ROLE_ENTRY = "ENTRY_ILLUSTRATION"
+ROLE_NON_VOCABULARY = "NON_VOCABULARY"
 MEDIA_ANNOTATION_SCHEMA_VERSION = "1.0"
 DECISIONS = {"APPROVE", "CORRECT_ASSOCIATION", "NOT_VOCABULARY_MEDIA"}
 REQUIRED_MEDIA_CHECKS = {
@@ -32,9 +31,11 @@ _COMPARED_FIELDS = ("media_order", "sha256", "media_role", "lemma")
 
 
 def build_media_prediction_from_run(
-    db: Session, run_id: str, *, page_number: int, sample_id: str, document_sha256: str
+    db: Any, run_id: str, *, page_number: int, sample_id: str, document_sha256: str
 ) -> dict[str, Any]:
     """What the machine detected on one page, keyed by lemma rather than run ids."""
+    from app.models import Page, ProcessingRun, SourceMedia, VocabularyEntry
+
     run = db.get(ProcessingRun, run_id)
     if run is None:
         raise ValueError("processing run not found")

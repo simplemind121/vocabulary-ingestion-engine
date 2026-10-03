@@ -14,10 +14,25 @@ AUDIT_PIPELINE_FILES = (
 )
 
 
-def audit_pipeline_sha256(repository_root: str | Path) -> str:
+# Everything that decides which media exists and which entry owns it.
+SOURCE_MEDIA_PIPELINE_FILES = (
+    *AUDIT_PIPELINE_FILES,
+    "app/services/book_structure.py",
+    "app/services/field_parser.py",
+    "app/services/source_media.py",
+)
+
+
+def source_media_pipeline_sha256(repository_root: str | Path) -> str:
+    return audit_pipeline_sha256(repository_root, files=SOURCE_MEDIA_PIPELINE_FILES)
+
+
+def audit_pipeline_sha256(
+    repository_root: str | Path, *, files: tuple[str, ...] = AUDIT_PIPELINE_FILES
+) -> str:
     root = Path(repository_root)
     digest = hashlib.sha256()
-    for relative in AUDIT_PIPELINE_FILES:
+    for relative in files:
         payload = (root / relative).read_bytes()
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")

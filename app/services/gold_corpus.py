@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from app.services.gold_annotation import build_annotation_scaffold, validate_ground_truth_annotation
+from app.services.gold_media import evaluate_media_readiness, media_ground_truth_sha256
 from app.services.gold_sample import REQUIRED_LAYOUT_TAGS
 
 
@@ -58,10 +59,28 @@ def evaluate_corpus_readiness(annotations: list[dict[str, Any]]) -> dict[str, An
     }
 
 
-def freeze_manifest(annotations: list[dict[str, Any]]) -> dict[str, Any]:
+def freeze_manifest(
+    annotations: list[dict[str, Any]],
+    media_annotations: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Freeze the Gold manifest.
+
+    With ``media_annotations`` the manifest is dataset version 1.1: it binds the
+    human-verified source media overlay of every page next to its textual
+    ground truth. A text-only (1.0) manifest no longer represents complete
+    Source Fidelity Gold and is rejected by the release Gate.
+    """
     readiness = evaluate_corpus_readiness(annotations)
     if readiness["status"] != "READY_TO_FREEZE":
         raise ValueError("Gold corpus cannot freeze: " + ";".join(readiness["errors"]))
+    media_by_sample: dict[str, dict[str, Any]] = {}
+    if media_annotations is not None:
+        media_readiness = evaluate_media_readiness(annotations, media_annotations)
+        if media_readiness["status"] != "READY_TO_FREEZE":
+            raise ValueError(
+                "Gold source media cannot freeze: " + ";".join(media_readiness["errors"])
+            )
+        media_by_sample = {item["sample_id"]: item for item in media_annotations}
     pages = []
     for annotation in sorted(annotations, key=lambda item: item["page_number"]):
         payload = json.dumps(annotation, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
@@ -79,7 +98,22 @@ def freeze_manifest(annotations: list[dict[str, Any]]) -> dict[str, Any]:
                 "annotation_schema_version": annotation["annotation_schema_version"],
             }
         )
-    manifest = {"dataset_version": "1.0", "freeze_status": "FROZEN", "pages": pages}
+        overlay = media_by_sample.get(annotation["sample_id"])
+        if overlay is not None:
+            pages[-1].update(
+                {
+                    "media_ground_truth_path": f"media_annotations/{annotation['sample_id']}.json",
+                    "media_ground_truth_sha256": media_ground_truth_sha256(overlay),
+                    "media_count": overlay["media_count"],
+                    "media_review_status": "HUMAN_VERIFIED",
+                    "media_reviewer_id": overlay["reviewer_id"],
+                }
+            )
+    manifest = {
+        "dataset_version": "1.1" if media_annotations is not None else "1.0",
+        "freeze_status": "FROZEN",
+        "pages": pages,
+    }
     manifest_payload = json.dumps(manifest, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
     manifest["manifest_sha256"] = hashlib.sha256(manifest_payload).hexdigest()
     return manifest

@@ -20,6 +20,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--benchmark", type=Path, required=True)
     parser.add_argument("--full-book-evidence", type=Path, required=True)
     parser.add_argument("--production-smoke", type=Path, required=True)
+    parser.add_argument("--media-annotations", type=Path, required=True)
+    parser.add_argument("--media-predictions", type=Path, required=True)
+    parser.add_argument("--source-media-evidence", type=Path, required=True)
     parser.add_argument("--git-sha", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--require-pass", action="store_true")
@@ -33,6 +36,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             benchmark_report=_load_object(args.benchmark),
             full_book_evidence=_load_object(args.full_book_evidence),
             production_smoke=_load_object(args.production_smoke),
+            media_annotations=_load_annotations(args.media_annotations),
+            media_predictions=_load_annotations(args.media_predictions),
+            source_media_evidence=_load_object(args.source_media_evidence),
             repository_root=ROOT,
             expected_git_sha=args.git_sha,
         )

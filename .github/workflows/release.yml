@@ -47,6 +47,11 @@ jobs:
           --output benchmark-report.json
       - name: Enforce exact-match Gold regression gate
         run: python -m app.gold_regression_cli benchmark-report.json
+      - name: Enforce Gold Source Media Fidelity Gate
+        run: >-
+          python -m app.gold_media_cli
+          --output gold-source-media-report.json
+          --require-pass
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -55,6 +60,7 @@ jobs:
             gold-readiness.json
             gold-sample-manifest-v1.json
             benchmark-report.json
+            gold-source-media-report.json
           if-no-files-found: warn
 
   g6-production-release:
@@ -85,6 +91,9 @@ jobs:
           --benchmark release-input/gold/benchmark-report.json
           --full-book-evidence release_evidence/full-book-audit-v1.json
           --production-smoke release-input/production/production-smoke.json
+          --media-annotations gold_samples/media_annotations
+          --media-predictions benchmarks/gold_sample_v1/media_predictions
+          --source-media-evidence release_evidence/source-media-full-book-v1.json
           --git-sha "$GITHUB_SHA"
           --output g6-release-report.json
           --require-pass

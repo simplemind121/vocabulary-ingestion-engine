@@ -15,6 +15,12 @@ from app.services.release_readiness import (
     REQUIRED_PRODUCTION_CHECKS,
     evaluate_g6_release_readiness,
 )
+from tests.media_helpers import (
+    media_item,
+    media_predictions,
+    source_media_evidence,
+    verified_media_overlays,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_SHA = "a" * 64
@@ -116,9 +122,26 @@ def _production_smoke():
     }
 
 
+def _media(annotations):
+    predictions = media_predictions(
+        annotations,
+        {1: [media_item(1, lemma=None, seed=901)], 12: [media_item(1, lemma="word", seed=902)]},
+    )
+    return verified_media_overlays(annotations, predictions), predictions
+
+
 def _evaluate(annotations, **overrides):
-    manifest = freeze_manifest(_verified_annotations())
+    verified = _verified_annotations()
+    overlays, predictions = _media(verified)
+    manifest = freeze_manifest(verified, overlays)
     values = {
+        "media_annotations": overlays,
+        "media_predictions": predictions,
+        "source_media_evidence": source_media_evidence(
+            source_sha=SOURCE_SHA,
+            pages=30,
+            entries=_full_book_evidence()["parsed_entry_count"],
+        ),
         "annotations": annotations,
         "source_metadata": {
             "document_sha256": SOURCE_SHA,
@@ -138,7 +161,7 @@ def _evaluate(annotations, **overrides):
 def test_g6_release_passes_only_when_all_evidence_is_current_and_verified():
     annotations = _verified_annotations()
 
-    result = _evaluate(annotations, manifest=freeze_manifest(annotations))
+    result = _evaluate(annotations, manifest=freeze_manifest(annotations, _media(annotations)[0]))
 
     assert result["status"] == "PASS"
     assert result["publish_allowed"] is True

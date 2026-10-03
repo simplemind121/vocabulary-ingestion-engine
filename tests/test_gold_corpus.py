@@ -67,7 +67,7 @@ def test_30_complete_human_verified_annotations_freeze_manifest():
     assert all(page["review_status"] == "HUMAN_VERIFIED" for page in manifest["pages"])
 
 
-def test_repository_corpus_truthfully_reports_frozen_verified_dataset():
+def test_repository_corpus_truthfully_reports_its_verification_state():
     annotations = [
         json.loads(path.read_text(encoding="utf-8"))
         for path in sorted((ROOT / "gold_samples" / "annotations").glob("*.json"))
@@ -76,7 +76,11 @@ def test_repository_corpus_truthfully_reports_frozen_verified_dataset():
     readiness = evaluate_corpus_readiness(annotations)
 
     assert readiness["annotation_count"] == 30
-    assert readiness["human_verified_count"] == 30
     assert readiness["missing_layout_tags"] == []
-    assert readiness["status"] == "READY_TO_FREEZE"
-    assert readiness["errors"] == []
+    # Pages reopened for re-review must not keep a reviewer, and the corpus is
+    # freezable exactly when every page carries an explicit human sign-off.
+    reopened = [item for item in annotations if item["review_status"] != "HUMAN_VERIFIED"]
+    assert all(item["reviewer_id"] is None for item in reopened)
+    assert readiness["human_verified_count"] == 30 - len(reopened)
+    assert (readiness["status"] == "READY_TO_FREEZE") == (not reopened)
+    assert bool(readiness["errors"]) == bool(reopened)

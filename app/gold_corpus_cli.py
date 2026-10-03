@@ -7,6 +7,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from app.services.gold_corpus import evaluate_corpus_readiness, freeze_manifest
+from app.services.gold_media import evaluate_media_readiness
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -16,6 +17,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         type=Path,
         default=Path("gold_samples/annotations"),
     )
+    parser.add_argument(
+        "--media-annotations",
+        type=Path,
+        default=Path("gold_samples/media_annotations"),
+    )
     parser.add_argument("--output", type=Path)
     parser.add_argument("--manifest-out", type=Path)
     parser.add_argument("--require-ready", action="store_true")
@@ -24,8 +30,16 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         annotations = _load_annotations(args.annotations)
         result = evaluate_corpus_readiness(annotations)
+        media_annotations = _load_annotations(args.media_annotations)
+        media = evaluate_media_readiness(annotations, media_annotations)
+        result["source_media"] = media
+        if media["status"] != "READY_TO_FREEZE":
+            # Text Gold alone is no longer complete Source Fidelity Gold.
+            result["text_status"] = result["status"]
+            result["status"] = "NOT_READY"
+            result["errors"] = [*result["errors"], "source_media_gold_not_ready"]
         if args.manifest_out is not None and result["status"] == "READY_TO_FREEZE":
-            manifest = freeze_manifest(annotations)
+            manifest = freeze_manifest(annotations, media_annotations)
             args.manifest_out.parent.mkdir(parents=True, exist_ok=True)
             args.manifest_out.write_text(
                 json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",

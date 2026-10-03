@@ -9,6 +9,7 @@ from typing import Any
 
 from app.services.benchmark import run_gold_benchmark
 from app.services.gold_corpus import evaluate_corpus_readiness, freeze_manifest
+from app.services.gold_media import load_json_directory
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -17,6 +18,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument("--annotations", type=Path, required=True)
     parser.add_argument("--predictions", type=Path, required=True)
+    parser.add_argument(
+        "--media-annotations", type=Path, default=Path("gold_samples/media_annotations")
+    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args(argv)
 
@@ -42,7 +46,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                 }
             )
         report = _aggregate(page_reports)
-        frozen_manifest = freeze_manifest(list(truth.values()))
+        frozen_manifest = freeze_manifest(
+            list(truth.values()), load_json_directory(args.media_annotations)
+        )
         source_hashes = {item.get("document_sha256") for item in truth.values()}
         if len(source_hashes) != 1:
             raise ValueError("verified annotations must have one source document identity")

@@ -92,6 +92,10 @@ jobs:
           python -m app.full_book_evidence_check_cli
           release_evidence/full-book-audit-v1.json
           --source-metadata gold_samples/source_document.json
+      - name: Report Gold Source Media Fidelity (not a release pass)
+        run: >-
+          python -m app.gold_media_cli
+          --output gold-source-media-report.json
       - name: Publish Gold readiness summary
         if: always()
         run: |

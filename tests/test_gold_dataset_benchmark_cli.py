@@ -2,6 +2,7 @@ import json
 
 from app.gold_dataset_benchmark_cli import main
 from app.services.gold_sample import REQUIRED_LAYOUT_TAGS
+from tests.media_helpers import media_predictions, verified_media_overlays
 
 
 def _write_corpus(directory, *, drift=False):
@@ -27,6 +28,11 @@ def _write_corpus(directory, *, drift=False):
         if drift and page == 8:
             annotation["blocks"][0]["text"] = "human correction"
         (directory / f"{sample_id}.json").write_text(json.dumps(annotation))
+    media = directory.parent / "media_annotations"
+    media.mkdir(exist_ok=True)
+    annotations = [json.loads(path.read_text()) for path in sorted(directory.glob("*.json"))]
+    for overlay in verified_media_overlays(annotations, media_predictions(annotations, {})):
+        (media / f"{overlay['sample_id']}.json").write_text(json.dumps(overlay))
 
 
 def _copy_as_predictions(annotations, predictions):
@@ -55,6 +61,8 @@ def test_real_dataset_benchmark_requires_verified_annotations_and_exact_predicti
             str(predictions),
             "--output",
             str(output),
+            "--media-annotations",
+            str(tmp_path / "media_annotations"),
         ]
     ) == 0
 
@@ -86,6 +94,8 @@ def test_real_dataset_benchmark_reports_page_level_regression(tmp_path):
             str(predictions),
             "--output",
             str(output),
+            "--media-annotations",
+            str(tmp_path / "media_annotations"),
         ]
     ) == 1
     report = json.loads(output.read_text())

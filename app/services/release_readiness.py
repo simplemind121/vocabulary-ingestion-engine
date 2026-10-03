@@ -5,8 +5,9 @@ from pathlib import Path
 from typing import Any
 
 from app.services.benchmark_gate import evaluate_benchmark_gate
-from app.services.full_book_evidence import audit_pipeline_sha256
+from app.services.full_book_evidence import audit_pipeline_sha256, source_media_pipeline_sha256
 from app.services.gold_corpus import evaluate_corpus_readiness, freeze_manifest
+from app.services.gold_media import evaluate_media_regression
 
 REQUIRED_PRODUCTION_CHECKS = {
     "api_readiness",
@@ -33,6 +34,9 @@ def evaluate_g6_release_readiness(
     production_smoke: dict[str, Any],
     repository_root: str | Path,
     expected_git_sha: str,
+    media_annotations: list[dict[str, Any]],
+    media_predictions: list[dict[str, Any]],
+    source_media_evidence: dict[str, Any],
 ) -> dict[str, Any]:
     blockers: list[str] = []
     source_sha = source_metadata.get("document_sha256")
@@ -49,9 +53,13 @@ def evaluate_g6_release_readiness(
     if annotation_source_hashes != {source_sha}:
         blockers.append("gold_source_identity_mismatch")
 
+    media_gate = evaluate_media_regression(annotations, media_annotations, media_predictions)
+    if media_gate["status"] != "PASS":
+        blockers.append("gold_source_media_gate_failed")
+
     expected_manifest = None
-    if corpus["status"] == "READY_TO_FREEZE":
-        expected_manifest = freeze_manifest(annotations)
+    if corpus["status"] == "READY_TO_FREEZE" and media_gate["status"] == "PASS":
+        expected_manifest = freeze_manifest(annotations, media_annotations)
         if manifest != expected_manifest:
             blockers.append("frozen_manifest_mismatch")
     else:
@@ -82,6 +90,14 @@ def evaluate_g6_release_readiness(
         repository_root=repository_root,
         blockers=blockers,
     )
+    _evaluate_source_media(
+        source_media_evidence,
+        source_sha=source_sha,
+        source_pages=source_pages,
+        full_book_evidence=full_book_evidence,
+        repository_root=repository_root,
+        blockers=blockers,
+    )
     _evaluate_production_smoke(
         production_smoke,
         expected_git_sha=expected_git_sha,
@@ -109,6 +125,8 @@ def evaluate_g6_release_readiness(
             "full_book_parsed_entries": full_book_evidence.get("parsed_entry_count", 0),
             "outstanding_full_book_reviews": len(outstanding_reviews),
             "gold_regression_exact_match": bool(benchmark_report.get("exact_match")),
+            "gold_source_media": media_gate["metrics"],
+            "full_book_source_media": source_media_evidence.get("metrics", {}),
             "production_checks_passed": len(
                 set(production_smoke.get("checks") or []) & REQUIRED_PRODUCTION_CHECKS
             ),
@@ -132,6 +150,7 @@ def evaluate_g6_release_readiness(
         "component_results": {
             "gold_corpus": corpus,
             "gold_regression": benchmark,
+            "gold_source_media": media_gate,
             "full_book_audit_status": full_book_evidence.get("status"),
             "production_smoke_status": production_smoke.get("status"),
         },
@@ -189,6 +208,62 @@ def _evaluate_full_book(
             blockers.append("full_book_audit_stale_for_pipeline")
     if _outstanding_full_book_reviews(evidence, annotations):
         blockers.append("full_book_reviews_outstanding")
+
+
+_SOURCE_MEDIA_ZERO = (
+    "missing_media",
+    "unresolved_media",
+    "unbound_media",
+    "missing_artifact",
+    "missing_sha256",
+    "broken_artifact",
+    "broken_provenance",
+    "open_media_reviews",
+)
+
+
+def _evaluate_source_media(
+    evidence: dict[str, Any],
+    *,
+    source_sha: Any,
+    source_pages: Any,
+    full_book_evidence: dict[str, Any],
+    repository_root: str | Path,
+    blockers: list[str],
+) -> None:
+    """The 1120-page Source Media pass must be complete, intact and current."""
+    metrics = evidence.get("metrics")
+    if evidence.get("evidence_schema_version") != "1.0" or not isinstance(metrics, dict):
+        blockers.append("source_media_evidence_schema_invalid")
+        return
+    if evidence.get("source_document_sha256") != source_sha:
+        blockers.append("source_media_source_identity_mismatch")
+    if metrics.get("total_pages") != source_pages or metrics.get("pages_scanned") != source_pages:
+        blockers.append("source_media_pass_incomplete")
+    if any(metrics.get(name) != 0 for name in _SOURCE_MEDIA_ZERO):
+        blockers.append("source_media_integrity_failed")
+    media = evidence.get("media")
+    persisted = metrics.get("media_persisted")
+    if (
+        not isinstance(media, list)
+        or len(media) != persisted
+        or metrics.get("media_detected") != persisted
+        or metrics.get("media_extracted") != persisted
+    ):
+        blockers.append("source_media_accounting_mismatch")
+    elif any(not _SHA256.fullmatch(str(item.get("sha256"))) for item in media):
+        blockers.append("source_media_hash_missing")
+    if evidence.get("vocabulary_entry_count") != full_book_evidence.get("parsed_entry_count"):
+        blockers.append("source_media_text_run_mismatch")
+    if evidence.get("copyrighted_media_included") is not False:
+        blockers.append("copyrighted_source_in_release_evidence")
+    try:
+        expected = source_media_pipeline_sha256(repository_root)
+    except OSError:
+        blockers.append("audit_pipeline_files_unavailable")
+    else:
+        if evidence.get("source_media_pipeline_sha256") != expected:
+            blockers.append("source_media_evidence_stale_for_pipeline")
 
 
 def _outstanding_full_book_reviews(

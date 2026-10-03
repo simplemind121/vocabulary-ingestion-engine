@@ -15,7 +15,11 @@ from app.models import (
     SourceEntryBlock,
     VocabularyEntry,
 )
-from app.services.book_structure import classify_book_text
+from app.services.book_structure import (
+    BookBlockClassification,
+    bare_headword,
+    classify_book_text,
+)
 
 _LEGACY_HEADWORD = re.compile(r"^([A-Za-z][A-Za-z'’-]{1,63})(?:\s|$)")
 
@@ -44,6 +48,11 @@ def _effective_block_text(block: SourceBlock) -> str:
 
 def _iter_lines(block: SourceBlock) -> list[str]:
     return [line.strip() for line in _effective_block_text(block).splitlines() if line.strip()]
+
+
+def _bold_lines(block: SourceBlock) -> set[str]:
+    metadata = getattr(block, "metadata_json", None) or {}
+    return set(metadata.get("bold_lines") or [])
 
 
 def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> list[SegmentCandidate]:
@@ -87,8 +96,20 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
 
     for block in blocks:
         page_number = page_numbers.get(block.page_id)
+        bold_lines = _bold_lines(block)
         for line in _iter_lines(block):
             classification = classify_book_text(line, in_preview_table=in_preview_table)
+            bare = (
+                bare_headword(line)
+                if " ".join(line.split()) in bold_lines
+                and classification.block_type in {"BODY_TEXT", "PREVIEW_TABLE"}
+                else None
+            )
+            if bare is not None:
+                # Bold headword on its own line: IPA/POS follow on later lines.
+                classification = BookBlockClassification(
+                    "ENTRY_HEAD", 0.97, {"lemma": bare[0], "starred": bare[1], "ipa": None}
+                )
             if classification.block_type == "WORD_LIST_HEADER":
                 flush()
                 current_word_list = classification.metadata["word_list"]
@@ -179,7 +200,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
         step_type="ENTRY_SEGMENTATION",
         sequence_no=20,
         processor_name="book-structure-segmenter",
-        processor_version="0.3.1",
+        processor_version="0.4.0",
         configuration={
             "strategy": "line-state-machine",
             "cross_page": True,
@@ -204,7 +225,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
             continuation_type="CROSS_PAGE" if len(candidate.page_numbers) > 1 else None,
             status="PARSED",
             metadata_json={
-                "segmenter": "book-structure-segmenter@0.3.1",
+                "segmenter": "book-structure-segmenter@0.4.0",
                 "pages": candidate.page_numbers,
                 "word_list": candidate.word_list,
                 "starred": candidate.starred,
@@ -232,7 +253,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
                 verification_status="PARSED",
                 canonical_schema_version="1.0",
                 metadata_json={
-                    "extraction_method": "book-structure-segmenter@0.3.1",
+                    "extraction_method": "book-structure-segmenter@0.4.0",
                     "starred": candidate.starred,
                     "word_list": candidate.word_list,
                 },

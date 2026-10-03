@@ -3,12 +3,13 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from app.services.book_structure import classify_book_text
+from app.services.book_structure import bare_headword, classify_book_text
 
 _HEAD = re.compile(
     r"^\s*(?P<lemma>[A-Za-z][A-Za-z'’-]*(?:-[A-Za-z][A-Za-z'’-]*)?)"
     r"(?P<star>\*)?\s+\[(?P<ipa>[^\]]+)\]\s*(?P<body>.*)$"
 )
+_LEADING_IPA = re.compile(r"^\[(?P<ipa>[^\]]+)\]\s*(?P<body>.*)$")
 _POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\."
 _POS = re.compile(
     rf"^(?P<pos>{_POS_TOKEN}(?:/{_POS_TOKEN})*)\s*(?P<definition>.*)$"
@@ -20,7 +21,8 @@ _MARKERS = {"记": "memory_notes", "搭": "collocations", "例": "examples", "�
 class ParsedSourceEntry:
     lemma: str
     starred: bool
-    ipa: str
+    ipa: str | None
+    pronunciations: list[str] = field(default_factory=list)
     senses: list[dict] = field(default_factory=list)
     memory_notes: list[str] = field(default_factory=list)
     collocations: list[str] = field(default_factory=list)
@@ -36,16 +38,21 @@ def parse_source_entry(lines: list[str]) -> ParsedSourceEntry:
     if not clean:
         raise ValueError("entry has no source text")
     match = _HEAD.match(clean[0])
-    if not match:
-        raise ValueError("entry does not begin with a headword + IPA source line")
-
-    parsed = ParsedSourceEntry(
-        lemma=match.group("lemma"),
-        starred=bool(match.group("star")),
-        ipa=match.group("ipa"),
-    )
+    bare = None if match else bare_headword(clean[0])
+    if match:
+        parsed = ParsedSourceEntry(
+            lemma=match.group("lemma"),
+            starred=bool(match.group("star")),
+            ipa=match.group("ipa"),
+            pronunciations=[match.group("ipa")],
+        )
+        pending = match.group("body").strip()
+    elif bare:
+        parsed = ParsedSourceEntry(lemma=bare[0], starred=bare[1], ipa=None)
+        pending = ""
+    else:
+        raise ValueError("entry does not begin with a headword source line")
     active_field: str | None = None
-    pending = match.group("body").strip()
     if pending:
         _consume_unmarked(parsed, pending)
 
@@ -78,6 +85,20 @@ def parse_source_entry(lines: list[str]) -> ParsedSourceEntry:
 
 
 def _consume_unmarked(parsed: ParsedSourceEntry, text: str) -> None:
+    leading_ipa = _LEADING_IPA.match(text)
+    if leading_ipa and not (
+        # "[pl.] 配件" is a wrapped usage label, not a pronunciation.
+        not leading_ipa.group("body").strip() or _POS.match(leading_ipa.group("body").strip())
+    ):
+        leading_ipa = None
+    if leading_ipa:
+        # One pronunciation per line, each followed by the senses it governs.
+        parsed.pronunciations.append(leading_ipa.group("ipa"))
+        if parsed.ipa is None:
+            parsed.ipa = leading_ipa.group("ipa")
+        text = leading_ipa.group("body").strip()
+        if not text:
+            return
     pos = _POS.match(text)
     if pos:
         parsed.senses.append(

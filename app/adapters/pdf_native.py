@@ -14,6 +14,7 @@ class PyMuPDFNativeAdapter:
         height = float(page.rect.height) or 1.0
         blocks: list[TextBlock] = []
 
+        bold_lines = _bold_lines(page)
         raw_blocks = page.get_text("blocks")
         for order, raw in enumerate(raw_blocks):
             x0, y0, x1, y1, text, *_ = raw
@@ -31,7 +32,35 @@ class PyMuPDFNativeAdapter:
                     ),
                     reading_order=order,
                     confidence=1.0,
-                    metadata={"source": "native_pdf_text"},
+                    metadata=_block_metadata(text, bold_lines),
                 )
             )
         return blocks
+
+
+def _normalize(text: str) -> str:
+    return " ".join(text.split())
+
+
+def _bold_lines(page: fitz.Page) -> set[str]:
+    """Normalized text of every line typeset entirely in a bold face."""
+    lines: set[str] = set()
+    for block in page.get_text("dict").get("blocks", []):
+        if block.get("type") != 0:
+            continue
+        for line in block.get("lines", []):
+            spans = [span for span in line.get("spans", []) if span.get("text", "").strip()]
+            if spans and all(
+                "bold" in str(span.get("font", "")).lower() or int(span.get("flags", 0)) & 16
+                for span in spans
+            ):
+                lines.add(_normalize("".join(span["text"] for span in line["spans"])))
+    return lines
+
+
+def _block_metadata(text: str, bold_lines: set[str]) -> dict:
+    metadata: dict = {"source": "native_pdf_text"}
+    bold = [line for line in map(_normalize, text.splitlines()) if line and line in bold_lines]
+    if bold:
+        metadata["bold_lines"] = bold
+    return metadata

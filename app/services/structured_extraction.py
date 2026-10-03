@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from sqlalchemy.orm import Session
 
@@ -17,6 +17,7 @@ from app.models import (
     VocabularyEntry,
     VocabularyField,
 )
+from app.services.book_structure import bare_headword
 from app.services.field_parser import parse_source_entry as parse_real_book_entry
 
 _POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|det|excl)\."
@@ -35,11 +36,17 @@ class ParsedEntry:
     part_of_speech: str | None
     definition: str | None
     source_fields: dict[str, list[str]]
+    # Second and later pronunciations/senses printed for the same headword.
+    extra_pronunciations: list[str] = field(default_factory=list)
+    extra_senses: list[dict] = field(default_factory=list)
 
 
 def parse_source_entry_text(text: str) -> ParsedEntry:
     lines = [line.strip() for line in text.splitlines() if line.strip()]
-    if lines and "[" in lines[0] and "]" in lines[0]:
+    if lines and (
+        ("[" in lines[0] and "]" in lines[0])
+        or (len(lines) > 1 and bare_headword(lines[0]) is not None)
+    ):
         real = parse_real_book_entry(lines)
         first_sense = real.senses[0] if real.senses else {}
         return ParsedEntry(
@@ -55,6 +62,8 @@ def parse_source_entry_text(text: str) -> ParsedEntry:
                 "SYNONYM": real.synonyms,
                 "ANTONYM": real.antonyms,
             },
+            extra_pronunciations=real.pronunciations[1:],
+            extra_senses=real.senses[1:],
         )
 
     normalized = " ".join(text.split())
@@ -235,6 +244,66 @@ def extract_canonical_fields(db: Session, run_id: str) -> dict:
                 block=block,
                 source_text=parsed.definition,
             )
+
+        for order, ipa in enumerate(parsed.extra_pronunciations, start=2):
+            extra = Pronunciation(
+                vocabulary_entry_id=vocab.id,
+                pronunciation_order=order,
+                ipa=ipa,
+                verification_status="PARSED",
+            )
+            db.add(extra)
+            db.flush()
+            _add_provenance(
+                db,
+                run_id=run_id,
+                entity_type="Pronunciation",
+                entity_id=extra.id,
+                field_path="ipa",
+                source_entry=source_entry,
+                block=block,
+                source_text=ipa,
+            )
+        for order, item in enumerate(parsed.extra_senses, start=2):
+            extra_sense = Sense(
+                vocabulary_entry_id=vocab.id,
+                sense_order=order,
+                part_of_speech=item.get("pos"),
+                verification_status="PARSED",
+            )
+            db.add(extra_sense)
+            db.flush()
+            if item.get("pos"):
+                _add_provenance(
+                    db,
+                    run_id=run_id,
+                    entity_type="Sense",
+                    entity_id=extra_sense.id,
+                    field_path="part_of_speech",
+                    source_entry=source_entry,
+                    block=block,
+                    source_text=item["pos"],
+                )
+            if item.get("definition"):
+                extra_definition = Definition(
+                    sense_id=extra_sense.id,
+                    definition_order=1,
+                    text=item["definition"],
+                    language="zh",
+                    verification_status="PARSED",
+                )
+                db.add(extra_definition)
+                db.flush()
+                _add_provenance(
+                    db,
+                    run_id=run_id,
+                    entity_type="Definition",
+                    entity_id=extra_definition.id,
+                    field_path="text",
+                    source_entry=source_entry,
+                    block=block,
+                    source_text=item["definition"],
+                )
 
         _persist_source_fields(
             db,

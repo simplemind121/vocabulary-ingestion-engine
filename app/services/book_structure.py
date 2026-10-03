@@ -8,6 +8,9 @@ _HEADWORD = re.compile(
     r"^\s*([A-Za-z][A-Za-z'’-]*(?:-[A-Za-z][A-Za-z'’-]*)?)"
     r"(\*)?\s+\[([^\]]+)\]"
 )
+# Words with several pronunciations (or none printed) put the headword alone on
+# its own bold line; the IPA and part of speech follow on the next lines.
+_BARE_HEADWORD = re.compile(r"^\s*([A-Za-z][A-Za-z'’-]*)(\*)?\s*$")
 _FIELD_MARKER = re.compile(r"^\s*([记搭例派同反])(?:\s|$)")
 _PAGE_NUMBER = re.compile(r"^\s*\d{1,4}\s*$")
 _NON_ENTRY_SECTION = re.compile(r"^[一二三四五六七八九十]+\s+雅思")
@@ -68,6 +71,14 @@ def classify_book_text(text: str, *, in_preview_table: bool = False) -> BookBloc
         return BookBlockClassification("DECORATION", 0.98, {})
 
     return BookBlockClassification("BODY_TEXT", 0.60, {})
+
+
+def bare_headword(text: str) -> tuple[str, bool] | None:
+    """Return (lemma, starred) for a headword printed without inline IPA."""
+    match = _BARE_HEADWORD.match(" ".join((text or "").split()))
+    if match is None:
+        return None
+    return match.group(1), bool(match.group(2))
 
 
 def is_entry_head(text: str) -> bool:

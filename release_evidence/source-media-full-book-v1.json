@@ -1,0 +1,3772 @@
+{
+  "evidence_schema_version": "1.0",
+  "source_document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "processing_run_id": "a5ba88aa-2b04-4208-a8e8-cf9a70692c93",
+  "source_media_pipeline_sha256": "1470f0d66922486aca593ff54d4fa1ee0f4f1203052f29132851e4c60a3b68ec",
+  "vocabulary_entry_count": 3540,
+  "metrics": {
+    "total_pages": 1120,
+    "pages_scanned": 1120,
+    "pages_with_media": 314,
+    "media_detected": 374,
+    "media_extracted": 374,
+    "media_persisted": 374,
+    "associated_with_source_entry": 272,
+    "associated_with_vocabulary_entry": 272,
+    "excluded_non_vocabulary": 102,
+    "auto_verified": 371,
+    "human_verified": 3,
+    "unbound_media": 0,
+    "unresolved_media": 0,
+    "missing_media": 0,
+    "missing_artifact": 0,
+    "missing_sha256": 0,
+    "broken_artifact": 0,
+    "broken_provenance": 0,
+    "open_media_reviews": 0
+  },
+  "media_sha256_set_sha256": "19485b40f8a12f4039462d4e3bf87416b8ffd6e41eacdcf3b52356e8e8410b82",
+  "media": [
+    {
+      "page": 1,
+      "media_order": 1,
+      "sha256": "c9c3a87964f4955e17a6c562738e2a772b80323a7ac8b3c1a070fe22f0664923",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "FULL_PAGE_IMAGE",
+      "lemma": null
+    },
+    {
+      "page": 5,
+      "media_order": 1,
+      "sha256": "be00ba6635da61375bdf8ffab428865e31952f9653335f95b48c2ee954978380",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "HUMAN_VERIFIED",
+      "association_method": "human-review",
+      "association_reason": "NO_ENTRY_CONTEXT",
+      "lemma": null
+    },
+    {
+      "page": 6,
+      "media_order": 1,
+      "sha256": "252ede8e2030287b7fdee789666781692c68deca1ab23f1bd35e807edc501733",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 6,
+      "media_order": 2,
+      "sha256": "3b9239aabd1ad1dcb69b2a83db5348ee8fdb23a6c490f5e9739038a237b4d3b8",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 10,
+      "media_order": 1,
+      "sha256": "f97d1328ee6cffa31cfea066a4a0e5685421a82d9f60aeeda2a0daee1b533877",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "philosophy"
+    },
+    {
+      "page": 13,
+      "media_order": 1,
+      "sha256": "6631bdbe6e56c4f22832e95ccc3b97156326379f8db8293479ad5413cef52426",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "variety"
+    },
+    {
+      "page": 15,
+      "media_order": 1,
+      "sha256": "1e87a670a28a11550ef92191efc937967e918595386de1b4ef6e86fe661ff86c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "mutual"
+    },
+    {
+      "page": 16,
+      "media_order": 1,
+      "sha256": "d3340933eadb496474c966c777e7cfdbcca4966a23b3b91cc0f6ee1a9cc40b8b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "companion"
+    },
+    {
+      "page": 18,
+      "media_order": 1,
+      "sha256": "0790e6140a07fda790f7bb22731c7a2b9db5cda6fee2b29bd75551e17ad42ef5",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "forfeit"
+    },
+    {
+      "page": 24,
+      "media_order": 1,
+      "sha256": "a6b29e9375a7aaed854aa9401113c37b369bcd633c45c9488c324ead61a7bb89",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 24,
+      "media_order": 2,
+      "sha256": "d914258931607d705aed3df4a319f1de15df3099fdf8d73a26693ed955e6ef36",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 30,
+      "media_order": 1,
+      "sha256": "4bcacd377955eeb83f6a7f30974a37f8298efdd77614169f24c444713f6987de",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "interview"
+    },
+    {
+      "page": 32,
+      "media_order": 1,
+      "sha256": "0ac811d20b9b521ab2461d53878ae2c0a5e00b8d6a30b566905bf709a1111b4c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "justify"
+    },
+    {
+      "page": 35,
+      "media_order": 1,
+      "sha256": "c92cbb9e0cdf94fe90bbc574bc69bdc90e6cb2f23b6655f40a0582c9aa5d9d02",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "diagnose"
+    },
+    {
+      "page": 37,
+      "media_order": 1,
+      "sha256": "3b1083d8fccea081eb7d3f437a7f74c837c603e8214525ff94fb614d9d5f780f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "accurate"
+    },
+    {
+      "page": 42,
+      "media_order": 1,
+      "sha256": "26d388d6eb4280deb16b044d74270a57310323867ab05a244d39285ed38e5fdf",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 42,
+      "media_order": 2,
+      "sha256": "a8bd72e4a161d3854cbc8febf3a47ba19218f7925d70d5c0bd4e72f7ccc336c4",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 43,
+      "media_order": 1,
+      "sha256": "ccf60f24db8a5dd8316d42bc3cf97971cb285a2fe66e9dd8d3f87ec77c5fa752",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "leak"
+    },
+    {
+      "page": 45,
+      "media_order": 1,
+      "sha256": "464c585a85e6199e139f6478ec77008d0a79ebd4cce87367876ca3e3025a88fb",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "internship"
+    },
+    {
+      "page": 47,
+      "media_order": 1,
+      "sha256": "b35f8e2435aab56f94e4813ae51b24d4b84a991745c4e7aac8cbb516a1d10075",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "submarine"
+    },
+    {
+      "page": 50,
+      "media_order": 1,
+      "sha256": "324956c30e3ad196a462e3872093a5a2fda480cc0c5c1715847eb7e8127ed025",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "muddle"
+    },
+    {
+      "page": 54,
+      "media_order": 1,
+      "sha256": "6094257c6e7786c4cb3e932cfffe8cb1dbbc855ec83f86b7337753ac06ed757e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "gadget"
+    },
+    {
+      "page": 55,
+      "media_order": 1,
+      "sha256": "14d8b79e8161036070cffff12d0fbddd74a7ed155b872de1058d2b5c04d0c231",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "overlap"
+    },
+    {
+      "page": 57,
+      "media_order": 1,
+      "sha256": "0cc9000f038c8fc139fe6786e896bfdf9cf93a53df2d364f7fa22cec91100a3c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "dispute"
+    },
+    {
+      "page": 59,
+      "media_order": 1,
+      "sha256": "394e62b2318f02995779e044023c25a60e35139b26ee3be50633fde9b25582d2",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bare"
+    },
+    {
+      "page": 61,
+      "media_order": 1,
+      "sha256": "5df6ed23d43a76aa9c4abd3a3f8bd077b94b529f04cca16b553686a66ff26db4",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 61,
+      "media_order": 2,
+      "sha256": "52e5e7fc35f367259ed6eaa2fcaede96e5161d35041cb6bd8549ad9c57143598",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 62,
+      "media_order": 1,
+      "sha256": "a6ec3f81e61bd3808de7c3d527216cc48930aa52aa2fd2e353169faa85bb8e9b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "incredible"
+    },
+    {
+      "page": 66,
+      "media_order": 1,
+      "sha256": "4b17700d78b1bd7dd971e4e42a995e456926205e6d2841b94b317f62ae0f1308",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "lecture"
+    },
+    {
+      "page": 70,
+      "media_order": 1,
+      "sha256": "5a3fd29aa402314b1f79a508f65dd4a460d978244ca10031f045e13648e5d44a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "flap"
+    },
+    {
+      "page": 72,
+      "media_order": 1,
+      "sha256": "efdcad4b7cfaafc1d135922a5b46783947dadcbe85dd4f422c060ad71d842c67",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "ambitious"
+    },
+    {
+      "page": 75,
+      "media_order": 1,
+      "sha256": "ac8e949d02f86a8b849ee2766e0ed356e645b7d26f2ba16b99a8dfb99ee4dd93",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "ignorant"
+    },
+    {
+      "page": 77,
+      "media_order": 1,
+      "sha256": "007de2d5cd94da758956cda818f84bb7ce26871a64bba251043d56e13e761c61",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "recruit"
+    },
+    {
+      "page": 79,
+      "media_order": 1,
+      "sha256": "da1124d9d28676bd80219c355c52e7b70723748d94a7ccd8a5980c868ec8a8cb",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "judgment"
+    },
+    {
+      "page": 82,
+      "media_order": 1,
+      "sha256": "9f8d321804eb23fa0e0d593b35351b71202299c11019ddd70e8d636bb049ef66",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 82,
+      "media_order": 2,
+      "sha256": "4d6c234a9e01ddef7a931c71287bc08a688b6f9d9d5d125665b7c257cc8668b0",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 87,
+      "media_order": 1,
+      "sha256": "6e66c31b917b093eef186ed881fc878e307f550cb458beb6aa902f17f8f0a21a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "hazard"
+    },
+    {
+      "page": 88,
+      "media_order": 1,
+      "sha256": "f3390ff12b9b472f2637ba11d03d9b926e357c6f04162fa80668ee37dc2fa85f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bid"
+    },
+    {
+      "page": 90,
+      "media_order": 1,
+      "sha256": "954ec8d8c25e505cc143fc74a99d9930a4d9b6b21c6665688c2121d90b1b3027",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "lever"
+    },
+    {
+      "page": 91,
+      "media_order": 1,
+      "sha256": "e32ed8ca4d6826c367e04671e12c396693c43a3b5607751ae45c6057f72fb342",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "vacant"
+    },
+    {
+      "page": 94,
+      "media_order": 1,
+      "sha256": "0b72c1e2c885a189f06545cd7d7272393ddc51be8004bc0b157b021d0b90ec1e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "exotic"
+    },
+    {
+      "page": 96,
+      "media_order": 1,
+      "sha256": "43807193b4262e68aee6406629d8e5f714d0c3c23c76a196a7c73bc632f902cd",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "sore"
+    },
+    {
+      "page": 100,
+      "media_order": 1,
+      "sha256": "74156e5d2c0043017d495f35c26d077bc9b61fdc2371060d501541d27ebfd6f9",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "compliment"
+    },
+    {
+      "page": 101,
+      "media_order": 1,
+      "sha256": "a30d54973115794a97f2effe7b2d7bc0144225d685b779aa5536902194a29aa9",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 101,
+      "media_order": 2,
+      "sha256": "40b700f4e65313be3d0c0e1404eb519b5767ed589321306e0cc85dad7b67801f",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 104,
+      "media_order": 1,
+      "sha256": "dca767fc2b8886efa0de7d7bcf33353c5a20bbe06462c5b11526839911cfd5d9",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "literacy"
+    },
+    {
+      "page": 104,
+      "media_order": 2,
+      "sha256": "ddc47559dca61a44a2c2486f17244cd464f2647424dbe21e4957b7ff342ae68a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "calculate"
+    },
+    {
+      "page": 105,
+      "media_order": 1,
+      "sha256": "2674307e9e8fef0c20184d3c48b6201caccbaaad0160bd1d47cbee401018251e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "dormancy"
+    },
+    {
+      "page": 109,
+      "media_order": 1,
+      "sha256": "090e55adbeb3429da7306576017ee870a471f5f27cceb6b1ca3c3eb70bed8b70",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "defect"
+    },
+    {
+      "page": 115,
+      "media_order": 1,
+      "sha256": "1dbff1212f6c141c1f3df8b58cc02c3586d265dd63c750ad058cbf9c9d2ccf8b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "conflict"
+    },
+    {
+      "page": 120,
+      "media_order": 1,
+      "sha256": "6c1a0983afdf21985beb6f111d01364f9d26310c19d5b911d49c9e82cba512a9",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 120,
+      "media_order": 2,
+      "sha256": "d9e3a7b52b8f6f05edfa82cef036635fe666b0f88711431c2260ecd480198f64",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 122,
+      "media_order": 1,
+      "sha256": "63ce76d75ff762b17313f65b46086149206da5a95e7890afb180ae9c28e889f8",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "reserve"
+    },
+    {
+      "page": 124,
+      "media_order": 1,
+      "sha256": "c157e6ac2b14820392ed6624f11cdf957c8dc9609b4dfdb6f6e032e16bf53113",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "exclude"
+    },
+    {
+      "page": 128,
+      "media_order": 1,
+      "sha256": "0123280468f7515a474408ed6e18bad0df0f1c799dce55b494f312a0712923b5",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "carry"
+    },
+    {
+      "page": 129,
+      "media_order": 1,
+      "sha256": "d6a40cc5011991a971d63803ae18a1d95ccd6dc06e735539f44247ab0c906950",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "rumour"
+    },
+    {
+      "page": 131,
+      "media_order": 1,
+      "sha256": "21958962dd197a69c53e16262d4ab26bf91061d6a64c57066748074da3d95746",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "demonstrate"
+    },
+    {
+      "page": 132,
+      "media_order": 1,
+      "sha256": "3d7e11f85d32510a5a43866b3a2eeddfa6b2c049cb7d5d2bda266a223667acd5",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "illuminate"
+    },
+    {
+      "page": 134,
+      "media_order": 1,
+      "sha256": "c5a588bb36101540e3b839e2aae7b405106cc8be9b96740aa0b58bc5e4a70ea8",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "resistant"
+    },
+    {
+      "page": 136,
+      "media_order": 1,
+      "sha256": "13a0225d3726f3ed906c73458fd84f7990a75817f397b7287de00319c23bf057",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "pregnant"
+    },
+    {
+      "page": 140,
+      "media_order": 1,
+      "sha256": "eef10ad26c11148bd669f73ef2414a30e32d8b80b5f19425ea0202c62644e8da",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 140,
+      "media_order": 2,
+      "sha256": "3e32be86ab4754fd825902d331469f83ebf6e3381fe380f87a9ffb1f9a974bdb",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 143,
+      "media_order": 1,
+      "sha256": "71e53d22ff8eacfab1e7027cc09e76719163ea41e2df7f25194ee827d9d61622",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "creep"
+    },
+    {
+      "page": 148,
+      "media_order": 1,
+      "sha256": "9e9f63c21d33692db15f86fd07b749c40eaa739b593deabf1490fd7a2323d722",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "exaggerate"
+    },
+    {
+      "page": 150,
+      "media_order": 1,
+      "sha256": "014161f66775f8f0e7f8b656baecc8db988a448fa5b2fdb066b9b3275f1aea89",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "slippery"
+    },
+    {
+      "page": 152,
+      "media_order": 1,
+      "sha256": "500ffea4b9dad96405473d68ca0fb27359b952c72bc0c94748b2bfff85528305",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "arrogance"
+    },
+    {
+      "page": 154,
+      "media_order": 1,
+      "sha256": "8ff3eb532c0d80cbaa01f8b3c41c031f6d6cab3d58c7c81468341940619be21c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "hurdle"
+    },
+    {
+      "page": 156,
+      "media_order": 1,
+      "sha256": "4f884378a98572c889eaf83a1a97d9c0a3f1b75c91cdc659565c9ddaadef9401",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "spasm"
+    },
+    {
+      "page": 159,
+      "media_order": 1,
+      "sha256": "000bc355195cc93758f1113e8508b94c1875f862d56f10d3477a2e50e054071b",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 159,
+      "media_order": 2,
+      "sha256": "6abf9f8f88980abe081ce9932a8bf924ac8efc6b393ce4c5881b02a67433ae9c",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 162,
+      "media_order": 1,
+      "sha256": "b72f76ed3ba84a387bc41607cdd0baa8ea1669af761998a9dd1e45411a31c334",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "homesick"
+    },
+    {
+      "page": 164,
+      "media_order": 1,
+      "sha256": "b77c7ff6b5b689407a4644fdd7d29a1b7583691c51a6611082ead1cc72592123",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "concentration"
+    },
+    {
+      "page": 165,
+      "media_order": 1,
+      "sha256": "e06f239101cc045bd86e9171baad82f175e7f505fb9a4d86883fe4ff498bfd54",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "hostile"
+    },
+    {
+      "page": 168,
+      "media_order": 1,
+      "sha256": "533e3857081db87788ed062f195018e1aea8ee369c5f909ab57e5046ed3ba8cf",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "spit"
+    },
+    {
+      "page": 169,
+      "media_order": 1,
+      "sha256": "aca248d1cdbad10d4889da11d8d4a378f9db76225760bb8460720970e575ccc5",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "magnify"
+    },
+    {
+      "page": 173,
+      "media_order": 1,
+      "sha256": "3b6408861b5c81056cef33320586c66142dafea9f3fe48f2eea4b7c700a148df",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "conform"
+    },
+    {
+      "page": 175,
+      "media_order": 1,
+      "sha256": "f5039e8d9f6cc6ea04d0bfc182f9292e4699c4969981dc092375bb8c037d3968",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "vessel"
+    },
+    {
+      "page": 176,
+      "media_order": 1,
+      "sha256": "21647febe4fd5340cec21729650a3881d439f1bb62ba911c25ebe067981e963a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "boast"
+    },
+    {
+      "page": 177,
+      "media_order": 1,
+      "sha256": "a15089cfa9407a46e1fb5b0d1c275dc664127a679c8dbe97533e5427e06e8f24",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 177,
+      "media_order": 2,
+      "sha256": "5ccbca432eca1cdd5c45698f7029f28e110d597606f2607c57e5ffab8d483c96",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 180,
+      "media_order": 1,
+      "sha256": "588ce61973031d049dee69c7cd5a30417022f83963f79c5f0ebc8146cea7bf7e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "recreation"
+    },
+    {
+      "page": 182,
+      "media_order": 1,
+      "sha256": "0142ff52c3cedcfe81604e242d29354a6da29e143bdca644c14b1f172d8e3416",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "schedule"
+    },
+    {
+      "page": 184,
+      "media_order": 1,
+      "sha256": "8938ae73a28f3153c41cdd4de5afb3ecb28759175ce0dc348b88509abbdef68f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "forgo"
+    },
+    {
+      "page": 187,
+      "media_order": 1,
+      "sha256": "8e180f3dd39a0aad28eb7873e540cd63f8eb6e6ed32549dfced2ce9f1aaa3673",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "detect"
+    },
+    {
+      "page": 191,
+      "media_order": 1,
+      "sha256": "1baa1bc332afb8398a762d885480d262097242dd278a1dc13977f4347261ad29",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "contract"
+    },
+    {
+      "page": 192,
+      "media_order": 1,
+      "sha256": "3a62e1f68db677d7768d5ba3d640d6447c1c499d5378c312823679345a9b4c52",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "female"
+    },
+    {
+      "page": 196,
+      "media_order": 1,
+      "sha256": "167622823f2aa58c7b195f7c3baaef4760ef224efeef605789cf3bc6b34eb307",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 196,
+      "media_order": 2,
+      "sha256": "fac75a6ed6c027c36fcb675f4c043109d1b853a82bc0da85b44339c806e7352e",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 197,
+      "media_order": 1,
+      "sha256": "76ccdcf666bba38f185c3a3f1a8773cce6778607d60d26679c47f2eb2cad38b5",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "aquarium"
+    },
+    {
+      "page": 201,
+      "media_order": 1,
+      "sha256": "9de5f24661fb42a08aa8786e3ed1313710d2d4f4e4f895fb5e70f4480dc59e5e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "brand"
+    },
+    {
+      "page": 204,
+      "media_order": 1,
+      "sha256": "05169e375656b910f85a4e224a92e96062d83d93799900bb6ac49cf325e90180",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "tribute"
+    },
+    {
+      "page": 205,
+      "media_order": 1,
+      "sha256": "b0b0c594f2fc40be2f15286309fb929701ba851978f1cfe10a9e155b2408df9d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "archive"
+    },
+    {
+      "page": 212,
+      "media_order": 1,
+      "sha256": "9c135fa3e88a598d7bd2fdf8a71c93c412fd0b0abf609e65e24f36a7edbe9fa2",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "reward"
+    },
+    {
+      "page": 213,
+      "media_order": 1,
+      "sha256": "9915e6d951d89586e5792c8f6ede13a4c4a0583201060f3f0f166aa66be40407",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "crater"
+    },
+    {
+      "page": 214,
+      "media_order": 1,
+      "sha256": "6eee2fa32435a5e58d49c49f174781d03588bd48a04ed4c969feb3376bbe7e6b",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 214,
+      "media_order": 2,
+      "sha256": "cb7ee00bdd7a523adfb3339348de21f99c34c4bf5bc24fa73fe759ba3856de7d",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 217,
+      "media_order": 1,
+      "sha256": "4f35f9a9b8deeede9d4055508171fe0e00384824981f06780d278efeefba5729",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "controversy"
+    },
+    {
+      "page": 223,
+      "media_order": 1,
+      "sha256": "0a680f0b54ea5418414ca6e4784370cc12e53af9715079fca8da3c40506d5823",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "chart"
+    },
+    {
+      "page": 223,
+      "media_order": 2,
+      "sha256": "5a32fc608b8e3b0671c61fe929bf3c6452a8bd8236e7bbbb739c1d8d672d54cd",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "asthma"
+    },
+    {
+      "page": 228,
+      "media_order": 1,
+      "sha256": "ff0225f9b0c35e8f4faa5ef1055a0744f85cf7188a7c0d4ea6ca86af9a9c5427",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "proposal"
+    },
+    {
+      "page": 229,
+      "media_order": 1,
+      "sha256": "92e802a58a87863c9c125e60a074df935a8a0843e66c2ee8e3fbdd5cba939e64",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "complain"
+    },
+    {
+      "page": 231,
+      "media_order": 1,
+      "sha256": "300083afb58e64e0356c82b3816048ac1514ac39b940ed7b5362eaebdba6800f",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 231,
+      "media_order": 2,
+      "sha256": "7631d89d3071b351354541c11f1a0a52f32b45ab57a87b896debe0ef3016bdd8",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 234,
+      "media_order": 1,
+      "sha256": "f6e0143af2b55f0770f55cf3e6adbdec37d2c943ca01955a363170d92c964343",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "costume"
+    },
+    {
+      "page": 236,
+      "media_order": 1,
+      "sha256": "536f7afed46c14948e4fc120ef79c7f73fdcc807185d8f80b5723d971757d138",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "sanctuary"
+    },
+    {
+      "page": 238,
+      "media_order": 1,
+      "sha256": "a2b89d986b529b929f1b3473e8e5dfe9f7bcc9323f12e833979758701677158c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "inspiration"
+    },
+    {
+      "page": 242,
+      "media_order": 1,
+      "sha256": "0651409c4477d46ef9edb6fd30394b596a637d6df4a8fefc0841b153218224b4",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "kneel"
+    },
+    {
+      "page": 243,
+      "media_order": 1,
+      "sha256": "d1044aabda9430624d75bcdf5b1a0d91974f95d0ba2877b896908b8fffbf0e34",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "recognize"
+    },
+    {
+      "page": 248,
+      "media_order": 1,
+      "sha256": "0b2702b0f9b4b573baf13a64fc0001d003c98dac5f8534ddd1c6f38b6ab6a741",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "crack"
+    },
+    {
+      "page": 250,
+      "media_order": 1,
+      "sha256": "7490d688d3e6358bb4e946d80f9e5fd33ffa06ef0e450588321fc371c170871d",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 250,
+      "media_order": 2,
+      "sha256": "855aad9766a36daeb0b9e49d7f5d92da815cd603783e6446c084ec297da070ba",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 251,
+      "media_order": 1,
+      "sha256": "6860a5a1c093374941ac514987211168a5bb094af4474d63c3124baab9fff992",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "divide"
+    },
+    {
+      "page": 253,
+      "media_order": 1,
+      "sha256": "b45427c5f838681c13ee898fccad6c25563de66f8a234ddf13f68557cff11c2f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "tome"
+    },
+    {
+      "page": 253,
+      "media_order": 2,
+      "sha256": "60c671b83d8c58d249bba641b9b78b186dd8415aecac3aff30126faa29ed7a56",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "ridiculous"
+    },
+    {
+      "page": 258,
+      "media_order": 1,
+      "sha256": "781c16011397c42d8461c29ab4d368ce302124d576ea7b21dfb14331f74cd502",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "fantasy"
+    },
+    {
+      "page": 260,
+      "media_order": 1,
+      "sha256": "88dca82bbb4de9622a4b1b410bd1b5635224d97e954624cfb1b1d328cb35df0f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "overhead"
+    },
+    {
+      "page": 261,
+      "media_order": 1,
+      "sha256": "4a191b64e0a7a2cfbeaece4f0750175fc8127530517954778369e24018dc23ec",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "prey"
+    },
+    {
+      "page": 263,
+      "media_order": 1,
+      "sha256": "2255f7dddd838a0b484b10b40b0e7e9326d361387ee8496bd186ffe74f84dfed",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "tutor"
+    },
+    {
+      "page": 266,
+      "media_order": 1,
+      "sha256": "d43e633e94d744b7e4812560ba7fd5ba92ae94ff74e270ea7771da75ac52db1b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "shrink"
+    },
+    {
+      "page": 267,
+      "media_order": 1,
+      "sha256": "ef9b89e17d78199355cb73aad9e0f0b196b74ae60715e23044bc7634a093cb4d",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 267,
+      "media_order": 2,
+      "sha256": "9324a11d61533fb40ced2de652a9179ca72617bd2287f93368822920e4e26be5",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 269,
+      "media_order": 1,
+      "sha256": "4d5d716eaff37de104f3fb1271be38ea7ee1dd40fd9271fa83e800557e471f4a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "flame"
+    },
+    {
+      "page": 273,
+      "media_order": 1,
+      "sha256": "be78e2369d46963995ba0f3ca42178e3f5e5995f31b88d863d25572fb35b2d00",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "favour"
+    },
+    {
+      "page": 275,
+      "media_order": 1,
+      "sha256": "7914caf11847d4a4f4772b294b2f1493ed37f0de68205d7b54ef2f0ff6c12669",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "refund"
+    },
+    {
+      "page": 276,
+      "media_order": 1,
+      "sha256": "d69bc1e230327539d234275897209a1bc44860bb9dd965f7298cf774caaf0ccd",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "scatter"
+    },
+    {
+      "page": 277,
+      "media_order": 1,
+      "sha256": "6f82cb08da5f0831084c73602845c890d747093ea756b04327e661db268a2cac",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "appetite"
+    },
+    {
+      "page": 280,
+      "media_order": 1,
+      "sha256": "980d4a80742994e805900144b05ef3df3ee8f1194c509804d5a90f15b559d03a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "relief"
+    },
+    {
+      "page": 281,
+      "media_order": 1,
+      "sha256": "9dae6808795b22724983f9f436ce9c5f0101470587ab91e12015346e11038003",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bent"
+    },
+    {
+      "page": 286,
+      "media_order": 1,
+      "sha256": "c80c7b6816ee0f5792d226de128af39a56f36b1d44060943efaeccb47f5fbda6",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 286,
+      "media_order": 2,
+      "sha256": "67eaa30c286cd7e83eefe41830850dbd1ede22703bdac5c7a4f1ad548416ae7e",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 290,
+      "media_order": 1,
+      "sha256": "e7247201ce126df7462f12c251f12748dcada96a8edc551b40c6cb67fc6ea188",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "scratch"
+    },
+    {
+      "page": 292,
+      "media_order": 1,
+      "sha256": "324d24e45f9117ab49fd71fba119499cf2a28a4a49c587dbf1b7d3d32b85e08a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "artificial"
+    },
+    {
+      "page": 298,
+      "media_order": 1,
+      "sha256": "ea25078d9ac880bbedc7b9f2f4c28a94e0e2326d00635c74901c2a1d3dd0f0b0",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "congress"
+    },
+    {
+      "page": 299,
+      "media_order": 1,
+      "sha256": "951f2d48f34a8c91c6ebbae3837ffece6f94e2ea6a293286bc20f32d7030113a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "splash"
+    },
+    {
+      "page": 304,
+      "media_order": 1,
+      "sha256": "f5074cc4799ed1eb152f17fffd29cd90a91264056686f1b2dacb52c11e62105a",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 304,
+      "media_order": 2,
+      "sha256": "a81000d4aa019e3f520eefe650f1ab464b2a24c880c0d65222dee1272d704540",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 307,
+      "media_order": 1,
+      "sha256": "87ee468529d27c759c8aea31b89d45d2d96413c53c04c80eddb0f1cb53c8ee15",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "attract"
+    },
+    {
+      "page": 308,
+      "media_order": 1,
+      "sha256": "339581350ea1d542a599799f6fb765dc0a32c25c87f4f2ec4222d99f785a4db7",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "blend"
+    },
+    {
+      "page": 311,
+      "media_order": 1,
+      "sha256": "c978e277c7b34e94d9a733b4d902ddeeac707b80b4815c1082c648bbc713bc0d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "pedal"
+    },
+    {
+      "page": 316,
+      "media_order": 1,
+      "sha256": "b3d71a37af292b917b46532b30214fa5cff874a2a56b2d254b261ac9e2d631ab",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "dissolve"
+    },
+    {
+      "page": 318,
+      "media_order": 1,
+      "sha256": "ae2d1d041294b66e8351dcfa570768b20385ef1aaaf360a3102c746b7bddef32",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "accommodation"
+    },
+    {
+      "page": 319,
+      "media_order": 1,
+      "sha256": "165993d33bed47e9cec3421b3e8186a49fdef7552978c6e46a7beff1a151a661",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "adhere"
+    },
+    {
+      "page": 320,
+      "media_order": 1,
+      "sha256": "9c12d86a045aa7d6515e23f71a3516ee3c146c308273ebddf54a305fe293d2f4",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "posture"
+    },
+    {
+      "page": 322,
+      "media_order": 1,
+      "sha256": "1513a3dbd41aeae2986c94c01bad54f31628026dbc4d1cdef01e33259d9c2f5c",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 322,
+      "media_order": 2,
+      "sha256": "dd3766ac362bc57dfd9abf841270676da1c64bb6816f83e01d22489cc9c121b2",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 325,
+      "media_order": 1,
+      "sha256": "90dde1847052bfdf3ccd473a8fa1b0233e5c1c64cbaacf518002f39522c2748a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "teem"
+    },
+    {
+      "page": 327,
+      "media_order": 1,
+      "sha256": "7972e503753fc474c5c1318203b2817c6ce5bf3a2b4fa2662c8ccff6dfbc6a8c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "pregnancy"
+    },
+    {
+      "page": 328,
+      "media_order": 1,
+      "sha256": "7da2b2738ddbc400c5b70058314429ed7cefc8861c9cd0f86e54e990ab06e5b7",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "balcony"
+    },
+    {
+      "page": 335,
+      "media_order": 1,
+      "sha256": "b57dd9478de67fa4460edef26c330670c76c174137c51a38015aa9a3317bfc9a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "deceive"
+    },
+    {
+      "page": 335,
+      "media_order": 2,
+      "sha256": "2b5d6fa49694287d12f0272497101529fa551ac5425207516841a7347c3d2568",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "haul"
+    },
+    {
+      "page": 336,
+      "media_order": 1,
+      "sha256": "0a6f4ba46d971331fb67d6d2dc206d7ea14089ada4e0191a596f4e5469113a64",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "crash"
+    },
+    {
+      "page": 340,
+      "media_order": 1,
+      "sha256": "cb1e5101a85064854d4a75e68edb50a471db2d5ab212059805f3611e6457689e",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 340,
+      "media_order": 2,
+      "sha256": "5c8c3e6da335858ba853694816c72bdf3ab09d355d0e76477ff0519cfe79a0a7",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 342,
+      "media_order": 1,
+      "sha256": "dc370fd522904bb28694c2606f5bce0c50caa173bbf5a961640645ac514a2f12",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "toxic"
+    },
+    {
+      "page": 344,
+      "media_order": 1,
+      "sha256": "9da6297eca720a29d62028874d32c9e599e85b1ff06b385baf22a75712211a35",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "embrace"
+    },
+    {
+      "page": 345,
+      "media_order": 1,
+      "sha256": "f4047dd9959a08ec56133c58fda416518e4ac2df409553e599350b07cbf2f217",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "commentary"
+    },
+    {
+      "page": 346,
+      "media_order": 1,
+      "sha256": "9d3b4d1e379ca7b97b63f817da769c4da07da7d16e5eb6978e672c54104314a2",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "prohibit"
+    },
+    {
+      "page": 348,
+      "media_order": 1,
+      "sha256": "f67d9eab48ff7cefaf83215534d557242525a1297e8b5770564109ca66f02c52",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "discount"
+    },
+    {
+      "page": 354,
+      "media_order": 1,
+      "sha256": "0f9332b572287a4c8253365e10bcf05aa5007f191504d8c3e154112a1655442f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "blast"
+    },
+    {
+      "page": 358,
+      "media_order": 1,
+      "sha256": "d8c44f479616744ac4d910cfddb0332493e714d0e319c25447239ce47e8db0c7",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 358,
+      "media_order": 2,
+      "sha256": "8677373255966c42ebdc4ef87d96a19428d201010f6388ccbbbf92af516eeca4",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 361,
+      "media_order": 1,
+      "sha256": "a222504f06f4c332f819a434ddce104cf3a2b8082ce190fd5161c606157e9ba0",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "profile"
+    },
+    {
+      "page": 364,
+      "media_order": 1,
+      "sha256": "8ceda0124ed79cd62a5bc47f8123ae6ab73f57ba90e9cca969df847cfb858f3e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "initial"
+    },
+    {
+      "page": 369,
+      "media_order": 1,
+      "sha256": "1135144f1563cc0471b48ec86397cc3b873cb5ab8e2357c8e8260e036f965c58",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "entrust"
+    },
+    {
+      "page": 371,
+      "media_order": 1,
+      "sha256": "8c6ce2d2aabe9baf69eed0b8e842ecdb5cb62698ce1df4ae778cb48183e2f881",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "leaflet"
+    },
+    {
+      "page": 372,
+      "media_order": 1,
+      "sha256": "adb47778a1127b81d353111191d72624e5fb291a3cebe76f31b8726c90094d88",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "hatch"
+    },
+    {
+      "page": 377,
+      "media_order": 1,
+      "sha256": "acd6bd91275cdcf2d95ec9455d6fab120c7dd67941eb6ffeedf442ccfc682206",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 377,
+      "media_order": 2,
+      "sha256": "d18a956aa60a5fb2b150e817bfda75138094a599296dbbc9302480f0e2b7eca9",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 379,
+      "media_order": 1,
+      "sha256": "d6f9aad1f285bbe59ea787925d78271554950d4706abebe294d959e514fc47f1",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "binoculars"
+    },
+    {
+      "page": 381,
+      "media_order": 1,
+      "sha256": "85bee0725cf796309f44b61d95a3dedfd247b68a5ba1c8dddbadfca8fe0f8aff",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "robust"
+    },
+    {
+      "page": 382,
+      "media_order": 1,
+      "sha256": "813f328164b7c8b799beac315578681e46f962efaf163d22ef393cf9f7c0f5c9",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "withdraw"
+    },
+    {
+      "page": 389,
+      "media_order": 1,
+      "sha256": "8ba979d5740280c6a7cdf76cc10d57d1d7f6c1dc27c5d7e46e1302be4eed38b4",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "subordinate"
+    },
+    {
+      "page": 391,
+      "media_order": 1,
+      "sha256": "5045fc8f97d2be0094f72407ac5dfcda1c71b8f61bd7f4880e984e9eb79729af",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "recommend"
+    },
+    {
+      "page": 393,
+      "media_order": 1,
+      "sha256": "0dc76a0f8834df5e59ea02560ed46941d7f22705326f00f0052a1a12a955f925",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "explore"
+    },
+    {
+      "page": 395,
+      "media_order": 1,
+      "sha256": "a28daf96e10df872840c9d2bea53829f4f89959a8c80e464fbf413c3fd33105b",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 395,
+      "media_order": 2,
+      "sha256": "0130c7d2fa76b64c4512721f4ea068865e07e8ec7d5b5312577bd4a8e97340a1",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 398,
+      "media_order": 1,
+      "sha256": "715d663aeae5d7c41e4d47d05b0d2f5c25a0c96f17f8e61bce065423ec831fde",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "decade"
+    },
+    {
+      "page": 405,
+      "media_order": 1,
+      "sha256": "9c0025deb88b5a8abd5d3b203ea4d85825bde2b4fe1397d6be651d1f726a226a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "headline"
+    },
+    {
+      "page": 407,
+      "media_order": 1,
+      "sha256": "6e4505d1f850a976f5ac34256068e14ce092d6806eb36e20041f336ae7a5cf3c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "capacity"
+    },
+    {
+      "page": 409,
+      "media_order": 1,
+      "sha256": "bf718961fda30a84ed8f912d7ebefbe871f2ad811664597c86d6a671a725d10b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bizarre"
+    },
+    {
+      "page": 411,
+      "media_order": 1,
+      "sha256": "be1ad3a1a8253fdd836221dad8562aa4b5d734e4399b5ba7a45d7617d77dd573",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 411,
+      "media_order": 2,
+      "sha256": "88d58c8de5fd2d9b9f961aa7cfde968d2143e91c0a3dd681d0144d9f33d24c64",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 412,
+      "media_order": 1,
+      "sha256": "1d976dd2c4075dc26536b9f7cfab4aedb6fd0b7b43b618d5131d2458dce821d8",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "pressure"
+    },
+    {
+      "page": 415,
+      "media_order": 1,
+      "sha256": "846b074760291c9c5c50038489415185821fb2876f42219652ff1cc6415e6b5b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "abstract"
+    },
+    {
+      "page": 419,
+      "media_order": 1,
+      "sha256": "d3cfdeabfe837b11097c91abd2d94fbe4a69f0500c4c66aa09e8e7bcfb6065d3",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "loath"
+    },
+    {
+      "page": 420,
+      "media_order": 1,
+      "sha256": "93359a24364307d77ba6385350a87882205f867edf1452d259046bb30bdf9e5a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "nightmare"
+    },
+    {
+      "page": 423,
+      "media_order": 1,
+      "sha256": "622dbde20c992b76acdced4eb7d1440c4b6a33f30412f47feb9d75bd8c10a07c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "alternative"
+    },
+    {
+      "page": 426,
+      "media_order": 1,
+      "sha256": "2782e8795bdd9865468dbcae95a855827ba205daf2945aae66b98e4f7ee749e4",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "tan"
+    },
+    {
+      "page": 429,
+      "media_order": 1,
+      "sha256": "ecbde2d6dcb8d709c52addf685c19f1ab9111fecfeb775cdf2d979d2b3e3b338",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 429,
+      "media_order": 2,
+      "sha256": "87ed2a309f523731bc1a699ead49a30f05c14cd2035af5fe268308c3466c20f0",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 433,
+      "media_order": 1,
+      "sha256": "df7d1d5a310269888c9c6ae8deea256ab8b2c352088ae610f3e0e82ff4680f12",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "hiccup"
+    },
+    {
+      "page": 439,
+      "media_order": 1,
+      "sha256": "1d448c020acd151c374458e7d3c11e2c28112c0abf36e16235d5c0e17eaaf8de",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "spectator"
+    },
+    {
+      "page": 440,
+      "media_order": 1,
+      "sha256": "88d6920640048a320cb133d96aa1766c5716668bfb6bd9009477fb5753fd0c73",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "entail"
+    },
+    {
+      "page": 442,
+      "media_order": 1,
+      "sha256": "5c251689210b9c8a79ed2e450576da26dffd58e13fe7d8e8e31aad4ee52a03ea",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "desire"
+    },
+    {
+      "page": 446,
+      "media_order": 1,
+      "sha256": "e4565e8a4273afdb799dd9292c499cf7fa5c396e584e5519b6c6d076fb415c59",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 446,
+      "media_order": 2,
+      "sha256": "a1f281754f1b88a88d3f93af67cf3702ef97e80beb788dcf228bb548d3ff9b8a",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 449,
+      "media_order": 1,
+      "sha256": "8ead572970271717db12b67ff1f9d9f711fe49d80bc32e616c586bf0306ae84b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "womb"
+    },
+    {
+      "page": 452,
+      "media_order": 1,
+      "sha256": "d949c8246ce53e705de9aecce54cab74ab7414c34a9ede875e964aad125c84b6",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "overlie"
+    },
+    {
+      "page": 454,
+      "media_order": 1,
+      "sha256": "d8cd8fbdd7b81e8cc39bf8b242cbc20eddc7e845645f8c930b8d40d3b8e47c8d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "halve"
+    },
+    {
+      "page": 455,
+      "media_order": 1,
+      "sha256": "2cbc0c640fb1e401a6146ab418934b7908c4327a5e64eb764815fcec19e75ab3",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "voyage"
+    },
+    {
+      "page": 458,
+      "media_order": 1,
+      "sha256": "358a9498177e69f18858cc75160518a8815391e53fa6536a40b9ff9c8c757c28",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "operate"
+    },
+    {
+      "page": 460,
+      "media_order": 1,
+      "sha256": "22bbc9240da11d45b1b560282b6cac87897a487e64aa5d8db3eec6780af3c791",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "load"
+    },
+    {
+      "page": 463,
+      "media_order": 1,
+      "sha256": "29ed99c9f8b718bbad3e7b3e4283165315db0f566346ea520c854d9f8e28c19f",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 463,
+      "media_order": 2,
+      "sha256": "75f6cd20e7227fc17602cd3da2b7581f9488bc19912fd2ccd3bf6b41d5d1527e",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 469,
+      "media_order": 1,
+      "sha256": "7edb0b1884ab447bba5d8f2ad9685932e4031afc0726e950c9c05b9f71e5973d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bilingual"
+    },
+    {
+      "page": 473,
+      "media_order": 1,
+      "sha256": "99de0a1c889b2131e3f24057642417ed3939086fcada8d674e1b29c9882b8a3e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "reproduce"
+    },
+    {
+      "page": 474,
+      "media_order": 1,
+      "sha256": "fccf05738850d47cb6112b0c194eb43b0d0029debe6c59d8f196efc4ddc4bcd4",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "acquaintance"
+    },
+    {
+      "page": 478,
+      "media_order": 1,
+      "sha256": "64c5c104fcee41ab646051c88c3584810cd9a9ae0b6c710e7d37447d91a349ce",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "prescription"
+    },
+    {
+      "page": 479,
+      "media_order": 1,
+      "sha256": "2f65892a2cfe5155b7f91bc1145f1cc4537460aac0df348eb11e928c4eacbc75",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "compose"
+    },
+    {
+      "page": 481,
+      "media_order": 1,
+      "sha256": "833bd99ace135c130ca7fd7f936ab275bca462b4d3e0f639d3c523b98b5fa8f2",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 481,
+      "media_order": 2,
+      "sha256": "e4a88dfde3744cbe0232d776d30d449a0eebec1a3830bba97585127cb473a683",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 485,
+      "media_order": 1,
+      "sha256": "9b26fe26e5ae9b2450de4c501e146f6a040f6480cbb4fc5b03527965498982d7",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "outlook"
+    },
+    {
+      "page": 489,
+      "media_order": 1,
+      "sha256": "bb3b571076c8d614573e04bd0c1e7c04120084dafa2d5991251d507494542c11",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "exhaust"
+    },
+    {
+      "page": 493,
+      "media_order": 1,
+      "sha256": "43fe774fb89538e1293cdc22cb09fafc8ca9b3e18d2a4dced67c6659c420a624",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "capsule"
+    },
+    {
+      "page": 494,
+      "media_order": 1,
+      "sha256": "55cbad39dd63a1bc9ef2f47e12b41eec402ee808f82124aa7d353a7f2140d379",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "conceal"
+    },
+    {
+      "page": 499,
+      "media_order": 1,
+      "sha256": "8d873ceed66868e340c3b57e6edd412cc471271f265d7a8955b3a34b7b36b09a",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 499,
+      "media_order": 2,
+      "sha256": "4eeb0fe88b0447d8df064e27ef6ddac86843746f36fba58d7aa8b334b01a28c0",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 501,
+      "media_order": 1,
+      "sha256": "e298fc5cd035f8897a2402341c1ced8906e9b4c3da44a64b9e7c368e4fa9f38c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "prescribe"
+    },
+    {
+      "page": 503,
+      "media_order": 1,
+      "sha256": "a71e9d5d36ecc6ffd533c86a80c768e9e5ee26067481a9a4403a24aca5993245",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "scamper"
+    },
+    {
+      "page": 506,
+      "media_order": 1,
+      "sha256": "65c27f9a89f32564acea5ac4952985db5c9cb09054a342d38372a1c453880897",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "friction"
+    },
+    {
+      "page": 510,
+      "media_order": 1,
+      "sha256": "a1c4aa2af9034532e1f9d53fdae8f25df6513ca88d1ac475bef94c975f63103e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "indicate"
+    },
+    {
+      "page": 511,
+      "media_order": 1,
+      "sha256": "7028622f4ed05d3fe20738671b43b12781aeea3f69b14a0f1f07e95bebaebd50",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "trim"
+    },
+    {
+      "page": 512,
+      "media_order": 1,
+      "sha256": "afa5f4378b839c25f51af4b7d0eb35f8bdc72a1162052b678bdbc9bd7222ed39",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "glimpse"
+    },
+    {
+      "page": 517,
+      "media_order": 1,
+      "sha256": "721623389beb06181f274f2b1575a8125c3da831c18716914f308feb97ca2675",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 517,
+      "media_order": 2,
+      "sha256": "94e9f4aee8114ef0b3a3fab814523b882e705e2e7da3cbf24a16f46be921bd28",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 520,
+      "media_order": 1,
+      "sha256": "2e400df844e2e1bfb25515ac1141ab59a7876a6c257bb43f22b04b35caf87918",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "patriotic"
+    },
+    {
+      "page": 523,
+      "media_order": 1,
+      "sha256": "25cd1a8abdb5ff0e5dc1fc18885910ec4b496c65bd4d5a6e579482d6d6d628d4",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "scour"
+    },
+    {
+      "page": 527,
+      "media_order": 1,
+      "sha256": "240d9e5b79dc79c485686d7e2f9ea7be1b97f2b2b5108d6c2fa238b59341d831",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "loose"
+    },
+    {
+      "page": 531,
+      "media_order": 1,
+      "sha256": "52f528353d93043f1423111ab07f9d4806faa8d4f64543dc966666df0b3ab579",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "pepper"
+    },
+    {
+      "page": 536,
+      "media_order": 1,
+      "sha256": "aad8c8e271c566175ccdb81c52b9c7cade8b0e6c7cde171616318e10060d2174",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 536,
+      "media_order": 2,
+      "sha256": "315270dfe478cd1bc855d4e7046faebee96a511882f5ea11788df8c541ff42ac",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 538,
+      "media_order": 1,
+      "sha256": "e2006a5a5831dfed84ccbe593ff38bb4014e7f58803afef3a898630c3463062e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bouncing"
+    },
+    {
+      "page": 540,
+      "media_order": 1,
+      "sha256": "c5cf065591dfc311b63e514ec76e6e33801d7589615c843bc09807f037289a11",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "allergic"
+    },
+    {
+      "page": 543,
+      "media_order": 1,
+      "sha256": "fa2128933df413b2a361cf788d98c95ed23481c363e11ab68e546a61d4ae9452",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "spill"
+    },
+    {
+      "page": 549,
+      "media_order": 1,
+      "sha256": "4b486aa7ead959f9c02af69f8f7689fd763cb44358e3685fc2ee59b70af5c2fd",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "alarm"
+    },
+    {
+      "page": 551,
+      "media_order": 1,
+      "sha256": "221d229fd19ba2353daab0084bcc5e88009b8ce16e6419a450ed0562b62b24fe",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "rely"
+    },
+    {
+      "page": 553,
+      "media_order": 1,
+      "sha256": "190b27d3dfa724fb94def74948abfb8bc8e57e22a8e3196dba64158781429186",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 553,
+      "media_order": 2,
+      "sha256": "8c5b3efe3e6d9972d12056adcd5c31e433b8c776fa644c0dc17e6a825c17b3bc",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 555,
+      "media_order": 1,
+      "sha256": "6c509e72a46c5977f718d78157989a23df26b5d9d5b9fb377f977da63d289004",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "enclosure"
+    },
+    {
+      "page": 559,
+      "media_order": 1,
+      "sha256": "5032572f770157e6b763bbb17d6915238fb92164a530e4b00ec5b72596e65563",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "unveil"
+    },
+    {
+      "page": 560,
+      "media_order": 1,
+      "sha256": "2d3f9d6c2e0c6f8309810cf256955f13fad1beb09e11335f4dd65f93b637c57a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "thorny"
+    },
+    {
+      "page": 562,
+      "media_order": 1,
+      "sha256": "040ccf86bd3ef3438ec7fda7ae7e186fe3ecf4751460edcdc837321665b7827a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "submerge"
+    },
+    {
+      "page": 569,
+      "media_order": 1,
+      "sha256": "7d31b3400391948d623267b347aaf1ca5f94cab9974f1ff47a99fe93bc3f9ff9",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "focus"
+    },
+    {
+      "page": 571,
+      "media_order": 1,
+      "sha256": "0628f3a6bb27244028d4481ba65e28a9c400256718be0956c71fd2f4702d3598",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "cafeteria"
+    },
+    {
+      "page": 572,
+      "media_order": 1,
+      "sha256": "b0a06d32c5f05931b87cc2c374a128fa8fb0c2989b1fde112bd1ab39a8402bd2",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 572,
+      "media_order": 2,
+      "sha256": "680bfff05f39226d1aeb63ce8997d8fb955f73930ae2241fc9ffcd82142f3d01",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 573,
+      "media_order": 1,
+      "sha256": "d0c2f2fb1eac0e29b500bd4b20d80ff7088b386072fb8284c384dca916286d23",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "dairy"
+    },
+    {
+      "page": 577,
+      "media_order": 1,
+      "sha256": "a2a3916e18befc0e42afc68e07e33e8b45069b697dc1bdfdf72c330ce7cbe572",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "credibility"
+    },
+    {
+      "page": 583,
+      "media_order": 1,
+      "sha256": "7ed586f0248eff9f7cd85086f33170331677bb7bef2b7265e5da41bbc7bb864d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "dizzy"
+    },
+    {
+      "page": 586,
+      "media_order": 1,
+      "sha256": "30ecc85f28f5e7beec55bccc2ee2c1898d562c40465f35bfe312f998dafd8ef9",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "visible"
+    },
+    {
+      "page": 588,
+      "media_order": 1,
+      "sha256": "8207e644a05511db0ae5713182ddc321506ce6fdbe2d54c4f2f0525cae88fbec",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "confusion"
+    },
+    {
+      "page": 588,
+      "media_order": 2,
+      "sha256": "3bad591192848edd5ea9d2d6f5e8124d1b830d30489cf2cbf334aacddf4693c7",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "huddle"
+    },
+    {
+      "page": 590,
+      "media_order": 1,
+      "sha256": "bde3dedf9253753604122298d7bbe51cc4f7d4e5ef86aaf9f86de635963baf14",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 590,
+      "media_order": 2,
+      "sha256": "786aa57e230b3c3555b7e32d99ca5aad5cc885eda0bceb461213a2f8c5c41ed2",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 592,
+      "media_order": 1,
+      "sha256": "4d7d41834a205eb9913720ee417ddf03a9c2d1a2799e0dcafc71a29cd4dc4162",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "imitation"
+    },
+    {
+      "page": 599,
+      "media_order": 1,
+      "sha256": "1e738117a229d8042a031d0a0652bff11fa2fb01bc9922b3e00a1992d5476a2a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "taunt"
+    },
+    {
+      "page": 600,
+      "media_order": 1,
+      "sha256": "87b386a0d302519584d1e5bcb12d560de9621ab53f24f852f38626c56f611f1d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "invert"
+    },
+    {
+      "page": 604,
+      "media_order": 1,
+      "sha256": "1ebc11815d491427183f4b235a5474ed74162d971bec772a0310bbf82ec23967",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "equivalent"
+    },
+    {
+      "page": 605,
+      "media_order": 1,
+      "sha256": "dbec0290b8ba3a4381d5cb633dc53484ab2c069355aa0f9dd8192a2fc13f7f29",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "treadmill"
+    },
+    {
+      "page": 608,
+      "media_order": 1,
+      "sha256": "05e4dfe2cb3b67e1cb747801bb1052e9c4177d7ffe861a8926d15d13881d8afa",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 608,
+      "media_order": 2,
+      "sha256": "c477398504d30bd045da726120caa1f2037d8561d14fbea80fa88e22097d5da2",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 610,
+      "media_order": 1,
+      "sha256": "a4dcb439e5b4ae9761885296b261d6366723a4d05dca067c4da889c8462c2127",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "lane"
+    },
+    {
+      "page": 610,
+      "media_order": 2,
+      "sha256": "de4edeca9cd582b3d42e6b59345bdd47130a92b877d3eeba087570713c82ae15",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "session"
+    },
+    {
+      "page": 616,
+      "media_order": 1,
+      "sha256": "bbb12da863344e3337f3ccdcbfc98792cf736313301d48506388250076788390",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "malevolent"
+    },
+    {
+      "page": 622,
+      "media_order": 1,
+      "sha256": "b3a8ba47b0f47c0c96336314aaa3a3708fc87cd8ef705a6410f94d7ca1c1e90e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "orchestra"
+    },
+    {
+      "page": 623,
+      "media_order": 1,
+      "sha256": "942a07e2a1d1f1b312bde72b3a1ca3beb4a1c85557071f6e0160fe284d6ce741",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "radiate"
+    },
+    {
+      "page": 627,
+      "media_order": 1,
+      "sha256": "f657378161a8287685c5aa9acea98b7d41a7386fdcb1cf15129c67fdb0e87cb1",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 627,
+      "media_order": 2,
+      "sha256": "e8669ee0f01f3d472bed777c9e55cbf464874e4580c80a32746d77bc72a2e5de",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 635,
+      "media_order": 1,
+      "sha256": "69eadecc6722b8b26da1894832904c9f605a2917357d90ae65dc6541f02fcd49",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "incur"
+    },
+    {
+      "page": 636,
+      "media_order": 1,
+      "sha256": "c57874ff5094c9f1724f1b92e3cb4239c3c98787a44857c029de502448164cac",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "limitation"
+    },
+    {
+      "page": 638,
+      "media_order": 1,
+      "sha256": "f44c2de4d98d5f4e5198955039941a7eb907e6a6400ee39b7af1319ecbe3da91",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "vision"
+    },
+    {
+      "page": 641,
+      "media_order": 1,
+      "sha256": "e5c01595ec31cd6542efbd570150ac93716f1844c88211d9e36df2b6e54e0aa5",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "detail"
+    },
+    {
+      "page": 643,
+      "media_order": 1,
+      "sha256": "99e4f47614c518d7c406ecbb12269d4cd62716bf7bb9259d92ced74d432c435c",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "unemployment"
+    },
+    {
+      "page": 643,
+      "media_order": 2,
+      "sha256": "eb73f6f6acca1591935b52bad45740073a7a83e80dc7da85183b3429c026814d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "slogan"
+    },
+    {
+      "page": 646,
+      "media_order": 1,
+      "sha256": "47b1e798534c743cc0f63e82708c0cd5eb4a1ed2670f0516a1d521c74e8f983c",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 646,
+      "media_order": 2,
+      "sha256": "986c9491573bbd64b270828c40215d142cefbc7930d9172d221144e33529d71f",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 648,
+      "media_order": 1,
+      "sha256": "579543384205406e0b5c0d7a18401cebb17af7731dec47bbb07bbe0ac697c9a6",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "equation"
+    },
+    {
+      "page": 649,
+      "media_order": 1,
+      "sha256": "1a2bc145ed54051ac6b57329a8eadffd6507e4884f5359d7bb4346dcefa00116",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "accelerate"
+    },
+    {
+      "page": 650,
+      "media_order": 1,
+      "sha256": "2261796bad2d1347ceabeb2c90b195f4f2e90658427964c7f01a2ad47fd19183",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "compass"
+    },
+    {
+      "page": 652,
+      "media_order": 1,
+      "sha256": "52c63a9e719b17404ac9ad62c4045322ae929196a574e8323d36bd300f24703a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "encompass"
+    },
+    {
+      "page": 654,
+      "media_order": 1,
+      "sha256": "2791bd933cf6daf97a41bea5330bbd61e25f5365431adfd6ec47627d4245c6ef",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "unbeatable"
+    },
+    {
+      "page": 659,
+      "media_order": 1,
+      "sha256": "389a3d679e9ce7272e0e8c7434b19e1a34736721bb7f5ae1a8e9e5678210e0e3",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "collection"
+    },
+    {
+      "page": 662,
+      "media_order": 1,
+      "sha256": "b8cb410f4e9c8a930d095ed23b903093633d7e8dfd7376bdd0b98d5293b0533e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "boulder"
+    },
+    {
+      "page": 665,
+      "media_order": 1,
+      "sha256": "0fc49ed741c2fa911f0dfdac243c6b46ab59f1a28148fcd0c569d146ed03ce30",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "HUMAN_VERIFIED",
+      "association_method": "human-review",
+      "association_reason": "LAYOUT_SIGNALS_DISAGREE",
+      "lemma": "evolve"
+    },
+    {
+      "page": 666,
+      "media_order": 1,
+      "sha256": "11e0a19aa5041e6df79462e91f83c415b5808909000f75816abf32e942919380",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 666,
+      "media_order": 2,
+      "sha256": "e67c1b1e4964ad5b2aafab66cef44733f11fd64da58861e847171e9d59e51aa8",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 667,
+      "media_order": 1,
+      "sha256": "73f1f9928dae760f972684602871dadb17e56962d8c59207979fa59e96036c6a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "chew"
+    },
+    {
+      "page": 677,
+      "media_order": 1,
+      "sha256": "cda49b907870b55e65f890f13596eacbd8b5f21483300f5cea187dcae39bd16a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "maintain"
+    },
+    {
+      "page": 678,
+      "media_order": 1,
+      "sha256": "e3bb22357d1eba396b97062dbcdc4b81138ced9b28e88b330f6d977ac6139d8b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "jostle"
+    },
+    {
+      "page": 680,
+      "media_order": 1,
+      "sha256": "1aeb807480e7109ffb784f496bc5ac9c021b35e9ee0d14228e33bc0a9c0833ea",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "optimistic"
+    },
+    {
+      "page": 684,
+      "media_order": 1,
+      "sha256": "12f1739e22404f8d6d370d942191a1c76d9758fa03a49d794b83736890231acd",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 684,
+      "media_order": 2,
+      "sha256": "0445038642cbf9fa19cb451bc4551725a0c261981db0365e1cd3d49ab45ddebc",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 686,
+      "media_order": 1,
+      "sha256": "bf0b8512ef26b5f3af4ee4d5c9499e150e17ffc2d8315ea1b4d5d6c318822399",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "glorious"
+    },
+    {
+      "page": 689,
+      "media_order": 1,
+      "sha256": "ff23968773437a9083c114c114b1f4baf1f7f7022ae36489a0c739b2868a166f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "trench"
+    },
+    {
+      "page": 694,
+      "media_order": 1,
+      "sha256": "5bfae968431845f8b2771064252e1a7ca385ab4f313c421c1ddc370763d99eab",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "brood"
+    },
+    {
+      "page": 701,
+      "media_order": 1,
+      "sha256": "15c85583da0b85fe629236946198131138e4fb48707dafaf595987a25b4330f7",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 701,
+      "media_order": 2,
+      "sha256": "df317067d3dcc5d2c5381d754eb5850e394b89e0800db3a91c6ed473277f2e1b",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 706,
+      "media_order": 1,
+      "sha256": "8dcddf7b7fa08411a48e5959e99c02c27e30627011b98961e1a10cc3a00a4b29",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "relentless"
+    },
+    {
+      "page": 708,
+      "media_order": 1,
+      "sha256": "e9590e8185d651d540af5921dfd69b87b5f5fa0f516d7cd2afc1c121030389fb",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "nocturnal"
+    },
+    {
+      "page": 712,
+      "media_order": 1,
+      "sha256": "310334e666b690cd4a1d86d79730b5c34ca995932acc6e845250aed4e5e9aeb9",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "crescent"
+    },
+    {
+      "page": 713,
+      "media_order": 1,
+      "sha256": "371f5b755a4467d2da58a3f67aef425a614c804513530c6a36859550a77ac196",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "applaud"
+    },
+    {
+      "page": 715,
+      "media_order": 1,
+      "sha256": "c3e821984f66313a5699e2461ef079be3b4a112e90b775fb19aaac8bbf591263",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "domestic"
+    },
+    {
+      "page": 716,
+      "media_order": 1,
+      "sha256": "8740f7c588ea07e868aef78d1d66ff35396287aab7eea6736b5d962a9455be29",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "responsible"
+    },
+    {
+      "page": 719,
+      "media_order": 1,
+      "sha256": "e87052630d3873fc8fb28015f4510bd072f9089f0ebbd14c32e7a55b7becd317",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "steer"
+    },
+    {
+      "page": 722,
+      "media_order": 1,
+      "sha256": "f5f5a8f0ddafc1dc57e2dc3d571fb690ccf13d6b9e3adbac5f3f0445d6595c81",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 722,
+      "media_order": 2,
+      "sha256": "78cf9b73e03a34123016113c4ffabc0c96f117f82cac674ceb5953321fd99333",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 724,
+      "media_order": 1,
+      "sha256": "a243593181de47a132dbf4b84fd4a7bbf1dbeec5a5513c8edc9f2f47e87ff4ef",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "impose"
+    },
+    {
+      "page": 727,
+      "media_order": 1,
+      "sha256": "6d9fb6052a55a55327f16fcd4a5e83071af8ca633cc934d47cad6bd042cfce9b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "topple"
+    },
+    {
+      "page": 732,
+      "media_order": 1,
+      "sha256": "82ea43dcfa60c93e75f530d6890230e71a424a1b35772f00ddb148cdd68c608f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "decline"
+    },
+    {
+      "page": 734,
+      "media_order": 1,
+      "sha256": "fb27991b1a999839c047454f68a79dea3cc06385b083b2a8543b057f417891a8",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "distract"
+    },
+    {
+      "page": 734,
+      "media_order": 2,
+      "sha256": "8d68637984dac4d8ee14cd32a1a98a965090ccaefe8b9b80603c468b5bc3f9aa",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "frown"
+    },
+    {
+      "page": 737,
+      "media_order": 1,
+      "sha256": "01584958058370ed360935d00609705550cbf0dfb08e634597eb566e95dad2c6",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "tolerate"
+    },
+    {
+      "page": 740,
+      "media_order": 1,
+      "sha256": "eaac33833d9499a2370da15d246f400139e4cda6af095665a2b42d904b9a3865",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "approach"
+    },
+    {
+      "page": 742,
+      "media_order": 1,
+      "sha256": "48a4a82765f8c512264379d87846ab4a54043d9d857297d8cf32e51b95924eed",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 742,
+      "media_order": 2,
+      "sha256": "29b1d8e63366f30d41956116a9530748519d620ca70fb67ce80828a685f34976",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 744,
+      "media_order": 1,
+      "sha256": "56d299531961db83f41734b855e4de2ae0a82f33b0677e68541c6f0bd7326a38",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "stiff"
+    },
+    {
+      "page": 749,
+      "media_order": 1,
+      "sha256": "64fb512bdf05fa2f5b3472a15b227005d7841f1ba22578a3050c8839b001b698",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bewilder"
+    },
+    {
+      "page": 752,
+      "media_order": 1,
+      "sha256": "8cbcfac20549c6da5e8bf2cba809a01d386119b1a781fa887c370350ac77527f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "flutter"
+    },
+    {
+      "page": 753,
+      "media_order": 1,
+      "sha256": "77550a5f5631fffb6786edd4e1178dc31e82585d094b5c219925f223c9531d50",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "band"
+    },
+    {
+      "page": 758,
+      "media_order": 1,
+      "sha256": "e8497ffac1e44585794a2d20624adb9efad5a39c8a890efa9a1add9f2e6df6be",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "accumulate"
+    },
+    {
+      "page": 761,
+      "media_order": 1,
+      "sha256": "10030589b15d288a04f3185851e6c3c576a3a5446bdecf95e87259271c26a558",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 761,
+      "media_order": 2,
+      "sha256": "bbdb99b1b7cc1fdc82359097ad2505d09fabf1f256c0bac60c69d4f383bd0857",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 768,
+      "media_order": 1,
+      "sha256": "19f153704094b801651627fa4b93614669a5d48aeb0fdd4d940bc49664878b8f",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "outweigh"
+    },
+    {
+      "page": 770,
+      "media_order": 1,
+      "sha256": "fc4a45351865795afe3516a4688e28bfcef57c324db191d7ff934c9d778e4ed1",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "dump"
+    },
+    {
+      "page": 771,
+      "media_order": 1,
+      "sha256": "6b54c2e1435cd1950d42c43a21834bc6b61857762c43f1e9d5ed13bef8f5b687",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "irony"
+    },
+    {
+      "page": 772,
+      "media_order": 1,
+      "sha256": "dc8493e1086f56cb68b50665f9429e9b9f1e20b5a3f51b49ce8838ade876b6d8",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "contaminate"
+    },
+    {
+      "page": 778,
+      "media_order": 1,
+      "sha256": "62e70d153e722c4ab32080ee40cc8ee4a60241f224425a1459830b681065bf0c",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 778,
+      "media_order": 2,
+      "sha256": "ac2445615c34360bf1019e5967a4e60a77b0bd98a5c1deddcef6657e6bcc18bf",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 781,
+      "media_order": 1,
+      "sha256": "73be8cf9619ff696483bfa363d39e3b86f7de64ca9505e98dfa676035bcc9660",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "compensate"
+    },
+    {
+      "page": 785,
+      "media_order": 1,
+      "sha256": "ba1861360649c0cfbe73ac58b9a58e8c5a7b320fd3a1c69a0af7ca85714905c3",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "unanimous"
+    },
+    {
+      "page": 786,
+      "media_order": 1,
+      "sha256": "c13c5529cd8a2ea35f0948c3e89a44ea55a5699fa54d77891dbef8006897c002",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "underestimate"
+    },
+    {
+      "page": 789,
+      "media_order": 1,
+      "sha256": "5c1b340d5d3c71862ddb7c2d2494135e978d18d4834709da97c9918c76520c96",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "emit"
+    },
+    {
+      "page": 794,
+      "media_order": 1,
+      "sha256": "c8299392eb19053255e223b96c876cf94d07e26f392446749f11b9a7675cd509",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "interfere"
+    },
+    {
+      "page": 795,
+      "media_order": 1,
+      "sha256": "2fa235b2626b4751d165db4b7064347e9107318081bb5c1f2ff32292dd9319a2",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "rescue"
+    },
+    {
+      "page": 797,
+      "media_order": 1,
+      "sha256": "f0d8447a292e9d49c91a2e9ea43555b9798f9af662bc402613d389a7cfbd96dc",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 797,
+      "media_order": 2,
+      "sha256": "1c69bc40d6f74b9b3da38b076d90ac0637f8e253cb5bc43a84e281d7ecc55655",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 798,
+      "media_order": 1,
+      "sha256": "dc7f97ec43a3e7712ecced74f496e8ababd985f6be8ba9cfd3758ee92b8f67e3",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "whisper"
+    },
+    {
+      "page": 802,
+      "media_order": 1,
+      "sha256": "f101150e193c3d3ced655b0cc94257e93779ecd58e7e681278befbabecf36633",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "versus"
+    },
+    {
+      "page": 804,
+      "media_order": 1,
+      "sha256": "26bad26ef68a0ef5c84ddb5deaa6048680b76d40c701b8b0cc076baa4442b095",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "emotional"
+    },
+    {
+      "page": 805,
+      "media_order": 1,
+      "sha256": "ba915cd4ee9898e7ea235b3c2ca5694c916a64722bc453b5b0cc418adeceb6a0",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "inflate"
+    },
+    {
+      "page": 810,
+      "media_order": 1,
+      "sha256": "db2631fe9f1b7bab53e57881601b338026702ef3063e8bfea478373846dd80ce",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "relative"
+    },
+    {
+      "page": 812,
+      "media_order": 1,
+      "sha256": "a5432a0edd66d6619c81b4e251be3133726ead97da67aaa96e3486ef147838dd",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "cluster"
+    },
+    {
+      "page": 816,
+      "media_order": 1,
+      "sha256": "a45c48bfc3529d7a303a525d7fec7e6bc0177cfb9a9943ac990a3e46e64d770d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "HUMAN_VERIFIED",
+      "association_method": "human-review",
+      "association_reason": "LAYOUT_SIGNALS_DISAGREE",
+      "lemma": "insert"
+    },
+    {
+      "page": 817,
+      "media_order": 1,
+      "sha256": "6940be26f8a08fb15a5176caae322b93d88f4ec7001edf9860a602b2f36cb111",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 817,
+      "media_order": 2,
+      "sha256": "ab8d369890772a833aecfbeee2c1b0d1149354417cfd7307a62d9efde49d8e62",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 818,
+      "media_order": 1,
+      "sha256": "5aa8f2606193d2947820a38e87874c5979b41217bd37a25bd3859f78461f699a",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "certificate"
+    },
+    {
+      "page": 820,
+      "media_order": 1,
+      "sha256": "d25a1a727173d5c262bb30a17290430ab88884b8d3cf2ec3810e69b680437c06",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "sheer"
+    },
+    {
+      "page": 820,
+      "media_order": 2,
+      "sha256": "4236a6805994d2716ef6280f9f93bab2ac76c77dca81bae43547d2780dfcf448",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "balance"
+    },
+    {
+      "page": 823,
+      "media_order": 1,
+      "sha256": "473a0d569da4e56f47acf923315caeedfaf2161ddc9d1b200f63353f7f2e6717",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "captivity"
+    },
+    {
+      "page": 824,
+      "media_order": 1,
+      "sha256": "953799223b82edeee7697a47400686bb8b9c6c3a734eff1db7b8b7615e192e39",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "hover"
+    },
+    {
+      "page": 827,
+      "media_order": 1,
+      "sha256": "1b1b064cab6dce43d7b603de221a4e1421ffd54c7ca3349db3c89e523d934fa2",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "individual"
+    },
+    {
+      "page": 830,
+      "media_order": 1,
+      "sha256": "8d6125eb81a50604184ee13d82ba1dd2dbcd5ce33e827a656820460ced3641cb",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "suppose"
+    },
+    {
+      "page": 835,
+      "media_order": 1,
+      "sha256": "34710883690e2b482ca3569b681917382ad79b99176d20839b2815a4b12f7dab",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 835,
+      "media_order": 2,
+      "sha256": "cfe3341c8fff334b82310deede9caffd16a3b447df1874d3b05bed2ef6b17978",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 839,
+      "media_order": 1,
+      "sha256": "d863fd227c45ef8c6105495d43b16adae74cbe31e413d140dc2f01d0df7178c7",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "encroach"
+    },
+    {
+      "page": 842,
+      "media_order": 1,
+      "sha256": "e3df8febb1bc1211d96a67d1e46977dbd240f8ce43f227e5cb6c2f6153de9baf",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "diverse"
+    },
+    {
+      "page": 851,
+      "media_order": 1,
+      "sha256": "663032e0e33b694959a694a859e294b8c912a6c0c8125de2dd06bf4a1e72c7f1",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "verbal"
+    },
+    {
+      "page": 852,
+      "media_order": 1,
+      "sha256": "d9823ccfe4049a9e372c7f1085cd9250e4d61e1dcc24ae70259199b15bdec5b1",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "saline"
+    },
+    {
+      "page": 855,
+      "media_order": 1,
+      "sha256": "9eac97d8bdb800c42b44c32629bcdccd185dfadfd8dc2f3395da9dda960fa997",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 855,
+      "media_order": 2,
+      "sha256": "01a013ca0b83ae4a6af9353ad40b661872aeac80aafa31809ca3a1cd28d1916d",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 857,
+      "media_order": 1,
+      "sha256": "774eec01006890de6ffb2879b7a0447c4ab27abf1bb60ed554a6ef2ee1ae307b",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "gregarious"
+    },
+    {
+      "page": 859,
+      "media_order": 1,
+      "sha256": "9943158380bb81d6218f6da47752c961d1e48ea0ab7ea473eb33a1a15a4d037d",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "transplant"
+    },
+    {
+      "page": 870,
+      "media_order": 1,
+      "sha256": "24d75c133c5515aaf059d56ae35df070c7182956ca2b315fece7db6cb5cf6e91",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "inferior"
+    },
+    {
+      "page": 873,
+      "media_order": 1,
+      "sha256": "8afd51ee4f0393e46de7e74dea4577c35d56c070b1c94752273de53776f7903f",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 873,
+      "media_order": 2,
+      "sha256": "09ee1977be5a549aad800ed688da65703bb96123f9777be9c5c666f7863fc50b",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 878,
+      "media_order": 1,
+      "sha256": "418b4e55b371a866d9cbe7808369a55724b1cd6f4684182879ffd097b5827f85",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "bead"
+    },
+    {
+      "page": 887,
+      "media_order": 1,
+      "sha256": "2f4dfcc26e4dbc71bd76317bae18997654f23b40d06a3d85b90c31fc58364045",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "segregate"
+    },
+    {
+      "page": 890,
+      "media_order": 1,
+      "sha256": "e5415634856fb7012c26428f48957de71bf468d93ad98a993c59740afee87075",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "versatile"
+    },
+    {
+      "page": 890,
+      "media_order": 2,
+      "sha256": "71ee5efa14e6dbe9b54861aba91677e9e7d4278136b43879466ffd985480a615",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "grudge"
+    },
+    {
+      "page": 892,
+      "media_order": 1,
+      "sha256": "40e062a7e0536ac30ab43ba30966694982178c15f6503976d7f596439d39bad9",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "ENTRY_BAND",
+      "lemma": "magnet"
+    },
+    {
+      "page": 894,
+      "media_order": 1,
+      "sha256": "1927b2266d9e7cac2e9a17b71525a5d5b4e2366fa8fd83d686770b0a81160f26",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 894,
+      "media_order": 2,
+      "sha256": "8f3384c5734f8b04e1cbf5f6bc8734460dcd5a9d2cd986a1ae46ee21bcbd9127",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 910,
+      "media_order": 1,
+      "sha256": "2894a322977923165d04d6a29c013333d5963c9dde6f58fc58a920972f7c58fe",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    },
+    {
+      "page": 910,
+      "media_order": 2,
+      "sha256": "cab7f3c375e291997532456f6296685781fffd9b758fde57a7688bdab98452ba",
+      "media_role": "NON_VOCABULARY",
+      "verification_status": "AUTO_VERIFIED",
+      "association_method": "layout-band@1.0.0",
+      "association_reason": "WORD_LIST_HEADER_RESOURCE",
+      "lemma": null
+    }
+  ],
+  "copyrighted_media_included": false
+}

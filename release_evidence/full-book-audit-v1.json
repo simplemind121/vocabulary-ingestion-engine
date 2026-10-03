@@ -1,0 +1,55 @@
+{
+  "audit_pipeline_sha256": "93ebf6338cd70b30c7f7143256f544f2d4afad0d7802231423ee2ed20c5b63b3",
+  "audit_schema_version": "1.0",
+  "copyrighted_excerpts_included": false,
+  "cross_page_entry_count": 576,
+  "entry_candidate_count": 3540,
+  "evidence_schema_version": "1.0",
+  "low_confidence_ocr_block_count": 3,
+  "native_text_pages": 1119,
+  "ocr_engine": "tesseract",
+  "ocr_pages_attempted": 1,
+  "ocr_source_block_count": 3,
+  "ocr_text_pages": 1,
+  "page_representation_coverage": 1.0,
+  "parsed_entry_count": 3540,
+  "private_audit_report_sha256": "76e4e41f23e322d1a0407237e06fb30e6a09d5dc22609819acd9286469489d4d",
+  "review_queue": [
+    {
+      "confidence": 0.8436290700000001,
+      "page_numbers": [
+        1
+      ],
+      "reasons": [
+        "LOW_OCR_CONFIDENCE"
+      ],
+      "source_block_id": "ocr-p0001-b0000"
+    },
+    {
+      "confidence": 0.8165886316666666,
+      "page_numbers": [
+        1
+      ],
+      "reasons": [
+        "LOW_OCR_CONFIDENCE"
+      ],
+      "source_block_id": "ocr-p0001-b0001"
+    },
+    {
+      "confidence": 0.1539671125,
+      "page_numbers": [
+        1
+      ],
+      "reasons": [
+        "LOW_OCR_CONFIDENCE"
+      ],
+      "source_block_id": "ocr-p0001-b0002"
+    }
+  ],
+  "review_queue_count": 3,
+  "source_block_count": 23458,
+  "source_document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "source_page_count": 1120,
+  "status": "REVIEW_REQUIRED",
+  "unrepresented_pages": []
+}

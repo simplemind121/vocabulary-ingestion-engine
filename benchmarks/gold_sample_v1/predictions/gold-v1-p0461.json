@@ -1,0 +1,484 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0461",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 461,
+  "layout_tags": [
+    "BOUNDARY_ENTRY",
+    "CROSS_PAGE_ENTRY",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "d045d3ec433bd8ad429de30112899501760fd693a72e579b76bb6a7725037ad2",
+  "blocks": [
+    {
+      "source_block_id": "e2803f5c-7c81-4c61-9931-b33dc066eea9",
+      "text": "460",
+      "raw_text": "460",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475026745291093,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672412321950886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "5d3fc0a7-6c78-4652-b161-72abb7ec92b1",
+      "text": "主权之后，罗马皇帝狄奥多西于公元393年废除了古代奥林匹克运\n动会。",
+      "raw_text": "主权之后，罗马皇帝狄奥多西于公元393年废除了古代奥林匹克运\n动会。",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.08567761660725806,
+        "x2": 0.8483462565594126,
+        "y2": 0.12457017596832018,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4bc92eff-20b6-48ac-ab59-379ed00565ef",
+      "text": "同 annul （vt. 废除，取消）；destroy （vt. 破坏，消灭）",
+      "raw_text": "同 annul （vt. 废除，取消）；destroy （vt. 破坏，消灭）",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.13364249696082003,
+        "x2": 0.8034744472202207,
+        "y2": 0.15354986875831747,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9e9d2c21-1183-4578-80b4-9c33640e2824",
+      "text": "conception [kənˈsepʃn]",
+      "raw_text": "conception [kənˈsepʃn]",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.17748321609289014,
+        "x2": 0.36827870507305016,
+        "y2": 0.1972244560812126,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "469bea73-821a-440b-8194-8ac63cc3974a",
+      "text": "n. 观念；概念",
+      "raw_text": "n. 观念；概念",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2051137460538145,
+        "x2": 0.33121810057300993,
+        "y2": 0.22485498604213697,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9679f90d-712e-48f0-9ce4-accfc65341e1",
+      "text": "例 This book is designed to help Ph.D. students by explaining\ndifferent conceptions of the research process. 本书旨在通过解释研究\n过程中出现的不同概念来帮助博士生进行学习。",
+      "raw_text": "例 This book is designed to help Ph.D. students by explaining\ndifferent conceptions of the research process. 本书旨在通过解释研究\n过程中出现的不同概念来帮助博士生进行学习。",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.23260084426458225,
+        "x2": 0.8470036492246885,
+        "y2": 0.29213732663951336,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7b71d8f8-3ee1-4e64-a901-2e4f7402d2d9",
+      "text": "派 misconception （n. 误解）",
+      "raw_text": "派 misconception （n. 误解）",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.30118688413969624,
+        "x2": 0.49725487452379113,
+        "y2": 0.3211170103676108,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c24ef9a2-8272-41cb-89e7-5e316f6e983e",
+      "text": "encounter* [ɪnˈkaʊntə(r)]",
+      "raw_text": "encounter* [ɪnˈkaʊntə(r)]",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3450503577021835,
+        "x2": 0.3947255561856677,
+        "y2": 0.36479159769050595,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "8c529dd6-be78-4c52-8bca-d97228bf30d4",
+      "text": "vt./n. 遭遇，遇到",
+      "raw_text": "vt./n. 遭遇，遇到",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.37268088766310786,
+        "x2": 0.3641544512908727,
+        "y2": 0.3924221276514303,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "b18e33fb-8e9f-4fef-bd67-0185e3bd65ca",
+      "text": "记 联想记忆：en（使…）+counter（相反的）→使从两个相反\n的方面来→遇到，遭遇",
+      "raw_text": "记 联想记忆：en（使…）+counter（相反的）→使从两个相反\n的方面来→遇到，遭遇",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.40020655331945726,
+        "x2": 0.8611192610781647,
+        "y2": 0.44055313981416727,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "915b47f7-77c0-4f90-8590-91fe5dc25546",
+      "text": "搭 encounter problems 遇到问题",
+      "raw_text": "搭 encounter problems 遇到问题",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.4483660560951897,
+        "x2": 0.5245499405816109,
+        "y2": 0.4681836697750916,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "af6f6c36-4332-4937-b29f-3d9f44b2101c",
+      "text": "例 I encountered a lot of difficulty when I tried to take a rest. 当我\n打算休息一下时遇到了很多麻烦。// Our encounter at the train station\ncaught me by surprise. 我们在车站的相遇让我大吃一惊。",
+      "raw_text": "例 I encountered a lot of difficulty when I tried to take a rest. 当我\n打算休息一下时遇到了很多麻烦。// Our encounter at the train station\ncaught me by surprise. 我们在车站的相遇让我大吃一惊。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4759306879207123,
+        "x2": 0.8665229286043736,
+        "y2": 0.5368151641396411,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "2d1f1274-ccd8-4b3c-a8b3-d2591d6304b6",
+      "text": "bubble [ˈbʌbl]",
+      "raw_text": "bubble [ˈbʌbl]",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5607485114742138,
+        "x2": 0.2800878431945427,
+        "y2": 0.5804897514625362,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "ed1b62b9-ac02-4ce5-8b32-e1832bed4655",
+      "text": "vi. 冒泡，起泡；发出冒泡的声音 n. 泡，泡沫；气泡；幻想的\n计划",
+      "raw_text": "vi. 冒泡，起泡；发出冒泡的声音 n. 泡，泡沫；气泡；幻想的\n计划",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5883790414351382,
+        "x2": 0.8490483106793886,
+        "y2": 0.6272715917343005,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "bc6e7210-62f0-4b0e-89de-11c813eb3dce",
+      "text": "记 发音记忆：拟声词，指水冒泡的声音",
+      "raw_text": "记 发音记忆：拟声词，指水冒泡的声音",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.6364051892933001,
+        "x2": 0.6213143569272486,
+        "y2": 0.6562512573385983,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "50524eec-0f4b-4aad-9677-436aea9cd7e5",
+      "text": "搭 bubble economy 泡沫经济",
+      "raw_text": "搭 bubble economy 泡沫经济",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.6640642098672199,
+        "x2": 0.4923402905099641,
+        "y2": 0.6838817872995226,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7a7006a6-4a56-4db9-b738-6b53bedfa90e",
+      "text": "例 The water in the pan was beginning to bubble. 锅里的水开始冒\n泡。",
+      "raw_text": "例 The water in the pan was beginning to bubble. 锅里的水开始冒\n泡。",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6916288416927426,
+        "x2": 0.8692362521112404,
+        "y2": 0.7306636638188861,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "410c6245-3b47-4bd2-ba88-1920de522b76",
+      "text": "sample* [ˈsɑːmpl]",
+      "raw_text": "sample* [ˈsɑːmpl]",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7559462192920308,
+        "x2": 0.31847907799730485,
+        "y2": 0.7756873867851547,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "3628258a-4b21-436d-acfb-0eef9b010aee",
+      "text": "n. 样品，样本 vt. 从…抽样，采样；品尝",
+      "raw_text": "n. 样品，样本 vt. 从…抽样，采样；品尝",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7835767492529551,
+        "x2": 0.6220164623407234,
+        "y2": 0.8033179167460791,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d558522b-631c-44cc-8247-70227e87a35b",
+      "text": "记 联想记忆：简单的（simple）样品（sample）",
+      "raw_text": "记 联想记忆：简单的（simple）样品（sample）",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.8111035385848807,
+        "x2": 0.7095799021402109,
+        "y2": 0.8309496066301789,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "86aca36f-4594-4550-a1d8-61af48174768",
+      "text": "搭 blood sample 血液样本；size of sample 样本的大小",
+      "raw_text": "搭 blood sample 血液样本；size of sample 样本的大小",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.8387625591588005,
+        "x2": 0.7620884414819143,
+        "y2": 0.8585801365911032,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "5a6e8c57-1b50-43f1-8a1b-d54628e701fa",
+      "text": "例 The main thing is to make sure we have the right size sample,\nnot too big or too small. 最主要是确保我们有合适的样本量，不能太",
+      "raw_text": "例 The main thing is to make sure we have the right size sample,\nnot too big or too small. 最主要是确保我们有合适的样本量，不能太",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8663260310611477,
+        "x2": 0.8574486982941013,
+        "y2": 0.9067111487538402,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "source_entry_id": "805d0d58-cc45-495e-9758-d053a14be00a",
+      "lemma": "abolish",
+      "raw_text": "abolish [əˈbɒlɪʃ]\nvt. 废止，废除\n例 The ancient Olympics were abolished by the Roman Emperor\nTheodosius in 393 AD, after Greece lost its independence. 在希腊丧失\n主权之后，罗马皇帝狄奥多西于公元393年废除了古代奥林匹克运\n动会。\n同 annul （vt. 废除，取消）；destroy （vt. 破坏，消灭）",
+      "entry_order": 1747,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        460,
+        461
+      ]
+    },
+    {
+      "source_entry_id": "4c4ca918-8068-461b-9175-c755a4f4341e",
+      "lemma": "conception",
+      "raw_text": "conception [kənˈsepʃn]\nn. 观念；概念\n例 This book is designed to help Ph.D. students by explaining\ndifferent conceptions of the research process. 本书旨在通过解释研究\n过程中出现的不同概念来帮助博士生进行学习。\n派 misconception （n. 误解）",
+      "entry_order": 1748,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        461
+      ]
+    },
+    {
+      "source_entry_id": "acbb4a15-33d0-4787-a586-e786f9ea15f3",
+      "lemma": "encounter",
+      "raw_text": "encounter* [ɪnˈkaʊntə(r)]\nvt./n. 遭遇，遇到\n记 联想记忆：en（使…）+counter（相反的）→使从两个相反\n的方面来→遇到，遭遇\n搭 encounter problems 遇到问题\n例 I encountered a lot of difficulty when I tried to take a rest. 当我\n打算休息一下时遇到了很多麻烦。// Our encounter at the train station\ncaught me by surprise. 我们在车站的相遇让我大吃一惊。",
+      "entry_order": 1749,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        461
+      ]
+    },
+    {
+      "source_entry_id": "75438af2-b58c-46af-ac46-ecb7edce0d65",
+      "lemma": "bubble",
+      "raw_text": "bubble [ˈbʌbl]\nvi. 冒泡，起泡；发出冒泡的声音 n. 泡，泡沫；气泡；幻想的\n计划\n记 发音记忆：拟声词，指水冒泡的声音\n搭 bubble economy 泡沫经济\n例 The water in the pan was beginning to bubble. 锅里的水开始冒\n泡。",
+      "entry_order": 1750,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        461
+      ]
+    },
+    {
+      "source_entry_id": "b9dfb46c-5b6f-47a0-9188-4c2ea8a5b07c",
+      "lemma": "sample",
+      "raw_text": "sample* [ˈsɑːmpl]\nn. 样品，样本 vt. 从…抽样，采样；品尝\n记 联想记忆：简单的（simple）样品（sample）\n搭 blood sample 血液样本；size of sample 样本的大小\n例 The main thing is to make sure we have the right size sample,\nnot too big or too small. 最主要是确保我们有合适的样本量，不能太\n大也不能太小。",
+      "entry_order": 1751,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        461,
+        462
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_entry_id": "792eb384-cf00-4299-ae5a-5935875e81bc",
+      "source_entry_id": "805d0d58-cc45-495e-9758-d053a14be00a",
+      "lemma": "abolish",
+      "display_form": "abolish",
+      "ipa": "əˈbɒlɪʃ",
+      "part_of_speech": "vt.",
+      "definition": "废止，废除",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "9b429b98-aeb4-4c05-b257-069301e8e8fe",
+      "source_entry_id": "4c4ca918-8068-461b-9175-c755a4f4341e",
+      "lemma": "conception",
+      "display_form": "conception",
+      "ipa": "kənˈsepʃn",
+      "part_of_speech": "n.",
+      "definition": "观念；概念",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "fb17e313-bdad-4d5f-ace3-0963e614fe1c",
+      "source_entry_id": "acbb4a15-33d0-4787-a586-e786f9ea15f3",
+      "lemma": "encounter",
+      "display_form": "encounter",
+      "ipa": "ɪnˈkaʊntə(r)",
+      "part_of_speech": "vt./n.",
+      "definition": "遭遇，遇到",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "291b2e8b-d72b-4b38-bc79-b8ebf42a0b89",
+      "source_entry_id": "75438af2-b58c-46af-ac46-ecb7edce0d65",
+      "lemma": "bubble",
+      "display_form": "bubble",
+      "ipa": "ˈbʌbl",
+      "part_of_speech": "vi.",
+      "definition": "冒泡，起泡；发出冒泡的声音 n. 泡，泡沫；气泡；幻想的计划",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "86fbdaef-85b9-4b42-bfb6-527e7a19d4cf",
+      "source_entry_id": "b9dfb46c-5b6f-47a0-9188-4c2ea8a5b07c",
+      "lemma": "sample",
+      "display_form": "sample",
+      "ipa": "ˈsɑːmpl",
+      "part_of_speech": "n.",
+      "definition": "样品，样本 vt. 从…抽样，采样；品尝",
+      "machine_verification_status": "AUTO_VERIFIED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@0.1.0-alpha.4"
+  ]
+}

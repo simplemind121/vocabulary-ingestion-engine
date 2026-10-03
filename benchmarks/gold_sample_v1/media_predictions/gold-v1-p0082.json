@@ -1,0 +1,54 @@
+{
+  "sample_id": "gold-v1-p0082",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 82,
+  "processing_run_id": "a5ba88aa-2b04-4208-a8e8-cf9a70692c93",
+  "media": [
+    {
+      "media_order": 1,
+      "sha256": "9f8d321804eb23fa0e0d593b35351b71202299c11019ddd70e8d636bb049ef66",
+      "bbox": {
+        "x1": 0.3884096337808315,
+        "y1": 0.22367264372662438,
+        "x2": 0.6116576376430268,
+        "y2": 0.3805440793642635,
+        "unit": "normalized"
+      },
+      "width": 472,
+      "height": 472,
+      "mime_type": "image/jpeg",
+      "media_role": "NON_VOCABULARY",
+      "lemma": null,
+      "machine": {
+        "verification_status": "AUTO_VERIFIED",
+        "confidence": 0.99,
+        "reason": "WORD_LIST_HEADER_RESOURCE",
+        "warnings": [],
+        "source_media_id": "45d0610c-c206-4453-ab76-629bd3d5a2ff"
+      }
+    },
+    {
+      "media_order": 2,
+      "sha256": "4d6c234a9e01ddef7a931c71287bc08a688b6f9d9d5d125665b7c257cc8668b0",
+      "bbox": {
+        "x1": 0.3884096337808315,
+        "y1": 0.41530538203628425,
+        "x2": 0.6116576376430268,
+        "y2": 0.572176835797723,
+        "unit": "normalized"
+      },
+      "width": 543,
+      "height": 543,
+      "mime_type": "image/jpeg",
+      "media_role": "NON_VOCABULARY",
+      "lemma": null,
+      "machine": {
+        "verification_status": "AUTO_VERIFIED",
+        "confidence": 0.99,
+        "reason": "WORD_LIST_HEADER_RESOURCE",
+        "warnings": [],
+        "source_media_id": "3547f29a-f103-4aab-8297-6c2264f560a5"
+      }
+    }
+  ]
+}

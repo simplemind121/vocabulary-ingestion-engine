@@ -1,0 +1,504 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0750",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 750,
+  "layout_tags": [
+    "IPA_DENSE",
+    "NORMAL"
+  ],
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "page_image_sha256": "47f9bfb250a5ff9eec45e6f7044b2d7bdaaf8dd0c46c45f305709a2ad182b8ac",
+  "blocks": [
+    {
+      "source_block_id": "b053852e-1a19-411f-9454-c47515e5209f",
+      "text": "749",
+      "raw_text": "749",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475397920707217,
+        "x2": 0.5189503831829545,
+        "y2": 0.967278349736701,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "21636d54-5d59-40d1-a80b-b65718cd7a0c",
+      "text": "biodiversity* [ˌbaɪəʊdaɪˈvɜːsəti]",
+      "raw_text": "biodiversity* [ˌbaɪəʊdaɪˈvɜːsəti]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.09102486244579806,
+        "x2": 0.4614201077081408,
+        "y2": 0.11076610243412054,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7faf1c7b-3c59-41c6-b473-f0941e8b2eb5",
+      "text": "n. 生物多样性",
+      "raw_text": "n. 生物多样性",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.11865539240672242,
+        "x2": 0.33121810057300993,
+        "y2": 0.1383966323950449,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c2bbc698-9fab-4e7e-ae88-d47f52f63030",
+      "text": "搭 loss of biodiversity 生物多样性的丧失",
+      "raw_text": "搭 loss of biodiversity 生物多样性的丧失",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.14621013769955482,
+        "x2": 0.6192081432738219,
+        "y2": 0.16602774231755696,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a03d1548-8d67-4165-9911-c329917cdc12",
+      "text": "例 The oilfield engineering threatens one of the world's richest\nareas of biodiversity. 油田工程对世界上一块拥有最丰富物种多样性\n的地域造成了威胁。",
+      "raw_text": "例 The oilfield engineering threatens one of the world's richest\nareas of biodiversity. 油田工程对世界上一块拥有最丰富物种多样性\n的地域造成了威胁。",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.17377360054000224,
+        "x2": 0.8510658891666489,
+        "y2": 0.23330950295334565,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "771210d4-b8a0-4d93-874b-c44a656199d6",
+      "text": "bud* [bʌd]",
+      "raw_text": "bud* [bʌd]",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2585920040550914,
+        "x2": 0.24504612516598576,
+        "y2": 0.2783332440434139,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4623cf12-9be8-4a2f-9199-aa347d49e375",
+      "text": "n. 花蕾；叶芽 v. 发芽，萌芽",
+      "raw_text": "n. 花蕾；叶芽 v. 发芽，萌芽",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2862225340160158,
+        "x2": 0.48724089601946036,
+        "y2": 0.3059637740043383,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "5327c86c-29b1-4a68-9393-ff4838dfa636",
+      "text": "记 联想记忆：泥土（mud）中发出的芽（bud）",
+      "raw_text": "记 联想记忆：泥土（mud）中发出的芽（bud）",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.31374877963395287,
+        "x2": 0.704000195325644,
+        "y2": 0.3335948839268503,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d6903110-8809-41f7-88ac-1fa691c1f15d",
+      "text": "搭 taste bud 味蕾",
+      "raw_text": "搭 taste bud 味蕾",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.34140780020787276,
+        "x2": 0.36483191017810745,
+        "y2": 0.3612254138877747,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "8d26c033-564b-4059-9677-ea04636f399c",
+      "text": "例 Jasminum mesnyi has the first buds in spring. 野迎春在春天里\n长出第一批花蕾。",
+      "raw_text": "例 Jasminum mesnyi has the first buds in spring. 野迎春在春天里\n长出第一批花蕾。",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.36897185207180766,
+        "x2": 0.8630407155484137,
+        "y2": 0.40800725415953887,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "bb0a5c0e-38df-432d-bca8-a2e8af0dc9cb",
+      "text": "celestial* [səˈlestiəl]",
+      "raw_text": "celestial* [səˈlestiəl]",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4332897733850843,
+        "x2": 0.340241832433577,
+        "y2": 0.45303101337340673,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "de13bb39-71ec-429c-98d1-369148d7463a",
+      "text": "adj. 天体的，天上的",
+      "raw_text": "adj. 天体的，天上的",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.46092030334600864,
+        "x2": 0.3998745258428958,
+        "y2": 0.4806615433343311,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e3f448d2-e060-4bc8-aaba-f4d2d6142ed6",
+      "text": "记 词根记忆：cel（天空）+est+ial（…的）→天体的",
+      "raw_text": "记 词根记忆：cel（天空）+est+ial（…的）→天体的",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.48844654896394574,
+        "x2": 0.7576295489126599,
+        "y2": 0.5082926532568431,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "bc57f3b9-1b5a-4c19-965b-6d649691f5a2",
+      "text": "例 The moon and the galaxy are all celestial bodies. 月亮和银河都\n是天体。",
+      "raw_text": "例 The moon and the galaxy are all celestial bodies. 月亮和银河都\n是天体。",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5160385114792885,
+        "x2": 0.8691943966161063,
+        "y2": 0.5550744935286074,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d3b22dd2-13cf-41d2-bb30-21c87fce10e7",
+      "text": "combination* [ˌkɒmbɪˈneɪʃn]",
+      "raw_text": "combination* [ˌkɒmbɪˈneɪʃn]",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5803570127541527,
+        "x2": 0.4333722069663958,
+        "y2": 0.6000982527424752,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "207c909c-35ac-4858-a60e-967068b19cb6",
+      "text": "n. 结合（体），联合（体）；化合",
+      "raw_text": "n. 结合（体），联合（体）；化合",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6079875427150772,
+        "x2": 0.5582499745584245,
+        "y2": 0.6277287464558003,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "2b511afb-4e48-47f3-b8ce-9de05c7ac310",
+      "text": "记 来自combine （v. 结合）",
+      "raw_text": "记 来自combine （v. 结合）",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.6355132083714266,
+        "x2": 0.48581211560651893,
+        "y2": 0.6553592764167248,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7885c6c9-65b8-4953-9c25-7e108e13fc5f",
+      "text": "例 The old man's treatment was a combination of surgery, radiation\nand drugs. 对那位老人的治疗集外科手术、放射治疗以及药物治疗\n于一体。",
+      "raw_text": "例 The old man's treatment was a combination of surgery, radiation\nand drugs. 对那位老人的治疗集外科手术、放射治疗以及药物治疗\n于一体。",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.663105750848357,
+        "x2": 0.8702837679465694,
+        "y2": 0.7226416351379007,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e7fedc92-5e8c-40b4-923f-bedceed8506f",
+      "text": "impact* [ˈɪmpækt]",
+      "raw_text": "impact* [ˈɪmpækt]",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7479241906110453,
+        "x2": 0.3234927097575828,
+        "y2": 0.7676653581041694,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "bf04d757-ddeb-46c6-9305-bcaefd0c589d",
+      "text": "n. 影响，作用；冲击 v. 影响",
+      "raw_text": "n. 影响，作用；冲击 v. 影响",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7755547205719697,
+        "x2": 0.48724089601946036,
+        "y2": 0.7952958880650938,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d5a1df7f-44b6-4476-a238-db238dbe0a4c",
+      "text": "例 Cigarette smoke has the same impact on smokers as it does on\nnon-smokers. 香烟烟雾对吸烟者和不吸烟者的影响是一样的。",
+      "raw_text": "例 Cigarette smoke has the same impact on smokers as it does on\nnon-smokers. 香烟烟雾对吸烟者和不吸烟者的影响是一样的。",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8030417825351382,
+        "x2": 0.8475264325658731,
+        "y2": 0.8434269002278306,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7b39db86-5da9-4cf1-b9be-976f5e2a6583",
+      "text": "renew* [rɪˈnjuː]",
+      "raw_text": "renew* [rɪˈnjuː]",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8673603200576018,
+        "x2": 0.29356628720420064,
+        "y2": 0.8871014875507258,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "source_entry_id": "828278c9-c785-412f-9c6f-e52c754f0f4c",
+      "lemma": "biodiversity",
+      "raw_text": "biodiversity* [ˌbaɪəʊdaɪˈvɜːsəti]\nn. 生物多样性\n搭 loss of biodiversity 生物多样性的丧失\n例 The oilfield engineering threatens one of the world's richest\nareas of biodiversity. 油田工程对世界上一块拥有最丰富物种多样性\n的地域造成了威胁。",
+      "entry_order": 2838,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        750
+      ]
+    },
+    {
+      "source_entry_id": "c07a3413-7533-4fe9-8cee-70e03fdf6a36",
+      "lemma": "bud",
+      "raw_text": "bud* [bʌd]\nn. 花蕾；叶芽 v. 发芽，萌芽\n记 联想记忆：泥土（mud）中发出的芽（bud）\n搭 taste bud 味蕾\n例 Jasminum mesnyi has the first buds in spring. 野迎春在春天里\n长出第一批花蕾。",
+      "entry_order": 2839,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        750
+      ]
+    },
+    {
+      "source_entry_id": "a96e4a9a-7d5b-4517-9d11-6f884b5b03e7",
+      "lemma": "celestial",
+      "raw_text": "celestial* [səˈlestiəl]\nadj. 天体的，天上的\n记 词根记忆：cel（天空）+est+ial（…的）→天体的\n例 The moon and the galaxy are all celestial bodies. 月亮和银河都\n是天体。",
+      "entry_order": 2840,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        750
+      ]
+    },
+    {
+      "source_entry_id": "9bf6d9ef-295f-43c3-9c4f-e36b194b636e",
+      "lemma": "combination",
+      "raw_text": "combination* [ˌkɒmbɪˈneɪʃn]\nn. 结合（体），联合（体）；化合\n记 来自combine （v. 结合）\n例 The old man's treatment was a combination of surgery, radiation\nand drugs. 对那位老人的治疗集外科手术、放射治疗以及药物治疗\n于一体。",
+      "entry_order": 2841,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        750
+      ]
+    },
+    {
+      "source_entry_id": "0fed7988-31db-43d9-9de0-b07995454ca0",
+      "lemma": "impact",
+      "raw_text": "impact* [ˈɪmpækt]\nn. 影响，作用；冲击 v. 影响\n例 Cigarette smoke has the same impact on smokers as it does on\nnon-smokers. 香烟烟雾对吸烟者和不吸烟者的影响是一样的。",
+      "entry_order": 2842,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        750
+      ]
+    },
+    {
+      "source_entry_id": "90d194b6-2c2c-4269-aaa8-1abab24e877d",
+      "lemma": "renew",
+      "raw_text": "renew* [rɪˈnjuː]\nv. 重新开始；恢复；更换，更新；续借\n记 联想记忆：re（再，又）+new（新的）→重新开始\n例 The swift increase of population renewed the demand for\nbuilding houses quickly and cheaply. 人口的迅速增长进一步要求加快\n房屋的建造速度并且降低建筑成本。",
+      "entry_order": 2843,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        750,
+        751
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_entry_id": "fa739027-6d96-4acb-861c-5da9a810f25b",
+      "source_entry_id": "828278c9-c785-412f-9c6f-e52c754f0f4c",
+      "lemma": "biodiversity",
+      "display_form": "biodiversity",
+      "ipa": "ˌbaɪəʊdaɪˈvɜːsəti",
+      "part_of_speech": "n.",
+      "definition": "生物多样性",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "f8f2d1c0-16fe-4c7e-b069-ac20f8f5dcc5",
+      "source_entry_id": "c07a3413-7533-4fe9-8cee-70e03fdf6a36",
+      "lemma": "bud",
+      "display_form": "bud",
+      "ipa": "bʌd",
+      "part_of_speech": "n.",
+      "definition": "花蕾；叶芽 v. 发芽，萌芽",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "40b9ee44-5807-470f-aa36-01bd0d501d38",
+      "source_entry_id": "a96e4a9a-7d5b-4517-9d11-6f884b5b03e7",
+      "lemma": "celestial",
+      "display_form": "celestial",
+      "ipa": "səˈlestiəl",
+      "part_of_speech": "adj.",
+      "definition": "天体的，天上的",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "056e3c77-5d89-4c11-a818-09c53c090ace",
+      "source_entry_id": "9bf6d9ef-295f-43c3-9c4f-e36b194b636e",
+      "lemma": "combination",
+      "display_form": "combination",
+      "ipa": "ˌkɒmbɪˈneɪʃn",
+      "part_of_speech": "n.",
+      "definition": "结合（体），联合（体）；化合",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "a097072b-3b35-47dc-a099-7ac21e96ff7b",
+      "source_entry_id": "0fed7988-31db-43d9-9de0-b07995454ca0",
+      "lemma": "impact",
+      "display_form": "impact",
+      "ipa": "ˈɪmpækt",
+      "part_of_speech": "n.",
+      "definition": "影响，作用；冲击 v. 影响",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "6d3c5d65-fa3b-409a-8dc7-dc25b4720e5d",
+      "source_entry_id": "90d194b6-2c2c-4269-aaa8-1abab24e877d",
+      "lemma": "renew",
+      "display_form": "renew",
+      "ipa": "rɪˈnjuː",
+      "part_of_speech": "v.",
+      "definition": "重新开始；恢复；更换，更新；续借",
+      "machine_verification_status": "AUTO_VERIFIED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@0.1.0-alpha.4",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-03T08:10:24.328142+00:00\"}"
+  ]
+}

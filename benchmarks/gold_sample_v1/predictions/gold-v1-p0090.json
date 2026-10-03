@@ -1,0 +1,402 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0090",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 90,
+  "layout_tags": [
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "823b5c4e9e6d42052a9f6a9c3277efe0abc6565844abc4df056f02180f18f9d2",
+  "blocks": [
+    {
+      "source_block_id": "48f904cb-00b1-4983-b9ce-fc60b7a333bc",
+      "text": "89",
+      "raw_text": "89",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4874224237122049,
+        "y1": 0.9474933951437061,
+        "x2": 0.512644770771405,
+        "y2": 0.9672319528096855,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "45e76fa6-90bf-42c4-860f-63b2958a51c6",
+      "text": "记 词根记忆：in（向内）+her（黏附）+ent（具有…性质的）\n→骨子里带来的→生来就有的",
+      "raw_text": "记 词根记忆：in（向内）+her（黏附）+ent（具有…性质的）\n→骨子里带来的→生来就有的",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.08557218140299523,
+        "x2": 0.8585449429534222,
+        "y2": 0.12591817887421772,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c8db3a3d-d049-446f-a9aa-26761db0cee3",
+      "text": "例 Women have an inherent love of beauty. 女人天生爱美。",
+      "raw_text": "例 Women have an inherent love of beauty. 女人天生爱美。",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.1336646170582507,
+        "x2": 0.8123354504554042,
+        "y2": 0.15354928879672977,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "10848f1e-0a47-4069-931a-58b19e13d502",
+      "text": "同 natural （adj. 天生的，本能的）；inborn （adj. 天生的）；\ninnate （adj. 与生俱来的）",
+      "raw_text": "同 natural （adj. 天生的，本能的）；inborn （adj. 天生的）；\ninnate （adj. 与生俱来的）",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.1613180917494882,
+        "x2": 0.8566850406818999,
+        "y2": 0.2016803009594667,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d0288212-43ed-46b3-93ec-5d7ec3b9bc18",
+      "text": "world-wide [ˈwɜːld waɪd]",
+      "raw_text": "world-wide [ˈwɜːld waɪd]",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.22561364829403938,
+        "x2": 0.3936218996157501,
+        "y2": 0.24535488828236185,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4908cfa5-04b1-4d2f-a0eb-a85a5469cbf2",
+      "text": "adj. 遍及全球的 adv. 遍及全球地",
+      "raw_text": "adj. 遍及全球的 adv. 遍及全球地",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2532441782549637,
+        "x2": 0.5292550932392707,
+        "y2": 0.2729854182432862,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "3590ec60-f447-44bf-accf-da41571610ee",
+      "text": "例 The use of artificial fertilizers world-wide increased by 40\npercent per unit of farmed land between the mid 1970s and late 1980s.\n从20世纪70年代中期到80年代末，在全世界范围内每单位耕地的人\n造化肥使用量增长了40％。",
+      "raw_text": "例 The use of artificial fertilizers world-wide increased by 40\npercent per unit of farmed land between the mid 1970s and late 1980s.\n从20世纪70年代中期到80年代末，在全世界范围内每单位耕地的人\n造化肥使用量增长了40％。",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2807312764657315,
+        "x2": 0.8609591227744776,
+        "y2": 0.3621168148480606,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9af52625-058f-4bdc-9476-df4009172a27",
+      "text": "grope [grəʊp]",
+      "raw_text": "grope [grəʊp]",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3860501621826332,
+        "x2": 0.2723861243288759,
+        "y2": 0.4057914021709557,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a613134f-c940-42d7-93be-00b6d3c1cd5b",
+      "text": "v. （暗中）摸索",
+      "raw_text": "v. （暗中）摸索",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.4136806921435576,
+        "x2": 0.35480567252753026,
+        "y2": 0.43342193213188007,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "41bb5087-8522-41bb-8e92-402eec341d73",
+      "text": "记 联想记忆：g+rope（绳子）→抓住绳子向前走→（暗中）摸\n索",
+      "raw_text": "记 联想记忆：g+rope（绳子）→抓住绳子向前走→（暗中）摸\n索",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.4412069377614947,
+        "x2": 0.8695565287186146,
+        "y2": 0.48020377240364426,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e14e3510-caf3-4db4-b80a-92ed81271c86",
+      "text": "例 The man groped for the light switch in the dark room. 男子在黑\n洞洞的屋里摸索着寻找电灯开关。",
+      "raw_text": "例 The man groped for the light switch in the dark room. 男子在黑\n洞洞的屋里摸索着寻找电灯开关。",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.48929938247864996,
+        "x2": 0.8692288658473932,
+        "y2": 0.5283347845663812,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c43b3fd9-7f7b-4a4b-b615-95d361519f28",
+      "text": "lever [ˈliːvə(r)]",
+      "raw_text": "lever [ˈliːvə(r)]",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5536173037919266,
+        "x2": 0.2841815260513526,
+        "y2": 0.5733585437802491,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "f8da0e36-b9d2-4393-8314-69ff5f665fe8",
+      "text": "vt. （用杠杆）撬动 n. 杠杆；施压手段",
+      "raw_text": "vt. （用杠杆）撬动 n. 杠杆；施压手段",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5812478337528509,
+        "x2": 0.5967906786170944,
+        "y2": 0.6009890737411734,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "3a8d7da0-bdcd-4ec2-bd4b-de20927bdc09",
+      "text": "记 词根记忆：lev（举起）+er（表物）→举起（重物）的物→\n杠杆",
+      "raw_text": "记 词根记忆：lev（举起）+er（表物）→举起（重物）的物→\n杠杆",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6087740793707881,
+        "x2": 0.8625356797578618,
+        "y2": 0.6477709140129376,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "b4b9e995-c898-4bc0-96c7-e5add3243192",
+      "text": "例 He levered a box open to reveal an antique vase. 他撬开箱子，\n里面露出一个古董花瓶。",
+      "raw_text": "例 He levered a box open to reveal an antique vase. 他撬开箱子，\n里面露出一个古董花瓶。",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6568665240879433,
+        "x2": 0.8642329816377481,
+        "y2": 0.6959019261756746,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "cb4fbdca-0067-48d5-85c5-4cd06387603e",
+      "text": "同 tool （n. 工具，手段）；means （n. 方法，手段，工具）",
+      "raw_text": "同 tool （n. 工具，手段）；means （n. 方法，手段，工具）",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.7050205172285926,
+        "x2": 0.8385170372382595,
+        "y2": 0.7248821717415601,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "3fad2a9b-5a4d-4c36-9b2c-803abb6eae46",
+      "text": "ethical* [ˈeθɪkl]",
+      "raw_text": "ethical* [ˈeθɪkl]",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8744909477783013,
+        "x2": 0.29489381425023675,
+        "y2": 0.8942321152714253,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "source_entry_id": "d96d4211-f784-4065-a064-fd22be4c81f2",
+      "lemma": "inherent",
+      "raw_text": "inherent [ɪnˈherənt]\nadj. 内在的；生来就有的\n记 词根记忆：in（向内）+her（黏附）+ent（具有…性质的）\n→骨子里带来的→生来就有的\n例 Women have an inherent love of beauty. 女人天生爱美。\n同 natural （adj. 天生的，本能的）；inborn （adj. 天生的）；\ninnate （adj. 与生俱来的）",
+      "entry_order": 319,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        89,
+        90
+      ]
+    },
+    {
+      "source_entry_id": "64e93c5e-092c-4045-994f-174979daf35b",
+      "lemma": "world-wide",
+      "raw_text": "world-wide [ˈwɜːld waɪd]\nadj. 遍及全球的 adv. 遍及全球地\n例 The use of artificial fertilizers world-wide increased by 40\npercent per unit of farmed land between the mid 1970s and late 1980s.\n从20世纪70年代中期到80年代末，在全世界范围内每单位耕地的人\n造化肥使用量增长了40％。",
+      "entry_order": 320,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        90
+      ]
+    },
+    {
+      "source_entry_id": "4a03d59a-24e6-4f13-9a25-44ae2c6d25e3",
+      "lemma": "grope",
+      "raw_text": "grope [grəʊp]\nv. （暗中）摸索\n记 联想记忆：g+rope（绳子）→抓住绳子向前走→（暗中）摸\n索\n例 The man groped for the light switch in the dark room. 男子在黑\n洞洞的屋里摸索着寻找电灯开关。",
+      "entry_order": 321,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        90
+      ]
+    },
+    {
+      "source_entry_id": "67bbb62f-52b2-41f8-b44c-d6341af0de1d",
+      "lemma": "lever",
+      "raw_text": "lever [ˈliːvə(r)]\nvt. （用杠杆）撬动 n. 杠杆；施压手段\n记 词根记忆：lev（举起）+er（表物）→举起（重物）的物→\n杠杆\n例 He levered a box open to reveal an antique vase. 他撬开箱子，\n里面露出一个古董花瓶。\n同 tool （n. 工具，手段）；means （n. 方法，手段，工具）",
+      "entry_order": 322,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        90
+      ]
+    },
+    {
+      "source_entry_id": "85fca853-7eaf-440d-97aa-b30583bd0bba",
+      "lemma": "ethical",
+      "raw_text": "ethical* [ˈeθɪkl]\nadj. （有关）道德的；伦理的\n搭 ethical standards 道德标准；ethical problems 道德问题\n例 The behavior is not strictly ethical. 严格来讲，这种行为是不\n道德的。",
+      "entry_order": 323,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        90,
+        91
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_entry_id": "0ea7789a-cea6-4cdc-a3d9-5db027b2d92f",
+      "source_entry_id": "d96d4211-f784-4065-a064-fd22be4c81f2",
+      "lemma": "inherent",
+      "display_form": "inherent",
+      "ipa": "ɪnˈherənt",
+      "part_of_speech": "adj.",
+      "definition": "内在的；生来就有的",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "21f93728-412d-4fbb-9341-86635e3d1076",
+      "source_entry_id": "64e93c5e-092c-4045-994f-174979daf35b",
+      "lemma": "world-wide",
+      "display_form": "world-wide",
+      "ipa": "ˈwɜːld waɪd",
+      "part_of_speech": "adj.",
+      "definition": "遍及全球的 adv. 遍及全球地",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "9f82ffad-7545-4d4d-ad91-5332aa669764",
+      "source_entry_id": "4a03d59a-24e6-4f13-9a25-44ae2c6d25e3",
+      "lemma": "grope",
+      "display_form": "grope",
+      "ipa": "grəʊp",
+      "part_of_speech": "v.",
+      "definition": "（暗中）摸索",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "ae07d92d-1ae3-4f80-bc93-7233ba225312",
+      "source_entry_id": "67bbb62f-52b2-41f8-b44c-d6341af0de1d",
+      "lemma": "lever",
+      "display_form": "lever",
+      "ipa": "ˈliːvə(r)",
+      "part_of_speech": "vt.",
+      "definition": "（用杠杆）撬动 n. 杠杆；施压手段",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "71119fba-8d94-4f8d-ba16-8561cc2d3cf3",
+      "source_entry_id": "85fca853-7eaf-440d-97aa-b30583bd0bba",
+      "lemma": "ethical",
+      "display_form": "ethical",
+      "ipa": "ˈeθɪkl",
+      "part_of_speech": "adj.",
+      "definition": "（有关）道德的；伦理的",
+      "machine_verification_status": "AUTO_VERIFIED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@0.1.0-alpha.4"
+  ]
+}

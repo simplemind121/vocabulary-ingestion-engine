@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.egg-info/
+vie-dev.db
+.env
+.env.*
+!.env.example
+data/
+data-private/
+node_modules/
+.next/
+.playwright-cli/
+output/
+.DS_Store

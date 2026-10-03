@@ -1,0 +1,343 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0930",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 930,
+  "layout_tags": [
+    "SPECIAL_LAYOUT",
+    "TABLE"
+  ],
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "page_image_sha256": "9738a4be54cb04d6e26bf8f1ad91904e22ad74136f6028f6cd3f504cd0036c35",
+  "blocks": [
+    {
+      "source_block_id": "4f615326-9e92-4103-a9eb-22c39bf43199",
+      "text": "929",
+      "raw_text": "929",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9474655569874968,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672041146534762,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9b9b3c6d-1e06-44c5-993c-95d997931339",
+      "text": "Unit 4 表示“是非、否定、相反、拒绝”",
+      "raw_text": "Unit 4 表示“是非、否定、相反、拒绝”",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.14614306151717807,
+        "x2": 0.8500844393579531,
+        "y2": 0.17929340307468086,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "dcf1f1b7-e328-494a-9a06-1ace87acb14c",
+      "text": "词根/词缀\n具体含义\n例词及释义",
+      "raw_text": "词根/词缀\n具体含义\n例词及释义",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.21491770671299013,
+        "x2": 0.5334577747813255,
+        "y2": 0.2346589467013126,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "06c9dfda-7e6e-4eaf-b322-1741976c5e95",
+      "text": "dis-\n不，没有\ndisharmony n. 不一致；不和谐",
+      "raw_text": "dis-\n不，没有\ndisharmony n. 不一致；不和谐",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.25502698017553554,
+        "x2": 0.7345494748366405,
+        "y2": 0.274768220163858,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "fe5a2195-d8fa-485e-aa55-f457db99dbf6",
+      "text": "ob-, op-\n逆，反",
+      "raw_text": "ob-, op-\n逆，反",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.31117973103846397,
+        "x2": 0.3619225685650459,
+        "y2": 0.33092097102678647,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "f4007b19-26e4-4043-9b3a-7425a636cb86",
+      "text": "obsession n. 困扰；萦绕于心的事物或人 o",
+      "raw_text": "obsession n. 困扰；萦绕于心的事物或人 o",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.4073289587501785,
+        "y1": 0.29513596365728706,
+        "x2": 0.863641772768979,
+        "y2": 0.31487720364560956,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e39fdf94-b217-4c7a-9b3b-64d3b323ec9d",
+      "text": "ppose v. 反对，反抗",
+      "raw_text": "ppose v. 反对，反抗",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.4073289587501785,
+        "y1": 0.32722349841964093,
+        "x2": 0.6222036836118502,
+        "y2": 0.3469647384079634,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "676b924e-99b2-44be-98b8-05f6e4a3b60a",
+      "text": "neg",
+      "raw_text": "neg",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.3833762492825694,
+        "x2": 0.17257800304970627,
+        "y2": 0.40311748927089186,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "8464ca7c-42e5-48ce-8dfa-bfc88d3555b4",
+      "text": "否认，拒",
+      "raw_text": "否认，拒",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.2862452943344074,
+        "y1": 0.36789827067778735,
+        "x2": 0.3959773227337711,
+        "y2": 0.3857245499987422,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4c627ab9-4362-4b2c-b1e8-884db5032280",
+      "text": "绝",
+      "raw_text": "绝",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.2862452943344074,
+        "y1": 0.3999858054401412,
+        "x2": 0.31147105241128686,
+        "y2": 0.41781208476109605,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "375b7570-e00c-4787-8bac-87b505c40a19",
+      "text": "negative adj. 否定的；负面的；消极的",
+      "raw_text": "negative adj. 否定的；负面的；消极的",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.4073289587501785,
+        "y1": 0.3833762492825694,
+        "x2": 0.8199943392494571,
+        "y2": 0.40311748927089186,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9b4a0297-da3c-4012-a2a4-e2b338674478",
+      "text": "counter-, con",
+      "raw_text": "counter-, con",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.43952900014549784,
+        "x2": 0.27377174126246023,
+        "y2": 0.45927024013382034,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "917179ec-de0e-4676-b105-d656b05b4252",
+      "text": "tra-, contro-",
+      "raw_text": "tra-, contro-",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.4716165349078517,
+        "x2": 0.2566302489663334,
+        "y2": 0.4913577748961742,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "ac45b02e-dc13-49f4-9ca9-ad25cc1595ef",
+      "text": "相反",
+      "raw_text": "相反",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.2862452943344074,
+        "y1": 0.45613855630306965,
+        "x2": 0.3366968104881664,
+        "y2": 0.4739648356240245,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "2e8f35a7-5e2c-47cd-81ab-954e44cac766",
+      "text": "counterproductive adj. 产生相反效果的 con",
+      "raw_text": "counterproductive adj. 产生相反效果的 con",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.4073289587501785,
+        "y1": 0.43952900014549784,
+        "x2": 0.8636775756312384,
+        "y2": 0.45927024013382034,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7dad7f09-a65e-4505-8399-9844e6af20c2",
+      "text": "tradict v. 反驳 controversy n. 争论",
+      "raw_text": "tradict v. 反驳 controversy n. 争论",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.4073289587501785,
+        "y1": 0.4716165349078517,
+        "x2": 0.759479602832386,
+        "y2": 0.4913577748961742,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "b1abfd79-c5bc-4acd-b11c-0fdb1920578b",
+      "text": "abs-",
+      "raw_text": "abs-",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.5277692857707802,
+        "x2": 0.17817812467685096,
+        "y2": 0.5475105257591026,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a37ffef0-1a52-4b31-bc98-74c992f47ffb",
+      "text": "相反，去",
+      "raw_text": "相反，去",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.2862452943344074,
+        "y1": 0.5122913071659981,
+        "x2": 0.3959773227337711,
+        "y2": 0.530117586486953,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "719dbbdf-ef57-4489-b7a5-ef9e061db2d2",
+      "text": "掉，离去",
+      "raw_text": "掉，离去",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.2862452943344074,
+        "y1": 0.544378841928352,
+        "x2": 0.38714832664192544,
+        "y2": 0.5622051212493069,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "6d22fa22-300a-4e53-a827-40c9e9106bfc",
+      "text": "absent adj. 不在场的；心不在焉的",
+      "raw_text": "absent adj. 不在场的；心不在焉的",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.4073289587501785,
+        "y1": 0.5277692857707802,
+        "x2": 0.7737676634292946,
+        "y2": 0.5475105257591026,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [],
+  "vocabulary": [],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@a60ffcf",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:47:47.207995+00:00\"}"
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p1114",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 1114,
+  "layout_tags": [
+    "DOUBLE_COLUMN",
+    "IPA_DENSE",
+    "TABLE"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "10d040ad8d224a6fb50770dda3d5723fd483a797fe8c004944fc05fc6ff523c5",
+  "blocks": [
+    {
+      "source_block_id": "54c96e44-3171-4248-a0dd-b33b8f3edf33",
+      "text": "1113",
+      "raw_text": "1113",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4757373543059456,
+        "y1": 0.9474655569874968,
+        "x2": 0.5243101434740718,
+        "y2": 0.9672041146534762,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "444ac950-e5f2-447d-948e-2be9b71e2e32",
+      "text": "rural\n[ˈrʊərəl]\n[ˈrurəl]\nsample\n[ˈsɑːmpl]\n[ˈsæmpl]",
+      "raw_text": "rural\n[ˈrʊərəl]\n[ˈrurəl]\nsample\n[ˈsɑːmpl]\n[ˈsæmpl]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.09191640839648088,
+        "x2": 0.8162637630716353,
+        "y2": 0.11165764838480335,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d8ea2aff-9853-42e8-9b8b-87aff5bff307",
+      "text": "schedule [ˈʃedjuːl]\n[ˈskedʒuːl] secretary\n[ˈsekrətri]\n[ˈsekrəteri]",
+      "raw_text": "schedule [ˈʃedjuːl]\n[ˈskedʒuːl] secretary\n[ˈsekrətri]\n[ˈsekrəteri]",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.13202553686862936,
+        "x2": 0.8372262876309625,
+        "y2": 0.15176677685695183,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "0c4896ea-293e-415e-bebc-1c76da1b188b",
+      "text": "stationar",
+      "raw_text": "stationar",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.17213466534077781,
+        "x2": 0.2230295192034653,
+        "y2": 0.1918759053291003,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4abd89f2-3348-46b8-892f-1b53dcaf2f32",
+      "text": "y",
+      "raw_text": "y",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.20422205511273475,
+        "x2": 0.14876488075697714,
+        "y2": 0.22396329510105722,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "34900da8-b4d3-458f-b589-47f4dc81ba54",
+      "text": "[ˈsteɪʃənr",
+      "raw_text": "[ˈsteɪʃənr",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.23579375253389884,
+        "y1": 0.17213466534077781,
+        "x2": 0.32824620653799247,
+        "y2": 0.1918759053291003,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "dea60bd2-21a3-4f42-a4c5-b87ef29a59fa",
+      "text": "i]",
+      "raw_text": "i]",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.23579375253389884,
+        "y1": 0.20422205511273475,
+        "x2": 0.2512067052092857,
+        "y2": 0.22396329510105722,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "46c1c506-e6cd-4cb8-a6ec-19c71d02cc3b",
+      "text": "[ˈsteɪʃəner",
+      "raw_text": "[ˈsteɪʃəner",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.35183226533429407,
+        "y1": 0.17213466534077781,
+        "x2": 0.45548498823942657,
+        "y2": 0.1918759053291003,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "1793920d-6c29-4407-bbd1-efd1520a5f75",
+      "text": "i]",
+      "raw_text": "i]",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.35183226533429407,
+        "y1": 0.20422205511273475,
+        "x2": 0.3672452180096809,
+        "y2": 0.22396329510105722,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a48f6662-9288-40da-80b3-62b8b79b1433",
+      "text": "turbine\n[ˈtɜːbaɪn]\n[ˈtɜːrbaɪn]",
+      "raw_text": "turbine\n[ˈtɜːbaɪn]\n[ˈtɜːrbaɪn]",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.47543851838112794,
+        "y1": 0.18817843272195475,
+        "x2": 0.8268333527564716,
+        "y2": 0.20791967271027723,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [],
+  "vocabulary": [],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@0.1.0-alpha.4"
+  ]
+}

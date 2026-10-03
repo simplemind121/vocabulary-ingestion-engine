@@ -1,0 +1,129 @@
+x-app-environment: &app-environment
+  DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL in .env}
+  VIE_API_KEY: ${VIE_API_KEY:?set VIE_API_KEY in .env}
+  VIE_OCR_ENGINE: ${VIE_OCR_ENGINE:-tesseract}
+  VIE_OCR_LANGUAGES: ${VIE_OCR_LANGUAGES:-eng+chi_sim}
+  VIE_OCR_MIN_CONFIDENCE: ${VIE_OCR_MIN_CONFIDENCE:-0.85}
+  VIE_MAX_UPLOAD_BYTES: ${VIE_MAX_UPLOAD_BYTES:-536870912}
+  VIE_MAX_PDF_PAGES: ${VIE_MAX_PDF_PAGES:-5000}
+  VIE_MAX_RENDER_PIXELS_PER_PAGE: ${VIE_MAX_RENDER_PIXELS_PER_PAGE:-40000000}
+  VIE_REDIS_URL: redis://redis:6379/0
+  VIE_STORAGE_BACKEND: s3
+  VIE_S3_ENDPOINT_URL: http://object-storage:8333
+  VIE_S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID:?set S3_ACCESS_KEY_ID in .env}
+  VIE_S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY:?set S3_SECRET_ACCESS_KEY in .env}
+  VIE_S3_BUCKET: ${S3_BUCKET:-vie-artifacts}
+  VIE_S3_REGION: ${S3_REGION:-us-east-1}
+
+x-app-service: &app-service
+  build: .
+  image: ${VIE_IMAGE:-vocabulary-ingestion-engine:local}
+  restart: unless-stopped
+  init: true
+  security_opt:
+    - no-new-privileges:true
+  read_only: true
+  tmpfs:
+    - /tmp
+  volumes:
+    - vie_data:/app/data
+  environment: *app-environment
+
+services:
+  migrate:
+    <<: *app-service
+    restart: "no"
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  api:
+    <<: *app-service
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+    ports:
+      - "${API_BIND_ADDRESS:-127.0.0.1}:${API_PORT:-8000}:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      object-storage:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=2)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  worker:
+    <<: *app-service
+    command: ["celery", "-A", "app.worker.celery_app", "worker", "--loglevel=INFO"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      object-storage:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A app.worker.celery_app inspect ping --timeout 5 | grep -q pong"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-vie}
+      POSTGRES_USER: ${POSTGRES_USER:-vie}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-vie} -d ${POSTGRES_DB:-vie}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    security_opt:
+      - no-new-privileges:true
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    security_opt:
+      - no-new-privileges:true
+
+  object-storage:
+    image: chrislusf/seaweedfs:4.39
+    restart: unless-stopped
+    environment:
+      AWS_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID:?set S3_ACCESS_KEY_ID in .env}
+      AWS_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY:?set S3_SECRET_ACCESS_KEY in .env}
+      S3_BUCKET: ${S3_BUCKET:-vie-artifacts}
+    volumes:
+      - object_storage_data:/data
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:8333/status"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  vie_data:
+  postgres_data:
+  redis_data:
+  object_storage_data:

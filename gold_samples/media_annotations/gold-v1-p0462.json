@@ -1,0 +1,14 @@
+{
+  "media_annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0462",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 462,
+  "page_image_sha256": "9e91dec03c822ec71f0a17e1576782ed0d5cad33fddc62489b18bbc822f3b4ce",
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "reviewed_at": "2026-10-03T08:05:55.852981+00:00",
+  "media_count": 0,
+  "media": [],
+  "missing_media_reported": false,
+  "review_notes": []
+}

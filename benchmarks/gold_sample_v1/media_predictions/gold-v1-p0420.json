@@ -1,0 +1,31 @@
+{
+  "sample_id": "gold-v1-p0420",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 420,
+  "processing_run_id": "a5ba88aa-2b04-4208-a8e8-cf9a70692c93",
+  "media": [
+    {
+      "media_order": 1,
+      "sha256": "93359a24364307d77ba6385350a87882205f867edf1452d259046bb30bdf9e5a",
+      "bbox": {
+        "x1": 0.3884096337808315,
+        "y1": 0.36895684556572605,
+        "x2": 0.6116576376430268,
+        "y2": 0.5507850976260215,
+        "unit": "normalized"
+      },
+      "width": 355,
+      "height": 411,
+      "mime_type": "image/jpeg",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "lemma": "nightmare",
+      "machine": {
+        "verification_status": "AUTO_VERIFIED",
+        "confidence": 0.98,
+        "reason": "ENTRY_BAND",
+        "warnings": [],
+        "source_media_id": "105e0615-7885-47b6-b8da-878f0f33d1c3"
+      }
+    }
+  ]
+}

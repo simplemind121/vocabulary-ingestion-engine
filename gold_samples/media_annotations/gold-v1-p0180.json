@@ -1,0 +1,32 @@
+{
+  "media_annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0180",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 180,
+  "page_image_sha256": "6c3ac6451c2305e865c0f84d7d8d662cdec832a96fd7930978d4dc6708695925",
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "reviewed_at": "2026-10-03T08:04:51.567445+00:00",
+  "media_count": 1,
+  "media": [
+    {
+      "media_order": 1,
+      "sha256": "588ce61973031d049dee69c7cd5a30417022f83963f79c5f0ebc8146cea7bf7e",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "lemma": "recreation",
+      "bbox": {
+        "x1": 0.3884096337808315,
+        "y1": 0.08551882493692736,
+        "x2": 0.6116576376430268,
+        "y2": 0.22456395406791219,
+        "unit": "normalized"
+      },
+      "width": 373,
+      "height": 331,
+      "mime_type": "image/jpeg",
+      "human_decision": "APPROVE"
+    }
+  ],
+  "missing_media_reported": false,
+  "review_notes": []
+}

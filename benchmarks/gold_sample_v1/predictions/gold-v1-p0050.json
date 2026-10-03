@@ -1,0 +1,344 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0050",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 50,
+  "layout_tags": [
+    "IMAGE",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "38e518fa33ad35ac5d50ea5b03567405aa0fe484da2cb4ceaa82dee0e6c603ed",
+  "blocks": [
+    {
+      "source_block_id": "460a8055-f911-4377-9f33-ee88d44ba7e3",
+      "text": "49",
+      "raw_text": "49",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4874224237122049,
+        "y1": 0.9474980348364077,
+        "x2": 0.512644770771405,
+        "y2": 0.9672365925023871,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d1fe0d9e-644c-4765-a3c3-abc8143fd664",
+      "text": "originate* [əˈrɪdʒɪneɪt]",
+      "raw_text": "originate* [əˈrɪdʒɪneɪt]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2657226317757909,
+        "x2": 0.36547548970929306,
+        "y2": 0.28546387176411336,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "14481463-25db-42f3-a5a5-e08c9f7a014e",
+      "text": "v. 起源，发生；首创，创造",
+      "raw_text": "v. 起源，发生；首创，创造",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2933531617367153,
+        "x2": 0.4809344629119278,
+        "y2": 0.3130944017250377,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "16faef44-2ef3-4195-babc-08305e474df5",
+      "text": "记 联想记忆：origin（起源，产生）+ate（表动词）→起源，\n发生",
+      "raw_text": "记 联想记忆：origin（起源，产生）+ate（表动词）→起源，\n发生",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.32087940735465237,
+        "x2": 0.8513270243697465,
+        "y2": 0.35987624199680196,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a31a6292-edcc-4f8d-995b-f01c3dc3b057",
+      "text": "搭 originate in/from 起源于，由…引起/产生",
+      "raw_text": "搭 originate in/from 起源于，由…引起/产生",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.3690389101303848,
+        "x2": 0.6549035456528555,
+        "y2": 0.38885652381028674,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "fed855c1-32d9-44d2-bca5-c563352a85a9",
+      "text": "例 According to my research, this type of banana actually\noriginated in China. 根据我的研究，事实上，这种香蕉起源于中\n国。",
+      "raw_text": "例 According to my research, this type of banana actually\noriginated in China. 根据我的研究，事实上，这种香蕉起源于中\n国。",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.396602382032732,
+        "x2": 0.8203244642086275,
+        "y2": 0.45613826632227583,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c05203d3-6f34-4215-bb71-94cad8eafcd5",
+      "text": "派 origination （n. 起源）；originator （n. 发起者，发明人）；\noriginative （adj. 有创作力的）",
+      "raw_text": "派 origination （n. 起源）；originator （n. 发起者，发明人）；\noriginative （adj. 有创作力的）",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.465188421907846,
+        "x2": 0.8693225277764556,
+        "y2": 0.5056184503759855,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9d3e1ab3-88f5-4350-84dd-a03eb3c7421d",
+      "text": "induce* [ɪnˈdjuːs]",
+      "raw_text": "induce* [ɪnˈdjuːs]",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5295517977105582,
+        "x2": 0.3137011655114003,
+        "y2": 0.5492930376988806,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "eb569ced-fc25-4ebd-8fea-69a6ec48df32",
+      "text": "vt. 引诱，劝使；引起，导致；感应",
+      "raw_text": "vt. 引诱，劝使；引起，导致；感应",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.5571823276714825,
+        "x2": 0.5652585130794319,
+        "y2": 0.576923567659805,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "475a9a2c-226f-4e64-bdad-d6966d64f3af",
+      "text": "记 词根记忆：in（进入）+duc（引导）+e→引进去→引诱；引\n起",
+      "raw_text": "记 词根记忆：in（进入）+duc（引导）+e→引进去→引诱；引\n起",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5847085732894196,
+        "x2": 0.868361800541331,
+        "y2": 0.6237054079315691,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "f7c0c6ab-fb3a-4669-ab44-b70e3631ac0f",
+      "text": "搭 induce sb. to do sth. 引诱某人做某事；drug-induced coma 药\n物引起的昏迷",
+      "raw_text": "搭 induce sb. to do sth. 引诱某人做某事；drug-induced coma 药\n物引起的昏迷",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.632868076065152,
+        "x2": 0.854566465295229,
+        "y2": 0.6718364200943061,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4e2a0095-a99e-48e5-8b67-f0e26c9427a4",
+      "text": "例 Nothing would induce me to change my idea. 任何事都不能使\n我改变主意。",
+      "raw_text": "例 Nothing would induce me to change my idea. 任何事都不能使\n我改变主意。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6809320301693118,
+        "x2": 0.8629544398831985,
+        "y2": 0.7199674322570431,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "15c71ee5-eec0-43be-a43e-f4ef5e845912",
+      "text": "派 inducement （n. 引诱；劝诱）；inducible （adj. 可诱导的，\n可诱发的）",
+      "raw_text": "派 inducement （n. 引诱；劝诱）；inducible （adj. 可诱导的，\n可诱发的）",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7290175878426132,
+        "x2": 0.8636811661761641,
+        "y2": 0.7680984444197799,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a3694ab1-e663-446a-a4c1-fcf8095b4a14",
+      "text": "exchange [ɪksˈtʃeɪndʒ]",
+      "raw_text": "exchange [ɪksˈtʃeɪndʒ]",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7933809998929245,
+        "x2": 0.3598935003340233,
+        "y2": 0.8131221673860486,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "73181f4f-c5ef-42db-910c-0673f8df408e",
+      "text": "v. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交\n换，调换；交易（所）；兑换（率）；交流",
+      "raw_text": "v. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交\n换，调换；交易（所）；兑换（率）；交流",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8210121098154366,
+        "x2": 0.8404016116827715,
+        "y2": 0.8599040439054121,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "167e0770-2228-4ddb-852b-6783de8fabae",
+      "text": "搭 in exchange for 交换；stock exchange 证券交易（所）；part\nexchange 部分抵价交易；exchange rate 汇率",
+      "raw_text": "搭 in exchange for 交换；stock exchange 证券交易（所）；part\nexchange 部分抵价交易；exchange rate 汇率",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8690667120389949,
+        "x2": 0.8587005674292026,
+        "y2": 0.9093841917115225,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "source_entry_id": "8f989ca9-9675-4fa5-b8e1-c479f1e816f4",
+      "lemma": "originate",
+      "raw_text": "originate* [əˈrɪdʒɪneɪt]\nv. 起源，发生；首创，创造\n记 联想记忆：origin（起源，产生）+ate（表动词）→起源，\n发生\n搭 originate in/from 起源于，由…引起/产生\n例 According to my research, this type of banana actually\noriginated in China. 根据我的研究，事实上，这种香蕉起源于中\n国。\n派 origination （n. 起源）；originator （n. 发起者，发明人）；\noriginative （adj. 有创作力的）",
+      "entry_order": 173,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        50
+      ]
+    },
+    {
+      "source_entry_id": "8acca547-9c68-4b06-8142-672549e67b09",
+      "lemma": "induce",
+      "raw_text": "induce* [ɪnˈdjuːs]\nvt. 引诱，劝使；引起，导致；感应\n记 词根记忆：in（进入）+duc（引导）+e→引进去→引诱；引\n起\n搭 induce sb. to do sth. 引诱某人做某事；drug-induced coma 药\n物引起的昏迷\n例 Nothing would induce me to change my idea. 任何事都不能使\n我改变主意。\n派 inducement （n. 引诱；劝诱）；inducible （adj. 可诱导的，\n可诱发的）",
+      "entry_order": 174,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        50
+      ]
+    },
+    {
+      "source_entry_id": "6d7a1a2c-fbc4-4129-ba10-4cb7ed642ddc",
+      "lemma": "exchange",
+      "raw_text": "exchange [ɪksˈtʃeɪndʒ]\nv. 交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交\n换，调换；交易（所）；兑换（率）；交流\n搭 in exchange for 交换；stock exchange 证券交易（所）；part\nexchange 部分抵价交易；exchange rate 汇率\n例 Are you one of the exchange students? 你是交换生之一吗？//\nI shook hands and exchanged a few words with the manager. 我与经理\n握手并交谈了几句。",
+      "entry_order": 175,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        50,
+        51
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_entry_id": "cdc591f3-89df-46c4-9cf2-5673c0d183c3",
+      "source_entry_id": "8f989ca9-9675-4fa5-b8e1-c479f1e816f4",
+      "lemma": "originate",
+      "display_form": "originate",
+      "ipa": "əˈrɪdʒɪneɪt",
+      "part_of_speech": "v.",
+      "definition": "起源，发生；首创，创造",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "0a0ad1e3-6d3e-44a7-ae1e-ff68edf1d3ba",
+      "source_entry_id": "8acca547-9c68-4b06-8142-672549e67b09",
+      "lemma": "induce",
+      "display_form": "induce",
+      "ipa": "ɪnˈdjuːs",
+      "part_of_speech": "vt.",
+      "definition": "引诱，劝使；引起，导致；感应",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "0dfe7be8-7de4-4f24-bc90-67a6991ae01c",
+      "source_entry_id": "6d7a1a2c-fbc4-4129-ba10-4cb7ed642ddc",
+      "lemma": "exchange",
+      "display_form": "exchange",
+      "ipa": "ɪksˈtʃeɪndʒ",
+      "part_of_speech": "v.",
+      "definition": "交换，调换；交易；兑换，汇兑；交流；谈话，争论 n. 交换，调换；交易（所）；兑换（率）；交流",
+      "machine_verification_status": "AUTO_VERIFIED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@0.1.0-alpha.4"
+  ]
+}

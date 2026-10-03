@@ -1,0 +1,49 @@
+{
+  "media_annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0082",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 82,
+  "page_image_sha256": "bb796a07c26be3a009b4403b5df6b2f74864b69915c716eb369646c5dff795f2",
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "reviewed_at": "2026-10-03T08:04:11.712668+00:00",
+  "media_count": 2,
+  "media": [
+    {
+      "media_order": 1,
+      "sha256": "9f8d321804eb23fa0e0d593b35351b71202299c11019ddd70e8d636bb049ef66",
+      "media_role": "NON_VOCABULARY",
+      "lemma": null,
+      "bbox": {
+        "x1": 0.3884096337808315,
+        "y1": 0.22367264372662438,
+        "x2": 0.6116576376430268,
+        "y2": 0.3805440793642635,
+        "unit": "normalized"
+      },
+      "width": 472,
+      "height": 472,
+      "mime_type": "image/jpeg",
+      "human_decision": "APPROVE"
+    },
+    {
+      "media_order": 2,
+      "sha256": "4d6c234a9e01ddef7a931c71287bc08a688b6f9d9d5d125665b7c257cc8668b0",
+      "media_role": "NON_VOCABULARY",
+      "lemma": null,
+      "bbox": {
+        "x1": 0.3884096337808315,
+        "y1": 0.41530538203628425,
+        "x2": 0.6116576376430268,
+        "y2": 0.572176835797723,
+        "unit": "normalized"
+      },
+      "width": 543,
+      "height": 543,
+      "mime_type": "image/jpeg",
+      "human_decision": "APPROVE"
+    }
+  ],
+  "missing_media_reported": false,
+  "review_notes": []
+}

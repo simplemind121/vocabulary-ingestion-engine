@@ -1,0 +1,38 @@
+benchmark_id: gold-sample-v1-batch-a
+name: IELTS Vocabulary Mock Scan - Batch A
+kind: scanned_pdf
+status: ground_truth_in_progress
+source:
+  filename: ielts-vocab-mock-scan.pdf
+  page_count: 10
+  text_layer_expected: false
+  repository_copy: false
+  note: User-provided source remains external to Git; do not commit copyrighted PDF bytes.
+scope:
+  cover_pages: [1]
+  vocabulary_pages: [2,3,4,5,6,7,8,9,10]
+  word_lists:
+    "1": [2,3,4]
+    "2": [5,6,7]
+    "3": [8,9,10]
+expected_source_fields:
+  - lemma
+  - ipa
+  - part_of_speech
+  - chinese_definition
+  - mnemonic
+  - example
+  - derivative
+  - collocation
+quality_targets:
+  source_integrity: 1.0
+  schema_validity: 1.0
+  source_traceability: 1.0
+  review_completion: 1.0
+  required_field_validation: 1.0
+  unresolved_records: 0
+rules:
+  - Ground truth must transcribe source content, not silently correct it.
+  - Every ground-truth field must retain page and source-region provenance.
+  - Missing source fields remain absent; enrichment must not be inserted as source.
+  - Machine disagreement must become review evidence, not an automatic source rewrite.

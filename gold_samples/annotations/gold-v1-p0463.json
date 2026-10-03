@@ -1,0 +1,487 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0463",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 463,
+  "layout_tags": [
+    "SPECIAL_LAYOUT",
+    "TABLE"
+  ],
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "page_image_sha256": "065a2348e4d57f8c8d4560921d863bab199efd44b7e5717a574aa8f59cdd1e21",
+  "blocks": [
+    {
+      "source_block_id": "89820969-5f85-4da8-a2e7-0e949d6c9f26",
+      "text": "462",
+      "raw_text": "462",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9475026745291093,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672412321950886,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a26bf16a-046b-45b2-8d1f-c4662497ee71",
+      "text": "Word List 26",
+      "raw_text": "Word List 26",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.3675392579923478,
+        "y1": 0.1580321743840101,
+        "x2": 0.6325494797608163,
+        "y2": 0.19751463623685545,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "56b46ca2-5a58-4d3e-ace7-7c0caed08902",
+      "text": "音频",
+      "raw_text": "音频",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.47431519075436734,
+        "y1": 0.3870582079172441,
+        "x2": 0.5253350901698677,
+        "y2": 0.4054556044116808,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "5b98806e-ede6-4710-9f84-da357ede642a",
+      "text": "影视剧场景",
+      "raw_text": "影视剧场景",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.43572760443766734,
+        "y1": 0.5785926608615894,
+        "x2": 0.5639028771959773,
+        "y2": 0.5977681483211164,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "f12c9d7a-9961-448c-a9df-ecd0dc037021",
+      "text": "词根/词缀预习表",
+      "raw_text": "词根/词缀预习表",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6455520534736183,
+        "x2": 0.3704325447402415,
+        "y2": 0.6716361883561547,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "b6f976cf-1602-4b93-96dc-125368fb6dbb",
+      "text": "词根/",
+      "raw_text": "词根/",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.706923806169008,
+        "x2": 0.21379689456846984,
+        "y2": 0.7266649736621319,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "6b04c175-b19b-461e-aa24-a0401d172e55",
+      "text": "词缀",
+      "raw_text": "词缀",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.7395769484697605,
+        "x2": 0.18660351787229643,
+        "y2": 0.7574032277907153,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a3af9204-2e6c-44e5-a777-446e22a068b1",
+      "text": "含",
+      "raw_text": "含",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.22570344930314704,
+        "y1": 0.7074895586978035,
+        "x2": 0.25092920738002655,
+        "y2": 0.7253158380187584,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "aca8215b-8feb-46c8-8629-da13d3275309",
+      "text": "义",
+      "raw_text": "义",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.22570344930314704,
+        "y1": 0.7395769484697605,
+        "x2": 0.25092920738002655,
+        "y2": 0.7574032277907153,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "8a555c3e-96fa-45f9-95c4-e4d5c1387a2c",
+      "text": "例词及释义",
+      "raw_text": "例词及释义",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.27110983948827966,
+        "y1": 0.7235332535837821,
+        "x2": 0.3972386298726772,
+        "y2": 0.7413595329047369,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "1794f90e-9736-42eb-ac26-687def28afdb",
+      "text": "词根/",
+      "raw_text": "词根/",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.4729159041033158,
+        "y1": 0.706923806169008,
+        "x2": 0.5505608225999977,
+        "y2": 0.7266649736621319,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "90109e0a-ed74-4ae0-a27c-04badddaf66c",
+      "text": "词缀",
+      "raw_text": "词缀",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.4729159041033158,
+        "y1": 0.7395769484697605,
+        "x2": 0.5233674715505737,
+        "y2": 0.7574032277907153,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a4a2b222-4026-4b64-b736-1d79ca02a8e2",
+      "text": "含",
+      "raw_text": "含",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.5624673773346749,
+        "y1": 0.7074895586978035,
+        "x2": 0.5876931610583039,
+        "y2": 0.7253158380187584,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "0ae3c3c1-f465-4281-845e-a5d3a50cc580",
+      "text": "义",
+      "raw_text": "义",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.5624673773346749,
+        "y1": 0.7395769484697605,
+        "x2": 0.5876931610583039,
+        "y2": 0.7574032277907153,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e3b36e2f-0d3c-4616-8a2f-d817726feaed",
+      "text": "例词及释义",
+      "raw_text": "例词及释义",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.6078737675198075,
+        "y1": 0.7235332535837821,
+        "x2": 0.7340025835509546,
+        "y2": 0.7413595329047369,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "097157ad-6ad4-4f86-b97a-a0eb3ad366f5",
+      "text": "pris\n抓\nenterprise n. 公司\nlingu",
+      "raw_text": "pris\n抓\nenterprise n. 公司\nlingu",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.7951640192990918,
+        "x2": 0.5247800945113494,
+        "y2": 0.8149051867922158,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "5642a8e5-e42e-4e38-8330-338a1972eb9b",
+      "text": "语",
+      "raw_text": "语",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.5624673773346749,
+        "y1": 0.779686076941909,
+        "x2": 0.5876931610583039,
+        "y2": 0.7975123562628639,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7a84a40c-615d-4bce-8f79-02c7e05dc42b",
+      "text": "言",
+      "raw_text": "言",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.5624673773346749,
+        "y1": 0.8117734667138659,
+        "x2": 0.5876931610583039,
+        "y2": 0.8295997460348208,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "78686e7f-b906-44cf-ad97-fc6fdcd4bfaf",
+      "text": "bilingual adj. （说）两",
+      "raw_text": "bilingual adj. （说）两",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.6078737675198075,
+        "y1": 0.7791203244131133,
+        "x2": 0.863331447100399,
+        "y2": 0.7988614919062373,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "07969aa6-a057-48ba-913e-7961ff1ba028",
+      "text": "种语言的",
+      "raw_text": "种语言的",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.6078737675198075,
+        "y1": 0.8117734667138659,
+        "x2": 0.7087767998273256,
+        "y2": 0.8295997460348208,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "55780b75-e158-41d0-8cf5-84d6796acbfd",
+      "text": "ver",
+      "raw_text": "ver",
+      "block_type": "TEXT",
+      "reading_order": 20,
+      "bbox": {
+        "x1": 0.1361520017185374,
+        "y1": 0.8673605375431972,
+        "x2": 0.16836530645198353,
+        "y2": 0.8871017050363211,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "ce0c76cd-e645-4c38-8128-d60fba434eb6",
+      "text": "真",
+      "raw_text": "真",
+      "block_type": "TEXT",
+      "reading_order": 21,
+      "bbox": {
+        "x1": 0.22570344930314704,
+        "y1": 0.8518825951860144,
+        "x2": 0.25092920738002655,
+        "y2": 0.8697088745069692,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "1b65ef37-44ab-4090-99fa-13c0f8daea91",
+      "text": "实",
+      "raw_text": "实",
+      "block_type": "TEXT",
+      "reading_order": 22,
+      "bbox": {
+        "x1": 0.22570344930314704,
+        "y1": 0.8839699849579713,
+        "x2": 0.25092920738002655,
+        "y2": 0.9017962642789261,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "af71b973-1611-4629-ba05-16618bf9d051",
+      "text": "verify vt. 证明；",
+      "raw_text": "verify vt. 证明；",
+      "block_type": "TEXT",
+      "reading_order": 23,
+      "bbox": {
+        "x1": 0.27110983948827966,
+        "y1": 0.8513168426572187,
+        "x2": 0.4606947663396467,
+        "y2": 0.8710580101503427,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "2fcd97db-5ad1-4320-a4e0-5a9b3cfb1566",
+      "text": "证实",
+      "raw_text": "证实",
+      "block_type": "TEXT",
+      "reading_order": 24,
+      "bbox": {
+        "x1": 0.27110983948827966,
+        "y1": 0.8839699849579713,
+        "x2": 0.3215613556420387,
+        "y2": 0.9017962642789261,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7924a742-1c9a-4b5d-9b29-dd82308e47e6",
+      "text": "fact",
+      "raw_text": "fact",
+      "block_type": "TEXT",
+      "reading_order": 25,
+      "bbox": {
+        "x1": 0.4729159041033158,
+        "y1": 0.8673605375431972,
+        "x2": 0.5107293689340309,
+        "y2": 0.8871017050363211,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9a622147-c68a-407a-a0ab-04fd81856f7c",
+      "text": "制",
+      "raw_text": "制",
+      "block_type": "TEXT",
+      "reading_order": 26,
+      "bbox": {
+        "x1": 0.5624673773346749,
+        "y1": 0.8518825951860144,
+        "x2": 0.5876931610583039,
+        "y2": 0.8697088745069692,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "874a836c-7c58-4959-904e-f0f74905a736",
+      "text": "作",
+      "raw_text": "作",
+      "block_type": "TEXT",
+      "reading_order": 27,
+      "bbox": {
+        "x1": 0.5624673773346749,
+        "y1": 0.8839699849579713,
+        "x2": 0.5876931610583039,
+        "y2": 0.9017962642789261,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e0b3e4e2-4d7e-48e3-9be2-170175b9ba19",
+      "text": "artefact n. 人工制品",
+      "raw_text": "artefact n. 人工制品",
+      "block_type": "TEXT",
+      "reading_order": 28,
+      "bbox": {
+        "x1": 0.6078737675198075,
+        "y1": 0.8673605375431972,
+        "x2": 0.8159124026039042,
+        "y2": 0.8871017050363211,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [],
+  "vocabulary": [],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@a60ffcf",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:47:05.257738+00:00\"}"
+  ]
+}

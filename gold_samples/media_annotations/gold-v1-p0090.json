@@ -1,0 +1,32 @@
+{
+  "media_annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0090",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 90,
+  "page_image_sha256": "823b5c4e9e6d42052a9f6a9c3277efe0abc6565844abc4df056f02180f18f9d2",
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "reviewed_at": "2026-10-03T08:04:25.253795+00:00",
+  "media_count": 1,
+  "media": [
+    {
+      "media_order": 1,
+      "sha256": "954ec8d8c25e505cc143fc74a99d9930a4d9b6b21c6665688c2121d90b1b3027",
+      "media_role": "ENTRY_ILLUSTRATION",
+      "lemma": "lever",
+      "bbox": {
+        "x1": 0.3884096337808315,
+        "y1": 0.7326134221815154,
+        "x2": 0.6116576376430268,
+        "y2": 0.8511582956581828,
+        "unit": "normalized"
+      },
+      "width": 345,
+      "height": 261,
+      "mime_type": "image/jpeg",
+      "human_decision": "APPROVE"
+    }
+  ],
+  "missing_media_reported": false,
+  "review_notes": []
+}

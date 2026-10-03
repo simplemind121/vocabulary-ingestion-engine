@@ -1,0 +1,418 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0420",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 420,
+  "layout_tags": [
+    "IMAGE",
+    "NORMAL"
+  ],
+  "review_status": "DRAFT",
+  "reviewer_id": null,
+  "page_image_sha256": "07cbde2c4f9703824bc6b0d35ea5011f97c04f7e66d2be877d3b03ba04405dc8",
+  "blocks": [
+    {
+      "source_block_id": "58567bd4-1ff0-4c95-8972-f81deb0e5d56",
+      "text": "419",
+      "raw_text": "419",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9474655569874968,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672041146534762,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "447e2c6f-98a3-4208-aa0a-a697abb0b859",
+      "text": "reliance [rɪˈlaɪəns]",
+      "raw_text": "reliance [rɪˈlaɪəns]",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.09102486244579806,
+        "x2": 0.3201629153337196,
+        "y2": 0.11076610243412054,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "bf4f2eb5-4b3d-4c84-9595-8eb127dce142",
+      "text": "n. 依靠，依赖",
+      "raw_text": "n. 依靠，依赖",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.11865539240672242,
+        "x2": 0.33121810057300993,
+        "y2": 0.1383966323950449,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "b9b54331-779c-4df1-bf09-7dd0425fccb8",
+      "text": "例 Long-term reliance on sleeping pills is dangerous. 长期依赖安\n眠药是危险的。",
+      "raw_text": "例 Long-term reliance on sleeping pills is dangerous. 长期依赖安\n眠药是危险的。",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.14614307057907788,
+        "x2": 0.859441655901871,
+        "y2": 0.18517849079060872,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "a4ed30d6-89a3-4797-9a66-451ed1fe2f37",
+      "text": "同 trust （n. 信任，信赖）；dependence （n. 信任，信赖）",
+      "raw_text": "同 trust （n. 信任，信赖）；dependence （n. 信任，信赖）",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.19429702747212796,
+        "x2": 0.8230465589038128,
+        "y2": 0.2141587544802939,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4175857c-948b-4277-8068-84f7787ddbec",
+      "text": "反 distrust （n. 不信任）",
+      "raw_text": "反 distrust （n. 不信任）",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.2219275574330523,
+        "x2": 0.4496486087561696,
+        "y2": 0.24178928444121825,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c477dc5b-47db-4b2a-9473-475a437e0609",
+      "text": "nightmare [ˈnaɪtmeə(r)]",
+      "raw_text": "nightmare [ˈnaɪtmeə(r)]",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.2657226317757909,
+        "x2": 0.3776280224181315,
+        "y2": 0.28546387176411336,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "b1f74984-55bb-4710-a2a8-fd9c7c307e74",
+      "text": "n. 噩梦；可怕的事物",
+      "raw_text": "n. 噩梦；可怕的事物",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2933531617367153,
+        "x2": 0.4068953748036485,
+        "y2": 0.3130944017250377,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "80497659-c9d5-4da7-a975-f2d60cb9c389",
+      "text": "例 Traveling on the bad mountain roads is a nightmare. 在崎岖的\n山路上旅行真是件可怕的事。",
+      "raw_text": "例 Traveling on the bad mountain roads is a nightmare. 在崎岖的\n山路上旅行真是件可怕的事。",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3208408399090707,
+        "x2": 0.8571555559476659,
+        "y2": 0.35987624199680196,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "70bd809b-0177-4180-80c8-5a078d51e3bd",
+      "text": "leap* [liːp]",
+      "raw_text": "leap* [liːp]",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5741177859937392,
+        "x2": 0.24361770380753694,
+        "y2": 0.5938590259820616,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "741e057c-c001-42a0-9153-3c049a083bb9",
+      "text": "n. 跳跃；激增 v. 跳；冲",
+      "raw_text": "n. 跳跃；激增 v. 跳；冲",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6017483159546635,
+        "x2": 0.4367893798657013,
+        "y2": 0.6214895196953868,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e6156e70-b567-4baa-8675-41e81d6d9ece",
+      "text": "例 The athlete tensed his muscles for the leap. 运动员绷紧肌肉准\n备跳跃。",
+      "raw_text": "例 The athlete tensed his muscles for the leap. 运动员绷紧肌肉准\n备跳跃。",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.629235994127019,
+        "x2": 0.8615109382360617,
+        "y2": 0.6682713962147502,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "803fce3c-ee6b-4988-af52-059f6840fe9d",
+      "text": "conscious [ˈkɒnʃəs]",
+      "raw_text": "conscious [ˈkɒnʃəs]",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6935539516878948,
+        "x2": 0.33105334585441837,
+        "y2": 0.7132951191810188,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "32edc38c-2f50-4337-94fd-f0b4b291171e",
+      "text": "adj. 自觉的；意识到的；神志清醒的",
+      "raw_text": "adj. 自觉的；意识到的；神志清醒的",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7211844816488192,
+        "x2": 0.5764548580278019,
+        "y2": 0.7409256491419433,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "ccfe5b0c-1b61-4831-b06c-49c2411bb413",
+      "text": "记 词根记忆：con（共同）+sci（知道）+ous（…的）→共同\n知道的→自觉的；意识到的",
+      "raw_text": "记 词根记忆：con（共同）+sci（知道）+ous（…的）→共同\n知道的→自觉的；意识到的",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7487106910191571,
+        "x2": 0.8501568657784547,
+        "y2": 0.7890566613046801,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "474aeb37-56c7-470e-afdd-386deb83eac3",
+      "text": "例 Deep inside he was conscious that music was not his destiny. 在\n内心深处，他知道音乐并不是自己的归宿。",
+      "raw_text": "例 Deep inside he was conscious that music was not his destiny. 在\n内心深处，他知道音乐并不是自己的归宿。",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7968031357363123,
+        "x2": 0.8676252258965693,
+        "y2": 0.8358385378240436,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c7c4ecad-32b0-4ff6-9f11-87607d0af672",
+      "text": "divine* [dɪˈvaɪn]",
+      "raw_text": "divine* [dɪˈvaɪn]",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8611210932971882,
+        "x2": 0.30247886605256724,
+        "y2": 0.8808622607903122,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "ab51a5fe-1c50-4c91-8bb0-e946e2000af7",
+      "text": "adj. 神的；神授的，天赐的",
+      "raw_text": "adj. 神的；神授的，天赐的",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.8887516232581125,
+        "x2": 0.4755518257202838,
+        "y2": 0.9084927907512366,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "source_entry_id": "89d2833a-0695-4be0-af48-e28d65f204cc",
+      "lemma": "reliance",
+      "raw_text": "reliance [rɪˈlaɪəns]\nn. 依靠，依赖\n例 Long-term reliance on sleeping pills is dangerous. 长期依赖安\n眠药是危险的。\n同 trust （n. 信任，信赖）；dependence （n. 信任，信赖）\n反 distrust （n. 不信任）",
+      "entry_order": 1591,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        420
+      ]
+    },
+    {
+      "source_entry_id": "d1903f75-286d-48e6-8404-8c427ccaa122",
+      "lemma": "nightmare",
+      "raw_text": "nightmare [ˈnaɪtmeə(r)]\nn. 噩梦；可怕的事物\n例 Traveling on the bad mountain roads is a nightmare. 在崎岖的\n山路上旅行真是件可怕的事。",
+      "entry_order": 1592,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        420
+      ]
+    },
+    {
+      "source_entry_id": "4456f9ef-b623-4b54-88f7-e0b37a481990",
+      "lemma": "leap",
+      "raw_text": "leap* [liːp]\nn. 跳跃；激增 v. 跳；冲\n例 The athlete tensed his muscles for the leap. 运动员绷紧肌肉准\n备跳跃。",
+      "entry_order": 1593,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        420
+      ]
+    },
+    {
+      "source_entry_id": "340a219c-fb2a-4bc4-bd4c-6d45a9edc631",
+      "lemma": "conscious",
+      "raw_text": "conscious [ˈkɒnʃəs]\nadj. 自觉的；意识到的；神志清醒的\n记 词根记忆：con（共同）+sci（知道）+ous（…的）→共同\n知道的→自觉的；意识到的\n例 Deep inside he was conscious that music was not his destiny. 在\n内心深处，他知道音乐并不是自己的归宿。",
+      "entry_order": 1594,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        420
+      ]
+    },
+    {
+      "source_entry_id": "00bf418c-e6a3-4d06-b942-7fefbde48adf",
+      "lemma": "divine",
+      "raw_text": "divine* [dɪˈvaɪn]\nadj. 神的；神授的，天赐的\n例 To early man, fire was a divine gift delivered in the form of\nlightning, forest fire or burning lava. 对早期的人类来说，火是伴随着\n闪电、森林大火或是燃烧的岩浆而来的神赐之物。",
+      "entry_order": 1595,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        420,
+        421
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_entry_id": "c981eedb-fdc2-48e5-bc96-40b2c48d9713",
+      "source_entry_id": "89d2833a-0695-4be0-af48-e28d65f204cc",
+      "lemma": "reliance",
+      "display_form": "reliance",
+      "ipa": "rɪˈlaɪəns",
+      "part_of_speech": "n.",
+      "definition": "依靠，依赖",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "88153385-5ea7-460d-a835-dd1d64e14fd7",
+      "source_entry_id": "d1903f75-286d-48e6-8404-8c427ccaa122",
+      "lemma": "nightmare",
+      "display_form": "nightmare",
+      "ipa": "ˈnaɪtmeə(r)",
+      "part_of_speech": "n.",
+      "definition": "噩梦；可怕的事物",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "db50fc85-885a-4b23-8274-05fdc24d3f77",
+      "source_entry_id": "4456f9ef-b623-4b54-88f7-e0b37a481990",
+      "lemma": "leap",
+      "display_form": "leap",
+      "ipa": "liːp",
+      "part_of_speech": "n.",
+      "definition": "跳跃；激增 v. 跳；冲",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "669b11b5-bf6a-4d1e-b31f-f7aa23e1fbdc",
+      "source_entry_id": "340a219c-fb2a-4bc4-bd4c-6d45a9edc631",
+      "lemma": "conscious",
+      "display_form": "conscious",
+      "ipa": "ˈkɒnʃəs",
+      "part_of_speech": "adj.",
+      "definition": "自觉的；意识到的；神志清醒的",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "41a5059f-7d6a-4436-aa40-d36044b2e083",
+      "source_entry_id": "00bf418c-e6a3-4d06-b942-7fefbde48adf",
+      "lemma": "divine",
+      "display_form": "divine",
+      "ipa": "dɪˈvaɪn",
+      "part_of_speech": "adj.",
+      "definition": "神的；神授的，天赐的",
+      "machine_verification_status": "AUTO_VERIFIED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@0.1.0-alpha.4"
+  ]
+}

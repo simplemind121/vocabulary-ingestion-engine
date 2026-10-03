@@ -1,0 +1,451 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0300",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 300,
+  "layout_tags": [
+    "NORMAL"
+  ],
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "page_image_sha256": "b3732e9cd53014c5edb81df5912cfaa284721a278faebc37261bdf602fb7989e",
+  "blocks": [
+    {
+      "source_block_id": "723ac6f8-9d89-413c-b9be-908c64a41991",
+      "text": "299",
+      "raw_text": "299",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9474655569874968,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672041146534762,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "2ad2ccbc-3c03-44e7-9ce7-ade2f178d8bf",
+      "text": "例 A great deal of empirical evidence shows that pictures in a book\ninterfere in a damaging way with all aspects of learning to read. 大量经\n验表明，书中的插图给学习阅读的各方面都造成了不利影响。",
+      "raw_text": "例 A great deal of empirical evidence shows that pictures in a book\ninterfere in a damaging way with all aspects of learning to read. 大量经\n验表明，书中的插图给学习阅读的各方面都造成了不利影响。",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.08553302493392606,
+        "x2": 0.8657268535008429,
+        "y2": 0.14506949824695736,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "6d74ab86-3bfb-4702-a21b-bac1e95d2fdb",
+      "text": "objection [əbˈdʒekʃn]",
+      "raw_text": "objection [əbˈdʒekʃn]",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.17035084848742757,
+        "x2": 0.352855519344625,
+        "y2": 0.19009208847575004,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "39f1302e-3e4e-474e-ba5f-57c23e1da46b",
+      "text": "n. 反对；反对的理由",
+      "raw_text": "n. 反对；反对的理由",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.1979825383715273,
+        "x2": 0.4068953748036485,
+        "y2": 0.21772377835984977,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e25bd877-b67f-40f6-9fdb-7303650ff2b7",
+      "text": "例 If no one has any objection against the decision, I'll declare the\nmeeting is closed. 如果没人反对这个决议，那么我将宣布会议结\n束。",
+      "raw_text": "例 If no one has any objection against the decision, I'll declare the\nmeeting is closed. 如果没人反对这个决议，那么我将宣布会议结\n束。",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.22546963658229507,
+        "x2": 0.8541497056163508,
+        "y2": 0.28500495903405076,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "9c3bc9b0-788b-4dea-881c-217f032bf0fe",
+      "text": "tunnel* [ˈtʌnl]",
+      "raw_text": "tunnel* [ˈtʌnl]",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.31028746013579656,
+        "x2": 0.28146422729831805,
+        "y2": 0.33002870012411906,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "17ff4541-266c-47a2-ae37-50649676a280",
+      "text": "n. 隧道；地道 v. 挖地道，开隧道",
+      "raw_text": "n. 隧道；地道 v. 挖地道，开隧道",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.3379179900967209,
+        "x2": 0.5376924634667183,
+        "y2": 0.3576592300850434,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "cd2631bf-3be3-4866-b05d-d966efc89cdb",
+      "text": "记 联想记忆：海峡（channel）像条长长的地道（tunnel）",
+      "raw_text": "记 联想记忆：海峡（channel）像条长长的地道（tunnel）",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.3654448156762457,
+        "x2": 0.8132543221953946,
+        "y2": 0.38529091996914316,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "c9f2b16a-5f5f-40a9-83b7-669d022c032b",
+      "text": "例 The prisoner had escaped by tunnelling. 犯人挖地道逃跑了。",
+      "raw_text": "例 The prisoner had escaped by tunnelling. 犯人挖地道逃跑了。",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.39303677819158844,
+        "x2": 0.860190540986378,
+        "y2": 0.4129214499300675,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "649ea30e-79c9-4fa8-83b7-c9e94ba9c9e1",
+      "text": "contrast",
+      "raw_text": "contrast",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.43596281634276657,
+        "x2": 0.21767694000219948,
+        "y2": 0.45570405633108907,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "3a85569a-e05d-40d7-9692-c9a4fefa0a27",
+      "text": "[ˈkɒntrɑːst] n. 对比；对照",
+      "raw_text": "[ˈkɒntrɑːst] n. 对比；对照",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.4635945062268663,
+        "x2": 0.45356307212768715,
+        "y2": 0.4833357462151888,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "57df2c30-8e05-4279-bf18-b83fc2e671c1",
+      "text": "[kənˈtrɑːst] v. 对比；对照；形成对比",
+      "raw_text": "[kənˈtrɑːst] v. 对比；对照；形成对比",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.4912250361877907,
+        "x2": 0.5760631808699049,
+        "y2": 0.5109662761761131,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "44a283e6-7108-478f-96e1-e917123c1083",
+      "text": "记 词根记忆：contra（相反）+st（站）→反着站→对比；对照",
+      "raw_text": "记 词根记忆：contra（相反）+st（站）→反着站→对比；对照",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.5187507018441401,
+        "x2": 0.8667482096517131,
+        "y2": 0.5385968061370375,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d721ef5a-9693-4d18-a5d2-66c35d46f55f",
+      "text": "搭 by contrast 对比之下，（与…）相对照；in contrast with/to\n与…形成对比；contrast A with B 把A与B进行对比",
+      "raw_text": "搭 by contrast 对比之下，（与…）相对照；in contrast with/to\n与…形成对比；contrast A with B 把A与B进行对比",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.54640972241806,
+        "x2": 0.8469216309198853,
+        "y2": 0.5867278182997745,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "18d7eb04-1f01-404d-ba99-f89495b8c505",
+      "text": "例 This white peak contrasts finely with the blue sky. 这座雪白的\n山峰同蔚蓝的天空交相辉映。",
+      "raw_text": "例 This white peak contrasts finely with the blue sky. 这座雪白的\n山峰同蔚蓝的天空交相辉映。",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5944736765222197,
+        "x2": 0.8606388461671035,
+        "y2": 0.6335096585715386,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "fa3045e0-c82d-44a7-9819-7b5f449df2f2",
+      "text": "effect* [ɪˈfekt]",
+      "raw_text": "effect* [ɪˈfekt]",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6587922140446832,
+        "x2": 0.2785585275236812,
+        "y2": 0.6785333815378073,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "2a9c57e3-030e-4ca6-a603-d40af7ed5945",
+      "text": "n. 作用，影响；结果；效果 vt. 使产生，招致；实现",
+      "raw_text": "n. 作用，影响；结果；效果 vt. 使产生，招致；实现",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6864227440056077,
+        "x2": 0.7481452783718705,
+        "y2": 0.7061639114987317,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "3f7b9528-be70-48c0-b04b-539f6e85cc51",
+      "text": "记 词根记忆：ef（=e，表加强）+fect（做）→反复做→效果",
+      "raw_text": "记 词根记忆：ef（=e，表加强）+fect（做）→反复做→效果",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.7139483734143578,
+        "x2": 0.8444909345921715,
+        "y2": 0.733794441459656,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4acf339a-6548-4fd2-844b-2a956cbb4f5f",
+      "text": "搭 carry/bring into effect 使生效，实施；in effect 有效，实际\n上；take effect 生效，起作用；side effects 副作用；positive effect 积\n极影响；cause and effect 原因和结果",
+      "raw_text": "搭 carry/bring into effect 使生效，实施；in effect 有效，实际\n上；take effect 生效，起作用；side effects 副作用；positive effect 积\n极影响；cause and effect 原因和结果",
+      "block_type": "TEXT",
+      "reading_order": 18,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.7416073939882777,
+        "x2": 0.8635826826582015,
+        "y2": 0.8024259358242055,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "71d3178e-24e9-4d20-8a9b-18eb88bf7aba",
+      "text": "例 The report suggests that the smoke experienced by many people\nin their daily lives is enough to produce substantial adverse effects on a\nperson's heart and lungs. 报告指出，许多人在日常生活中吸入的（香\n烟）烟雾足以给他们的心脏和肺造成严重的负面影响。",
+      "raw_text": "例 The report suggests that the smoke experienced by many people\nin their daily lives is enough to produce substantial adverse effects on a\nperson's heart and lungs. 报告指出，许多人在日常生活中吸入的（香\n烟）烟雾足以给他们的心脏和肺造成严重的负面影响。",
+      "block_type": "TEXT",
+      "reading_order": 19,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.81017183029425,
+        "x2": 0.8643393643545473,
+        "y2": 0.8902087767471941,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "source_entry_id": "cd175a4b-be99-4d00-91ba-167a7ae63e4b",
+      "lemma": "aspect",
+      "raw_text": "aspect* [ˈæspekt]\nn. 方面；（建筑物的）朝向，方向；外表，外观\n记 词根记忆：a（表加强）+spect（看）→看上去的样子→外\n表\n搭 in all aspects 全面；aspect of …方面\n例 A great deal of empirical evidence shows that pictures in a book\ninterfere in a damaging way with all aspects of learning to read. 大量经\n验表明，书中的插图给学习阅读的各方面都造成了不利影响。",
+      "entry_order": 1129,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        299,
+        300
+      ]
+    },
+    {
+      "source_entry_id": "c581f8e3-5463-44ec-a9ef-781d666dd268",
+      "lemma": "objection",
+      "raw_text": "objection [əbˈdʒekʃn]\nn. 反对；反对的理由\n例 If no one has any objection against the decision, I'll declare the\nmeeting is closed. 如果没人反对这个决议，那么我将宣布会议结\n束。",
+      "entry_order": 1130,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        300
+      ]
+    },
+    {
+      "source_entry_id": "1fb72169-2f73-40e3-952f-b1f95fece760",
+      "lemma": "tunnel",
+      "raw_text": "tunnel* [ˈtʌnl]\nn. 隧道；地道 v. 挖地道，开隧道\n记 联想记忆：海峡（channel）像条长长的地道（tunnel）\n例 The prisoner had escaped by tunnelling. 犯人挖地道逃跑了。",
+      "entry_order": 1131,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        300
+      ]
+    },
+    {
+      "source_entry_id": "6e65199e-2f02-40fa-8685-abc5f53db3fc",
+      "lemma": "contrast",
+      "raw_text": "contrast\n[ˈkɒntrɑːst] n. 对比；对照\n[kənˈtrɑːst] v. 对比；对照；形成对比\n记 词根记忆：contra（相反）+st（站）→反着站→对比；对照\n搭 by contrast 对比之下，（与…）相对照；in contrast with/to\n与…形成对比；contrast A with B 把A与B进行对比\n例 This white peak contrasts finely with the blue sky. 这座雪白的\n山峰同蔚蓝的天空交相辉映。",
+      "entry_order": 1132,
+      "segmentation_confidence": 0.97,
+      "continuation_type": null,
+      "source_pages": [
+        300
+      ]
+    },
+    {
+      "source_entry_id": "df8e21e9-73d9-4eff-af29-1a857b817909",
+      "lemma": "effect",
+      "raw_text": "effect* [ɪˈfekt]\nn. 作用，影响；结果；效果 vt. 使产生，招致；实现\n记 词根记忆：ef（=e，表加强）+fect（做）→反复做→效果\n搭 carry/bring into effect 使生效，实施；in effect 有效，实际\n上；take effect 生效，起作用；side effects 副作用；positive effect 积\n极影响；cause and effect 原因和结果\n例 The report suggests that the smoke experienced by many people\nin their daily lives is enough to produce substantial adverse effects on a\nperson's heart and lungs. 报告指出，许多人在日常生活中吸入的（香\n烟）烟雾足以给他们的心脏和肺造成严重的负面影响。\n派 effective （adj. 有效的）；effectively （adv. 有效地）；\neffectiveness （n. 有效性）；ineffective （adj. 无效的）",
+      "entry_order": 1133,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        300,
+        301
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_entry_id": "cde5628e-0bc7-433c-a4d9-c69e939ed976",
+      "source_entry_id": "cd175a4b-be99-4d00-91ba-167a7ae63e4b",
+      "lemma": "aspect",
+      "display_form": "aspect",
+      "ipa": "ˈæspekt",
+      "part_of_speech": "n.",
+      "definition": "方面；（建筑物的）朝向，方向；外表，外观",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "c720fda0-ed34-4fce-8d61-d5f969680365",
+      "source_entry_id": "c581f8e3-5463-44ec-a9ef-781d666dd268",
+      "lemma": "objection",
+      "display_form": "objection",
+      "ipa": "əbˈdʒekʃn",
+      "part_of_speech": "n.",
+      "definition": "反对；反对的理由",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "d70dbda9-1666-44b4-a859-554655b1ff92",
+      "source_entry_id": "1fb72169-2f73-40e3-952f-b1f95fece760",
+      "lemma": "tunnel",
+      "display_form": "tunnel",
+      "ipa": "ˈtʌnl",
+      "part_of_speech": "n.",
+      "definition": "隧道；地道 v. 挖地道，开隧道",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "9cdd15fb-bf22-4cf5-a67d-7a9c863ab316",
+      "source_entry_id": "6e65199e-2f02-40fa-8685-abc5f53db3fc",
+      "lemma": "contrast",
+      "display_form": "contrast",
+      "ipa": "ˈkɒntrɑːst",
+      "part_of_speech": "n.",
+      "definition": "对比；对照",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "5cef51e4-3136-4908-9838-969e0154ec8e",
+      "source_entry_id": "df8e21e9-73d9-4eff-af29-1a857b817909",
+      "lemma": "effect",
+      "display_form": "effect",
+      "ipa": "ɪˈfekt",
+      "part_of_speech": "n.",
+      "definition": "作用，影响；结果；效果 vt. 使产生，招致；实现",
+      "machine_verification_status": "AUTO_VERIFIED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@0.1.0-alpha.4",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-03T08:09:12.443392+00:00\"}"
+  ]
+}

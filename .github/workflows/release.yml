@@ -1,0 +1,105 @@
+name: Release Gate
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  production-topology-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Prove production topology, OCR, backup, and restore
+        env:
+          VIE_SMOKE_EVIDENCE: ${{ github.workspace }}/production-smoke.json
+        run: scripts/compose-smoke.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-smoke-evidence
+          path: production-smoke.json
+          if-no-files-found: warn
+
+  verified-gold-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - name: Require 30 human-verified Gold annotations
+        run: >-
+          python -m app.gold_corpus_cli
+          --annotations gold_samples/annotations
+          --require-ready
+          --manifest-out gold-sample-manifest-v1.json
+          --output gold-readiness.json
+      - name: Run real Gold dataset benchmark
+        run: >-
+          python -m app.gold_dataset_benchmark_cli
+          --annotations gold_samples/annotations
+          --predictions benchmarks/gold_sample_v1/predictions
+          --output benchmark-report.json
+      - name: Enforce exact-match Gold regression gate
+        run: python -m app.gold_regression_cli benchmark-report.json
+      - name: Enforce Gold Source Media Fidelity Gate
+        run: >-
+          python -m app.gold_media_cli
+          --output gold-source-media-report.json
+          --require-pass
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verified-gold-release-evidence
+          path: |
+            gold-readiness.json
+            gold-sample-manifest-v1.json
+            benchmark-report.json
+            gold-source-media-report.json
+          if-no-files-found: warn
+
+  g6-production-release:
+    needs:
+      - production-topology-smoke
+      - verified-gold-regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-gold-release-evidence
+          path: release-input/gold
+      - uses: actions/download-artifact@v4
+        with:
+          name: production-smoke-evidence
+          path: release-input/production
+      - name: Enforce aggregate G6 production release Gate
+        run: >-
+          python -m app.g6_release_cli
+          --annotations gold_samples/annotations
+          --source-metadata gold_samples/source_document.json
+          --manifest release-input/gold/gold-sample-manifest-v1.json
+          --benchmark release-input/gold/benchmark-report.json
+          --full-book-evidence release_evidence/full-book-audit-v1.json
+          --production-smoke release-input/production/production-smoke.json
+          --media-annotations gold_samples/media_annotations
+          --media-predictions benchmarks/gold_sample_v1/media_predictions
+          --source-media-evidence release_evidence/source-media-full-book-v1.json
+          --git-sha "$GITHUB_SHA"
+          --output g6-release-report.json
+          --require-pass
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g6-production-release-evidence
+          path: g6-release-report.json
+          if-no-files-found: warn

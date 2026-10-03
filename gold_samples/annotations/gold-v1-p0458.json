@@ -1,0 +1,399 @@
+{
+  "annotation_schema_version": "1.0",
+  "sample_id": "gold-v1-p0458",
+  "document_sha256": "485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd",
+  "page_number": 458,
+  "layout_tags": [
+    "BOUNDARY_ENTRY",
+    "CROSS_PAGE_ENTRY",
+    "NORMAL"
+  ],
+  "review_status": "HUMAN_VERIFIED",
+  "reviewer_id": "wangsanqiang",
+  "page_image_sha256": "4006ec3341d7edf485c909b8b37949fbc51ed366edf3e8d440ce2fe7479deac1",
+  "blocks": [
+    {
+      "source_block_id": "1b885be6-8c0d-4aa4-b8b1-6655c33ccbbc",
+      "text": "457",
+      "raw_text": "457",
+      "block_type": "TEXT",
+      "reading_order": 0,
+      "bbox": {
+        "x1": 0.4811168113006554,
+        "y1": 0.9474655569874968,
+        "x2": 0.5189503831829545,
+        "y2": 0.9672041146534762,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "15bef01d-4e01-4df3-82eb-6a1b8f39f615",
+      "text": "搭 anticipate doing sth. 期待做某事",
+      "raw_text": "搭 anticipate doing sth. 期待做某事",
+      "block_type": "TEXT",
+      "reading_order": 1,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.0856012519775784,
+        "x2": 0.5540005133453374,
+        "y2": 0.10541885659558053,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4b12dde2-7adc-4dbc-8e9e-8da88a38fa62",
+      "text": "例 We need someone who can anticipate and respond to changes in\nthe fashion industry. 我们需要一个能预见时装业变化并能应对这些变\n化的人。",
+      "raw_text": "例 We need someone who can anticipate and respond to changes in\nthe fashion industry. 我们需要一个能预见时装业变化并能应对这些变\n化的人。",
+      "block_type": "TEXT",
+      "reading_order": 2,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.11316471481802581,
+        "x2": 0.8705049455139937,
+        "y2": 0.17270119719295693,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "e8b9d3d1-e3ea-45b2-ab2b-e0627bf48cc5",
+      "text": "派 anticipation （n. 预料）",
+      "raw_text": "派 anticipation （n. 预料）",
+      "block_type": "TEXT",
+      "reading_order": 3,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.18175075469313978,
+        "x2": 0.46922077173326066,
+        "y2": 0.2016808809210544,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "8f0bd086-b7e7-44a6-b6d7-9c8c2f2c3379",
+      "text": "operate [ˈɒpəreɪt]",
+      "raw_text": "operate [ˈɒpəreɪt]",
+      "block_type": "TEXT",
+      "reading_order": 4,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.22561422825562705,
+        "x2": 0.31278596125658403,
+        "y2": 0.24535546824394952,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "3d94476d-7c7e-4c52-a54c-d0d39207c9fc",
+      "text": "v. 运转；动手术；起作用；操作；经营",
+      "raw_text": "v. 运转；动手术；起作用；操作；经营",
+      "block_type": "TEXT",
+      "reading_order": 5,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.2532447582165514,
+        "x2": 0.6070632789430749,
+        "y2": 0.2729859982048739,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "dc3d6d64-d8c6-44c7-9d75-98008214cdf7",
+      "text": "搭 operate a tutorial system 开设一个辅导系统；",
+      "raw_text": "搭 operate a tutorial system 开设一个辅导系统；",
+      "block_type": "TEXT",
+      "reading_order": 6,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.28079891448589633,
+        "x2": 0.6983095919663712,
+        "y2": 0.30061652816579826,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "ee67381c-8195-403c-abdc-d1b5df3b98ad",
+      "text": "operating cost 经营费用",
+      "raw_text": "operating cost 经营费用",
+      "block_type": "TEXT",
+      "reading_order": 7,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.30850581813840017,
+        "x2": 0.4292758568476411,
+        "y2": 0.3282470581267226,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "473b88a6-56d6-47b1-a3c1-1a305bf52959",
+      "text": "例 The lift didn't operate. 电梯坏了。// The doctor decided to\noperate on Tom immediately. 医生决定马上给汤姆动手术。// His\nfather operates three big companies. 他父亲经营着三家大公司。",
+      "raw_text": "例 The lift didn't operate. 电梯坏了。// The doctor decided to\noperate on Tom immediately. 医生决定马上给汤姆动手术。// His\nfather operates three big companies. 他父亲经营着三家大公司。",
+      "block_type": "TEXT",
+      "reading_order": 8,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.3359929163491679,
+        "x2": 0.8184718456139545,
+        "y2": 0.39687855249127213,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "7c8c70ef-d085-4257-b200-37c921fd6f07",
+      "text": "bypass [ˈbaɪpɑːs]",
+      "raw_text": "bypass [ˈbaɪpɑːs]",
+      "block_type": "TEXT",
+      "reading_order": 9,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.5821398146747245,
+        "x2": 0.3072946331406886,
+        "y2": 0.601881054663047,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "6e314680-ca2e-47ca-9df8-67ab2305d6ec",
+      "text": "n. （绕过市镇的）旁道 vt. 绕过",
+      "raw_text": "n. （绕过市镇的）旁道 vt. 绕过",
+      "block_type": "TEXT",
+      "reading_order": 10,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.6097703808832482,
+        "x2": 0.5211133787397064,
+        "y2": 0.6295115483763721,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "f3e17ec0-c9ea-4670-8f7a-f08acab2a860",
+      "text": "记 来自词组pass by （经过）",
+      "raw_text": "记 来自词组pass by （经过）",
+      "block_type": "TEXT",
+      "reading_order": 11,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.6372960102919983,
+        "x2": 0.5007899198836582,
+        "y2": 0.6571420783372965,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "23052225-3c81-42b3-8f27-e972512b85ba",
+      "text": "例 If we take the bypass, we'll avoid the town centre. 我们走小路\n的话，就能绕开镇中心。",
+      "raw_text": "例 If we take the bypass, we'll avoid the town centre. 我们走小路\n的话，就能绕开镇中心。",
+      "block_type": "TEXT",
+      "reading_order": 12,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.6648891327305164,
+        "x2": 0.8541033362933101,
+        "y2": 0.7039239548566599,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "4655e22b-4d99-4b6b-bd55-d93b959bae11",
+      "text": "同 circumvent （vt. 绕行，避开）",
+      "raw_text": "同 circumvent （vt. 绕行，避开）",
+      "block_type": "TEXT",
+      "reading_order": 13,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.7129974538961348,
+        "x2": 0.5462898694108552,
+        "y2": 0.7329047803841332,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "d93745fa-7277-4f50-b7ff-a16f956c3e88",
+      "text": "undetected* [ˌʌndɪˈtektɪd]",
+      "raw_text": "undetected* [ˌʌndɪˈtektɪd]",
+      "block_type": "TEXT",
+      "reading_order": 14,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.756837040290729,
+        "x2": 0.40194167949688053,
+        "y2": 0.776578207783853,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "1de889ae-054f-4a12-983f-d1dce4caa2fb",
+      "text": "adj. 未被发现的",
+      "raw_text": "adj. 未被发现的",
+      "block_type": "TEXT",
+      "reading_order": 15,
+      "bbox": {
+        "x1": 0.17986352646498335,
+        "y1": 0.7844687301748287,
+        "x2": 0.34942300968913675,
+        "y2": 0.8042098976679527,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "82f05d6f-08b6-485d-8cb8-64011c9f30ac",
+      "text": "记 联想记忆：un（不）+detect（发现）+ed→未被发现的",
+      "raw_text": "记 联想记忆：un（不）+detect（发现）+ed→未被发现的",
+      "block_type": "TEXT",
+      "reading_order": 16,
+      "bbox": {
+        "x1": 0.18238608944929657,
+        "y1": 0.8119943595835789,
+        "x2": 0.8094729654536232,
+        "y2": 0.8318404276288771,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    },
+    {
+      "source_block_id": "803a68eb-fe3a-4846-8998-9d852404fd96",
+      "text": "例 The family had managed to live undetected for six years outside\nthe border town of Breda, Holland. 这一家人成功地在荷兰布雷达这个\n边镇外度过了六年不为人知的生活。",
+      "raw_text": "例 The family had managed to live undetected for six years outside\nthe border town of Breda, Holland. 这一家人成功地在荷兰布雷达这个\n边镇外度过了六年不为人知的生活。",
+      "block_type": "TEXT",
+      "reading_order": 17,
+      "bbox": {
+        "x1": 0.1294119974878496,
+        "y1": 0.8395863220989216,
+        "x2": 0.8678690751905246,
+        "y2": 0.899122786350053,
+        "unit": "normalized"
+      },
+      "confidence": 1.0,
+      "source_engine": "pymupdf-native"
+    }
+  ],
+  "entries": [
+    {
+      "source_entry_id": "4e1fdc7e-6bc6-4ebf-9864-36512ba59000",
+      "lemma": "anticipate",
+      "raw_text": "anticipate* [ænˈtɪsɪpeɪt]\nv. 预期，预料，期望；先于…行动\n记 词根记忆：anti（=ante，前面）+cip（拿）+ate（做）→\n在…之前取得→先于…行动\n搭 anticipate doing sth. 期待做某事\n例 We need someone who can anticipate and respond to changes in\nthe fashion industry. 我们需要一个能预见时装业变化并能应对这些变\n化的人。\n派 anticipation （n. 预料）",
+      "entry_order": 1708,
+      "segmentation_confidence": 0.98,
+      "continuation_type": "CROSS_PAGE",
+      "source_pages": [
+        457,
+        458
+      ]
+    },
+    {
+      "source_entry_id": "257dad81-fbb0-4f1e-9299-e926906f333b",
+      "lemma": "operate",
+      "raw_text": "operate [ˈɒpəreɪt]\nv. 运转；动手术；起作用；操作；经营\n搭 operate a tutorial system 开设一个辅导系统；\noperating cost 经营费用\n例 The lift didn't operate. 电梯坏了。// The doctor decided to\noperate on Tom immediately. 医生决定马上给汤姆动手术。// His\nfather operates three big companies. 他父亲经营着三家大公司。",
+      "entry_order": 1709,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        458
+      ]
+    },
+    {
+      "source_entry_id": "a9ba886b-bc68-4a54-bb9d-252310744033",
+      "lemma": "bypass",
+      "raw_text": "bypass [ˈbaɪpɑːs]\nn. （绕过市镇的）旁道 vt. 绕过\n记 来自词组pass by （经过）\n例 If we take the bypass, we'll avoid the town centre. 我们走小路\n的话，就能绕开镇中心。\n同 circumvent （vt. 绕行，避开）",
+      "entry_order": 1710,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        458
+      ]
+    },
+    {
+      "source_entry_id": "a2ad8ac1-d5ae-4c65-9f9f-e00d80395c78",
+      "lemma": "undetected",
+      "raw_text": "undetected* [ˌʌndɪˈtektɪd]\nadj. 未被发现的\n记 联想记忆：un（不）+detect（发现）+ed→未被发现的\n例 The family had managed to live undetected for six years outside\nthe border town of Breda, Holland. 这一家人成功地在荷兰布雷达这个\n边镇外度过了六年不为人知的生活。",
+      "entry_order": 1711,
+      "segmentation_confidence": 0.98,
+      "continuation_type": null,
+      "source_pages": [
+        458
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "vocabulary_entry_id": "09f73d67-7e03-47d6-8a23-6cf924f7dc6b",
+      "source_entry_id": "4e1fdc7e-6bc6-4ebf-9864-36512ba59000",
+      "lemma": "anticipate",
+      "display_form": "anticipate",
+      "ipa": "ænˈtɪsɪpeɪt",
+      "part_of_speech": "v.",
+      "definition": "预期，预料，期望；先于…行动",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "287cd131-6b6a-4222-b5d1-11308a41569b",
+      "source_entry_id": "257dad81-fbb0-4f1e-9299-e926906f333b",
+      "lemma": "operate",
+      "display_form": "operate",
+      "ipa": "ˈɒpəreɪt",
+      "part_of_speech": "v.",
+      "definition": "运转；动手术；起作用；操作；经营",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "53f07c3d-52cd-4a0c-9fe3-a98075781612",
+      "source_entry_id": "a9ba886b-bc68-4a54-bb9d-252310744033",
+      "lemma": "bypass",
+      "display_form": "bypass",
+      "ipa": "ˈbaɪpɑːs",
+      "part_of_speech": "n.",
+      "definition": "（绕过市镇的）旁道 vt. 绕过",
+      "machine_verification_status": "AUTO_VERIFIED"
+    },
+    {
+      "vocabulary_entry_id": "ce0b7d5f-0104-43ea-b8e7-d9bceb076973",
+      "source_entry_id": "a2ad8ac1-d5ae-4c65-9f9f-e00d80395c78",
+      "lemma": "undetected",
+      "display_form": "undetected",
+      "ipa": "ˌʌndɪˈtektɪd",
+      "part_of_speech": "adj.",
+      "definition": "未被发现的",
+      "machine_verification_status": "AUTO_VERIFIED"
+    }
+  ],
+  "review_notes": [
+    "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
+    "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
+    "generator=vie-pipeline@a60ffcf",
+    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:44:12.896235+00:00\"}"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vocabulary-ingestion-engine.local/schemas/gold-sample-ground-truth-v1.json",
+  "title": "Vocabulary Ingestion Engine Gold Sample Ground Truth v1",
+  "type": "object",
+  "required": ["benchmark_id", "entries"],
+  "properties": {
+    "benchmark_id": {"const": "gold-sample-v1-batch-a"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "page", "lemma", "source_bbox", "fields", "review_status"],
+        "properties": {
+          "entry_id": {"type": "string", "minLength": 1},
+          "page": {"type": "integer", "minimum": 1},
+          "lemma": {"type": "string", "minLength": 1},
+          "source_bbox": {
+            "type": "object",
+            "required": ["unit", "x1", "y1", "x2", "y2"],
+            "properties": {
+              "unit": {"const": "normalized"},
+              "x1": {"type": "number", "minimum": 0, "maximum": 1},
+              "y1": {"type": "number", "minimum": 0, "maximum": 1},
+              "x2": {"type": "number", "minimum": 0, "maximum": 1},
+              "y2": {"type": "number", "minimum": 0, "maximum": 1}
+            },
+            "additionalProperties": false
+          },
+          "fields": {
+            "type": "object",
+            "properties": {
+              "ipa": {"type": ["string", "null"]},
+              "part_of_speech": {"type": ["string", "null"]},
+              "chinese_definition": {"type": ["string", "null"]},
+              "mnemonic": {"type": ["array", "null"], "items": {"type": "string"}},
+              "example": {"type": ["array", "null"], "items": {"type": "string"}},
+              "derivative": {"type": ["array", "null"], "items": {"type": "string"}},
+              "collocation": {"type": ["array", "null"], "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          },
+          "review_status": {"enum": ["HUMAN_VERIFIED", "REVIEW_REQUIRED"]},
+          "notes": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -12,8 +12,7 @@ Database schema: `0008_source_media`
 
 `v0.1.0-rc1` (commit `976555a`) is superseded: it passed its Release Gate on
 evidence this audit found to be wrong (139 entries missing, source media not
-covered). The tag is untouched. The candidate is `v0.1.0-rc2`. Promotion to
-`v0.1.0` requires explicit user approval.
+covered). The tag is untouched. `v0.1.0-rc2` replaced it and was promoted to `v0.1.0`.
 
 ## Gate summary
 
@@ -28,7 +27,7 @@ covered). The tag is untouched. The candidate is `v0.1.0-rc2`. Promotion to
 | R4 — Dataset Publication | PASS | GoldRelease `66055ec7-d539-401b-bc92-ecad2235e9f6`, schema 1.1, 3,540 records, 272 with source media. API = JSON; CSV = XLSX; JSON and CSV agree per record. JSON `1f746429…dda4`, CSV `2cc93a32…f289`, XLSX `383dc7b2…266e`. All 374 media objects served by the API match their SHA256. | Immutable. |
 | R5 — Production Deployment | PASS | CI `container-smoke` on clean Ubuntu: image build, migration `0008`, PostgreSQL/Redis/worker/API/object storage, Tesseract, queued G0–G6 with a source illustration stored, bound, served and exported, and a reviewed run. | Reproduced by the tag-triggered Release Gate. |
 | R6 — Recovery / Operations | PASS | Same smoke: backup, pollution, exact restore; schema-aware drill (downgrade `0008`→`0007`, previous image `17d453b`, upgrade, new workload, rollback, byte-identical state). | Reproduced by the tag-triggered Release Gate. |
-| R7 — Release Candidate | PASS | `v0.1.0-rc2` = commit `71c065f333810f20fa7803897798a2e438467f77`. Tag-triggered [Release Gate 37110786120](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/37110786120): Gold regression, production topology smoke and aggregate G6 all `PASS` (10/10 production checks, no blockers). Image `sha256:d80680f9…fe87b`; upgrade from `17d453b` image `sha256:9d4b9962…2462`; recovery state `3d48220f…0527`; G6 report `6c0300e2…cd71`. | Awaiting explicit user approval to promote this commit to `v0.1.0`. |
+| R7 — Release Candidate | PASS | `v0.1.0-rc2` = commit `71c065f333810f20fa7803897798a2e438467f77`. Tag-triggered [Release Gate 37110786120](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/37110786120): Gold regression, production topology smoke and aggregate G6 all `PASS` (10/10 production checks, no blockers). Image `sha256:d80680f9…fe87b`; upgrade from `17d453b` image `sha256:9d4b9962…2462`; recovery state `3d48220f…0527`; G6 report `6c0300e2…cd71`. | Promoted. |
 
 ## Executable evidence
 
@@ -96,9 +95,16 @@ python -m app.source_media_cli evidence RUN_ID \
 python -m app.gold_media_cli --require-pass
 ```
 
-## Release blockers in execution order
+## Release
 
-1. Explicit user approval to promote `v0.1.0-rc2` (`71c065f`) to `v0.1.0`. Commits after the tag change documentation only.
+`v0.1.0` was promoted on 2026-10-03 with explicit user approval. The tag points
+at commit `71c065f333810f20fa7803897798a2e438467f77`, the same commit as
+`v0.1.0-rc2`. The tag-triggered
+[Release Gate 37111131723](https://github.com/simplemind121/vocabulary-ingestion-engine/actions/runs/37111131723)
+passed Gold regression, the production topology smoke and the aggregate G6 Gate
+on that commit. Commits after the tag change documentation only.
+
+No release blockers remain. Open items are listed in `docs/KNOWN_ISSUES.md`.
 
 ## Final v0.1.0 release invariant
 

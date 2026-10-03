@@ -7,12 +7,12 @@
     "IPA_DENSE",
     "NORMAL"
   ],
-  "review_status": "HUMAN_VERIFIED",
-  "reviewer_id": "wangsanqiang",
+  "review_status": "DRAFT",
+  "reviewer_id": null,
   "page_image_sha256": "47f9bfb250a5ff9eec45e6f7044b2d7bdaaf8dd0c46c45f305709a2ad182b8ac",
   "blocks": [
     {
-      "source_block_id": "ca6bad81-bcba-4971-8dcc-bbb3afb58e39",
+      "source_block_id": "b053852e-1a19-411f-9454-c47515e5209f",
       "text": "749",
       "raw_text": "749",
       "block_type": "TEXT",
@@ -28,7 +28,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "b2c36134-d9ff-406b-9841-caae1840f987",
+      "source_block_id": "21636d54-5d59-40d1-a80b-b65718cd7a0c",
       "text": "biodiversity* [ˌbaɪəʊdaɪˈvɜːsəti]",
       "raw_text": "biodiversity* [ˌbaɪəʊdaɪˈvɜːsəti]",
       "block_type": "TEXT",
@@ -44,7 +44,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "fabdf83f-5dde-4951-b8e6-d4ed35916e25",
+      "source_block_id": "7faf1c7b-3c59-41c6-b473-f0941e8b2eb5",
       "text": "n. 生物多样性",
       "raw_text": "n. 生物多样性",
       "block_type": "TEXT",
@@ -60,7 +60,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "5da58454-badf-4d23-b8da-41c5ad8ac973",
+      "source_block_id": "c2bbc698-9fab-4e7e-ae88-d47f52f63030",
       "text": "搭 loss of biodiversity 生物多样性的丧失",
       "raw_text": "搭 loss of biodiversity 生物多样性的丧失",
       "block_type": "TEXT",
@@ -76,7 +76,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "76dd4345-15c4-47b8-9de2-f992236f6212",
+      "source_block_id": "a03d1548-8d67-4165-9911-c329917cdc12",
       "text": "例 The oilfield engineering threatens one of the world's richest\nareas of biodiversity. 油田工程对世界上一块拥有最丰富物种多样性\n的地域造成了威胁。",
       "raw_text": "例 The oilfield engineering threatens one of the world's richest\nareas of biodiversity. 油田工程对世界上一块拥有最丰富物种多样性\n的地域造成了威胁。",
       "block_type": "TEXT",
@@ -92,7 +92,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "afa61cad-76b4-46a9-b64e-41954f4648d4",
+      "source_block_id": "771210d4-b8a0-4d93-874b-c44a656199d6",
       "text": "bud* [bʌd]",
       "raw_text": "bud* [bʌd]",
       "block_type": "TEXT",
@@ -108,7 +108,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "b2a238c5-da36-41b9-8e5e-87b57f98f6ae",
+      "source_block_id": "4623cf12-9be8-4a2f-9199-aa347d49e375",
       "text": "n. 花蕾；叶芽 v. 发芽，萌芽",
       "raw_text": "n. 花蕾；叶芽 v. 发芽，萌芽",
       "block_type": "TEXT",
@@ -124,7 +124,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "c11eb7a5-161f-4104-b58a-110d29a4741c",
+      "source_block_id": "5327c86c-29b1-4a68-9393-ff4838dfa636",
       "text": "记 联想记忆：泥土（mud）中发出的芽（bud）",
       "raw_text": "记 联想记忆：泥土（mud）中发出的芽（bud）",
       "block_type": "TEXT",
@@ -140,7 +140,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "77dc1a57-776c-49d9-98fc-389550492043",
+      "source_block_id": "d6903110-8809-41f7-88ac-1fa691c1f15d",
       "text": "搭 taste bud 味蕾",
       "raw_text": "搭 taste bud 味蕾",
       "block_type": "TEXT",
@@ -156,7 +156,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "9e7da2be-7948-467f-9997-80642528b6c0",
+      "source_block_id": "8d26c033-564b-4059-9677-ea04636f399c",
       "text": "例 Jasminum mesnyi has the first buds in spring. 野迎春在春天里\n长出第一批花蕾。",
       "raw_text": "例 Jasminum mesnyi has the first buds in spring. 野迎春在春天里\n长出第一批花蕾。",
       "block_type": "TEXT",
@@ -172,7 +172,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "9545244d-f3c2-4ab4-8379-c6370281c5c0",
+      "source_block_id": "bb0a5c0e-38df-432d-bca8-a2e8af0dc9cb",
       "text": "celestial* [səˈlestiəl]",
       "raw_text": "celestial* [səˈlestiəl]",
       "block_type": "TEXT",
@@ -188,7 +188,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "f395913d-af7a-4491-b364-9174faa70153",
+      "source_block_id": "de13bb39-71ec-429c-98d1-369148d7463a",
       "text": "adj. 天体的，天上的",
       "raw_text": "adj. 天体的，天上的",
       "block_type": "TEXT",
@@ -204,7 +204,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "a08d4137-ae59-482e-a811-691ab76293e4",
+      "source_block_id": "e3f448d2-e060-4bc8-aaba-f4d2d6142ed6",
       "text": "记 词根记忆：cel（天空）+est+ial（…的）→天体的",
       "raw_text": "记 词根记忆：cel（天空）+est+ial（…的）→天体的",
       "block_type": "TEXT",
@@ -220,7 +220,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "dea45299-319f-4ca1-bae7-14216122f3e9",
+      "source_block_id": "bc57f3b9-1b5a-4c19-965b-6d649691f5a2",
       "text": "例 The moon and the galaxy are all celestial bodies. 月亮和银河都\n是天体。",
       "raw_text": "例 The moon and the galaxy are all celestial bodies. 月亮和银河都\n是天体。",
       "block_type": "TEXT",
@@ -236,7 +236,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "d17cfb61-eb0a-4193-a38b-f3037698b1b7",
+      "source_block_id": "d3b22dd2-13cf-41d2-bb30-21c87fce10e7",
       "text": "combination* [ˌkɒmbɪˈneɪʃn]",
       "raw_text": "combination* [ˌkɒmbɪˈneɪʃn]",
       "block_type": "TEXT",
@@ -252,7 +252,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "5df2f25e-ff98-4f08-a4d8-1bba8fc5c00a",
+      "source_block_id": "207c909c-35ac-4858-a60e-967068b19cb6",
       "text": "n. 结合（体），联合（体）；化合",
       "raw_text": "n. 结合（体），联合（体）；化合",
       "block_type": "TEXT",
@@ -268,7 +268,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "1af09602-be49-4720-9c83-3edad15f56ba",
+      "source_block_id": "2b511afb-4e48-47f3-b8ce-9de05c7ac310",
       "text": "记 来自combine （v. 结合）",
       "raw_text": "记 来自combine （v. 结合）",
       "block_type": "TEXT",
@@ -284,7 +284,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "1aae5a4c-63d9-4902-816f-7ee2eb1a70fa",
+      "source_block_id": "7885c6c9-65b8-4953-9c25-7e108e13fc5f",
       "text": "例 The old man's treatment was a combination of surgery, radiation\nand drugs. 对那位老人的治疗集外科手术、放射治疗以及药物治疗\n于一体。",
       "raw_text": "例 The old man's treatment was a combination of surgery, radiation\nand drugs. 对那位老人的治疗集外科手术、放射治疗以及药物治疗\n于一体。",
       "block_type": "TEXT",
@@ -300,7 +300,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "245ca8b4-9706-4663-b0ec-3faeabf2d5f7",
+      "source_block_id": "e7fedc92-5e8c-40b4-923f-bedceed8506f",
       "text": "impact* [ˈɪmpækt]",
       "raw_text": "impact* [ˈɪmpækt]",
       "block_type": "TEXT",
@@ -316,7 +316,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "d9dea466-e9b9-417a-a747-f9a4f68134cc",
+      "source_block_id": "bf04d757-ddeb-46c6-9305-bcaefd0c589d",
       "text": "n. 影响，作用；冲击 v. 影响",
       "raw_text": "n. 影响，作用；冲击 v. 影响",
       "block_type": "TEXT",
@@ -332,7 +332,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "ccc06655-011e-4ea9-aea5-8aea5e032ca3",
+      "source_block_id": "d5a1df7f-44b6-4476-a238-db238dbe0a4c",
       "text": "例 Cigarette smoke has the same impact on smokers as it does on\nnon-smokers. 香烟烟雾对吸烟者和不吸烟者的影响是一样的。",
       "raw_text": "例 Cigarette smoke has the same impact on smokers as it does on\nnon-smokers. 香烟烟雾对吸烟者和不吸烟者的影响是一样的。",
       "block_type": "TEXT",
@@ -348,7 +348,7 @@
       "source_engine": "pymupdf-native"
     },
     {
-      "source_block_id": "3eb7b278-3fb2-4487-8966-e72fdd3341ee",
+      "source_block_id": "7b39db86-5da9-4cf1-b9be-976f5e2a6583",
       "text": "renew* [rɪˈnjuː]",
       "raw_text": "renew* [rɪˈnjuː]",
       "block_type": "TEXT",
@@ -366,10 +366,10 @@
   ],
   "entries": [
     {
-      "source_entry_id": "ee670a3a-226a-4328-85dc-f123aa926899",
+      "source_entry_id": "828278c9-c785-412f-9c6f-e52c754f0f4c",
       "lemma": "biodiversity",
       "raw_text": "biodiversity* [ˌbaɪəʊdaɪˈvɜːsəti]\nn. 生物多样性\n搭 loss of biodiversity 生物多样性的丧失\n例 The oilfield engineering threatens one of the world's richest\nareas of biodiversity. 油田工程对世界上一块拥有最丰富物种多样性\n的地域造成了威胁。",
-      "entry_order": 2792,
+      "entry_order": 2838,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -377,10 +377,10 @@
       ]
     },
     {
-      "source_entry_id": "f8dfb7d4-8eed-4cd6-bdf4-178b30b767af",
+      "source_entry_id": "c07a3413-7533-4fe9-8cee-70e03fdf6a36",
       "lemma": "bud",
       "raw_text": "bud* [bʌd]\nn. 花蕾；叶芽 v. 发芽，萌芽\n记 联想记忆：泥土（mud）中发出的芽（bud）\n搭 taste bud 味蕾\n例 Jasminum mesnyi has the first buds in spring. 野迎春在春天里\n长出第一批花蕾。",
-      "entry_order": 2793,
+      "entry_order": 2839,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -388,10 +388,10 @@
       ]
     },
     {
-      "source_entry_id": "9e970839-9b02-4830-aa63-17ba18704167",
+      "source_entry_id": "a96e4a9a-7d5b-4517-9d11-6f884b5b03e7",
       "lemma": "celestial",
       "raw_text": "celestial* [səˈlestiəl]\nadj. 天体的，天上的\n记 词根记忆：cel（天空）+est+ial（…的）→天体的\n例 The moon and the galaxy are all celestial bodies. 月亮和银河都\n是天体。",
-      "entry_order": 2794,
+      "entry_order": 2840,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -399,10 +399,10 @@
       ]
     },
     {
-      "source_entry_id": "f571c4c4-7c35-4e29-a52d-3b7391a4c4ea",
+      "source_entry_id": "9bf6d9ef-295f-43c3-9c4f-e36b194b636e",
       "lemma": "combination",
       "raw_text": "combination* [ˌkɒmbɪˈneɪʃn]\nn. 结合（体），联合（体）；化合\n记 来自combine （v. 结合）\n例 The old man's treatment was a combination of surgery, radiation\nand drugs. 对那位老人的治疗集外科手术、放射治疗以及药物治疗\n于一体。",
-      "entry_order": 2795,
+      "entry_order": 2841,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -410,10 +410,10 @@
       ]
     },
     {
-      "source_entry_id": "8036b96e-b854-469d-8ad8-6050011459a3",
+      "source_entry_id": "0fed7988-31db-43d9-9de0-b07995454ca0",
       "lemma": "impact",
       "raw_text": "impact* [ˈɪmpækt]\nn. 影响，作用；冲击 v. 影响\n例 Cigarette smoke has the same impact on smokers as it does on\nnon-smokers. 香烟烟雾对吸烟者和不吸烟者的影响是一样的。",
-      "entry_order": 2796,
+      "entry_order": 2842,
       "segmentation_confidence": 0.98,
       "continuation_type": null,
       "source_pages": [
@@ -421,10 +421,10 @@
       ]
     },
     {
-      "source_entry_id": "55884535-31e6-4898-9601-9b29f1f7612f",
+      "source_entry_id": "90d194b6-2c2c-4269-aaa8-1abab24e877d",
       "lemma": "renew",
-      "raw_text": "renew* [rɪˈnjuː]\nv. 重新开始；恢复；更换，更新；续借\n记 联想记忆：re（再，又）+new（新的）→重新开始\n例 The swift increase of population renewed the demand for\nbuilding houses quickly and cheaply. 人口的迅速增长进一步要求加快\n房屋的建造速度并且降低建筑成本。\nbow*\n[baʊ] v. 低下（头）；弯腰；鞠躬，点头\n[bəʊ] n. 弓；鞠躬，点头；船头\n记 联想记忆：彩虹（rainbow）没有了雨（rain）就变成了弓\n（bow）\n例 When you're introduced to a stranger, you may simply bow to\neach other. 当你被介绍给一个陌生人的时候，你们可能只是彼此点\n一下头。",
-      "entry_order": 2797,
+      "raw_text": "renew* [rɪˈnjuː]\nv. 重新开始；恢复；更换，更新；续借\n记 联想记忆：re（再，又）+new（新的）→重新开始\n例 The swift increase of population renewed the demand for\nbuilding houses quickly and cheaply. 人口的迅速增长进一步要求加快\n房屋的建造速度并且降低建筑成本。",
+      "entry_order": 2843,
       "segmentation_confidence": 0.98,
       "continuation_type": "CROSS_PAGE",
       "source_pages": [
@@ -435,8 +435,8 @@
   ],
   "vocabulary": [
     {
-      "vocabulary_entry_id": "02aa64f9-a7d7-4c31-b9cd-5b64132bfbc4",
-      "source_entry_id": "ee670a3a-226a-4328-85dc-f123aa926899",
+      "vocabulary_entry_id": "fa739027-6d96-4acb-861c-5da9a810f25b",
+      "source_entry_id": "828278c9-c785-412f-9c6f-e52c754f0f4c",
       "lemma": "biodiversity",
       "display_form": "biodiversity",
       "ipa": "ˌbaɪəʊdaɪˈvɜːsəti",
@@ -445,8 +445,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "9630ab85-c0c8-466b-aeba-de345917692e",
-      "source_entry_id": "f8dfb7d4-8eed-4cd6-bdf4-178b30b767af",
+      "vocabulary_entry_id": "f8f2d1c0-16fe-4c7e-b069-ac20f8f5dcc5",
+      "source_entry_id": "c07a3413-7533-4fe9-8cee-70e03fdf6a36",
       "lemma": "bud",
       "display_form": "bud",
       "ipa": "bʌd",
@@ -455,8 +455,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "74418ed4-aba7-4cd0-8af4-9dd724b33e2f",
-      "source_entry_id": "9e970839-9b02-4830-aa63-17ba18704167",
+      "vocabulary_entry_id": "40b9ee44-5807-470f-aa36-01bd0d501d38",
+      "source_entry_id": "a96e4a9a-7d5b-4517-9d11-6f884b5b03e7",
       "lemma": "celestial",
       "display_form": "celestial",
       "ipa": "səˈlestiəl",
@@ -465,8 +465,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "a461f032-11f5-4522-b137-f3769a4607b5",
-      "source_entry_id": "f571c4c4-7c35-4e29-a52d-3b7391a4c4ea",
+      "vocabulary_entry_id": "056e3c77-5d89-4c11-a818-09c53c090ace",
+      "source_entry_id": "9bf6d9ef-295f-43c3-9c4f-e36b194b636e",
       "lemma": "combination",
       "display_form": "combination",
       "ipa": "ˌkɒmbɪˈneɪʃn",
@@ -475,8 +475,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "e48fa086-b253-413f-9565-0766c1279cda",
-      "source_entry_id": "8036b96e-b854-469d-8ad8-6050011459a3",
+      "vocabulary_entry_id": "a097072b-3b35-47dc-a099-7ac21e96ff7b",
+      "source_entry_id": "0fed7988-31db-43d9-9de0-b07995454ca0",
       "lemma": "impact",
       "display_form": "impact",
       "ipa": "ˈɪmpækt",
@@ -485,8 +485,8 @@
       "machine_verification_status": "AUTO_VERIFIED"
     },
     {
-      "vocabulary_entry_id": "f31fb6f1-b5f9-4433-bdf1-b3a34084148a",
-      "source_entry_id": "55884535-31e6-4898-9601-9b29f1f7612f",
+      "vocabulary_entry_id": "6d3c5d65-fa3b-409a-8dc7-dc25b4720e5d",
+      "source_entry_id": "90d194b6-2c2c-4269-aaa8-1abab24e877d",
       "lemma": "renew",
       "display_form": "renew",
       "ipa": "rɪˈnjuː",
@@ -498,7 +498,6 @@
   "review_notes": [
     "DRAFT_SCAFFOLD_ONLY: page identity is frozen; blocks, entries and vocabulary still require source-grounded annotation and human verification.",
     "MACHINE_PREANNOTATION_ONLY: content must be checked against the rendered source page before HUMAN_VERIFIED promotion.",
-    "generator=vie-pipeline@a60ffcf",
-    "HUMAN_SIGN_OFF:{\"checks\":[\"canonical_fields_match\",\"entry_boundaries_match\",\"page_boundaries_match\",\"source_blocks_match\"],\"page_classification\":null,\"reviewer_id\":\"wangsanqiang\",\"verified_at\":\"2026-10-01T19:47:28.210848+00:00\"}"
+    "generator=vie-pipeline@0.1.0-alpha.4"
   ]
 }

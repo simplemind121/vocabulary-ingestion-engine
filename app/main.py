@@ -19,10 +19,11 @@ from botocore.exceptions import BotoCoreError, ClientError
 from fastapi import Depends, FastAPI, File, HTTPException, Query, Request, Response, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
-from sqlalchemy import text
+from sqlalchemy import func, text
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
+from app.console_ui import CONSOLE_UI_HTML
 from app.db import get_db
 from app.models import (
     Artifact,
@@ -297,6 +298,11 @@ def metrics(db: DbSession) -> Response:
     )
 
 
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
+def console_ui() -> str:
+    return CONSOLE_UI_HTML
+
+
 @app.get("/review", response_class=HTMLResponse, include_in_schema=False)
 def review_ui() -> str:
     return REVIEW_UI_HTML
@@ -339,6 +345,40 @@ def get_document(document_id: str, db: DbSession) -> dict:
     document = db.get(Document, document_id)
     if not document: raise HTTPException(404, "Document not found")
     return {"id": document.id, "filename": document.original_filename, "status": document.status}
+
+
+@app.get("/api/v1/runs")
+def list_runs(db: DbSession, limit: Annotated[int, Query(ge=1, le=200)] = 50) -> dict:
+    """Newest runs first, with what the console needs to list them."""
+    rows = (
+        db.query(ProcessingRun, DocumentVersion, Document)
+        .join(DocumentVersion, DocumentVersion.id == ProcessingRun.document_version_id)
+        .join(Document, Document.id == DocumentVersion.document_id)
+        .order_by(ProcessingRun.created_at.desc())
+        .limit(limit)
+        .all()
+    )
+    open_reviews = dict(
+        db.query(ReviewTask.processing_run_id, func.count())
+        .filter(ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"]))
+        .group_by(ReviewTask.processing_run_id)
+        .all()
+    )
+    return {
+        "items": [
+            {
+                "id": run.id,
+                "status": run.status,
+                "filename": document.original_filename,
+                "sha256": version.sha256,
+                "page_count": version.page_count,
+                "created_at": run.created_at,
+                "open_reviews": open_reviews.get(run.id, 0),
+                "gold_release_id": (run.metrics or {}).get("gold_release_id"),
+            }
+            for run, version, document in rows
+        ]
+    }
 
 
 @app.get("/api/v1/runs/{run_id}")

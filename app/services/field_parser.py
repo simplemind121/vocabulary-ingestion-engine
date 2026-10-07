@@ -80,7 +80,7 @@ def parse_source_entry(lines: list[str]) -> ParsedSourceEntry:
         if active_field:
             values = getattr(parsed, active_field)
             if values:
-                values[-1] = f"{values[-1]} {line}".strip()
+                values[-1] = _join_wrapped_text(values[-1], line)
             else:
                 values.append(line)
         else:

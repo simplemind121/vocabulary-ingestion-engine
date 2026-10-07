@@ -76,6 +76,13 @@ def _canonical(text: str) -> tuple[str, list[int]]:
     return "".join(result), kept
 
 
+_RARE_MARKS = "→"
+
+
+def _without_marks(text: str) -> str:
+    return re.sub(r"[→一\->,]", "", text)
+
+
 def _mask_ipa(text: str) -> str:
     return _IPA.sub(lambda match: "[" + _MASK * (len(match.group(0)) - 2) + "]", text)
 
@@ -107,6 +114,17 @@ def build_consensus(base: str, others: list[str]) -> Consensus:
         matcher = SequenceMatcher(None, masked_base, masked_other, autojunk=False)
         if not masked_other or matcher.ratio() < _MIN_SIMILARITY:
             continue  # not a reading of this line; the reader abstains
+        if any(mark in masked_base for mark in _RARE_MARKS):
+            # Several engines have no arrow and print a dash, the character 一,
+            # or nothing for it. That is a shared limitation, not a reading, so
+            # such a stretch is taken to say what the base says.
+            pieces: list[str] = []
+            for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+                mine, theirs = masked_base[i1:i2], masked_other[j1:j2]
+                same = tag != "equal" and _without_marks(mine) == _without_marks(theirs)
+                pieces.append(mine if same and any(m in mine for m in _RARE_MARKS) else theirs)
+            masked_other = "".join(pieces)
+            matcher = SequenceMatcher(None, masked_base, masked_other, autojunk=False)
         voters.append((masked_other, matcher.get_opcodes()))
     if not voters:
         return Consensus(base, SINGLE_READER, 1)

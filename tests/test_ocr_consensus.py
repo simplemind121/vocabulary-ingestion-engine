@@ -186,3 +186,12 @@ def test_factory_requires_a_url_for_the_vision_reader(monkeypatch):
     )
     assert adapter.name == "ocr-consensus"
     assert adapter.version == "primary+macos-vision"
+
+
+def test_engines_without_an_arrow_cannot_outvote_the_one_that_has_it():
+    result = build_consensus(
+        "intel（中间）+lect（选择）+ual→能从中选择的→智力的",
+        ["intel（中间）+lect（选择）+ual一能从中选择的一智力的", "intel(中间)+lect(选择)+ual一能从中选择的一>智力的"],
+    )
+    assert result.text == "intel（中间）+lect（选择）+ual→能从中选择的→智力的"
+    assert result.corrections == [] and result.disputes == []

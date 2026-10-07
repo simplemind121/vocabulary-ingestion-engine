@@ -17,10 +17,16 @@ _BARE_HEADWORD = re.compile(r"^\s*([A-Za-z][A-Za-z'’-]*)(\*)?\s*$")
 # Either a bare marker followed by a space ("记 …") or a bracketed one
 # ("【记】…"), which OCR sometimes closes with the wrong bracket.
 _FIELD_MARKER = re.compile(
-    r"^\s*(?:[【\[［]\s*([记搭例派同反考题解])\s*[】\]］]+|([记搭例派同反])(?:\s|$))"
+    r"^\s*(?:[【\[［]\s*([记搭例派同反考题解辨])\s*[】\]］]+|([记搭例派同反])(?:\s|$))"
 )
 _PAGE_NUMBER = re.compile(r"^\s*\d{1,4}\s*$")
 _NON_ENTRY_SECTION = re.compile(r"^[一二三四五六七八九十]+\s+雅思")
+# Titles of whole sections, printed once or as a running header. OCR may put a
+# stray mark in front of them.
+_ENTRY_SECTION = re.compile(r"^.{0,3}?(核心单词表|超纲单词表)$")
+_APPENDIX_SECTION = re.compile(
+    r"^.{0,3}?(翻译话题词汇|写作实用表达|熟词僻义表|不规则动词表|测试题|索引)$"
+)
 _PREVIEW_MARKERS = ("词根/词缀预习表", "词根/词", "缀", "含义", "例词及释义")
 
 
@@ -45,8 +51,18 @@ def classify_book_text(text: str, *, in_preview_table: bool = False) -> BookBloc
     if normalized == "词根/词缀预习表":
         return BookBlockClassification("PREVIEW_TABLE_HEADER", 0.99, {})
 
-    if _NON_ENTRY_SECTION.match(normalized) or normalized.upper() == "INDEX":
+    if (
+        _NON_ENTRY_SECTION.match(normalized)
+        or normalized.upper() == "INDEX"
+        or _APPENDIX_SECTION.match(normalized)
+    ):
         return BookBlockClassification("NON_ENTRY_SECTION_HEADER", 0.99, {})
+
+    entry_section = _ENTRY_SECTION.match(normalized)
+    if entry_section:
+        return BookBlockClassification(
+            "ENTRY_SECTION_HEADER", 0.99, {"section": entry_section.group(1)}
+        )
 
     # A canonical headword+IPA line is strong enough evidence to terminate
     # preview-table context. Plain English rows inside the table do not match.

@@ -31,6 +31,9 @@ PAGE_CLASSIFICATIONS = {
 }
 STEP_SEQUENCE = 15
 _FOOT = 0.88
+_PRIMARY = "stored"
+_HEAD = 0.08
+RUNNING_HEADER_ROLE = "RUNNING_HEADER"
 _ROW = re.compile(r"[A-Za-z0-9'’\- ]*[A-Za-z][A-Za-z0-9'’\- ]*")
 _MIN_PAGES = 5
 _MIN_SHARE = 0.3
@@ -51,6 +54,8 @@ def compare_page(headwords: list[str], checklist_rows: list[str]) -> dict:
             remainder = remainder.replace(headword, "", 1)
         else:
             unexpected.append(headword)
+    if len(remainder) <= 1:
+        remainder = ""  # a stray mark in a checklist cell, never a headword
     return {
         "agrees": not remainder and not unexpected,
         "unmatched_checklist_text": remainder,
@@ -82,26 +87,54 @@ def apply_headword_checklists(db: Session, run_id: str) -> dict:
     ):
         by_page.setdefault(block.page_id, []).append(block)
 
+    running_headers = _mark_running_headers(by_page)
     analysed = []
-    for page_id, blocks in by_page.items():
+    section = "START"
+    for page_id, blocks in sorted(by_page.items(), key=lambda item: pages.get(item[0], 0)):
         heads, rows = [], []
         for block in blocks:
             # Checklist rows are recognised from the raw reading, so a re-run
             # sees them again after they have been marked as page furniture.
-            raw = " ".join((block.raw_text or "").split())
-            if float(block.bbox["y1"]) >= _FOOT and _ROW.fullmatch(raw):
+            if float(block.bbox["y1"]) >= _FOOT and any(
+                _ROW.fullmatch(reading) for reading in _readings(block).values()
+            ):
                 rows.append(block)
                 continue
             text = " ".join(_effective_block_text(block).split())
             if not text:
                 continue
             classification = classify_book_text(text)
-            if classification.block_type == "ENTRY_HEAD":
+            if classification.block_type == "WORD_LIST_HEADER":
+                section = "WORD_LISTS"
+            elif classification.block_type == "ENTRY_SECTION_HEADER":
+                section = "ENTRY_SECTION"
+            elif classification.block_type == "NON_ENTRY_SECTION_HEADER":
+                section = "NON_ENTRY"
+            elif classification.block_type == "ENTRY_HEAD":
                 heads.append((block, classification.metadata["lemma"]))
+        if section == "NON_ENTRY":
+            continue
+        if section == "ENTRY_SECTION" and not rows:
+            continue  # a titled word list the book prints without checklists
         if heads or rows:
-            result = compare_page(
-                [lemma for _, lemma in heads],
-                [" ".join((row.raw_text or "").split()) for row in rows],
+            # Each reader's own reading of the checklist is tried; the one that
+            # explains the page best is the one that read the small print right.
+            readers = {name for row in rows for name in _readings(row)} or {_PRIMARY}
+            result = min(
+                (
+                    compare_page(
+                        [lemma for _, lemma in heads],
+                        [
+                            _readings(row).get(name, _readings(row)[_PRIMARY])
+                            for row in rows
+                        ],
+                    )
+                    for name in sorted(readers)
+                ),
+                key=lambda item: (
+                    len(item["unmatched_checklist_text"])
+                    + sum(len(word) for word in item["headwords_not_in_checklist"])
+                ),
             )
             analysed.append((page_id, heads, rows, result))
 
@@ -112,6 +145,7 @@ def apply_headword_checklists(db: Session, run_id: str) -> dict:
     )
     metrics = {
         "book_has_headword_checklists": has_checklists,
+        "running_header_rows": running_headers,
         "pages_with_checklist": 0,
         "pages_without_checklist": 0,
         "pages_agreeing": 0,
@@ -245,6 +279,48 @@ def _queue_reviews(
         )
         created += 1
     return created
+
+
+def _readings(block: SourceBlock) -> dict[str, str]:
+    """Every available reading of a block, the stored one first."""
+    consensus = (block.metadata_json or {}).get("consensus") or {}
+    readings = {_PRIMARY: " ".join((block.raw_text or "").split())}
+    for name, text in (consensus.get("other_readings") or {}).items():
+        readings[name] = " ".join(str(text).split())
+    primary = consensus.get("primary_text")
+    if primary:
+        readings["primary-engine"] = " ".join(str(primary).split())
+    return readings
+
+
+def _header_key(text: str) -> str:
+    text = re.sub(r"\d+", "#", " ".join(text.split()))
+    return re.sub(r"^(?:[^\w\u4e00-\u9fff]|口|[A-Za-z]\s)+", "", text)
+
+
+def _mark_running_headers(by_page: dict[str, list[SourceBlock]]) -> int:
+    """Titles repeated at the top of many pages are page furniture, not entry text."""
+    top_rows = [
+        block
+        for blocks in by_page.values()
+        for block in blocks
+        if float(block.bbox["y1"]) < _HEAD and (block.raw_text or "").strip()
+    ]
+    counts: dict[str, int] = {}
+    for block in top_rows:
+        key = _header_key(block.raw_text)
+        counts[key] = counts.get(key, 0) + 1
+    marked = 0
+    for block in top_rows:
+        text = " ".join(block.raw_text.split())
+        if counts[_header_key(text)] < _MIN_PAGES:
+            continue
+        if classify_book_text(_header_key(text)).block_type != "BODY_TEXT":
+            continue  # Word List and section titles still steer segmentation
+        if (block.metadata_json or {}).get("role") != RUNNING_HEADER_ROLE:
+            block.metadata_json = {**(block.metadata_json or {}), "role": RUNNING_HEADER_ROLE}
+        marked += 1
+    return marked
 
 
 def mark_non_entry_page(db: Session, run_id: str, page_id: str) -> int:

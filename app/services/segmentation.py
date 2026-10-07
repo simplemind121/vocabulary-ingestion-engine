@@ -32,11 +32,12 @@ class SegmentCandidate:
     confidence: float
     page_numbers: list[int] = field(default_factory=list)
     word_list: int | None = None
+    section: str | None = None
     starred: bool = False
 
 
 # Page furniture recognised upstream (e.g. the per-page headword checklist).
-_NON_ENTRY_ROLES = {"HEADWORD_CHECKLIST", "NON_ENTRY_PAGE"}
+_NON_ENTRY_ROLES = {"HEADWORD_CHECKLIST", "NON_ENTRY_PAGE", "RUNNING_HEADER"}
 
 
 def _effective_block_text(block: SourceBlock) -> str:
@@ -70,6 +71,7 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
     current_word_list: int | None = None
     in_preview_table = False
     in_non_entry_section = False
+    current_section: str | None = None
     has_structured_headwords = any(
         classify_book_text(line).block_type == "ENTRY_HEAD"
         for block in blocks
@@ -88,6 +90,7 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
                     confidence=current_confidence,
                     page_numbers=list(dict.fromkeys(current_pages)),
                     word_list=current_word_list,
+                    section=current_section,
                     starred=current_starred,
                 )
             )
@@ -123,6 +126,14 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
                 current_word_list = classification.metadata["word_list"]
                 in_preview_table = False
                 in_non_entry_section = False
+                continue
+            if classification.block_type == "ENTRY_SECTION_HEADER":
+                if classification.metadata["section"] != current_section:
+                    flush()
+                    current_section = classification.metadata["section"]
+                    current_word_list = None
+                    in_preview_table = False
+                    in_non_entry_section = False
                 continue
             if classification.block_type == "NON_ENTRY_SECTION_HEADER":
                 flush()
@@ -236,6 +247,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
                 "segmenter": "book-structure-segmenter@0.4.0",
                 "pages": candidate.page_numbers,
                 "word_list": candidate.word_list,
+                "section": candidate.section,
                 "starred": candidate.starred,
             },
         )

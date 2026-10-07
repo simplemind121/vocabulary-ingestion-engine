@@ -66,6 +66,7 @@ def parse_source_entry_text(text: str) -> ParsedEntry:
                 "EXAM_NOTE": real.exam_notes,
                 "EXAM_QUESTION": real.exam_questions,
                 "EXAM_EXPLANATION": real.exam_explanations,
+                "DISCRIMINATION": real.discriminations,
             },
             extra_pronunciations=real.pronunciations[1:],
             extra_senses=real.senses[1:],

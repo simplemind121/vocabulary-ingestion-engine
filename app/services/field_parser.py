@@ -14,7 +14,7 @@ _POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\."
 _POS = re.compile(
     rf"^(?P<pos>{_POS_TOKEN}(?:/{_POS_TOKEN})*)\s*(?P<definition>.*)$"
 )
-_MARKERS = {"记": "memory_notes", "搭": "collocations", "例": "examples", "派": "derivatives", "同": "synonyms", "反": "antonyms", "考": "exam_notes", "题": "exam_questions", "解": "exam_explanations"}
+_MARKERS = {"记": "memory_notes", "搭": "collocations", "例": "examples", "派": "derivatives", "同": "synonyms", "反": "antonyms", "考": "exam_notes", "题": "exam_questions", "解": "exam_explanations", "辨": "discriminations"}
 
 
 @dataclass(slots=True)
@@ -33,6 +33,7 @@ class ParsedSourceEntry:
     exam_notes: list[str] = field(default_factory=list)
     exam_questions: list[str] = field(default_factory=list)
     exam_explanations: list[str] = field(default_factory=list)
+    discriminations: list[str] = field(default_factory=list)
     unclassified: list[str] = field(default_factory=list)
 
 

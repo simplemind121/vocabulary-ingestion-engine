@@ -19,9 +19,20 @@ COPY pyproject.toml ./
 COPY app ./app
 COPY migrations ./migrations
 COPY alembic.ini ./
-RUN pip install --no-cache-dir . \
+# Optional OCR runtimes, e.g. --build-arg OCR_EXTRAS=ocr-rapid. Their models
+# are fetched now because the running container has a read-only filesystem.
+ARG OCR_EXTRAS=""
+RUN if [ -n "$OCR_EXTRAS" ]; then \
+      apt-get update \
+      && apt-get install --yes --no-install-recommends libgomp1 libgl1 libglib2.0-0 \
+      && rm -rf /var/lib/apt/lists/*; \
+    fi
+RUN pip install --no-cache-dir ".${OCR_EXTRAS:+[$OCR_EXTRAS]}" \
     && mkdir -p /app/data \
     && chown -R vie:vie /app
+RUN case ",$OCR_EXTRAS," in *,ocr-rapid,*) \
+      python -c "from app.adapters.rapidocr import RapidOcrAdapter as A; A(lang='ch'); A(lang='ch', ocr_version='PP-OCRv5', refine=False)" ;; \
+    esac
 
 USER vie
 EXPOSE 8000

@@ -67,3 +67,27 @@ class RapidOcrAdapter(PaddleOcrAdapter):
         if ocr_version != _OCR_VERSION:
             self.name = f"rapidocr-{ocr_version.lower().removeprefix('pp-ocr')}"
         self.version = f"{_package_version('rapidocr')}+{ocr_version}"
+
+
+def _warm_up() -> None:
+    """Load every model and run one page so nothing is fetched at run time."""
+    import fitz
+
+    from app.adapters.ocr_base import OcrPageInput
+
+    document = fitz.open()
+    page = document.new_page()
+    page.insert_text((72, 100), "Thevocabularyengineiswarmingup", fontsize=20)
+    image = OcrPageInput(
+        page_number=1, image_bytes=page.get_pixmap(dpi=150, alpha=False).tobytes("png")
+    )
+    for adapter in (
+        RapidOcrAdapter(lang="ch"),
+        RapidOcrAdapter(lang="ch", ocr_version="PP-OCRv5", refine=False),
+    ):
+        if not adapter.extract_page(image).blocks:
+            raise RuntimeError(f"{adapter.name} read nothing during warm-up")
+
+
+if __name__ == "__main__":
+    _warm_up()

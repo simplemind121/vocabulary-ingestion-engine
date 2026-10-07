@@ -31,7 +31,7 @@ RUN pip install --no-cache-dir ".${OCR_EXTRAS:+[$OCR_EXTRAS]}" \
     && mkdir -p /app/data \
     && chown -R vie:vie /app
 RUN case ",$OCR_EXTRAS," in *,ocr-rapid,*) \
-      python -c "from app.adapters.rapidocr import RapidOcrAdapter as A; A(lang='ch'); A(lang='ch', ocr_version='PP-OCRv5', refine=False)" ;; \
+      python -m app.adapters.rapidocr ;; \
     esac
 
 USER vie

@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     ocr_engine: str = "none"
     ocr_languages: str = "eng+chi_sim"
     ocr_min_confidence: float = 0.85
+    # Extra readers voted against the primary engine, e.g. "rapidocr-v5,vision".
+    ocr_secondary_readers: str = ""
+    vision_ocr_url: str | None = None
     api_key: SecretStr | None = None
     max_upload_bytes: int = Field(default=512 * 1024 * 1024, ge=1)
     max_pdf_pages: int = Field(default=5000, ge=1)

@@ -98,7 +98,7 @@ class ConsensusOcrAdapter:
             text = consensus.text
             for other in others.values():
                 # Spacing only: adopted where the letters are identical.
-                text = restore_spaces(text, other)
+                text = restore_spaces(text, other, exact_only=True)
             confirmed = consensus.status not in {DISPUTED, SINGLE_READER}
             blocks.append(
                 TextBlock(

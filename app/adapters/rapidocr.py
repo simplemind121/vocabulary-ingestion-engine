@@ -10,7 +10,7 @@ _OCR_VERSION = "PP-OCRv4"
 class _RapidEngine:
     """The classic PaddleOCR call shape over RapidOCR on ONNX Runtime."""
 
-    def __init__(self, lang: str) -> None:
+    def __init__(self, lang: str, ocr_version: str = _OCR_VERSION) -> None:
         try:
             from rapidocr import RapidOCR
             from rapidocr.utils.typings import LangRec, OCRVersion
@@ -21,8 +21,8 @@ class _RapidEngine:
         self._engine = RapidOCR(
             params={
                 "Rec.lang_type": LangRec(lang),
-                "Rec.ocr_version": OCRVersion(_OCR_VERSION),
-                "Det.ocr_version": OCRVersion(_OCR_VERSION),
+                "Rec.ocr_version": OCRVersion(ocr_version),
+                "Det.ocr_version": OCRVersion(ocr_version),
                 "Global.log_level": "error",
             }
         )
@@ -56,10 +56,14 @@ class RapidOcrAdapter(PaddleOcrAdapter):
 
     name = "rapidocr"
 
-    def __init__(self, *, lang: str = "ch") -> None:
+    def __init__(
+        self, *, lang: str = "ch", ocr_version: str = _OCR_VERSION, refine: bool = True
+    ) -> None:
         super().__init__(
-            engine=_RapidEngine(lang),
+            engine=_RapidEngine(lang, ocr_version),
             lang=lang,
-            english_engine=_RapidEngine("en") if lang != "en" else None,
+            english_engine=_RapidEngine("en", ocr_version) if refine and lang != "en" else None,
         )
-        self.version = f"{_package_version('rapidocr')}+{_OCR_VERSION}"
+        if ocr_version != _OCR_VERSION:
+            self.name = f"rapidocr-{ocr_version.lower().removeprefix('pp-ocr')}"
+        self.version = f"{_package_version('rapidocr')}+{ocr_version}"

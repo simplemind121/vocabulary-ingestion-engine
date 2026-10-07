@@ -150,7 +150,7 @@ class PaddleOcrAdapter:
             return ""
 
 
-def restore_spaces(text: str, english: str) -> str:
+def restore_spaces(text: str, english: str, *, exact_only: bool = False) -> str:
     """Adopt word spacing from ``english`` wherever its characters match ``text``.
 
     A Latin run is replaced by the stretch of ``english`` that is identical
@@ -178,7 +178,7 @@ def restore_spaces(text: str, english: str) -> str:
         start = haystack.find(key)
         end = start + len(key)
         if start < 0:
-            if len(key) < _MIN_FUZZY_LENGTH:
+            if exact_only or len(key) < _MIN_FUZZY_LENGTH:
                 return run
             blocks = [
                 block

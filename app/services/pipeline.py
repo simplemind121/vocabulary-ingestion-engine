@@ -20,6 +20,7 @@ from app.services.gates import (
 from app.services.gold import publish_gold_release
 from app.services.ocr_extraction import extract_ocr_blocks
 from app.services.ocr_quality import route_ocr_quality_reviews
+from app.services.page_checklist import apply_headword_checklists
 from app.services.page_quality import route_no_text_page_reviews
 from app.services.segmentation import segment_source_entries
 from app.services.source_media import extract_source_media
@@ -91,6 +92,8 @@ def run_pipeline(
                 min_confidence=ocr_min_confidence,
             )
             stages.append({"stage": "ocr_quality", "result": quality})
+            checklists = apply_headword_checklists(db, run_id)
+            stages.append({"stage": "headword_checklists", "result": checklists})
         elif ocr_adapter is not None:
             extraction = extract_ocr_blocks(db, run_id, ocr_adapter)
             stages.append({"stage": "ocr_extraction", "result": extraction})
@@ -100,6 +103,8 @@ def run_pipeline(
                 min_confidence=ocr_min_confidence,
             )
             stages.append({"stage": "ocr_quality", "result": quality})
+            checklists = apply_headword_checklists(db, run_id)
+            stages.append({"stage": "headword_checklists", "result": checklists})
         else:
             return _ocr_required(db, run, document_mode, stages)
 

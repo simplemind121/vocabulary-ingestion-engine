@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 
 from sqlalchemy.orm import Session
 
+from app.adapters.pdf_native import PyMuPDFNativeAdapter
 from app.models import (
     Definition,
     Pronunciation,
@@ -17,7 +18,7 @@ from app.models import (
     VocabularyEntry,
     VocabularyField,
 )
-from app.services.book_structure import bare_headword
+from app.services.book_structure import bare_headword, is_entry_head
 from app.services.field_parser import parse_source_entry as parse_real_book_entry
 
 _POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|det|excl)\."
@@ -44,7 +45,8 @@ class ParsedEntry:
 def parse_source_entry_text(text: str) -> ParsedEntry:
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     if lines and (
-        ("[" in lines[0] and "]" in lines[0])
+        is_entry_head(lines[0])
+        or ("[" in lines[0] and "]" in lines[0])
         or (len(lines) > 1 and bare_headword(lines[0]) is not None)
     ):
         real = parse_real_book_entry(lines)
@@ -81,6 +83,25 @@ def parse_source_entry_text(text: str) -> ParsedEntry:
         definition=definition.strip() if definition else None,
         source_fields={},
     )
+
+
+def _demote_unverified_ocr_ipa(parsed: ParsedEntry, block: SourceBlock | None) -> None:
+    """Keep IPA read by OCR as source text, not as a verified pronunciation.
+
+    OCR engines have no phonetic alphabet: stress marks vanish and symbols
+    become look-alike letters. Unless a human confirmed the line, the reading
+    is preserved under IPA_OCR_UNVERIFIED for a later stage to resolve.
+    """
+    if block is None or block.source_engine == PyMuPDFNativeAdapter.name:
+        return
+    review = (block.metadata_json or {}).get("human_ocr_review") or {}
+    if review.get("decision") == "ACCEPT":
+        return
+    readings = [item for item in [parsed.ipa, *parsed.extra_pronunciations] if item]
+    if readings:
+        parsed.source_fields = {**parsed.source_fields, "IPA_OCR_UNVERIFIED": readings}
+    parsed.ipa = None
+    parsed.extra_pronunciations = []
 
 
 def extract_canonical_fields(db: Session, run_id: str) -> dict:
@@ -120,6 +141,7 @@ def extract_canonical_fields(db: Session, run_id: str) -> dict:
                 .first()
             )
             block = db.get(SourceBlock, link.source_block_id) if link else None
+            _demote_unverified_ocr_ipa(parsed, block)
             _persist_source_fields(
                 db,
                 run_id=run_id,
@@ -173,6 +195,7 @@ def extract_canonical_fields(db: Session, run_id: str) -> dict:
             .first()
         )
         block = db.get(SourceBlock, link.source_block_id) if link else None
+        _demote_unverified_ocr_ipa(parsed, block)
 
         vocab.lemma = parsed.lemma
         _add_provenance(

@@ -14,6 +14,7 @@ from app.models import (
     SourceEntryBlock,
     VocabularyEntry,
 )
+from app.services.page_checklist import CHECKLIST_REASONS
 from app.services.source_media import source_media_metrics
 
 
@@ -49,7 +50,7 @@ def evaluate_g1_document_representation(db: Session, run_id: str) -> dict:
     represented.update(task.target_entity_id for task in page_reviews)
     open_representation_reviews = db.query(ReviewTask).filter(
         ReviewTask.processing_run_id == run.id,
-        ReviewTask.reason_code.in_(["LOW_OCR_CONFIDENCE", "NO_TEXT_LAYER"]),
+        ReviewTask.reason_code.in_(["LOW_OCR_CONFIDENCE", "NO_TEXT_LAYER", *CHECKLIST_REASONS]),
         ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"]),
     ).all()
     metrics = {

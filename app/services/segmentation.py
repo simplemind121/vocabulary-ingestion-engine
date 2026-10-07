@@ -36,7 +36,7 @@ class SegmentCandidate:
 
 
 # Page furniture recognised upstream (e.g. the per-page headword checklist).
-_NON_ENTRY_ROLES = {"HEADWORD_CHECKLIST"}
+_NON_ENTRY_ROLES = {"HEADWORD_CHECKLIST", "NON_ENTRY_PAGE"}
 
 
 def _effective_block_text(block: SourceBlock) -> str:

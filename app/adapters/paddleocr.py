@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import io
 import re
+from difflib import SequenceMatcher
 from importlib.metadata import PackageNotFoundError, version
 from typing import Any
 
@@ -14,6 +15,8 @@ _GLUED_LATIN = re.compile(r"[A-Za-z]{15,}")
 _ASCII_RUN = re.compile(r"[\x21-\x7e][\x20-\x7e]*[\x21-\x7e]")
 _MIN_RUN_LETTERS = 8
 _MARGIN = 0.03
+_MIN_FUZZY_LENGTH = 12
+_FUZZY_AGREEMENT = 0.9
 
 
 class PaddleOcrAdapter:
@@ -88,9 +91,12 @@ class PaddleOcrAdapter:
                 # Scanner shadows and binding marks at the very edge of the page.
                 continue
             if self._english is not None and _GLUED_LATIN.search(text):
-                refined = restore_spaces(text, self._read_english(pixels, part))
+                english = self._read_english(pixels, part)
+                refined = restore_spaces(text, english)
                 part["refined"] = refined != text
                 part["text"] = refined
+                # Both readings are kept so a later stage can arbitrate.
+                part["readings"] = {self.lang: text, "en": english}
             parts.append(part)
 
         blocks: list[TextBlock] = []
@@ -111,6 +117,12 @@ class PaddleOcrAdapter:
                         "ocr_engine": self.name,
                         "ocr_lang": self.lang,
                         "english_spacing_restored": any(part["refined"] for part in row),
+                        "english_reading_adopted": any(
+                            _letters(part["text"]) != _letters(part["readings"][self.lang])
+                            for part in row
+                            if "readings" in part
+                        ),
+                        "ocr_readings": [part["readings"] for part in row if "readings" in part],
                     },
                 )
             )
@@ -141,10 +153,12 @@ class PaddleOcrAdapter:
 def restore_spaces(text: str, english: str) -> str:
     """Adopt word spacing from ``english`` wherever its characters match ``text``.
 
-    Only whitespace is ever taken from the second reading: a Latin run is
-    replaced solely by a stretch of ``english`` that is character-for-character
-    identical once spaces are removed. Anything the two readings disagree on is
-    left exactly as first read.
+    A Latin run is replaced by the stretch of ``english`` that is identical
+    once spaces are removed. Failing that, a stretch that agrees on at least
+    90% of the characters is adopted whole: on English text the English model
+    is the better reader, and the mixed model's reading is kept alongside by the
+    caller. Runs the two readings disagree on more than that are left as first
+    read.
     """
     if not english:
         return text
@@ -162,12 +176,30 @@ def restore_spaces(text: str, english: str) -> str:
             return run
         key = "".join(run.split())
         start = haystack.find(key)
+        end = start + len(key)
         if start < 0:
-            return run
-        candidate = english[origin[start] : origin[start + len(key) - 1] + 1]
+            if len(key) < _MIN_FUZZY_LENGTH:
+                return run
+            blocks = [
+                block
+                for block in SequenceMatcher(None, key, haystack, autojunk=False)
+                .get_matching_blocks()
+                if block.size
+            ]
+            matched = sum(block.size for block in blocks)
+            if not blocks or matched < _FUZZY_AGREEMENT * len(key):
+                return run
+            start, end = blocks[0].b, blocks[-1].b + blocks[-1].size
+            if abs((end - start) - len(key)) > 0.1 * len(key) + 1:
+                return run
+        candidate = english[origin[start] : origin[end - 1] + 1]
         return candidate if " " in candidate and len(candidate) >= len(run) else run
 
     return _ASCII_RUN.sub(replace, text)
+
+
+def _letters(text: str) -> str:
+    return "".join(text.split())
 
 
 def _group_rows(parts: list[dict]) -> list[list[dict]]:

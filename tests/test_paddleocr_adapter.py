@@ -86,8 +86,8 @@ def test_restore_spaces_only_adopts_whitespace_from_the_english_reading():
     assert restore_spaces(mixed, "rosebuds.ii Lynn took several deep breaths") == (
         "rosebuds.这个小男孩想知道。Lynn took several deep breaths"
     )
-    # A disagreement on any letter leaves the first reading untouched.
-    assert restore_spaces("Theboywonderedhow", "The boy wandered how") == "Theboywonderedhow"
+    # Short runs are only ever re-spaced, never re-read.
+    assert restore_spaces("Theboywas", "The boy wos") == "Theboywas"
     assert restore_spaces("compose[kampauz]vt.组成", "") == "compose[kampauz]vt.组成"
     assert restore_spaces("internationalization", "internationalization") == (
         "internationalization"
@@ -124,3 +124,33 @@ def test_glued_english_lines_are_reread_and_rows_are_put_in_reading_order():
     merged = result.blocks[2]
     assert merged.confidence == 0.92
     assert (round(merged.bbox.x1, 3), round(merged.bbox.x2, 3)) == (0.05, 0.95)
+
+
+def test_restore_spaces_adopts_the_english_reading_when_it_nearly_agrees():
+    from app.adapters.paddleocr import restore_spaces
+
+    glued = "【例】Thecrinimal'sfacewasmarkedwithguiltandagony.罪犯满脸"
+    english = "[] The criminal's face was marked with guilt and agony. xx"
+    assert restore_spaces(glued, english) == (
+        "【例】The criminal's face was marked with guilt and agony.罪犯满脸"
+    )
+    # Too different to be the same words: keep the first reading.
+    assert restore_spaces("Theboywonderedhowalittle", "A girl walked home alone today") == (
+        "Theboywonderedhowalittle"
+    )
+
+
+def test_both_readings_are_kept_when_the_english_one_is_adopted():
+    from app.adapters.ocr_base import OcrPageInput
+    from app.adapters.paddleocr import PaddleOcrAdapter
+
+    adapter = PaddleOcrAdapter(
+        engine=_Engine([[_box(20, 20, 380, 40), ("Thecrinimalsfacewasmarked", 0.95)]]),
+        english_engine=_English("The criminals face was marked"),
+    )
+    block = adapter.extract_page(OcrPageInput(page_number=1, image_bytes=_png())).blocks[0]
+    assert block.text == "The criminals face was marked"
+    assert block.metadata["english_reading_adopted"] is True
+    assert block.metadata["ocr_readings"] == [
+        {"ch": "Thecrinimalsfacewasmarked", "en": "The criminals face was marked"}
+    ]

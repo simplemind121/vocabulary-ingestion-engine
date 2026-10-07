@@ -5,6 +5,7 @@ from datetime import UTC, datetime
 from sqlalchemy.orm import Session
 
 from app.models import Page, ProvenanceRecord, ReviewTask, SourceBlock, VocabularyEntry
+from app.services.page_checklist import PAGE_CLASSIFICATIONS, mark_non_entry_page
 from app.services.source_media import resolve_source_media_review
 
 OPEN_REVIEW_STATUSES = {"OPEN", "IN_PROGRESS", "ESCALATED"}
@@ -52,8 +53,13 @@ def resolve_review_task(db: Session, task_id: str, *, resolution: dict, reviewer
         if page is None:
             raise ValueError("review target not found")
         classification = str(resolution.get("classification", "")).upper()
-        if decision == "ACCEPT" and classification != "NON_TEXT_PAGE":
-            raise ValueError("accepted no-text page requires NON_TEXT_PAGE classification")
+        allowed = PAGE_CLASSIFICATIONS.get(task.reason_code, {"NON_TEXT_PAGE"})
+        if decision == "ACCEPT" and classification not in allowed:
+            raise ValueError(
+                "accepted page review requires classification: " + " or ".join(sorted(allowed))
+            )
+        if decision == "ACCEPT" and classification == "NOT_AN_ENTRY_PAGE":
+            mark_non_entry_page(db, task.processing_run_id, page.id)
         audit["classification"] = classification
         task.status = "RESOLVED" if decision == "ACCEPT" else "ESCALATED"
         db.add(

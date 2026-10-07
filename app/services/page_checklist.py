@@ -259,7 +259,13 @@ def _queue_reviews(
             )
         )
         created += 1
-    if remainder and not unexpected and not _has_task(db, run_id, "Page", page_id, REASON_PAGE):
+    if (
+        remainder
+        # A human already ruled on a headword the checklist spells differently:
+        # the leftover text is the checklist's misprint of it, not a new finding.
+        and not result["headwords_not_in_checklist"]
+        and not _has_task(db, run_id, "Page", page_id, REASON_PAGE)
+    ):
         # The checklist names a headword no line on the page starts with.
         db.add(
             ReviewTask(

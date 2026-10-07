@@ -8,7 +8,7 @@ from app.models import Page, ProvenanceRecord, ReviewTask, SourceBlock, Vocabula
 from app.services.page_checklist import PAGE_CLASSIFICATIONS, mark_non_entry_page
 from app.services.source_media import resolve_source_media_review
 
-OPEN_REVIEW_STATUSES = {"OPEN", "IN_PROGRESS", "ESCALATED"}
+OPEN_REVIEW_STATUSES = {"OPEN", "IN_PROGRESS", "ESCALATED", "DEFERRED"}
 
 
 def list_review_tasks(db: Session, run_id: str, *, status: str | None = None) -> list[ReviewTask]:

@@ -39,7 +39,7 @@ from app.models import (
 from app.observability import PROMETHEUS_CONTENT_TYPE, log_event, render_metrics
 from app.review_ui import REVIEW_UI_HTML
 from app.services.gates import evaluate_g5_review_resolution
-from app.services.gold import build_gold_dataset, publish_gold_release
+from app.services.gold import build_gold_dataset, build_preview_dataset, publish_gold_release
 from app.services.gold_page_hashes import GOLD_RENDER_CONTRACT
 from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
@@ -566,6 +566,13 @@ def resolve_review(task_id: str, request: ReviewResolutionRequest, db: DbSession
 @app.get("/api/v1/runs/{run_id}/gold")
 def get_gold(run_id: str, db: DbSession) -> dict:
     try: return build_gold_dataset(db, run_id)
+    except ValueError as exc: raise HTTPException(409, str(exc)) from exc
+
+
+@app.get("/api/v1/runs/{run_id}/preview")
+def get_preview(run_id: str, db: DbSession) -> dict:
+    """Entries as they stand, including ones still awaiting confirmation."""
+    try: return build_preview_dataset(db, run_id)
     except ValueError as exc: raise HTTPException(409, str(exc)) from exc
 
 

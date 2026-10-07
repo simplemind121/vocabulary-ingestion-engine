@@ -219,3 +219,81 @@ def test_scanned_book_stops_for_checklist_disagreements_then_completes(client):
         assert sorted(checklist_rows) == ["21 compose fraud", "a", "c", "e", "incur impart 22", "x"]
     finally:
         db.close()
+
+
+class DisputedLineOcr(ScannedBookOcr):
+    """The same book, with one example line the readers could not agree on."""
+
+    def extract_page(self, page):
+        result = super().extract_page(page)
+        for block in result.blocks:
+            disputed = "composed" in block.text
+            block.metadata = {
+                "consensus": {
+                    "status": "DISPUTED" if disputed else "UNANIMOUS",
+                    "readers": 3,
+                    "disputes": [{"base": "o", "others": ["0", "a"]}] if disputed else [],
+                    "other_readings": {},
+                }
+            }
+            if disputed:
+                block.confidence = 0.5
+            elif "fraud[" in block.text:
+                block.confidence = 0.6  # low engine score, yet confirmed by two readers
+        return result
+
+
+def test_unconfirmed_lines_are_parked_and_keep_their_entry_out_of_gold(client):
+    run_id = _upload(client)
+    db = SessionLocal()
+    try:
+        first = run_pipeline(db, run_id, ocr_adapter=DisputedLineOcr())
+        assert first["blocked_gate"] == "G1"
+        by_status: dict[str, list[ReviewTask]] = {}
+        for task in db.query(ReviewTask).filter(ReviewTask.processing_run_id == run_id):
+            by_status.setdefault(task.status, []).append(task)
+        # The disputed line is parked; the confirmed low-score line raises nothing.
+        assert [task.reason_code for task in by_status["DEFERRED"]] == ["OCR_READERS_DISAGREE"]
+        assert {task.reason_code for task in by_status["OPEN"]} == {
+            "HEADWORD_NOT_IN_CHECKLIST",
+            "HEADWORD_PAGE_WITHOUT_CHECKLIST",
+        }
+        for task in by_status["OPEN"]:
+            resolution = {"decision": "ACCEPT"}
+            if task.target_entity_type == "Page":
+                resolution["classification"] = "NOT_AN_ENTRY_PAGE"
+            else:
+                resolution["corrected_text"] = "incur[x]vt.招致"
+            resolve_review_task(db, task.id, resolution=resolution, reviewer_id="reviewer-1")
+
+        second = run_pipeline(db, run_id, ocr_adapter=DisputedLineOcr())
+        assert (second["status"], second["blocked_gate"]) == ("REVIEW_REQUIRED", "G6")
+        assert second["gate_result"]["metrics"]["unresolved_entries"] == 1
+        assert second["gate_result"]["metrics"]["open_review_tasks"] == 0
+        status = {
+            entry.lemma: entry.verification_status
+            for entry in db.query(VocabularyEntry).filter(
+                VocabularyEntry.processing_run_id == run_id
+            )
+        }
+        assert status["compose"] == "REVIEW_REQUIRED"
+        assert status["fraud"] == "AUTO_VERIFIED"
+
+        assert client.get(f"/api/v1/runs/{run_id}/gold").status_code == 409
+        preview = client.get(f"/api/v1/runs/{run_id}/preview").json()
+        assert preview["preview"] is True
+        assert (preview["record_count"], preview["verified_record_count"]) == (8, 7)
+        rows = {record["lemma"]: record["unconfirmed_ocr_rows"] for record in preview["records"]}
+        assert rows["compose"] == 1 and rows["fraud"] == 0
+
+        # A human settles the parked line; the entry is released on the next pass.
+        resolve_review_task(
+            db,
+            by_status["DEFERRED"][0].id,
+            resolution={"decision": "ACCEPT"},
+            reviewer_id="reviewer-1",
+        )
+        third = run_pipeline(db, run_id, ocr_adapter=DisputedLineOcr())
+        assert third["status"] == "COMPLETED"
+    finally:
+        db.close()

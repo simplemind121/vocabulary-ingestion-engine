@@ -86,25 +86,25 @@ def run_pipeline(
             stages.append({"stage": "native_extraction", "result": native})
             ocr = extract_ocr_blocks(db, run_id, ocr_adapter, page_numbers=ocr_pages)
             stages.append({"stage": "ocr_extraction", "result": ocr})
+            checklists = apply_headword_checklists(db, run_id)
+            stages.append({"stage": "headword_checklists", "result": checklists})
             quality = route_ocr_quality_reviews(
                 db,
                 run_id,
                 min_confidence=ocr_min_confidence,
             )
             stages.append({"stage": "ocr_quality", "result": quality})
-            checklists = apply_headword_checklists(db, run_id)
-            stages.append({"stage": "headword_checklists", "result": checklists})
         elif ocr_adapter is not None:
             extraction = extract_ocr_blocks(db, run_id, ocr_adapter)
             stages.append({"stage": "ocr_extraction", "result": extraction})
+            checklists = apply_headword_checklists(db, run_id)
+            stages.append({"stage": "headword_checklists", "result": checklists})
             quality = route_ocr_quality_reviews(
                 db,
                 run_id,
                 min_confidence=ocr_min_confidence,
             )
             stages.append({"stage": "ocr_quality", "result": quality})
-            checklists = apply_headword_checklists(db, run_id)
-            stages.append({"stage": "headword_checklists", "result": checklists})
         else:
             return _ocr_required(db, run, document_mode, stages)
 

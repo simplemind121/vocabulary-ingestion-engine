@@ -10,6 +10,8 @@ from app.models import (
     ProvenanceRecord,
     ReviewTask,
     Sense,
+    SourceEntry,
+    SourceEntryBlock,
     VocabularyEntry,
     VocabularyField,
 )
@@ -26,6 +28,26 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
     )
     issue_count = 0
     clean_count = 0
+    unconfirmed_entries = 0
+    parked = {
+        task.target_entity_id
+        for task in db.query(ReviewTask).filter(
+            ReviewTask.processing_run_id == run_id,
+            ReviewTask.target_entity_type == "SourceBlock",
+            ReviewTask.status == "DEFERRED",
+        )
+    }
+    unconfirmed_rows: dict[str, int] = {}
+    if parked:
+        for link in (
+            db.query(SourceEntryBlock)
+            .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
+            .filter(SourceEntry.processing_run_id == run_id)
+        ):
+            if link.source_block_id in parked:
+                unconfirmed_rows[link.source_entry_id] = (
+                    unconfirmed_rows.get(link.source_entry_id, 0) + 1
+                )
 
     for entry in entries:
         issues: list[dict] = []
@@ -100,10 +122,21 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
             elif source_field.verification_status != "HUMAN_VERIFIED":
                 source_field.verification_status = "AUTO_VERIFIED"
 
+        unconfirmed = unconfirmed_rows.get(entry.source_entry_id, 0)
+        metadata = dict(entry.metadata_json or {})
+        if metadata.get("unconfirmed_ocr_rows", 0) != unconfirmed:
+            metadata["unconfirmed_ocr_rows"] = unconfirmed
+            entry.metadata_json = metadata
         if issues:
             entry.verification_status = "REVIEW_REQUIRED"
             issue_count += len(issues)
             _ensure_review_task(db, run_id, entry, issues)
+        elif unconfirmed:
+            # Its text rests on lines no second reader confirmed. The parked
+            # line reviews already track them; the entry simply waits.
+            if entry.verification_status != "HUMAN_VERIFIED":
+                entry.verification_status = "REVIEW_REQUIRED"
+            unconfirmed_entries += 1
         elif entry.verification_status != "HUMAN_VERIFIED":
             entry.verification_status = "AUTO_VERIFIED"
             clean_count += 1
@@ -114,6 +147,7 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
         "entry_count": len(entries),
         "clean_entries": clean_count,
         "validation_issues": issue_count,
+        "entries_awaiting_ocr_confirmation": unconfirmed_entries,
     }
 
 

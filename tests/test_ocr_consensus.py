@@ -195,3 +195,20 @@ def test_engines_without_an_arrow_cannot_outvote_the_one_that_has_it():
     )
     assert result.text == "intel（中间）+lect（选择）+ual→能从中选择的→智力的"
     assert result.corrections == [] and result.disputes == []
+
+
+def test_a_doubled_letter_loses_the_stray_copy_not_the_word_ending():
+    result = build_consensus(
+        "statement t[steitmnt]n.陈述",
+        ["statement ［'steitmont］n. 陈述", "statement ['steitmant]n.陈述"],
+    )
+    assert result.text == "statement [steitmnt]n.陈述"
+    assert result.status == MAJORITY
+
+
+def test_a_whole_word_others_merged_in_is_disputed_not_inserted():
+    result = build_consensus(
+        "cliff[klif]n.悬崖，峭壁", ["cliff [klif] n.悬崖，峭壁 cliff", "cliff[klif]n.悬崖，峭壁cliff"]
+    )
+    assert result.text == "cliff[klif]n.悬崖，峭壁"
+    assert result.status == DISPUTED

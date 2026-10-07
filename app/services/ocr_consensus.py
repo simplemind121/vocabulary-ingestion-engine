@@ -31,6 +31,7 @@ _PUNCTUATION = str.maketrans(
 _ELLIPSIS = re.compile(r"\.{2,}|…+")
 _IPA = re.compile(r"[\[［][^\]］一-鿿]{1,40}[\]］]")
 _MIN_SIMILARITY = 0.6
+_MAX_CORRECTION = 2
 _MASK = "\u0000"
 
 
@@ -77,6 +78,24 @@ def _canonical(text: str) -> tuple[str, list[int]]:
 
 
 _RARE_MARKS = "→"
+
+
+def _detached_twin(text: str, index: int) -> int:
+    """Which of two equal characters to delete: the one standing apart.
+
+    "statement t[" should lose the stray letter after the space, yet the
+    comparison ignores spaces and cannot tell the two apart.
+    """
+    following = index + 1
+    while following < len(text) and text[following].isspace():
+        following += 1
+    if (
+        following < len(text)
+        and following > index + 1
+        and text[following] == text[index]
+    ):
+        return following
+    return index
 
 
 def _without_marks(text: str) -> str:
@@ -155,7 +174,13 @@ def build_consensus(base: str, others: list[str]) -> Consensus:
         agreeing = [item for item in theirs if item == mine]
         if agreeing:
             continue  # the base reading has a second vote
-        if len(theirs) >= 2 and len(set(theirs)) == 1:
+        if (
+            len(theirs) >= 2
+            and len(set(theirs)) == 1
+            and max(len(mine), len(theirs[0])) <= _MAX_CORRECTION
+        ):
+            # Only small edits are ever applied. A longer stretch that others
+            # "agree" on is usually a neighbouring line they merged in.
             corrections.append({"from": mine, "to": theirs[0]})
             replacements.append((start, end, theirs[0]))
         else:
@@ -167,7 +192,10 @@ def build_consensus(base: str, others: list[str]) -> Consensus:
             at = origin[start] if start < len(origin) else len(text)
             text = text[:at] + value + text[at:]
         else:
-            text = text[: origin[start]] + value + text[origin[end - 1] + 1 :]
+            first, last = origin[start], origin[end - 1]
+            if not value and first == last:
+                first = last = _detached_twin(text, first)
+            text = text[:first] + value + text[last + 1 :]
     # Every difference was settled by a second vote, for or against the base.
     status = DISPUTED if disputes else MAJORITY
     return Consensus(text, status, 1 + len(voters), corrections, disputes)

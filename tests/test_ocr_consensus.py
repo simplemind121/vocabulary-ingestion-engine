@@ -156,21 +156,33 @@ def test_consensus_adapter_confirms_corrects_and_sends_the_rest_to_review():
     assert adapter.version == "primary+vision+v5"
 
 
-def test_factory_requires_a_url_for_the_vision_reader():
+def test_factory_requires_a_url_for_the_vision_reader(monkeypatch):
     import pytest
 
-    from app.services.ocr_factory import build_ocr_adapter
+    from app.services import ocr_factory
     from app.settings import Settings
 
-    assert build_ocr_adapter(Settings(ocr_engine="none", ocr_secondary_readers="vision")) is None
+    class Primary:
+        name = "primary"
+
+    monkeypatch.setattr(
+        ocr_factory,
+        "_build_primary",
+        lambda settings: None if settings.ocr_engine == "none" else Primary(),
+    )
+    build = ocr_factory.build_ocr_adapter
+    assert build(Settings(ocr_engine="none", ocr_secondary_readers="vision")) is None
+    assert build(Settings(ocr_engine="x")).name == "primary"
     with pytest.raises(ValueError, match="VIE_VISION_OCR_URL"):
-        build_ocr_adapter(Settings(ocr_engine="tesseract", ocr_secondary_readers="vision"))
-    adapter = build_ocr_adapter(
+        build(Settings(ocr_engine="x", ocr_secondary_readers="vision"))
+    with pytest.raises(ValueError, match="unsupported secondary OCR reader"):
+        build(Settings(ocr_engine="x", ocr_secondary_readers="nope"))
+    adapter = build(
         Settings(
-            ocr_engine="tesseract",
+            ocr_engine="x",
             ocr_secondary_readers="vision",
             vision_ocr_url="http://127.0.0.1:8791/ocr",
         )
     )
     assert adapter.name == "ocr-consensus"
-    assert adapter.version == "tesseract+macos-vision"
+    assert adapter.version == "primary+macos-vision"

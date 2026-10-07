@@ -7,14 +7,14 @@ from app.services.book_structure import bare_headword, classify_book_text
 
 _HEAD = re.compile(
     r"^\s*(?P<lemma>[A-Za-z][A-Za-z'’-]*(?:-[A-Za-z][A-Za-z'’-]*)?)"
-    r"(?P<star>\*)?\s+\[(?P<ipa>[^\]]+)\]\s*(?P<body>.*)$"
+    r"(?P<star>\*)?\s*[\[［](?P<ipa>[^\]］]+)[\]］]\s*(?P<body>.*)$"
 )
 _LEADING_IPA = re.compile(r"^\[(?P<ipa>[^\]]+)\]\s*(?P<body>.*)$")
 _POS_TOKEN = r"(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\."
 _POS = re.compile(
     rf"^(?P<pos>{_POS_TOKEN}(?:/{_POS_TOKEN})*)\s*(?P<definition>.*)$"
 )
-_MARKERS = {"记": "memory_notes", "搭": "collocations", "例": "examples", "派": "derivatives", "同": "synonyms", "反": "antonyms"}
+_MARKERS = {"记": "memory_notes", "搭": "collocations", "例": "examples", "派": "derivatives", "同": "synonyms", "反": "antonyms", "考": "exam_notes", "题": "exam_questions", "解": "exam_explanations"}
 
 
 @dataclass(slots=True)
@@ -30,6 +30,9 @@ class ParsedSourceEntry:
     derivatives: list[str] = field(default_factory=list)
     synonyms: list[str] = field(default_factory=list)
     antonyms: list[str] = field(default_factory=list)
+    exam_notes: list[str] = field(default_factory=list)
+    exam_questions: list[str] = field(default_factory=list)
+    exam_explanations: list[str] = field(default_factory=list)
     unclassified: list[str] = field(default_factory=list)
 
 
@@ -61,7 +64,7 @@ def parse_source_entry(lines: list[str]) -> ParsedSourceEntry:
         if classification.block_type == "ENTRY_FIELD":
             marker = classification.metadata["field_marker"]
             active_field = _MARKERS[marker]
-            payload = line.lstrip()[1:].strip()
+            payload = classification.metadata["payload"]
             if payload:
                 getattr(parsed, active_field).append(payload)
             continue

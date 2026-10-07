@@ -61,6 +61,9 @@ def parse_source_entry_text(text: str) -> ParsedEntry:
                 "DERIVATIVE": real.derivatives,
                 "SYNONYM": real.synonyms,
                 "ANTONYM": real.antonyms,
+                "EXAM_NOTE": real.exam_notes,
+                "EXAM_QUESTION": real.exam_questions,
+                "EXAM_EXPLANATION": real.exam_explanations,
             },
             extra_pronunciations=real.pronunciations[1:],
             extra_senses=real.senses[1:],
@@ -400,6 +403,6 @@ def _persist_source_fields(
 
 
 def _field_language(field_type: str) -> str | None:
-    if field_type in {"MEMORY_NOTE"}:
+    if field_type in {"MEMORY_NOTE", "EXAM_EXPLANATION"}:
         return "zh"
     return None

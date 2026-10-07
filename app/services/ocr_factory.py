@@ -11,7 +11,9 @@ def build_ocr_adapter(settings: Settings) -> OcrEngineAdapter | None:
     if engine in {"", "none", "disabled"}:
         return None
     if engine == "paddleocr":
-        return PaddleOcrAdapter()
+        # The mixed Chinese/English model unless the book is declared English-only.
+        languages = settings.ocr_languages.lower()
+        return PaddleOcrAdapter(lang="ch" if "chi" in languages or "ch" == languages else "en")
     if engine == "tesseract":
         return TesseractOcrAdapter(languages=settings.ocr_languages)
     raise ValueError(f"unsupported OCR engine: {settings.ocr_engine}")

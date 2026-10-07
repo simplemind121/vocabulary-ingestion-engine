@@ -35,11 +35,15 @@ class SegmentCandidate:
     starred: bool = False
 
 
+# Page furniture recognised upstream (e.g. the per-page headword checklist).
+_NON_ENTRY_ROLES = {"HEADWORD_CHECKLIST"}
+
+
 def _effective_block_text(block: SourceBlock) -> str:
     metadata = getattr(block, "metadata_json", None) or {}
     reviewed_text = metadata.get("reviewed_text")
     review = metadata.get("human_ocr_review") or {}
-    if review.get("decision") == "DISCARD":
+    if review.get("decision") == "DISCARD" or metadata.get("role") in _NON_ENTRY_ROLES:
         return ""
     if reviewed_text and review.get("decision") == "ACCEPT":
         return str(reviewed_text)
@@ -111,6 +115,10 @@ def _segment_blocks(blocks: list[SourceBlock], page_numbers: dict[str, int]) -> 
                     "ENTRY_HEAD", 0.97, {"lemma": bare[0], "starred": bare[1], "ipa": None}
                 )
             if classification.block_type == "WORD_LIST_HEADER":
+                if classification.metadata["word_list"] == current_word_list:
+                    # Running header repeated on every page: the entry in
+                    # progress simply continues underneath it.
+                    continue
                 flush()
                 current_word_list = classification.metadata["word_list"]
                 in_preview_table = False

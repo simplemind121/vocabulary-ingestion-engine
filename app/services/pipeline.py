@@ -19,6 +19,7 @@ from app.services.gates import (
     evaluate_source_media_gate,
 )
 from app.services.gold import publish_gold_release
+from app.services.ipa_corroboration import corroborate_run_from_settings
 from app.services.ocr_extraction import extract_ocr_blocks
 from app.services.ocr_quality import route_ocr_quality_reviews
 from app.services.page_checklist import apply_headword_checklists
@@ -131,6 +132,8 @@ def run_pipeline(
         structured = extract_canonical_fields(db, run_id)
         stages.append({"stage": "structured_extraction", "result": structured})
         _require_pass("G3", evaluate_g3_structured_extraction(db, run_id), stages)
+        ipa = corroborate_run_from_settings(db, run_id)
+        stages.append({"stage": "ipa_corroboration", "result": ipa})
         media = extract_source_media(db, run_id)
         stages.append({"stage": "source_media", "result": media})
         media_gate = evaluate_source_media_gate(db, run_id)

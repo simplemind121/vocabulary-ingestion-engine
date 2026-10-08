@@ -72,7 +72,11 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
                 issues.append(
                     {"code": "MISSING_IPA_PROVENANCE", "field": "pronunciation.ipa", "value": pronunciation.ipa}
                 )
-            elif pronunciation.verification_status != "HUMAN_VERIFIED":
+            elif pronunciation.verification_status not in {
+                "HUMAN_VERIFIED",
+                # Recovered through a dictionary, not read directly: keeps its label.
+                "DICTIONARY_CORROBORATED",
+            }:
                 pronunciation.verification_status = "AUTO_VERIFIED"
 
         senses = db.query(Sense).filter(Sense.vocabulary_entry_id == entry.id).all()

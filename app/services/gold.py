@@ -86,7 +86,7 @@ def build_gold_dataset(db: Session, run_id: str, *, preview: bool = False) -> di
         for sense in senses:
             definitions = db.query(Definition).filter(Definition.sense_id == sense.id).order_by(Definition.definition_order).all()
             sense_records.append({"part_of_speech": sense.part_of_speech, "definitions": [d.text for d in definitions]})
-        records.append({"id": entry.id, "lemma": entry.lemma, "language": entry.language, "verification_status": entry.verification_status, "pronunciations": [{"ipa": p.ipa, "dialect": p.dialect} for p in pronunciations], "senses": sense_records, "source_fields": fields_by_entry.get(entry.id, {}), "source_entry_id": entry.source_entry_id, "source_pages": source_pages.get(entry.source_entry_id, []), "source_media": media_by_entry.get(entry.id, []), **({"unconfirmed_ocr_rows": (entry.metadata_json or {}).get("unconfirmed_ocr_rows", 0)} if preview else {})})
+        records.append({"id": entry.id, "lemma": entry.lemma, "language": entry.language, "verification_status": entry.verification_status, "pronunciations": [{"ipa": p.ipa, "dialect": p.dialect, "verification": p.verification_status} for p in pronunciations], "senses": sense_records, "source_fields": fields_by_entry.get(entry.id, {}), "source_entry_id": entry.source_entry_id, "source_pages": source_pages.get(entry.source_entry_id, []), "source_media": media_by_entry.get(entry.id, []), **({"unconfirmed_ocr_rows": (entry.metadata_json or {}).get("unconfirmed_ocr_rows", 0)} if preview else {})})
     return {
         **({"preview": True, "verified_record_count": len(entries) - len(unresolved)} if preview else {}),
         "schema_version": "1.1",

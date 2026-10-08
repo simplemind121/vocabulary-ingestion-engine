@@ -21,8 +21,9 @@ class Settings(BaseSettings):
     ocr_readings_root: Path | None = None
     # Pages read at the same time; each worker loads its own engines.
     ocr_page_workers: int = 1
-    # ECDICT-format CSV used to corroborate pronunciations OCR cannot read.
-    pronunciation_dictionary: Path | None = None
+    # Dictionaries used for pronunciations OCR cannot read, in priority order:
+    # "ecdict:/path/ecdict.csv,britfone:/path/britfone.csv,ipadict:/path/en_UK.txt".
+    pronunciation_dictionaries: str = ""
     api_key: SecretStr | None = None
     max_upload_bytes: int = Field(default=512 * 1024 * 1024, ge=1)
     max_pdf_pages: int = Field(default=5000, ge=1)

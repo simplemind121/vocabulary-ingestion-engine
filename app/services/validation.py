@@ -66,8 +66,14 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
                 issues.append(
                     {"code": "INVALID_IPA", "field": "pronunciation.ipa", "value": pronunciation.ipa}
                 )
-            elif pronunciation.ipa and not _has_source_provenance(
-                db, run_id, "Pronunciation", pronunciation.id, "ipa"
+            elif (
+                pronunciation.ipa
+                # A dictionary-supplied pronunciation is enrichment by label; it
+                # is not expected to trace back to the printed page.
+                and pronunciation.verification_status != "DICTIONARY_ONLY"
+                and not _has_source_provenance(
+                    db, run_id, "Pronunciation", pronunciation.id, "ipa"
+                )
             ):
                 issues.append(
                     {"code": "MISSING_IPA_PROVENANCE", "field": "pronunciation.ipa", "value": pronunciation.ipa}
@@ -76,6 +82,7 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
                 "HUMAN_VERIFIED",
                 # Recovered through a dictionary, not read directly: keeps its label.
                 "DICTIONARY_CORROBORATED",
+                "DICTIONARY_ONLY",
             }:
                 pronunciation.verification_status = "AUTO_VERIFIED"
 

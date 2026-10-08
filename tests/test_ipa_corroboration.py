@@ -73,3 +73,33 @@ def test_dictionary_loader_reads_word_and_phonetic_columns(tmp_path):
         encoding="utf-8",
     )
     assert load_pronunciation_dictionary(path) == {"compose": "kәm'pәuz"}
+
+
+def test_modern_transcriptions_are_rewritten_in_the_books_notation():
+    from app.services.ipa_corroboration import modern_to_book_symbols
+
+    convert = lambda text: to_book_notation(modern_to_book_symbols(text))
+    assert convert("p ɹ ɪ z j ˈuː m") == "priˈzjuːm"
+    assert convert("/kəmpˈəʊz/") == "kəmˈpəuz"
+    assert convert("/ˈaʊtwədli/") == "ˈautwədli"
+    assert convert("s t ˈɛ ɹ ɪ ə t ˌaɪ p") == "ˈsteriəˌtaip"
+    assert convert("/fɹˈɔːd/") == "frɔːd"  # one syllable: no stress mark
+
+
+def test_dictionaries_load_in_priority_order_and_missing_files_are_skipped(tmp_path):
+    from app.services.ipa_corroboration import load_dictionaries
+
+    (tmp_path / "e.csv").write_text("word,phonetic\npresume,pri'zu:m\n", encoding="utf-8")
+    (tmp_path / "b.csv").write_text(
+        "PRESUME, p ɹ ɪ z j ˈuː m\nPRESUME(1), p ɹ ə z j ˈuː m\n", encoding="utf-8"
+    )
+    (tmp_path / "u.txt").write_text("presume\t/pɹɪzjˈuːm/, /pɹɪzˈuːm/\n", encoding="utf-8")
+    loaded = load_dictionaries(
+        f"ecdict:{tmp_path / 'e.csv'}, britfone:{tmp_path / 'b.csv'},"
+        f"ipadict:{tmp_path / 'u.txt'},ecdict:{tmp_path / 'absent.csv'}"
+    )
+    assert [name for name, _ in loaded] == ["ECDICT", "Britfone", "ipa-dict"]
+    assert loaded[0][1]["presume"] == ["pri'zu:m"]
+    assert loaded[1][1]["presume"] == ["pri'zju:m", "prә'zju:m"]
+    assert loaded[2][1]["presume"] == ["pri'zju:m", "pri'zu:m"]
+    assert load_dictionaries("") == []

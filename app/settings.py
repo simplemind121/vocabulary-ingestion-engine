@@ -16,6 +16,11 @@ class Settings(BaseSettings):
     # Extra readers voted against the primary engine, e.g. "rapidocr-v5,vision".
     ocr_secondary_readers: str = ""
     vision_ocr_url: str | None = None
+    # Readings produced elsewhere (e.g. macOS Vision on a Mac), laid out as
+    # <root>/<document sha256>/<reader>/p0001.json.
+    ocr_readings_root: Path | None = None
+    # Pages read at the same time; each worker loads its own engines.
+    ocr_page_workers: int = 1
     api_key: SecretStr | None = None
     max_upload_bytes: int = Field(default=512 * 1024 * 1024, ge=1)
     max_pdf_pages: int = Field(default=5000, ge=1)

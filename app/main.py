@@ -420,6 +420,8 @@ def execute_run(run_id: str, db: DbSession) -> dict:
             db,
             run_id,
             ocr_adapter=adapter,
+            ocr_page_workers=settings.ocr_page_workers,
+            ocr_adapter_factory=lambda: build_ocr_adapter(settings),
             ocr_min_confidence=settings.ocr_min_confidence,
         )
     except ValueError as exc:

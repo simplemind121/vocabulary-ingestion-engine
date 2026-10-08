@@ -1,6 +1,11 @@
 from __future__ import annotations
 
-from app.adapters.consensus import AdapterRowReader, ConsensusOcrAdapter, HttpRowReader
+from app.adapters.consensus import (
+    AdapterRowReader,
+    ConsensusOcrAdapter,
+    FileRowReader,
+    HttpRowReader,
+)
 from app.adapters.ocr_base import OcrEngineAdapter
 from app.adapters.paddleocr import PaddleOcrAdapter
 from app.adapters.rapidocr import RapidOcrAdapter
@@ -24,6 +29,10 @@ def _build_reader(name: str, settings: Settings):
         if not settings.vision_ocr_url:
             raise ValueError("the vision reader requires VIE_VISION_OCR_URL")
         return HttpRowReader("macos-vision", settings.vision_ocr_url)
+    if name == "vision-import":
+        if not settings.ocr_readings_root:
+            raise ValueError("the vision-import reader requires VIE_OCR_READINGS_ROOT")
+        return FileRowReader("macos-vision", settings.ocr_readings_root)
     if name == "rapidocr-v5":
         return AdapterRowReader(RapidOcrAdapter(lang="ch", ocr_version="PP-OCRv5", refine=False))
     raise ValueError(f"unsupported secondary OCR reader: {name}")

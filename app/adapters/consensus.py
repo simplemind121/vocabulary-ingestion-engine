@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 from typing import Any
 
 from app.adapters.ocr_base import OcrPageInput, OcrPageResult
@@ -32,6 +34,27 @@ class HttpRowReader:
         )
         with urllib.request.urlopen(request, timeout=self._timeout) as response:
             return json.load(response)["rows"]
+
+
+class FileRowReader:
+    """Readings produced elsewhere and shipped as files.
+
+    Layout: ``<root>/<document sha256>/<reader name>/p0001.json``, each file a
+    list of rows with normalized boxes. A page without a file is a page this
+    reader did not read: it abstains there.
+    """
+
+    def __init__(self, name: str, root: str | Path) -> None:
+        self.name = name
+        self._root = Path(root)
+
+    def read_rows(self, page: OcrPageInput) -> list[dict]:
+        if not page.document_sha256:
+            return []
+        path = self._root / page.document_sha256 / self.name / f"p{page.page_number:04d}.json"
+        if not path.is_file():
+            return []
+        return json.loads(path.read_text(encoding="utf-8"))
 
 
 class AdapterRowReader:
@@ -65,12 +88,17 @@ class ConsensusOcrAdapter:
         self.version = "+".join([primary.name, *[reader.name for reader in secondaries]])
 
     def extract_page(self, page: OcrPageInput) -> OcrPageResult:
-        result = self._primary.extract_page(page)
+        # The readers are independent engines, so they read the page at once.
+        with ThreadPoolExecutor(max_workers=1 + len(self._secondaries)) as pool:
+            primary = pool.submit(self._primary.extract_page, page)
+            secondary = [pool.submit(reader.read_rows, page) for reader in self._secondaries]
+            result = primary.result()
+            rows_by_reader = [future.result() for future in secondary]
         readings = []
-        for reader in self._secondaries:
+        for reader, reader_rows in zip(self._secondaries, rows_by_reader, strict=True):
             parts = [
                 dict(row)
-                for row in reader.read_rows(page)
+                for row in reader_rows
                 if not (row["x2"] <= 0.03 or row["x1"] >= 0.97)
             ]
             readings.append(

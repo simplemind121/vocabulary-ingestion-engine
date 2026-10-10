@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from datetime import UTC, datetime
 
 from sqlalchemy.orm import Session
@@ -18,8 +19,10 @@ from app.services.gates import (
     evaluate_source_media_gate,
 )
 from app.services.gold import publish_gold_release
+from app.services.ipa_corroboration import corroborate_run_from_settings
 from app.services.ocr_extraction import extract_ocr_blocks
 from app.services.ocr_quality import route_ocr_quality_reviews
+from app.services.page_checklist import apply_headword_checklists
 from app.services.page_quality import route_no_text_page_reviews
 from app.services.segmentation import segment_source_entries
 from app.services.source_media import extract_source_media
@@ -41,6 +44,8 @@ def run_pipeline(
     publish: bool = True,
     ocr_adapter: OcrEngineAdapter | None = None,
     ocr_min_confidence: float = 0.85,
+    ocr_page_workers: int = 1,
+    ocr_adapter_factory: Callable[[], OcrEngineAdapter] | None = None,
 ) -> dict:
     run = db.get(ProcessingRun, run_id)
     if run is None:
@@ -83,8 +88,17 @@ def run_pipeline(
                 raise AssertionError("G1 must require review for unresolved no-text pages")
             native = extract_native_blocks(db, run_id, page_numbers=native_pages)
             stages.append({"stage": "native_extraction", "result": native})
-            ocr = extract_ocr_blocks(db, run_id, ocr_adapter, page_numbers=ocr_pages)
+            ocr = extract_ocr_blocks(
+                db,
+                run_id,
+                ocr_adapter,
+                page_numbers=ocr_pages,
+                page_workers=ocr_page_workers,
+                adapter_factory=ocr_adapter_factory,
+            )
             stages.append({"stage": "ocr_extraction", "result": ocr})
+            checklists = apply_headword_checklists(db, run_id)
+            stages.append({"stage": "headword_checklists", "result": checklists})
             quality = route_ocr_quality_reviews(
                 db,
                 run_id,
@@ -92,8 +106,16 @@ def run_pipeline(
             )
             stages.append({"stage": "ocr_quality", "result": quality})
         elif ocr_adapter is not None:
-            extraction = extract_ocr_blocks(db, run_id, ocr_adapter)
+            extraction = extract_ocr_blocks(
+                db,
+                run_id,
+                ocr_adapter,
+                page_workers=ocr_page_workers,
+                adapter_factory=ocr_adapter_factory,
+            )
             stages.append({"stage": "ocr_extraction", "result": extraction})
+            checklists = apply_headword_checklists(db, run_id)
+            stages.append({"stage": "headword_checklists", "result": checklists})
             quality = route_ocr_quality_reviews(
                 db,
                 run_id,
@@ -110,6 +132,8 @@ def run_pipeline(
         structured = extract_canonical_fields(db, run_id)
         stages.append({"stage": "structured_extraction", "result": structured})
         _require_pass("G3", evaluate_g3_structured_extraction(db, run_id), stages)
+        ipa = corroborate_run_from_settings(db, run_id)
+        stages.append({"stage": "ipa_corroboration", "result": ipa})
         media = extract_source_media(db, run_id)
         stages.append({"stage": "source_media", "result": media})
         media_gate = evaluate_source_media_gate(db, run_id)

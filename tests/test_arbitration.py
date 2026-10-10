@@ -165,3 +165,52 @@ def test_openai_arbiter_sends_one_image_and_parses_numbered_answers(monkeypatch)
     assert parts[1]["image_url"]["url"].startswith("data:image/png;base64,")
     assert '1: "a" | "b"' in parts[0]["text"]
     assert arbiter.name == "openai:some-model"
+
+
+def test_openai_arbiter_retries_dropped_connections_but_not_rejections(monkeypatch):
+    import ssl
+    import urllib.error
+
+    import pytest
+
+    reply = json.dumps(
+        {
+            "usage": {"prompt_tokens": 11, "completion_tokens": 7},
+            "choices": [{"message": {"content": json.dumps({"lines": [{"n": 1, "text": "ok"}]})}}],
+        }
+    ).encode()
+    failures = [
+        ssl.SSLError("EOF occurred in violation of protocol"),
+        urllib.error.URLError("connection reset"),
+        urllib.error.HTTPError("u", 503, "busy", None, None),
+    ]
+    calls = []
+
+    def flaky(request, timeout):
+        calls.append(1)
+        if failures:
+            raise failures.pop(0)
+        return io.BytesIO(reply)
+
+    monkeypatch.setattr("app.services.arbitration.urllib.request.urlopen", flaky)
+    arbiter = OpenAIChatArbiter(api_key="k", model="m", backoff=0.0)
+    assert arbiter.read_lines(b"png", [{"n": 1, "candidates": ["ok"]}]) == {1: "ok"}
+    assert len(calls) == 4
+    assert arbiter.usage == {"prompt_tokens": 11, "completion_tokens": 7}
+
+    def rejected(request, timeout):
+        calls.append(1)
+        raise urllib.error.HTTPError("u", 401, "unauthorized", None, None)
+
+    calls.clear()
+    monkeypatch.setattr("app.services.arbitration.urllib.request.urlopen", rejected)
+    with pytest.raises(urllib.error.HTTPError):
+        arbiter.read_lines(b"png", [{"n": 1, "candidates": ["ok"]}])
+    assert len(calls) == 1  # an invalid key is not retried
+
+    def always_down(request, timeout):
+        raise urllib.error.URLError("down")
+
+    monkeypatch.setattr("app.services.arbitration.urllib.request.urlopen", always_down)
+    with pytest.raises(RuntimeError, match="unreachable after 5 attempts"):
+        arbiter.read_lines(b"png", [{"n": 1, "candidates": ["ok"]}])

@@ -15,6 +15,9 @@ from __future__ import annotations
 
 import base64
 import json
+import ssl
+import time
+import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
@@ -38,6 +41,7 @@ from app.services.ocr_consensus import _canonical, _mask_ipa
 from app.services.ocr_quality import DEFERRED, READERS_DISAGREE
 
 ARBITRATED = "ARBITRATED"
+_RETRYABLE_STATUS = {408, 409, 429, 500, 502, 503, 504}
 _LINE_HEIGHT = 46.0
 _SHEET_WIDTH = 1500.0
 _LABEL_WIDTH = 56.0
@@ -65,6 +69,8 @@ class OpenAIChatArbiter:
     model: str
     base_url: str = "https://api.openai.com/v1"
     timeout: float = 300.0
+    max_attempts: int = 5
+    backoff: float = 1.0
     # Token counts reported by the API, summed over every request made.
     usage: dict = field(default_factory=lambda: {"prompt_tokens": 0, "completion_tokens": 0})
 
@@ -105,8 +111,7 @@ class OpenAIChatArbiter:
                 "Authorization": f"Bearer {self.api_key}",
             },
         )
-        with urllib.request.urlopen(request, timeout=self.timeout) as response:
-            body = json.load(response)
+        body = self._send(request)
         for name in self.usage:
             self.usage[name] += int((body.get("usage") or {}).get(name) or 0)
         content = json.loads(body["choices"][0]["message"]["content"])
@@ -119,6 +124,26 @@ class OpenAIChatArbiter:
             text = line.get("text")
             answers[number] = text if isinstance(text, str) and text.strip() else None
         return answers
+
+
+    def _send(self, request: urllib.request.Request) -> dict:
+        """POST with retries: a dropped connection or a busy server is not a verdict."""
+        last: Exception | None = None
+        for attempt in range(self.max_attempts):
+            if attempt:
+                time.sleep(min(2.0**attempt, 30.0) * self.backoff)
+            try:
+                with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                    return json.load(response)
+            except urllib.error.HTTPError as exc:
+                if exc.code not in _RETRYABLE_STATUS:
+                    raise  # a rejected key or a malformed request will not fix itself
+                last = exc
+            except (urllib.error.URLError, ssl.SSLError, TimeoutError, ConnectionError) as exc:
+                last = exc
+        raise RuntimeError(
+            f"arbiter unreachable after {self.max_attempts} attempts: {last}"
+        ) from last
 
 
 def build_line_sheet(crops: list[tuple[int, Path, dict]]) -> bytes:

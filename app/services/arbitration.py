@@ -16,7 +16,7 @@ from __future__ import annotations
 import base64
 import json
 import urllib.request
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Protocol
@@ -65,6 +65,8 @@ class OpenAIChatArbiter:
     model: str
     base_url: str = "https://api.openai.com/v1"
     timeout: float = 300.0
+    # Token counts reported by the API, summed over every request made.
+    usage: dict = field(default_factory=lambda: {"prompt_tokens": 0, "completion_tokens": 0})
 
     @property
     def name(self) -> str:
@@ -105,6 +107,8 @@ class OpenAIChatArbiter:
         )
         with urllib.request.urlopen(request, timeout=self.timeout) as response:
             body = json.load(response)
+        for name in self.usage:
+            self.usage[name] += int((body.get("usage") or {}).get(name) or 0)
         content = json.loads(body["choices"][0]["message"]["content"])
         answers: dict[int, str | None] = {}
         for line in content.get("lines") or []:
@@ -252,4 +256,5 @@ def arbitrate_parked_lines(
         "requests": requests,
         "accepted": accepted,
         "not_confirmed": unresolved,
+        "usage": getattr(arbiter, "usage", None),
     }

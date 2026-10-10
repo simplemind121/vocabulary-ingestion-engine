@@ -21,6 +21,12 @@ class Settings(BaseSettings):
     ocr_readings_root: Path | None = None
     # Pages read at the same time; each worker loads its own engines.
     ocr_page_workers: int = 1
+    # Vision model that arbitrates lines the OCR readers disagree on. Any
+    # endpoint speaking the OpenAI Chat Completions protocol works.
+    arbiter_api_key: SecretStr | None = None
+    arbiter_model: str = ""
+    arbiter_base_url: str = "https://api.openai.com/v1"
+    arbiter_batch_size: int = 20
     # Dictionaries used for pronunciations OCR cannot read, in priority order:
     # "ecdict:/path/ecdict.csv,britfone:/path/britfone.csv,ipadict:/path/en_UK.txt".
     pronunciation_dictionaries: str = ""

@@ -57,6 +57,11 @@ def _effective_block_text(block: SourceBlock) -> str:
         return ""
     if reviewed_text and review.get("decision") == "ACCEPT":
         return str(reviewed_text)
+    arbitration = metadata.get("machine_arbitration") or {}
+    if arbitration.get("status") == "ACCEPTED" and arbitration.get("text"):
+        # A vision model and an OCR reader agreed on this line. A human review
+        # of the same line, handled above, always takes precedence.
+        return str(arbitration["text"])
     return getattr(block, "raw_text", "") or ""
 
 

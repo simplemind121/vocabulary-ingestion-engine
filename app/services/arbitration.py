@@ -73,6 +73,8 @@ class OpenAIChatArbiter:
     backoff: float = 1.0
     # Token counts reported by the API, summed over every request made.
     usage: dict = field(default_factory=lambda: {"prompt_tokens": 0, "completion_tokens": 0})
+    # Why a batch came back without an answer, one note per such request.
+    unanswered: list = field(default_factory=list)
 
     @property
     def name(self) -> str:
@@ -114,7 +116,18 @@ class OpenAIChatArbiter:
         body = self._send(request)
         for name in self.usage:
             self.usage[name] += int((body.get("usage") or {}).get(name) or 0)
-        content = json.loads(body["choices"][0]["message"]["content"])
+        message = (body.get("choices") or [{}])[0].get("message") or {}
+        raw = message.get("content")
+        if not raw:
+            # The model declined or returned nothing. That is no answer for
+            # this batch, not a reason to abort the whole run.
+            self.unanswered.append(str(message.get("refusal") or "empty response")[:200])
+            return {}
+        try:
+            content = json.loads(raw)
+        except json.JSONDecodeError:
+            self.unanswered.append("reply was not valid JSON")
+            return {}
         answers: dict[int, str | None] = {}
         for line in content.get("lines") or []:
             try:
@@ -226,7 +239,7 @@ def arbitrate_parked_lines(
     if limit is not None:
         tasks = tasks[:limit]
 
-    accepted = unresolved = requests = 0
+    accepted = unresolved = requests = skipped = 0
     for start in range(0, len(tasks), batch_size):
         batch = tasks[start : start + batch_size]
         crops, items, blocks = [], [], {}
@@ -244,6 +257,11 @@ def arbitrate_parked_lines(
             blocks[number] = (task, block, candidates)
         answers = arbiter.read_lines(build_line_sheet(crops), items)
         requests += 1
+        if not answers:
+            # Nothing came back for the whole batch: leave its lines untouched
+            # so a later run can ask again, rather than recording a non-answer.
+            skipped += len(batch)
+            continue
         for number, (task, block, candidates) in blocks.items():
             answer = answers.get(number)
             verdict = accept_answer(answer, candidates)
@@ -281,5 +299,7 @@ def arbitrate_parked_lines(
         "requests": requests,
         "accepted": accepted,
         "not_confirmed": unresolved,
+        "unanswered_lines": skipped,
+        "unanswered_reasons": sorted(set(getattr(arbiter, "unanswered", []))),
         "usage": getattr(arbiter, "usage", None),
     }

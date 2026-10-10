@@ -214,3 +214,30 @@ def test_openai_arbiter_retries_dropped_connections_but_not_rejections(monkeypat
     monkeypatch.setattr("app.services.arbitration.urllib.request.urlopen", always_down)
     with pytest.raises(RuntimeError, match="unreachable after 5 attempts"):
         arbiter.read_lines(b"png", [{"n": 1, "candidates": ["ok"]}])
+
+
+def test_a_batch_the_model_does_not_answer_is_left_for_a_later_run(client, monkeypatch):
+    def refused(request, timeout):
+        body = {"choices": [{"message": {"content": None, "refusal": "cannot help with that"}}]}
+        return io.BytesIO(json.dumps(body).encode())
+
+    monkeypatch.setattr("app.services.arbitration.urllib.request.urlopen", refused)
+    db, run_id = _parked_run(client)
+    try:
+        arbiter = OpenAIChatArbiter(api_key="k", model="m")
+        result = arbitrate_parked_lines(db, run_id, arbiter)
+        assert (result["accepted"], result["not_confirmed"], result["unanswered_lines"]) == (0, 0, 1)
+        assert result["unanswered_reasons"] == ["cannot help with that"]
+        task = (
+            db.query(ReviewTask)
+            .filter(
+                ReviewTask.processing_run_id == run_id,
+                ReviewTask.reason_code == "OCR_READERS_DISAGREE",
+            )
+            .one()
+        )
+        # Untouched: still parked and still eligible to be asked again.
+        assert task.status == "DEFERRED"
+        assert "machine_arbitration" not in task.source_context
+    finally:
+        db.close()

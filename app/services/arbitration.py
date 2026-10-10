@@ -37,6 +37,7 @@ from app.models import (
     SourceEntry,
     SourceEntryBlock,
 )
+from app.services.book_structure import classify_book_text
 from app.services.ocr_consensus import _canonical, _mask_ipa
 from app.services.ocr_quality import DEFERRED, READERS_DISAGREE
 
@@ -206,7 +207,15 @@ def same_extent(primary: str, other: str) -> bool:
     for this line: taking it would repeat the neighbours' text.
     """
     mine, theirs = len(_comparable(primary)), len(_comparable(other))
-    return abs(mine - theirs) <= 2 + _EXTENT_SLACK * mine
+    if abs(mine - theirs) > 2 + _EXTENT_SLACK * mine:
+        return False
+    # Nor may a reading turn a headword line into running text: that is a
+    # different cut of the page, not a different reading of its characters.
+    return not (_opens_entry(primary) and not _opens_entry(other))
+
+
+def _opens_entry(text: str) -> bool:
+    return classify_book_text(" ".join(text.split())).block_type == "ENTRY_HEAD"
 
 
 def _withdraw_other_extents(db: Session, run_id: str) -> int:

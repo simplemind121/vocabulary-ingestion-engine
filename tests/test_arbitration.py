@@ -124,6 +124,7 @@ def test_model_agreeing_with_a_reader_settles_the_line_and_entries_are_rebuilt(c
 def test_a_reading_that_swallowed_neighbouring_lines_is_not_a_candidate(client):
     assert same_extent("curb", "kerb")
     assert not same_extent("check", "curb [x]n.控制，约束 curb check 或人行道的")
+    assert not same_extent("incur [x] vt.招致，遭受 代表", "代表 incur [x] vt.招致，遭受")
     db, run_id = _parked_run(client)
     try:
         task = (

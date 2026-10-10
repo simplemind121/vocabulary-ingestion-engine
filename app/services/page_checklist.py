@@ -152,7 +152,9 @@ def apply_headword_checklists(db: Session, run_id: str) -> dict:
         "pages_disagreeing": 0,
         "headwords_confirmed": 0,
         "review_tasks_created": 0,
+        "review_tasks_withdrawn": 0,
     }
+    standing: set[tuple[str, str, str]] = set()
     if has_checklists:
         for page_id, heads, rows, result in analysed:
             if not rows:
@@ -188,8 +190,19 @@ def apply_headword_checklists(db: Session, run_id: str) -> dict:
                 continue
             metrics["pages_disagreeing"] += 1
             metrics["review_tasks_created"] += _queue_reviews(
-                db, run_id, page_id, pages.get(page_id), heads, result
+                db, run_id, page_id, pages.get(page_id), heads, result, standing
             )
+        # A finding the text no longer shows (a line was since corrected or a
+        # correction withdrawn) is closed. Only findings nobody has ruled on.
+        for task in db.query(ReviewTask).filter(
+            ReviewTask.processing_run_id == run_id,
+            ReviewTask.reason_code.in_([REASON_HEADWORD, REASON_PAGE]),
+            ReviewTask.status == "OPEN",
+        ):
+            key = (task.target_entity_type, task.target_entity_id, task.reason_code)
+            if key not in standing:
+                task.status = "NOT_APPLICABLE"
+                metrics["review_tasks_withdrawn"] += 1
 
     step = (
         db.query(ProcessingStep)
@@ -224,6 +237,7 @@ def _queue_reviews(
     page_number: int | None,
     heads: list[tuple[SourceBlock, str]],
     result: dict,
+    standing: set[tuple[str, str, str]],
 ) -> int:
     created = 0
     remainder = result["unmatched_checklist_text"]
@@ -235,6 +249,7 @@ def _queue_reviews(
         and not (block.metadata_json or {}).get("human_ocr_review")
     ]
     for block, lemma in unexpected:
+        standing.add(("SourceBlock", block.id, REASON_HEADWORD))
         if _has_task(db, run_id, "SourceBlock", block.id, REASON_HEADWORD):
             continue
         candidates = []
@@ -259,12 +274,12 @@ def _queue_reviews(
             )
         )
         created += 1
-    if (
-        remainder
-        # A human already ruled on a headword the checklist spells differently:
-        # the leftover text is the checklist's misprint of it, not a new finding.
-        and not result["headwords_not_in_checklist"]
-        and not _has_task(db, run_id, "Page", page_id, REASON_PAGE)
+    # A human already ruled on a headword the checklist spells differently:
+    # the leftover text is the checklist's misprint of it, not a new finding.
+    if remainder and not result["headwords_not_in_checklist"]:
+        standing.add(("Page", page_id, REASON_PAGE))
+    if ("Page", page_id, REASON_PAGE) in standing and not _has_task(
+        db, run_id, "Page", page_id, REASON_PAGE
     ):
         # The checklist names a headword no line on the page starts with.
         db.add(
@@ -351,6 +366,7 @@ def _has_task(db: Session, run_id: str, entity_type: str, entity_id: str, reason
             ReviewTask.target_entity_type == entity_type,
             ReviewTask.target_entity_id == entity_id,
             ReviewTask.reason_code == reason,
+            ReviewTask.status != "NOT_APPLICABLE",
         )
         .first()
         is not None

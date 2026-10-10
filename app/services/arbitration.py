@@ -45,6 +45,8 @@ _RETRYABLE_STATUS = {408, 409, 429, 500, 502, 503, 504}
 _LINE_HEIGHT = 46.0
 _SHEET_WIDTH = 1500.0
 _LABEL_WIDTH = 56.0
+# How far another reading may differ in length and still be of the same line.
+_EXTENT_SLACK = 0.25
 _PROMPT = (
     "The image shows numbered lines cropped from a scanned vocabulary book that mixes "
     "English, Simplified Chinese and phonetic transcription. For each numbered line, "
@@ -138,7 +140,6 @@ class OpenAIChatArbiter:
             answers[number] = text if isinstance(text, str) and text.strip() else None
         return answers
 
-
     def _send(self, request: urllib.request.Request) -> dict:
         """POST with retries: a dropped connection or a busy server is not a verdict."""
         last: Exception | None = None
@@ -197,6 +198,44 @@ def _comparable(text: str) -> str:
     return _canonical(_mask_ipa(text))[0]
 
 
+def same_extent(primary: str, other: str) -> bool:
+    """Whether ``other`` reads the same stretch of print as ``primary``.
+
+    Readers cut a page into rows differently, so another reader's row can hold
+    this line together with its neighbours. Such a reading is not a candidate
+    for this line: taking it would repeat the neighbours' text.
+    """
+    mine, theirs = len(_comparable(primary)), len(_comparable(other))
+    return abs(mine - theirs) <= 2 + _EXTENT_SLACK * mine
+
+
+def _withdraw_other_extents(db: Session, run_id: str) -> int:
+    """Take back earlier acceptances of a reading that covers more than its line."""
+    withdrawn = 0
+    for task in db.query(ReviewTask).filter(
+        ReviewTask.processing_run_id == run_id,
+        ReviewTask.reason_code == READERS_DISAGREE,
+        ReviewTask.status == ARBITRATED,
+    ):
+        block = db.get(SourceBlock, task.target_entity_id)
+        metadata = dict(block.metadata_json or {})
+        record = metadata.get("machine_arbitration") or {}
+        primary = (metadata.get("consensus") or {}).get("primary_text") or block.raw_text or ""
+        if same_extent(primary, record.get("text") or ""):
+            continue
+        metadata.pop("machine_arbitration", None)
+        block.metadata_json = metadata
+        task.source_context = {
+            key: value
+            for key, value in (task.source_context or {}).items()
+            if key != "machine_arbitration"
+        }
+        task.status = DEFERRED
+        withdrawn += 1
+    db.commit()
+    return withdrawn
+
+
 def accept_answer(answer: str | None, candidates: dict[str, str]) -> tuple[str, str] | None:
     """Return (reader, text) when the model's answer is what an OCR reader read."""
     if not answer:
@@ -218,6 +257,7 @@ def arbitrate_parked_lines(
     limit: int | None = None,
 ) -> dict:
     """Ask the arbiter about every parked line that belongs to an entry."""
+    withdrawn = _withdraw_other_extents(db, run_id)
     linked = {
         row.source_block_id
         for row in db.query(SourceEntryBlock.source_block_id)
@@ -248,9 +288,14 @@ def arbitrate_parked_lines(
             page = db.get(Page, block.page_id)
             artifact = db.get(Artifact, page.render_artifact_id)
             consensus = (block.metadata_json or {}).get("consensus") or {}
+            primary = consensus.get("primary_text") or block.raw_text or ""
             candidates = {
-                "primary": consensus.get("primary_text") or block.raw_text or "",
-                **(consensus.get("other_readings") or {}),
+                "primary": primary,
+                **{
+                    reader: text
+                    for reader, text in (consensus.get("other_readings") or {}).items()
+                    if same_extent(primary, text or "")
+                },
             }
             crops.append((number, Path(artifact.object_key), block.bbox))
             items.append({"n": number, "candidates": list(dict.fromkeys(candidates.values()))})
@@ -282,7 +327,7 @@ def arbitrate_parked_lines(
             task.source_context = {**(task.source_context or {}), "machine_arbitration": record}
         db.commit()
 
-    if accepted:
+    if accepted or withdrawn:
         # Entries were cut from the old text: make the next pass rebuild them.
         step = (
             db.query(ProcessingStep)
@@ -298,6 +343,7 @@ def arbitrate_parked_lines(
         "lines": len(tasks),
         "requests": requests,
         "accepted": accepted,
+        "withdrawn": withdrawn,
         "not_confirmed": unresolved,
         "unanswered_lines": skipped,
         "unanswered_reasons": sorted(set(getattr(arbiter, "unanswered", []))),

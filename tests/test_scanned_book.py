@@ -13,7 +13,7 @@ from app.models import (
     VocabularyField,
 )
 from app.services.field_parser import parse_source_entry
-from app.services.page_checklist import compare_page
+from app.services.page_checklist import apply_headword_checklists, compare_page
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
 from app.services.segmentation import _segment_blocks
@@ -131,6 +131,39 @@ def test_running_word_list_header_does_not_cut_a_cross_page_entry():
     ]
     assert "continues on the next page" in entries[0].raw_text
     assert entries[0].page_numbers == [1, 2]
+
+
+def test_a_checklist_finding_the_text_no_longer_shows_is_closed_and_can_return(client):
+    run_id = _upload(client)
+    db = SessionLocal()
+    try:
+        run_pipeline(db, run_id, ocr_adapter=ScannedBookOcr())
+
+        def findings():
+            return {
+                task.status: task
+                for task in db.query(ReviewTask).filter(
+                    ReviewTask.processing_run_id == run_id,
+                    ReviewTask.reason_code == "HEADWORD_NOT_IN_CHECKLIST",
+                )
+            }
+
+        block = db.get(SourceBlock, findings()["OPEN"].target_entity_id)
+        original = dict(block.metadata_json or {})
+        block.metadata_json = {
+            **original,
+            "machine_arbitration": {"status": "ACCEPTED", "text": "incur [x] vt.招致，遭受"},
+        }
+        db.commit()
+        assert apply_headword_checklists(db, run_id)["review_tasks_withdrawn"] == 1
+        assert set(findings()) == {"NOT_APPLICABLE"}
+
+        block.metadata_json = original
+        db.commit()
+        assert apply_headword_checklists(db, run_id)["review_tasks_created"] == 1
+        assert set(findings()) == {"NOT_APPLICABLE", "OPEN"}
+    finally:
+        db.close()
 
 
 def test_scanned_book_stops_for_checklist_disagreements_then_completes(client):

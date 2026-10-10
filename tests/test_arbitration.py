@@ -7,6 +7,7 @@ from app.services.arbitration import (
     OpenAIChatArbiter,
     accept_answer,
     arbitrate_parked_lines,
+    same_extent,
 )
 from app.services.pipeline import run_pipeline
 from app.services.review import resolve_review_task
@@ -116,6 +117,43 @@ def test_model_agreeing_with_a_reader_settles_the_line_and_entries_are_rebuilt(c
         assert "conposed" in example.text
         # Already arbitrated: a second request costs nothing.
         assert arbitrate_parked_lines(db, run_id, FakeArbiter(VISION))["lines"] == 0
+    finally:
+        db.close()
+
+
+def test_a_reading_that_swallowed_neighbouring_lines_is_not_a_candidate(client):
+    assert same_extent("curb", "kerb")
+    assert not same_extent("check", "curb [x]n.控制，约束 curb check 或人行道的")
+    db, run_id = _parked_run(client)
+    try:
+        task = (
+            db.query(ReviewTask)
+            .filter(
+                ReviewTask.processing_run_id == run_id,
+                ReviewTask.reason_code == "OCR_READERS_DISAGREE",
+            )
+            .one()
+        )
+        block = db.get(SourceBlock, task.target_entity_id)
+        merged = LINE + "【例】The next line of the page, read into the same row."
+        consensus = {**block.metadata_json["consensus"], "other_readings": {"macos-vision": merged}}
+        block.metadata_json = {**block.metadata_json, "consensus": consensus}
+        # An acceptance made before the rule existed is taken back and asked again.
+        block.metadata_json = {
+            **block.metadata_json,
+            "machine_arbitration": {"status": "ACCEPTED", "agrees_with": "macos-vision", "text": merged},
+        }
+        task.status = "ARBITRATED"
+        task.source_context = {**task.source_context, "machine_arbitration": {"status": "ACCEPTED"}}
+        db.commit()
+
+        arbiter = FakeArbiter(merged)
+        result = arbitrate_parked_lines(db, run_id, arbiter)
+        assert (result["withdrawn"], result["lines"], result["accepted"]) == (1, 1, 0)
+        assert arbiter.calls[0][0]["candidates"] == [LINE]
+        db.refresh(task)
+        assert task.status == "DEFERRED"
+        assert "machine_arbitration" not in db.get(SourceBlock, block.id).metadata_json
     finally:
         db.close()
 

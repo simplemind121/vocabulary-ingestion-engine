@@ -39,6 +39,21 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
     }
     unconfirmed_rows: dict[str, int] = {}
     if parked:
+        linked = {
+            row.source_block_id
+            for row in db.query(SourceEntryBlock.source_block_id)
+            .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
+            .filter(SourceEntry.processing_run_id == run_id)
+        }
+        # A parked line that belongs to no entry (front matter, an index, a page
+        # header) cannot affect the dataset: it is set aside, not arbitrated.
+        db.query(ReviewTask).filter(
+            ReviewTask.processing_run_id == run_id,
+            ReviewTask.target_entity_type == "SourceBlock",
+            ReviewTask.status == "DEFERRED",
+            ReviewTask.target_entity_id.notin_(linked),
+        ).update({"status": "NOT_APPLICABLE"}, synchronize_session=False)
+        parked &= linked
         for link in (
             db.query(SourceEntryBlock)
             .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)

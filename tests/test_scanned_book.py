@@ -286,14 +286,86 @@ def test_unconfirmed_lines_are_parked_and_keep_their_entry_out_of_gold(client):
         rows = {record["lemma"]: record["unconfirmed_ocr_rows"] for record in preview["records"]}
         assert rows["compose"] == 1 and rows["fraud"] == 0
 
-        # A human settles the parked line; the entry is released on the next pass.
+        # A human settles the parked line with a corrected reading. The entries
+        # were cut from the old text, so they are rebuilt from the corrected one.
         resolve_review_task(
             db,
             by_status["DEFERRED"][0].id,
-            resolution={"decision": "ACCEPT"},
+            resolution={"decision": "ACCEPT", "corrected_text": "【例】A corrected example line."},
             reviewer_id="reviewer-1",
         )
         third = run_pipeline(db, run_id, ocr_adapter=DisputedLineOcr())
         assert third["status"] == "COMPLETED"
+        segmentation = next(
+            stage["result"] for stage in third["stages"] if stage["stage"] == "entry_segmentation"
+        )
+        assert (segmentation["reused"], segmentation["rebuilt"]) == (False, True)
+        compose = (
+            db.query(VocabularyEntry)
+            .filter(VocabularyEntry.processing_run_id == run_id, VocabularyEntry.lemma == "compose")
+            .one()
+        )
+        assert compose.verification_status == "AUTO_VERIFIED"
+        example = (
+            db.query(VocabularyField)
+            .filter(
+                VocabularyField.vocabulary_entry_id == compose.id,
+                VocabularyField.field_type == "EXAMPLE",
+            )
+            .one()
+        )
+        assert example.text == "A corrected example line."
+        assert (
+            db.query(VocabularyEntry).filter(VocabularyEntry.processing_run_id == run_id).count()
+            == 8
+        )
+        fourth = run_pipeline(db, run_id, ocr_adapter=DisputedLineOcr())
+        reused = next(s["result"] for s in fourth["stages"] if s["stage"] == "entry_segmentation")
+        assert reused["reused"] is True  # nothing changed since: no second rebuild
+    finally:
+        db.close()
+
+
+def test_parked_lines_outside_every_entry_are_set_aside(client):
+    class FrontMatterDispute(ScannedBookOcr):
+        def extract_page(self, page):
+            result = super().extract_page(page)
+            for block in result.blocks:
+                disputed = page.page_number == 1 and block.reading_order == 0
+                block.metadata = {
+                    "consensus": {
+                        "status": "DISPUTED" if disputed else "UNANIMOUS",
+                        "readers": 3,
+                        "disputes": [{"base": "a", "others": ["b", "c"]}] if disputed else [],
+                        "other_readings": {},
+                    }
+                }
+            return result
+
+    run_id = _upload(client)
+    db = SessionLocal()
+    try:
+        run_pipeline(db, run_id, ocr_adapter=FrontMatterDispute())
+        for task in db.query(ReviewTask).filter(
+            ReviewTask.processing_run_id == run_id, ReviewTask.status == "OPEN"
+        ):
+            resolution = {"decision": "ACCEPT"}
+            if task.target_entity_type == "Page":
+                resolution["classification"] = "NOT_AN_ENTRY_PAGE"
+            else:
+                resolution["corrected_text"] = "incur[x]vt.招致"
+            resolve_review_task(db, task.id, resolution=resolution, reviewer_id="reviewer-1")
+        result = run_pipeline(db, run_id, ocr_adapter=FrontMatterDispute())
+        # The disputed line sits on a page ruled not to hold entries.
+        assert result["status"] == "COMPLETED"
+        parked = (
+            db.query(ReviewTask)
+            .filter(
+                ReviewTask.processing_run_id == run_id,
+                ReviewTask.reason_code == "OCR_READERS_DISAGREE",
+            )
+            .one()
+        )
+        assert parked.status == "NOT_APPLICABLE"
     finally:
         db.close()

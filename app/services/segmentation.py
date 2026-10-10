@@ -1,19 +1,28 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass, field
 
 from sqlalchemy.orm import Session
 
 from app.models import (
+    Definition,
     DocumentVersion,
+    Example,
     Page,
     ProcessingRun,
     ProcessingStep,
+    Pronunciation,
+    ProvenanceRecord,
+    ReviewTask,
+    Sense,
     SourceBlock,
     SourceEntry,
     SourceEntryBlock,
+    SourceMedia,
     VocabularyEntry,
+    VocabularyField,
 )
 from app.services.book_structure import (
     BookBlockClassification,
@@ -196,9 +205,6 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
         .order_by(SourceEntry.entry_order)
         .all()
     )
-    if existing:
-        return {"run_id": run.id, "source_entries": len(existing), "reused": True}
-
     version = db.get(DocumentVersion, run.document_version_id)
     if version is None:
         raise ValueError("document version not found")
@@ -213,6 +219,25 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
     page_order = {page.id: index for index, page in enumerate(pages)}
     blocks = db.query(SourceBlock).filter(SourceBlock.processing_run_id == run.id).all()
     blocks.sort(key=lambda block: (page_order.get(block.page_id, 10**9), block.reading_order or 0))
+
+    fingerprint = _blocks_fingerprint(blocks)
+    step = (
+        db.query(ProcessingStep)
+        .filter(ProcessingStep.processing_run_id == run.id, ProcessingStep.sequence_no == 20)
+        .one_or_none()
+    )
+    rebuilt = False
+    if existing:
+        recorded = (step.metrics or {}).get("blocks_fingerprint") if step is not None else None
+        if recorded is None or recorded == fingerprint:
+            return {"run_id": run.id, "source_entries": len(existing), "reused": True}
+        # The text the entries were cut from has since been corrected (a review
+        # or an arbitration changed a line): everything derived from it is redone.
+        discard_derived_entries(db, run.id)
+        rebuilt = True
+    if step is not None:
+        db.delete(step)
+        db.flush()
 
     step = ProcessingStep(
         processing_run_id=run.id,
@@ -285,6 +310,7 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
         "input_blocks": len(blocks),
         "source_entries": len(candidates),
         "cross_page_entries": cross_page_entries,
+        "blocks_fingerprint": fingerprint,
     }
     db.commit()
     return {
@@ -292,4 +318,82 @@ def segment_source_entries(db: Session, run_id: str) -> dict:
         "source_entries": len(candidates),
         "cross_page_entries": cross_page_entries,
         "reused": False,
+        "rebuilt": rebuilt,
     }
+
+
+def _blocks_fingerprint(blocks: list[SourceBlock]) -> str:
+    """Identity of the text entries are cut from, including every correction."""
+    digest = hashlib.sha256()
+    for block in blocks:
+        digest.update(block.id.encode())
+        digest.update(b"\0")
+        digest.update(_effective_block_text(block).encode())
+        digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def discard_derived_entries(db: Session, run_id: str) -> None:
+    """Remove everything built on top of the run's blocks so it can be rebuilt.
+
+    Blocks, their reviews and stored media files are source evidence and stay.
+    A human verification of an entry or of a media association is not derived
+    data, so its presence stops the rebuild instead of being thrown away.
+    """
+    entries = db.query(VocabularyEntry).filter(VocabularyEntry.processing_run_id == run_id).all()
+    if any(entry.verification_status == "HUMAN_VERIFIED" for entry in entries):
+        raise ValueError("cannot rebuild entries: human-verified vocabulary entries exist")
+    media = (
+        db.query(SourceMedia)
+        .filter(SourceMedia.processing_run_id == run_id, SourceMedia.source_entry_id.isnot(None))
+        .all()
+    )
+    if any(item.verification_status == "HUMAN_VERIFIED" for item in media):
+        raise ValueError("cannot rebuild entries: human-verified media associations exist")
+
+    entry_ids = [entry.id for entry in entries]
+    sense_ids = [
+        row.id for row in db.query(Sense.id).filter(Sense.vocabulary_entry_id.in_(entry_ids))
+    ]
+    db.query(ProvenanceRecord).filter(
+        ProvenanceRecord.processing_run_id == run_id,
+        ProvenanceRecord.target_entity_type.in_(
+            ["VocabularyEntry", "Pronunciation", "Sense", "Definition", "Example", "VocabularyField"]
+        ),
+    ).delete(synchronize_session=False)
+    for item in media:
+        # Layout associations are recomputed by the media stage against the new entries.
+        db.query(ProvenanceRecord).filter(
+            ProvenanceRecord.target_entity_type == "SourceMedia",
+            ProvenanceRecord.target_entity_id == item.id,
+        ).delete(synchronize_session=False)
+        db.query(ReviewTask).filter(
+            ReviewTask.target_entity_type == "SourceMedia", ReviewTask.target_entity_id == item.id
+        ).delete(synchronize_session=False)
+        db.delete(item)
+    db.query(ReviewTask).filter(
+        ReviewTask.processing_run_id == run_id,
+        ReviewTask.target_entity_type == "VocabularyEntry",
+    ).delete(synchronize_session=False)
+    db.query(Definition).filter(Definition.sense_id.in_(sense_ids)).delete(
+        synchronize_session=False
+    )
+    db.query(Example).filter(Example.sense_id.in_(sense_ids)).delete(synchronize_session=False)
+    for model in (Sense, Pronunciation, VocabularyField):
+        db.query(model).filter(model.vocabulary_entry_id.in_(entry_ids)).delete(
+            synchronize_session=False
+        )
+    db.query(VocabularyEntry).filter(VocabularyEntry.id.in_(entry_ids)).delete(
+        synchronize_session=False
+    )
+    source_ids = [
+        row.id
+        for row in db.query(SourceEntry.id).filter(SourceEntry.processing_run_id == run_id)
+    ]
+    db.query(SourceEntryBlock).filter(SourceEntryBlock.source_entry_id.in_(source_ids)).delete(
+        synchronize_session=False
+    )
+    db.query(SourceEntry).filter(SourceEntry.id.in_(source_ids)).delete(
+        synchronize_session=False
+    )
+    db.flush()

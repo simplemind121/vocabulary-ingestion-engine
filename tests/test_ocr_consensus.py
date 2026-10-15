@@ -212,3 +212,41 @@ def test_a_whole_word_others_merged_in_is_disputed_not_inserted():
     )
     assert result.text == "cliff[klif]n.悬崖，峭壁"
     assert result.status == DISPUTED
+
+
+def test_heavy_readers_wait_for_the_primary_when_parallel_reading_is_off():
+    import threading
+    import time
+
+    from app.adapters.consensus import ConsensusOcrAdapter
+    from app.adapters.ocr_base import OcrPageInput
+
+    running, peak, lock = [0], [0], threading.Lock()
+
+    def busy():
+        with lock:
+            running[0] += 1
+            peak[0] = max(peak[0], running[0])
+        time.sleep(0.05)
+        with lock:
+            running[0] -= 1
+
+    class Primary(_Primary):
+        def extract_page(self, page):
+            busy()
+            return super().extract_page(page)
+
+    class Heavy(_Reader):
+        heavy = True
+
+        def read_rows(self, page):
+            busy()
+            return super().read_rows(page)
+
+    rows = [(0.10, "I am doing it.")]
+    for parallel, expected in ((False, 1), (True, 2)):
+        peak[0] = 0
+        adapter = ConsensusOcrAdapter(Primary(rows), [Heavy("v5", rows)], parallel=parallel)
+        block = adapter.extract_page(OcrPageInput(page_number=1, image_bytes=b"")).blocks[0]
+        assert peak[0] == expected
+        assert block.metadata["consensus"]["other_readings"] == {"v5": "I am doing it."}

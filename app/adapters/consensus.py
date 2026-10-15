@@ -99,6 +99,9 @@ class PdfTextLayerReader:
 class AdapterRowReader:
     """Any OCR adapter used as a secondary reader."""
 
+    # It runs its model in this process: memory-hungry on large pages.
+    heavy = True
+
     def __init__(self, adapter: Any) -> None:
         self.name = adapter.name
         self._adapter = adapter
@@ -121,18 +124,30 @@ class ConsensusOcrAdapter:
 
     name = "ocr-consensus"
 
-    def __init__(self, primary: Any, secondaries: list[Any]) -> None:
+    def __init__(self, primary: Any, secondaries: list[Any], *, parallel: bool = True) -> None:
         self._primary = primary
         self._secondaries = secondaries
+        # With parallel off, readers that run a model in this process wait for
+        # the primary instead of running beside it, so only one model holds a
+        # large page in memory at a time. Readers elsewhere still run at once.
+        self._parallel = parallel
         self.version = "+".join([primary.name, *[reader.name for reader in secondaries]])
 
     def extract_page(self, page: OcrPageInput) -> OcrPageResult:
         # The readers are independent engines, so they read the page at once.
         with ThreadPoolExecutor(max_workers=1 + len(self._secondaries)) as pool:
             primary = pool.submit(self._primary.extract_page, page)
-            secondary = [pool.submit(reader.read_rows, page) for reader in self._secondaries]
+            later = [] if self._parallel else [r for r in self._secondaries if getattr(r, "heavy", False)]
+            secondary = {
+                reader.name: pool.submit(reader.read_rows, page)
+                for reader in self._secondaries
+                if reader not in later
+            }
             result = primary.result()
-            rows_by_reader = [future.result() for future in secondary]
+            for reader in later:
+                secondary[reader.name] = pool.submit(reader.read_rows, page)
+                secondary[reader.name].result()
+            rows_by_reader = [secondary[reader.name].result() for reader in self._secondaries]
         readings = []
         for reader, reader_rows in zip(self._secondaries, rows_by_reader, strict=True):
             parts = [

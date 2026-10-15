@@ -22,7 +22,7 @@ def build_ocr_adapter(settings: Settings) -> OcrEngineAdapter | None:
     readers = [_build_reader(name, settings) for name in names if name]
     if not readers:
         return primary
-    return ConsensusOcrAdapter(primary, readers)
+    return ConsensusOcrAdapter(primary, readers, parallel=settings.ocr_parallel_readers)
 
 
 def _build_reader(name: str, settings: Settings):

@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     ocr_min_confidence: float = 0.85
     # Extra readers voted against the primary engine, e.g. "rapidocr-v5,vision".
     ocr_secondary_readers: str = ""
+    # Off: in-process readers wait for the primary (for large pages on little memory).
+    ocr_parallel_readers: bool = True
     vision_ocr_url: str | None = None
     # Readings produced elsewhere (e.g. macOS Vision on a Mac), laid out as
     # <root>/<document sha256>/<reader>/p0001.json.

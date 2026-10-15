@@ -106,6 +106,8 @@ def extract_ocr_blocks(
 
     version = db.get(DocumentVersion, run.document_version_id)
     document_sha256 = version.sha256 if version is not None else None
+    source = db.get(Artifact, version.source_artifact_id) if version is not None else None
+    source_path = source.object_key if source is not None else None
 
     def page_input(page: Page) -> OcrPageInput:
         artifact = db.get(Artifact, page.render_artifact_id)
@@ -119,6 +121,7 @@ def extract_ocr_blocks(
             image_bytes=image_path.read_bytes(),
             mime_type=artifact.mime_type or "image/png",
             document_sha256=document_sha256,
+            source_path=source_path,
         )
 
     pending = [page for page in pages if page.page_number not in done]

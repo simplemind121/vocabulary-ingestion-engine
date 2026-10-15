@@ -6,6 +6,20 @@ from sqlalchemy.orm import Session
 from app.models import Artifact, DocumentVersion, ProcessingRun
 
 _MIN_NATIVE_CHARS_PER_PAGE = 20
+# Text drawn invisibly over a page image is a scanner's OCR, not the book's own text.
+_HIDDEN_SHARE = 0.9
+_INVISIBLE = 3
+
+
+def _hidden_share(page) -> float:
+    """How much of a page's text is drawn invisibly (PDF text render mode 3)."""
+    total = hidden = 0
+    for span in page.get_texttrace():
+        count = len(span.get("chars") or ())
+        total += count
+        if span.get("type") == _INVISIBLE:
+            hidden += count
+    return hidden / total if total else 0.0
 
 
 def analyze_text_layer(db: Session, run_id: str) -> dict:
@@ -27,11 +41,14 @@ def analyze_text_layer(db: Session, run_id: str) -> dict:
         for page_number, page in enumerate(pdf, start=1):
             text = page.get_text("text").strip()
             char_count = len(text)
+            hidden = char_count >= _MIN_NATIVE_CHARS_PER_PAGE and _hidden_share(page) >= _HIDDEN_SHARE
             page_stats.append(
                 {
                     "page_number": page_number,
                     "native_char_count": char_count,
-                    "has_meaningful_native_text": char_count >= _MIN_NATIVE_CHARS_PER_PAGE,
+                    # A hidden OCR layer is read again (and voted on), not trusted.
+                    "has_meaningful_native_text": char_count >= _MIN_NATIVE_CHARS_PER_PAGE and not hidden,
+                    "hidden_text_layer": hidden,
                 }
             )
     finally:
@@ -55,5 +72,6 @@ def analyze_text_layer(db: Session, run_id: str) -> dict:
         "page_count": total_pages,
         "native_text_pages": meaningful_pages,
         "native_text_page_ratio": native_ratio,
+        "hidden_text_layer_pages": sum(1 for page in page_stats if page["hidden_text_layer"]),
         "pages": page_stats,
     }

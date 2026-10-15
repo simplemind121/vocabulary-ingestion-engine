@@ -13,6 +13,8 @@ class OcrPageInput:
     mime_type: str = "image/png"
     # Identity of the source document, for readers keyed by it (imported readings).
     document_sha256: str | None = None
+    # The source PDF itself, for readers that read what is stored in it.
+    source_path: str | None = None
 
 
 @dataclass(slots=True)

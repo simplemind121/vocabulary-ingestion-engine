@@ -57,6 +57,45 @@ class FileRowReader:
         return json.loads(path.read_text(encoding="utf-8"))
 
 
+class PdfTextLayerReader:
+    """The text a scanning program already hid under the page image.
+
+    Scanned books are often saved with an invisible OCR layer (Acrobat's Paper
+    Capture, for one). That layer is one more independent reading of the same
+    print: it votes like any other reader and is never taken as source text on
+    its own. A page with no such layer abstains.
+    """
+
+    name = "pdf-text-layer"
+
+    def read_rows(self, page: OcrPageInput) -> list[dict]:
+        if not page.source_path:
+            return []
+        import fitz
+
+        with fitz.open(page.source_path) as document:
+            if not 0 < page.page_number <= document.page_count:
+                return []
+            source = document[page.page_number - 1]
+            width, height = source.rect.width, source.rect.height
+            lines: dict[tuple[int, int], list] = {}
+            for x1, y1, x2, y2, word, block, line, _ in source.get_text("words"):
+                lines.setdefault((block, line), []).append((x1, y1, x2, y2, word))
+        rows = []
+        for words in lines.values():
+            words.sort(key=lambda item: item[0])
+            rows.append(
+                {
+                    "text": " ".join(item[4] for item in words),
+                    "x1": max(min(item[0] for item in words) / width, 0.0),
+                    "y1": max(min(item[1] for item in words) / height, 0.0),
+                    "x2": min(max(item[2] for item in words) / width, 1.0),
+                    "y2": min(max(item[3] for item in words) / height, 1.0),
+                }
+            )
+        return rows
+
+
 class AdapterRowReader:
     """Any OCR adapter used as a secondary reader."""
 

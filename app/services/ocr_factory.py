@@ -5,6 +5,7 @@ from app.adapters.consensus import (
     ConsensusOcrAdapter,
     FileRowReader,
     HttpRowReader,
+    PdfTextLayerReader,
 )
 from app.adapters.ocr_base import OcrEngineAdapter
 from app.adapters.paddleocr import PaddleOcrAdapter
@@ -33,6 +34,8 @@ def _build_reader(name: str, settings: Settings):
         if not settings.ocr_readings_root:
             raise ValueError("the vision-import reader requires VIE_OCR_READINGS_ROOT")
         return FileRowReader("macos-vision", settings.ocr_readings_root)
+    if name == "pdf-text-layer":
+        return PdfTextLayerReader()
     if name == "rapidocr-v5":
         return AdapterRowReader(RapidOcrAdapter(lang="ch", ocr_version="PP-OCRv5", refine=False))
     raise ValueError(f"unsupported secondary OCR reader: {name}")

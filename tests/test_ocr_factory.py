@@ -28,3 +28,14 @@ def test_ocr_factory_builds_configured_tesseract(monkeypatch):
 
     assert result == "adapter"
     assert captured == {"languages": "eng+chi_sim"}
+
+
+def test_ocr_factory_adds_the_hidden_text_layer_as_a_reader(monkeypatch):
+    from app.adapters.consensus import ConsensusOcrAdapter
+    from app.services import ocr_factory
+    from app.settings import Settings
+
+    monkeypatch.setattr(ocr_factory, "_build_primary", lambda settings: type("P", (), {"name": "primary"})())
+    adapter = ocr_factory.build_ocr_adapter(Settings(ocr_engine="rapidocr", ocr_secondary_readers="pdf-text-layer"))
+    assert isinstance(adapter, ConsensusOcrAdapter)
+    assert adapter.version == "primary+pdf-text-layer"

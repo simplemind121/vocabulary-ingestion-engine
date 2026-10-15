@@ -42,6 +42,7 @@ from app.services.ocr_consensus import _canonical, _mask_ipa
 from app.services.ocr_quality import DEFERRED, READERS_DISAGREE
 
 ARBITRATED = "ARBITRATED"
+NOT_APPLICABLE = "NOT_APPLICABLE"
 _RETRYABLE_STATUS = {408, 409, 429, 500, 502, 503, 504}
 _LINE_HEIGHT = 46.0
 _SHEET_WIDTH = 1500.0
@@ -257,6 +258,34 @@ def accept_answer(answer: str | None, candidates: dict[str, str]) -> tuple[str, 
     return None
 
 
+def parked_lines(db: Session, run_id: str, *, every_line: bool = False) -> list[ReviewTask]:
+    """Disputed lines not yet put to the arbiter.
+
+    By default only lines inside an entry. With ``every_line`` also the lines
+    outside any entry (set aside as not applicable to a word list), for books
+    whose whole text matters, such as a grammar book read page by page.
+    """
+    linked = {
+        row.source_block_id
+        for row in db.query(SourceEntryBlock.source_block_id)
+        .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
+        .filter(SourceEntry.processing_run_id == run_id)
+    }
+    statuses = [DEFERRED, NOT_APPLICABLE] if every_line else [DEFERRED]
+    return [
+        task
+        for task in db.query(ReviewTask)
+        .filter(
+            ReviewTask.processing_run_id == run_id,
+            ReviewTask.reason_code == READERS_DISAGREE,
+            ReviewTask.status.in_(statuses),
+        )
+        .order_by(ReviewTask.created_at, ReviewTask.id)
+        if (every_line or task.target_entity_id in linked)
+        and "machine_arbitration" not in (task.source_context or {})
+    ]
+
+
 def arbitrate_parked_lines(
     db: Session,
     run_id: str,
@@ -264,27 +293,11 @@ def arbitrate_parked_lines(
     *,
     batch_size: int = 20,
     limit: int | None = None,
+    every_line: bool = False,
 ) -> dict:
-    """Ask the arbiter about every parked line that belongs to an entry."""
+    """Ask the arbiter about every parked line that belongs to an entry (or every one)."""
     withdrawn = _withdraw_other_extents(db, run_id)
-    linked = {
-        row.source_block_id
-        for row in db.query(SourceEntryBlock.source_block_id)
-        .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
-        .filter(SourceEntry.processing_run_id == run_id)
-    }
-    tasks = [
-        task
-        for task in db.query(ReviewTask)
-        .filter(
-            ReviewTask.processing_run_id == run_id,
-            ReviewTask.reason_code == READERS_DISAGREE,
-            ReviewTask.status == DEFERRED,
-        )
-        .order_by(ReviewTask.created_at, ReviewTask.id)
-        if task.target_entity_id in linked
-        and "machine_arbitration" not in (task.source_context or {})
-    ]
+    tasks = parked_lines(db, run_id, every_line=every_line)
     if limit is not None:
         tasks = tasks[:limit]
 

@@ -8,9 +8,7 @@ import sys
 from collections.abc import Sequence
 
 from app.db import SessionLocal
-from app.models import ReviewTask, SourceEntry, SourceEntryBlock
-from app.services.arbitration import OpenAIChatArbiter, arbitrate_parked_lines
-from app.services.ocr_quality import DEFERRED, READERS_DISAGREE
+from app.services.arbitration import OpenAIChatArbiter, arbitrate_parked_lines, parked_lines
 from app.settings import get_settings
 
 
@@ -19,26 +17,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("run_id")
     parser.add_argument("--limit", type=int, help="arbitrate at most this many lines")
     parser.add_argument("--dry-run", action="store_true", help="count the work, call nothing")
+    parser.add_argument(
+        "--every-line", action="store_true", help="also lines outside any entry (whole-text books)"
+    )
     args = parser.parse_args(argv)
     settings = get_settings()
 
     with SessionLocal() as db:
         if args.dry_run:
-            linked = {
-                row.source_block_id
-                for row in db.query(SourceEntryBlock.source_block_id)
-                .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
-                .filter(SourceEntry.processing_run_id == args.run_id)
-            }
-            lines = sum(
-                task.target_entity_id in linked
-                and "machine_arbitration" not in (task.source_context or {})
-                for task in db.query(ReviewTask).filter(
-                    ReviewTask.processing_run_id == args.run_id,
-                    ReviewTask.reason_code == READERS_DISAGREE,
-                    ReviewTask.status == DEFERRED,
-                )
-            )
+            lines = len(parked_lines(db, args.run_id, every_line=args.every_line))
             if args.limit is not None:
                 lines = min(lines, args.limit)
             batch = settings.arbiter_batch_size
@@ -53,7 +40,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             base_url=settings.arbiter_base_url,
         )
         result = arbitrate_parked_lines(
-            db, args.run_id, arbiter, batch_size=settings.arbiter_batch_size, limit=args.limit
+            db,
+            args.run_id,
+            arbiter,
+            batch_size=settings.arbiter_batch_size,
+            limit=args.limit,
+            every_line=args.every_line,
         )
     print(json.dumps(result, ensure_ascii=False, sort_keys=True))
     return 0

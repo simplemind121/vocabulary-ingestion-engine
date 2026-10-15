@@ -280,3 +280,26 @@ def test_a_batch_the_model_does_not_answer_is_left_for_a_later_run(client, monke
         assert "machine_arbitration" not in task.source_context
     finally:
         db.close()
+
+
+def test_every_line_also_reaches_lines_outside_any_entry(client):
+    from app.services.arbitration import parked_lines
+
+    db, run_id = _parked_run(client)
+    try:
+        task = (
+            db.query(ReviewTask)
+            .filter(ReviewTask.processing_run_id == run_id, ReviewTask.reason_code == "OCR_READERS_DISAGREE")
+            .one()
+        )
+        # A line no entry holds is set aside; only a whole-text run asks about it.
+        task.status = "NOT_APPLICABLE"
+        db.commit()
+        assert parked_lines(db, run_id) == []
+        assert [t.id for t in parked_lines(db, run_id, every_line=True)] == [task.id]
+        result = arbitrate_parked_lines(db, run_id, FakeArbiter(VISION), every_line=True)
+        assert (result["lines"], result["accepted"]) == (1, 1)
+        db.refresh(task)
+        assert task.status == "ARBITRATED"
+    finally:
+        db.close()

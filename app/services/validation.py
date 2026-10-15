@@ -10,6 +10,8 @@ from app.models import (
     ProvenanceRecord,
     ReviewTask,
     Sense,
+    SourceEntry,
+    SourceEntryBlock,
     VocabularyEntry,
     VocabularyField,
 )
@@ -26,6 +28,41 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
     )
     issue_count = 0
     clean_count = 0
+    unconfirmed_entries = 0
+    parked = {
+        task.target_entity_id
+        for task in db.query(ReviewTask).filter(
+            ReviewTask.processing_run_id == run_id,
+            ReviewTask.target_entity_type == "SourceBlock",
+            ReviewTask.status == "DEFERRED",
+        )
+    }
+    unconfirmed_rows: dict[str, int] = {}
+    if parked:
+        linked = {
+            row.source_block_id
+            for row in db.query(SourceEntryBlock.source_block_id)
+            .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
+            .filter(SourceEntry.processing_run_id == run_id)
+        }
+        # A parked line that belongs to no entry (front matter, an index, a page
+        # header) cannot affect the dataset: it is set aside, not arbitrated.
+        db.query(ReviewTask).filter(
+            ReviewTask.processing_run_id == run_id,
+            ReviewTask.target_entity_type == "SourceBlock",
+            ReviewTask.status == "DEFERRED",
+            ReviewTask.target_entity_id.notin_(linked),
+        ).update({"status": "NOT_APPLICABLE"}, synchronize_session=False)
+        parked &= linked
+        for link in (
+            db.query(SourceEntryBlock)
+            .join(SourceEntry, SourceEntry.id == SourceEntryBlock.source_entry_id)
+            .filter(SourceEntry.processing_run_id == run_id)
+        ):
+            if link.source_block_id in parked:
+                unconfirmed_rows[link.source_entry_id] = (
+                    unconfirmed_rows.get(link.source_entry_id, 0) + 1
+                )
 
     for entry in entries:
         issues: list[dict] = []
@@ -44,13 +81,24 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
                 issues.append(
                     {"code": "INVALID_IPA", "field": "pronunciation.ipa", "value": pronunciation.ipa}
                 )
-            elif pronunciation.ipa and not _has_source_provenance(
-                db, run_id, "Pronunciation", pronunciation.id, "ipa"
+            elif (
+                pronunciation.ipa
+                # A dictionary-supplied pronunciation is enrichment by label; it
+                # is not expected to trace back to the printed page.
+                and pronunciation.verification_status != "DICTIONARY_ONLY"
+                and not _has_source_provenance(
+                    db, run_id, "Pronunciation", pronunciation.id, "ipa"
+                )
             ):
                 issues.append(
                     {"code": "MISSING_IPA_PROVENANCE", "field": "pronunciation.ipa", "value": pronunciation.ipa}
                 )
-            elif pronunciation.verification_status != "HUMAN_VERIFIED":
+            elif pronunciation.verification_status not in {
+                "HUMAN_VERIFIED",
+                # Recovered through a dictionary, not read directly: keeps its label.
+                "DICTIONARY_CORROBORATED",
+                "DICTIONARY_ONLY",
+            }:
                 pronunciation.verification_status = "AUTO_VERIFIED"
 
         senses = db.query(Sense).filter(Sense.vocabulary_entry_id == entry.id).all()
@@ -100,10 +148,21 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
             elif source_field.verification_status != "HUMAN_VERIFIED":
                 source_field.verification_status = "AUTO_VERIFIED"
 
+        unconfirmed = unconfirmed_rows.get(entry.source_entry_id, 0)
+        metadata = dict(entry.metadata_json or {})
+        if metadata.get("unconfirmed_ocr_rows", 0) != unconfirmed:
+            metadata["unconfirmed_ocr_rows"] = unconfirmed
+            entry.metadata_json = metadata
         if issues:
             entry.verification_status = "REVIEW_REQUIRED"
             issue_count += len(issues)
             _ensure_review_task(db, run_id, entry, issues)
+        elif unconfirmed:
+            # Its text rests on lines no second reader confirmed. The parked
+            # line reviews already track them; the entry simply waits.
+            if entry.verification_status != "HUMAN_VERIFIED":
+                entry.verification_status = "REVIEW_REQUIRED"
+            unconfirmed_entries += 1
         elif entry.verification_status != "HUMAN_VERIFIED":
             entry.verification_status = "AUTO_VERIFIED"
             clean_count += 1
@@ -114,6 +173,7 @@ def validate_canonical_entries(db: Session, run_id: str) -> dict:
         "entry_count": len(entries),
         "clean_entries": clean_count,
         "validation_issues": issue_count,
+        "entries_awaiting_ocr_confirmation": unconfirmed_entries,
     }
 
 

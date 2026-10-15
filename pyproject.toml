@@ -31,7 +31,8 @@ dev = [
   "numpy>=2.0",
   "jsonschema>=4.23",
 ]
-ocr-paddle = ["paddleocr>=2.9", "paddlepaddle>=3.0", "pillow>=11.0", "numpy>=2.0"]
+ocr-paddle = ["paddleocr>=2.9,<3", "paddlepaddle>=3.0,<3.1", "pillow>=11.0", "numpy>=2.0"]
+ocr-rapid = ["rapidocr==3.4.2", "onnxruntime>=1.20", "pillow>=11.0", "numpy>=2.0"]
 
 [tool.setuptools.packages.find]
 include = ["app*"]

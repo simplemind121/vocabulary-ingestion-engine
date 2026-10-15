@@ -19,10 +19,11 @@ from botocore.exceptions import BotoCoreError, ClientError
 from fastapi import Depends, FastAPI, File, HTTPException, Query, Request, Response, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
-from sqlalchemy import text
+from sqlalchemy import func, text
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
+from app.console_ui import CONSOLE_UI_HTML
 from app.db import get_db
 from app.models import (
     Artifact,
@@ -38,7 +39,7 @@ from app.models import (
 from app.observability import PROMETHEUS_CONTENT_TYPE, log_event, render_metrics
 from app.review_ui import REVIEW_UI_HTML
 from app.services.gates import evaluate_g5_review_resolution
-from app.services.gold import build_gold_dataset, publish_gold_release
+from app.services.gold import build_gold_dataset, build_preview_dataset, publish_gold_release
 from app.services.gold_page_hashes import GOLD_RENDER_CONTRACT
 from app.services.ocr_factory import build_ocr_adapter
 from app.services.pipeline import run_pipeline
@@ -297,6 +298,11 @@ def metrics(db: DbSession) -> Response:
     )
 
 
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
+def console_ui() -> str:
+    return CONSOLE_UI_HTML
+
+
 @app.get("/review", response_class=HTMLResponse, include_in_schema=False)
 def review_ui() -> str:
     return REVIEW_UI_HTML
@@ -341,6 +347,40 @@ def get_document(document_id: str, db: DbSession) -> dict:
     return {"id": document.id, "filename": document.original_filename, "status": document.status}
 
 
+@app.get("/api/v1/runs")
+def list_runs(db: DbSession, limit: Annotated[int, Query(ge=1, le=200)] = 50) -> dict:
+    """Newest runs first, with what the console needs to list them."""
+    rows = (
+        db.query(ProcessingRun, DocumentVersion, Document)
+        .join(DocumentVersion, DocumentVersion.id == ProcessingRun.document_version_id)
+        .join(Document, Document.id == DocumentVersion.document_id)
+        .order_by(ProcessingRun.created_at.desc())
+        .limit(limit)
+        .all()
+    )
+    open_reviews = dict(
+        db.query(ReviewTask.processing_run_id, func.count())
+        .filter(ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"]))
+        .group_by(ReviewTask.processing_run_id)
+        .all()
+    )
+    return {
+        "items": [
+            {
+                "id": run.id,
+                "status": run.status,
+                "filename": document.original_filename,
+                "sha256": version.sha256,
+                "page_count": version.page_count,
+                "created_at": run.created_at,
+                "open_reviews": open_reviews.get(run.id, 0),
+                "gold_release_id": (run.metrics or {}).get("gold_release_id"),
+            }
+            for run, version, document in rows
+        ]
+    }
+
+
 @app.get("/api/v1/runs/{run_id}")
 def get_run(run_id: str, db: DbSession) -> dict:
     run = db.get(ProcessingRun, run_id)
@@ -380,6 +420,8 @@ def execute_run(run_id: str, db: DbSession) -> dict:
             db,
             run_id,
             ocr_adapter=adapter,
+            ocr_page_workers=settings.ocr_page_workers,
+            ocr_adapter_factory=lambda: build_ocr_adapter(settings),
             ocr_min_confidence=settings.ocr_min_confidence,
         )
     except ValueError as exc:
@@ -526,6 +568,13 @@ def resolve_review(task_id: str, request: ReviewResolutionRequest, db: DbSession
 @app.get("/api/v1/runs/{run_id}/gold")
 def get_gold(run_id: str, db: DbSession) -> dict:
     try: return build_gold_dataset(db, run_id)
+    except ValueError as exc: raise HTTPException(409, str(exc)) from exc
+
+
+@app.get("/api/v1/runs/{run_id}/preview")
+def get_preview(run_id: str, db: DbSession) -> dict:
+    """Entries as they stand, including ones still awaiting confirmation."""
+    try: return build_preview_dataset(db, run_id)
     except ValueError as exc: raise HTTPException(409, str(exc)) from exc
 
 

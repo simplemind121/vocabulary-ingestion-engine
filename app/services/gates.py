@@ -14,6 +14,7 @@ from app.models import (
     SourceEntryBlock,
     VocabularyEntry,
 )
+from app.services.page_checklist import CHECKLIST_REASONS
 from app.services.source_media import source_media_metrics
 
 
@@ -49,7 +50,7 @@ def evaluate_g1_document_representation(db: Session, run_id: str) -> dict:
     represented.update(task.target_entity_id for task in page_reviews)
     open_representation_reviews = db.query(ReviewTask).filter(
         ReviewTask.processing_run_id == run.id,
-        ReviewTask.reason_code.in_(["LOW_OCR_CONFIDENCE", "NO_TEXT_LAYER"]),
+        ReviewTask.reason_code.in_(["LOW_OCR_CONFIDENCE", "NO_TEXT_LAYER", *CHECKLIST_REASONS]),
         ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"]),
     ).all()
     metrics = {
@@ -100,7 +101,10 @@ def evaluate_g2_entry_segmentation(db: Session, run_id: str) -> dict:
 def evaluate_g3_structured_extraction(db: Session, run_id: str) -> dict:
     run = _run(db, run_id); entries = db.query(VocabularyEntry).filter(VocabularyEntry.processing_run_id == run.id).all()
     prov = db.query(ProvenanceRecord).filter(ProvenanceRecord.processing_run_id == run.id, ProvenanceRecord.target_entity_type == "VocabularyEntry", ProvenanceRecord.target_field_path == "lemma", ProvenanceRecord.provenance_type.like("SOURCE_%")).all(); proven = {p.target_entity_id for p in prov}
-    missing = sum(not e.lemma.strip() for e in entries); missing_prov = sum(e.id not in proven for e in entries); review = sum(e.verification_status == "REVIEW_REQUIRED" for e in entries)
+    missing = sum(not e.lemma.strip() for e in entries); missing_prov = sum(e.id not in proven for e in entries); uncertain = {t.target_entity_id for t in db.query(ReviewTask).filter(ReviewTask.processing_run_id == run.id, ReviewTask.reason_code == "STRUCTURED_EXTRACTION_UNCERTAIN", ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"]))}
+    # Only entries whose structure could not be extracted hold this gate; entries
+    # waiting on validation or on parked OCR lines are judged further down.
+    review = sum(e.id in uncertain for e in entries)
     metrics = {"vocabulary_entry_count": len(entries), "missing_lemma": missing, "missing_lemma_provenance": missing_prov, "review_required_entries": review}
     blocking = ([] if entries else ["no_vocabulary_entries"]) + (["missing_lemma"] if missing else []) + (["missing_required_provenance"] if missing_prov else [])
     return _save_gate(db, run, "G3", "FAIL" if blocking else ("REVIEW_REQUIRED" if review else "PASS"), metrics, blocking, {"lemma_provenance_records": len(prov)})
@@ -124,7 +128,11 @@ def evaluate_g6_gold_publication(db: Session, run_id: str) -> dict:
     run = _run(db, run_id); entries = db.query(VocabularyEntry).filter(VocabularyEntry.processing_run_id == run.id).all(); unresolved = [e.id for e in entries if e.verification_status not in {"AUTO_VERIFIED", "HUMAN_VERIFIED"}]
     open_reviews = db.query(ReviewTask).filter(ReviewTask.processing_run_id == run.id, ReviewTask.status.in_(["OPEN", "IN_PROGRESS", "ESCALATED"])).count(); releases = db.query(GoldRelease).filter(GoldRelease.processing_run_id == run.id).count()
     metrics = {"vocabulary_entry_count": len(entries), "unresolved_entries": len(unresolved), "open_review_tasks": open_reviews, "gold_release_count": releases}; blocking = ([] if entries else ["no_vocabulary_entries"]) + (["unresolved_entries"] if unresolved else []) + (["open_review_tasks"] if open_reviews else [])
-    return _save_gate(db, run, "G6", "PASS" if not blocking else "FAIL", metrics, blocking, {"gold_release_count": releases})
+    parked = db.query(ReviewTask).filter(ReviewTask.processing_run_id == run.id, ReviewTask.status == "DEFERRED").count()
+    metrics["deferred_review_tasks"] = parked
+    # Entries waiting only on parked line reviews are pending, not broken.
+    status = "PASS" if not blocking else ("REVIEW_REQUIRED" if parked and entries and not open_reviews else "FAIL")
+    return _save_gate(db, run, "G6", status, metrics, blocking, {"gold_release_count": releases})
 
 
 def evaluate_source_media_gate(db: Session, run_id: str) -> dict:

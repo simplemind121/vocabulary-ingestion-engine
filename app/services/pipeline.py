@@ -20,6 +20,7 @@ from app.services.gates import (
 )
 from app.services.gold import publish_gold_release
 from app.services.ipa_corroboration import corroborate_run_from_settings
+from app.services.line_recovery import recover_unread_lines
 from app.services.ocr_extraction import extract_ocr_blocks
 from app.services.ocr_quality import route_ocr_quality_reviews
 from app.services.page_checklist import apply_headword_checklists
@@ -98,6 +99,8 @@ def run_pipeline(
                 adapter_factory=ocr_adapter_factory,
             )
             stages.append({"stage": "ocr_extraction", "result": ocr})
+            recovery = recover_unread_lines(db, run_id, ocr_adapter)
+            stages.append({"stage": "line_recovery", "result": recovery})
             checklists = apply_headword_checklists(db, run_id)
             stages.append({"stage": "headword_checklists", "result": checklists})
             quality = route_ocr_quality_reviews(
@@ -115,6 +118,8 @@ def run_pipeline(
                 adapter_factory=ocr_adapter_factory,
             )
             stages.append({"stage": "ocr_extraction", "result": extraction})
+            recovery = recover_unread_lines(db, run_id, ocr_adapter)
+            stages.append({"stage": "line_recovery", "result": recovery})
             checklists = apply_headword_checklists(db, run_id)
             stages.append({"stage": "headword_checklists", "result": checklists})
             quality = route_ocr_quality_reviews(

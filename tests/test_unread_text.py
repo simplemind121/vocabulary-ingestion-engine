@@ -47,12 +47,14 @@ def test_a_stray_mark_read_as_a_letter_is_not_text(tmp_path):
 
 
 class TwoLineOcr:
-    """A primary reader that finds the first and last lines and misses the bubble."""
+    """A primary reader that finds the first and last lines and misses the bubble; it reads nothing in a crop."""
 
     name = "two-lines"
     version = "1"
 
     def extract_page(self, page: OcrPageInput) -> OcrPageResult:
+        if page.page_number == 0:
+            return OcrPageResult(page_number=0, blocks=[], engine_name=self.name, engine_version=self.version)
         return OcrPageResult(
             page_number=page.page_number,
             blocks=[

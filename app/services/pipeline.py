@@ -27,6 +27,7 @@ from app.services.page_quality import route_no_text_page_reviews
 from app.services.segmentation import segment_source_entries
 from app.services.source_media import extract_source_media
 from app.services.structured_extraction import extract_canonical_fields
+from app.services.unread_text import route_unread_text_reviews
 from app.services.validation import validate_canonical_entries
 
 
@@ -125,6 +126,9 @@ def run_pipeline(
         else:
             return _ocr_required(db, run, document_mode, stages)
 
+        # Text the readers never placed in a line is reported, not dropped.
+        unread = route_unread_text_reviews(db, run_id)
+        stages.append({"stage": "unread_text", "result": unread})
         _require_pass("G1", evaluate_g1_document_representation(db, run_id), stages)
         segmentation = segment_source_entries(db, run_id)
         stages.append({"stage": "entry_segmentation", "result": segmentation})

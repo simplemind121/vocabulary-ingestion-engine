@@ -60,15 +60,16 @@ def test_the_response_becomes_regions_in_reading_order():
     assert len(reading.response_sha256) == 64 and reading.model_version == "glm-ocr"
 
 
-def test_a_busy_service_is_tried_again_and_the_image_is_sent_inline(monkeypatch):
-    monkeypatch.setattr("time.sleep", lambda _: None)
+def test_a_busy_service_is_tried_again_and_the_image_is_sent_inline():
     api = FakeApi(failures=[429, 503])
-    reading = GlmOcrReader("test-key", opener=api).read_document_page(_page())
+    waits = []
+    reading = GlmOcrReader("test-key", opener=api, sleep=waits.append).read_document_page(_page())
+    assert waits == [5, 10]
     assert len(api.calls) == 3 and api.calls[0]["model"] == "glm-ocr"
     assert api.calls[0]["file"].startswith("data:image/png;base64,")
     assert reading.markdown.startswith("## Present continuous")
     with pytest.raises(RuntimeError, match="HTTP 401"):
-        GlmOcrReader("test-key", opener=FakeApi(failures=[401])).read_document_page(_page())
+        GlmOcrReader("test-key", opener=FakeApi(failures=[401]), sleep=waits.append).read_document_page(_page())
 
 
 def test_pages_are_paid_for_once_and_the_budget_stops_the_rest(tmp_path):

@@ -75,9 +75,11 @@ class GlmOcrReader:
         url: str = "https://api.z.ai/api/paas/v4/layout_parsing",
         model: str = "glm-ocr",
         timeout: float = 180.0,
-        retries: int = 3,
+        retries: int = 6,
         opener=urllib.request.urlopen,
+        sleep=time.sleep,
     ) -> None:
+        self._sleep = sleep
         self._api_key = api_key
         self._url = url
         self._model = model
@@ -98,6 +100,7 @@ class GlmOcrReader:
             headers={"Authorization": f"Bearer {self._api_key}", "Content-Type": "application/json"},
         )
         for attempt in range(self._retries + 1):
+            wait = min(5 * 2**attempt, 120)
             try:
                 with self._open(request, timeout=self._timeout) as response:
                     return response.read()
@@ -105,10 +108,13 @@ class GlmOcrReader:
                 # Only rate limits and server errors are worth another try.
                 if error.code not in (429, 500, 502, 503, 504) or attempt == self._retries:
                     raise RuntimeError(f"glm-ocr request failed with HTTP {error.code}") from None
+                retry_after = (error.headers or {}).get("Retry-After") if error.headers else None
+                if retry_after and str(retry_after).isdigit():
+                    wait = min(int(retry_after), 300)
             except (urllib.error.URLError, TimeoutError):
                 if attempt == self._retries:
                     raise
-            time.sleep(2**attempt)
+            self._sleep(wait)
         raise AssertionError("unreachable")
 
 

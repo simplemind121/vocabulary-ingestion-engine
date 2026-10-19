@@ -162,7 +162,7 @@ compose exec -T api python -c \
   "import fitz; from app.adapters.ocr_base import OcrPageInput; from app.services.ocr_factory import build_ocr_adapter; from app.settings import get_settings; document=fitz.open(); page=document.new_page(); page.insert_text((72, 100), 'vocabulary engine', fontsize=32); image=page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False).tobytes('png'); result=build_ocr_adapter(get_settings()).extract_page(OcrPageInput(page_number=1, image_bytes=image)); assert 'vocabulary' in ' '.join(block.text for block in result.blocks).lower()"
 
 compose exec -T api python -c \
-  "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text('select version_num from alembic_version')).scalar() == '0008_source_media'; connection.close()"
+  "from sqlalchemy import text; from app.db import engine; connection=engine.connect(); assert connection.execute(text('select version_num from alembic_version')).scalar() == '0009_structured_pages'; connection.close()"
 
 compose exec -T worker celery -A app.worker.celery_app inspect ping --timeout 5 | grep -q pong
 compose exec -T api python -m app.production_pipeline_smoke_cli

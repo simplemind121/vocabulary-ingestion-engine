@@ -8,7 +8,7 @@ Last audited: 2026-10-03 (Asia/Taipei), after the Source Media Fidelity work
 Branch: `bootstrap/v0.1.0-alpha`  
 Pull request: [#1](https://github.com/simplemind121/vocabulary-ingestion-engine/pull/1)  
 Source PDF SHA256: `485771d63e747788d855d2ec033436239001f24a1d835d1e00a6ec9467c632fd`  
-Database schema: `0008_source_media`
+Database schema: `0009_structured_pages`
 
 `v0.1.0-rc1` (commit `976555a`) is superseded: it passed its Release Gate on
 evidence this audit found to be wrong (139 entries missing, source media not

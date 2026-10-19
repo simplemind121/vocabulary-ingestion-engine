@@ -23,6 +23,16 @@ class Settings(BaseSettings):
     ocr_readings_root: Path | None = None
     # Pages read at the same time; each worker loads its own engines.
     ocr_page_workers: int = 1
+    # Document model read over an API (GLM-OCR). Pages leave this machine, so it
+    # is used only when external readers are allowed explicitly.
+    external_readers_allowed: bool = False
+    glm_ocr_api_key: SecretStr | None = None
+    glm_ocr_url: str = "https://api.z.ai/api/paas/v4/layout_parsing"
+    # Each page is read once and kept here (default: <storage_root>/document-readings).
+    document_readings_root: Path | None = None
+    # Per run: requests and tokens the document model may use before it abstains.
+    document_model_max_requests: int | None = None
+    document_model_max_tokens: int | None = None
     # Vision model that arbitrates lines the OCR readers disagree on. Any
     # endpoint speaking the OpenAI Chat Completions protocol works.
     arbiter_api_key: SecretStr | None = None

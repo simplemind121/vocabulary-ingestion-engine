@@ -36,6 +36,22 @@ def _build_reader(name: str, settings: Settings):
         return FileRowReader("macos-vision", settings.ocr_readings_root)
     if name == "pdf-text-layer":
         return PdfTextLayerReader()
+    if name == "glm-ocr":
+        if not settings.external_readers_allowed:
+            raise ValueError("glm-ocr sends pages to an external service: set VIE_EXTERNAL_READERS_ALLOWED=true to allow it")
+        if settings.glm_ocr_api_key is None:
+            raise ValueError("the glm-ocr reader requires VIE_GLM_OCR_API_KEY")
+        from app.adapters.document_model import (
+            Budget,
+            CachedDocumentReader,
+            GlmOcrReader,
+            RegionRowReader,
+        )
+
+        root = settings.document_readings_root or settings.storage_root / "document-readings"
+        budget = Budget(max_tokens=settings.document_model_max_tokens, max_requests=settings.document_model_max_requests)
+        reader = GlmOcrReader(settings.glm_ocr_api_key.get_secret_value(), url=settings.glm_ocr_url)
+        return RegionRowReader(CachedDocumentReader(reader, root, budget))
     if name == "rapidocr-v5":
         return AdapterRowReader(RapidOcrAdapter(lang="ch", ocr_version="PP-OCRv5", refine=False))
     raise ValueError(f"unsupported secondary OCR reader: {name}")

@@ -20,13 +20,19 @@ answer). Append " b=phrase;phrase" to line references to bold those phrases.
   I 3 <text>              exercise item 3
   R <text>                cross-reference
   N <text> / N- <text>    index entry and its indented sub-entries
+  K words 12              a page of word list 12 (a word book)
+  V word | ipa | senses   a word entry: headword, pronunciation, parts of speech and meanings
+  M 记 <text>             a field of the last word entry, under its printed mark (记 例 用 考 辨 ...)
   - 1,2                   lines deliberately left out (page number, running header)
 
 In literal text, " // " is a line break inside the same block.
 
 Two checks run on every plan. "invented": words in literal text that no reader
-read on the page. "dropped_lines": voted lines neither referenced, nor left out
-on purpose, nor covered by the literal text.
+read on the page, and Chinese characters no reader read there. "dropped_lines":
+voted lines neither referenced, nor left out on purpose, nor covered by the
+literal text (by its English words and Chinese characters). A pronunciation is
+not checked against the readers (no OCR reads IPA): it is checked against a
+dictionary where the book is exported.
 """
 
 from __future__ import annotations
@@ -37,7 +43,8 @@ from collections.abc import Iterable
 
 from app.structure.evidence import WORD, readable_words
 
-KINDS = {"explain": "unit-explanation", "exercises": "unit-exercises"}
+KINDS = {"explain": "unit-explanation", "exercises": "unit-exercises", "words": "word-list"}
+CJK = re.compile(r"[\u3400-\u9fff]")
 
 
 def compile_plan(number: int, plan: str, lines: list[dict], text_layer: Iterable[str] = (), *, by: str) -> dict:
@@ -144,6 +151,14 @@ def compile_plan(number: int, plan: str, lines: list[dict], text_layer: Iterable
                 # Sub-entries continued at the top of a new column.
                 stack[-1].append({"type": "entry", "md": "", "subs": []})
             stack[-1][-1]["subs"].append(text(rest))
+        elif op == "V":
+            head, ipa, senses = ([*re.split(r"\s*\|\s*", rest, maxsplit=2), "", ""])[:3]
+            stack[-1].append({"type": "word", "w": text(head), "ipa": ipa.strip(), "senses": text(senses) if senses.strip() else "", "fields": []})
+        elif op == "M":
+            mark, _, body = rest.partition(" ")
+            if not (stack[-1] and stack[-1][-1].get("type") == "word"):
+                raise ValueError(f"a field without a word entry: {raw!r}")
+            stack[-1][-1]["fields"].append([mark, text(body)])
         elif op == "R":
             stack[-1].append({"type": "refs", "md": text(rest)})
         elif op == "-":
@@ -160,22 +175,25 @@ def compile_plan(number: int, plan: str, lines: list[dict], text_layer: Iterable
 def check(literal: list[str], used: set[int], lines: list[dict], text_layer: Iterable[str] = ()) -> dict:
     """Nothing invented, nothing silently dropped."""
     readable = readable_words(lines, text_layer)
-    invented = sorted(
-        {
-            w
-            for s in literal
-            for w in WORD.findall(re.sub(r"\{\{.*?\}\}", " ", s).replace("*", "").replace("~", "").replace("__", ""))
-            if w.lower() not in readable
-        }
-    )
+    seen_cjk = set()
+    for source in [line["text"] for line in lines] + [r for line in lines for r in (line.get("readings") or {}).values()] + list(text_layer):
+        seen_cjk.update(CJK.findall(source or ""))
+    shown = [re.sub(r"\{\{.*?\}\}", " ", s).replace("*", "").replace("~", "").replace("__", "") for s in literal]
+    invented = sorted({w for s in shown for w in WORD.findall(s) if w.lower() not in readable})
+    invented += sorted({c for s in shown for c in CJK.findall(s) if c not in seen_cjk})
     literal_words = Counter(w.lower() for s in literal for w in WORD.findall(s))
+    literal_cjk = Counter(c for s in literal for c in CJK.findall(s))
     letters = re.sub(r"[^a-z]", "", " ".join(literal).lower())
     dropped = []
     for i, line in enumerate(lines, 1):
         if i in used:
             continue
         found = [w.lower() for w in WORD.findall(line["text"])]
+        chinese = CJK.findall(line["text"])
         # Merged OCR words ("3opens", "aren'tspeaking") are found by their letters alone.
-        if found and sum(1 for w in found if literal_words[w] > 0 or re.sub(r"[^a-z]", "", w) in letters) < 0.6 * len(found):
+        hits = sum(1 for w in found if literal_words[w] > 0 or re.sub(r"[^a-z]", "", w) in letters)
+        hits += sum(1 for c in chinese if literal_cjk[c] > 0)
+        total = len(found) + len(chinese)
+        if total and hits < 0.6 * total:
             dropped.append(f"{i}:{line['text'][:50]}")
     return {"invented": invented, "dropped_lines": dropped}

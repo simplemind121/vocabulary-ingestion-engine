@@ -149,3 +149,32 @@ def test_the_command_line_compiles_outside_the_database(tmp_path, capsys):
     assert cli(["compile", "--lines", str(lines), "--pdf", str(pdf), "--page", "12", str(plan), "--out", str(tmp_path / "pages")]) == 0
     assert json.loads(capsys.readouterr().out.strip().splitlines()[-1]) == {"invented": [], "dropped_lines": [], "by": "claude"}
     assert json.loads((tmp_path / "pages" / "p012.json").read_text()) == compile_plan(12, PLAN, LINES, by="claude")
+
+
+WORD_LINES = [
+    {"text": "include > vt.包含，包括", "box": [0.1, 0.2, 0.9, 0.22], "readings": {}},
+    {"text": "/In'klu:d/ 记词根记忆：in（进入）+clude（关）→关进里面一包含，包括", "box": [0.1, 0.22, 0.9, 0.24], "readings": {}},
+    {"text": "圆Tour includes bike.此次旅行提供自行车。", "box": [0.1, 0.24, 0.9, 0.26], "readings": {}},
+    {"text": "关注微信公众号获取更多资料", "box": [0.1, 0.95, 0.9, 0.97], "readings": {}},
+]
+
+
+def test_word_entries_compile_with_their_fields_and_chinese_is_checked():
+    plan = (
+        "K words 01\n- 4\n"
+        "V include | ɪnˈkluːd | vt. 包含，包括\n"
+        "M 记 词根记忆：in（进入）+clude（关）→关进里面→包含，包括\n"
+        "M 例 Tour **includes** bike. 此次旅行提供自行车。\n"
+    )
+    tree = compile_plan(12, plan, WORD_LINES, by="t")
+    assert tree["kind"] == "word-list" and tree["unit"] == 1
+    word = tree["blocks"][0]
+    assert word == {"type": "word", "w": "include", "ipa": "ɪnˈkluːd", "senses": "vt. 包含，包括", "fields": [
+        ["记", "词根记忆：in（进入）+clude（关）→关进里面→包含，包括"], ["例", "Tour **includes** bike. 此次旅行提供自行车。"]]}
+    assert tree["checked"]["invented"] == [] and tree["checked"]["dropped_lines"] == []
+    # A Chinese character no reader read is invented; a Chinese line left out is dropped.
+    wrong = compile_plan(12, "K words 01\n- 4\nV include | | vt. 包含，囊括\nM 记 词根记忆：in（进入）+clude（关）→关进里面→包含，包括", WORD_LINES, by="t")
+    assert wrong["checked"]["invented"] == ["囊"]
+    assert wrong["checked"]["dropped_lines"] == ["3:圆Tour includes bike.此次旅行提供自行车。"]
+    with pytest.raises(ValueError):
+        compile_plan(12, "M 记 a field before any word", WORD_LINES, by="t")

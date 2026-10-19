@@ -334,3 +334,32 @@ class SourceMedia(Base):
     verification_status: Mapped[str] = mapped_column(String(50), default="REVIEW_REQUIRED", index=True)
     metadata_json: Mapped[dict] = mapped_column("metadata", JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class StructuredPage(Base):
+    """One page as a document tree (``vie-doc/1``), checked against the run's evidence.
+
+    Each save is a new version; the latest version of a page is the current one.
+    """
+
+    __tablename__ = "structured_pages"
+    __table_args__ = (
+        UniqueConstraint("processing_run_id", "page_id", "version", name="uq_structured_pages_run_page_version"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    processing_run_id: Mapped[str] = mapped_column(ForeignKey("processing_runs.id", ondelete="RESTRICT"), index=True)
+    page_id: Mapped[str] = mapped_column(ForeignKey("pages.id", ondelete="RESTRICT"), index=True)
+    page_number: Mapped[int] = mapped_column(Integer, index=True)
+    version: Mapped[int] = mapped_column(Integer)
+    schema_version: Mapped[str] = mapped_column(String(50), default="vie-doc/1")
+    kind: Mapped[str] = mapped_column(String(100), index=True)
+    unit: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    title: Mapped[str | None] = mapped_column(Text, nullable=True)
+    blocks: Mapped[list] = mapped_column(JSON)
+    checks: Mapped[dict] = mapped_column(JSON, default=dict)
+    # Who wrote the tree: a page plan, an import, a model, and the person or model behind it.
+    producer: Mapped[str] = mapped_column(String(100))
+    author: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    source_plan: Mapped[str | None] = mapped_column(Text, nullable=True)
+    status: Mapped[str] = mapped_column(String(50), index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)

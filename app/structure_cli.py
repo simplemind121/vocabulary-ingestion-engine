@@ -9,6 +9,8 @@ an exported lines file and the source PDF (--lines and --pdf).
   python -m app.structure_cli import --run R pages/
   python -m app.structure_cli export --run R pages/
   python -m app.structure_cli status --run R
+  python -m app.structure_cli export-grammar --run R --profile profile.json site-data/
+  python -m app.structure_cli export-grammar --pages pages/ --pdf book.pdf --profile profile.json site-data/
 """
 
 from __future__ import annotations
@@ -53,6 +55,12 @@ def main(argv: list[str] | None = None) -> int:
     sub.choices["import"].add_argument("pages")
     sub.choices["import"].add_argument("--producer", default="import")
     sub.choices["export"].add_argument("pages")
+    grammar = sub.add_parser("export-grammar", help="grammar.json and pictures for the reading site")
+    grammar.add_argument("--run")
+    grammar.add_argument("--pages", help="without --run: directory of pNNN.json")
+    grammar.add_argument("--pdf", help="without --run: the source PDF")
+    grammar.add_argument("--profile", required=True, help="the book profile (JSON)")
+    grammar.add_argument("out")
     args = parser.parse_args(argv)
 
     from app.db import SessionLocal
@@ -107,6 +115,21 @@ def main(argv: list[str] | None = None) -> int:
             for number, record in pages.items():
                 (out / f"p{number:03d}.json").write_text(_dump(as_tree(record)), encoding="utf-8")
             print(f"{len(pages)} pages exported")
+        elif args.command == "export-grammar":
+            from app.structure.grammar_export import export_grammar
+
+            if args.run:
+                from app.structure.store import as_tree, current_pages, source_pdf
+
+                trees = {n: as_tree(r) for n, r in current_pages(db, args.run).items()}
+                pdf = source_pdf(db, args.run)
+            elif args.pages and args.pdf:
+                trees = {int(p.stem[1:]): json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(args.pages).glob("p*.json"))}
+                pdf = args.pdf
+            else:
+                raise SystemExit("give --run, or both --pages and --pdf")
+            profile = json.loads(Path(args.profile).read_text(encoding="utf-8"))
+            print(json.dumps(export_grammar(trees, pdf, profile, args.out), ensure_ascii=False))
         elif args.command == "status":
             from app.structure.store import ACCEPTED, current_pages
 

@@ -118,13 +118,20 @@ def parse_glm_response(raw: bytes, page_number: int) -> DocumentReading:
     details = data.get("layout_details") or []
     if details and isinstance(details[0], dict):
         details = [details]  # a single page, not nested
+    pages = (data.get("data_info") or {}).get("pages") or [{}]
     regions = []
     for order, item in enumerate(details[0] if details else []):
-        box = item.get("bbox_2d") or [0, 0, 0, 0]
+        box = [float(v) for v in (item.get("bbox_2d") or [0, 0, 0, 0])]
+        # The service documents fractions but answers in pixels of the image sent:
+        # boxes are made page-relative with the page's own size.
+        width = float(item.get("width") or pages[0].get("width") or 0)
+        height = float(item.get("height") or pages[0].get("height") or 0)
+        if max(box) > 1.5 and width and height:
+            box = [box[0] / width, box[1] / height, box[2] / width, box[3] / height]
         regions.append(
             Region(
                 label=str(item.get("label") or "text"),
-                box=tuple(float(v) for v in box),
+                box=tuple(round(min(max(v, 0.0), 1.0), 4) for v in box),
                 content=str(item.get("content") or ""),
                 order=int(item.get("index", order)),
             )

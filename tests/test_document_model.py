@@ -46,6 +46,12 @@ def _page(number=1):
     return OcrPageInput(page_number=number, image_bytes=b"\x89PNG fake", document_sha256="abc123")
 
 
+def test_boxes_in_pixels_are_made_page_relative():
+    answer = {"md_results": "", "data_info": {"pages": [{"width": 1600, "height": 2200}]}, "layout_details": [[
+        {"index": 0, "label": "text", "bbox_2d": [160, 220, 800, 440], "content": "x", "width": 1600, "height": 2200}]]}
+    assert parse_glm_response(json.dumps(answer).encode(), 1).regions[0].box == (0.1, 0.1, 0.5, 0.2)
+
+
 def test_the_response_becomes_regions_in_reading_order():
     reading = parse_glm_response(json.dumps(RESPONSE).encode(), 7)
     assert [r.content for r in reading.regions][:2] == ["Present continuous", "I am **doing** something now.\nShall I open the window?"]

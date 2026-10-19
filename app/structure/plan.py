@@ -182,7 +182,8 @@ def check(literal: list[str], used: set[int], lines: list[dict], text_layer: Ite
     seen_cjk = set()
     for source in [line["text"] for line in lines] + [r for line in lines for r in (line.get("readings") or {}).values()] + list(text_layer):
         seen_cjk.update(CJK.findall(source or ""))
-    shown = [re.sub(r"\{\{.*?\}\}", " ", s).replace("*", "").replace("~", "").replace("__", "") for s in literal]
+    # Gaps, Markdown marks and pronunciations (/ˌʌp'deɪt/: no reader reads IPA) are not checked.
+    shown = [re.sub(r"\{\{.*?\}\}|/[^/\s][^/]{0,40}[^/\s]/", " ", s).replace("*", "").replace("~", "").replace("__", "") for s in literal]
     invented = sorted({w for s in shown for w in WORD.findall(s) if w.lower() not in readable})
     invented += sorted({c for s in shown for c in CJK.findall(s) if c not in seen_cjk})
     literal_words = Counter(w.lower() for s in literal for w in WORD.findall(s))

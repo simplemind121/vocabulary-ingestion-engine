@@ -8,7 +8,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="VIE_", extra="ignore")
+    # Compose passes unset options as empty strings: they mean "not set".
+    model_config = SettingsConfigDict(env_prefix="VIE_", extra="ignore", env_ignore_empty=True)
 
     ocr_engine: str = "none"
     ocr_languages: str = "eng+chi_sim"

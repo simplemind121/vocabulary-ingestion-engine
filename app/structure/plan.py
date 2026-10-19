@@ -156,7 +156,8 @@ def compile_plan(number: int, plan: str, lines: list[dict], text_layer: Iterable
             head, ipa, senses = ([*re.split(r"\s*\|\s*", rest, maxsplit=2), "", ""])[:3]
             stack[-1].append({"type": "word", "w": text(head), "ipa": ipa.strip(), "senses": text(senses) if senses.strip() else "", "fields": []})
         elif op == "V+":
-            stack[-1].append({"type": "word", "w": text(rest), "continued": True, "fields": []})
+            # The headword is printed on the page before, not on this one: it is not checked here.
+            stack[-1].append({"type": "word", "w": rest.strip(), "continued": True, "fields": []})
         elif op == "M":
             mark, _, body = rest.partition(" ")
             if not (stack[-1] and stack[-1][-1].get("type") == "word"):

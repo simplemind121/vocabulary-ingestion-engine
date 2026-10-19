@@ -61,6 +61,61 @@ linked to its source lines.
 - Textbooks with large tables, dictionaries, readers. Each profile gets Gold
   samples, regression tests and a quality report.
 
+## Reading layer: technical path (decided 2026-10-19)
+
+Two kinds of reader check each other: PaddleOCR reads **lines** (where each
+line is and what it says); GLM-OCR, a document model reached over the Z.ai API
+(`layout_parsing`, model `glm-ocr`), reads **regions** (text, table, image and
+formula areas with normalized boxes, text as Markdown, tables as HTML). They
+fail in different ways, which is what makes the cross-check worth having.
+
+| Reader | Level | Role |
+|---|---|---|
+| PaddleOCR (local) | line | defines the lines and their boxes |
+| GLM-OCR (API) | region | second reading of every line, layout, tables, figures |
+| PDF hidden text layer | word | third reading where a scan has one |
+| macOS Vision (host helper) | line | optional extra vote |
+| Vision model (paid) | line | arbitration of disputed lines only |
+
+Steps per page:
+1. Render (as now).
+2. GLM-OCR regions, stored with the page (label, box, content).
+3. PaddleOCR lines (as now).
+4. Alignment: each line is placed in the region that contains it; inside a
+   region the region's words are aligned to its lines in reading order (word
+   sequence alignment), giving each line its GLM reading. Region boxes also
+   replace the page-wide band used today, which mixes the two columns of a
+   two-column page.
+5. Vote character by character (as now, one more reading).
+6. Gaps: region words aligned to no line become unread text (as the text
+   layer does today, now also for scans without a layer); lines no region
+   supports keep a single-reader status.
+7. Disputes go to the existing arbitration, with the GLM reading as a candidate.
+8. Later, structure drafting: the region labels, Markdown and table HTML draft a
+   page tree that then passes the same checks.
+
+Engineering:
+- `GlmOcrReader`: one request per page image (base64 PNG); the raw response is
+  cached per document hash and page, so a page is paid for once; retries with
+  backoff, bounded concurrency, timeouts.
+- Budget: a run declares a token or cost limit; when it is reached the reader
+  abstains on the remaining pages. Usage is recorded per page.
+- The key lives in the runtime environment (`VIE_GLM_OCR_API_KEY`), stored
+  through the hidden-input helper, never printed or logged.
+- Sending pages to an external service is opt-in per document.
+
+Evaluation: the 399 hand-structured pages of the grammar book are the Gold set.
+Each reader is measured against them (word recall and precision, lines
+recovered that PaddleOCR missed, text no page contains), plus cost and time per
+page. Pilot first: 20 pages with known misses, 10 ordinary pages, 10 pages of a
+Chinese-English word book. Adopt if at least 95% of the known misses are
+recovered, no invented text survives the checks, and a book costs under $1.
+
+Order: reader with cache and budget, then the pilot; alignment and voting; gaps
+and layout (figures, tables, reading order); structure drafting, measured on the
+exam-paper profile. Upgrading the primary reader to PaddleOCR-VL is evaluated
+once hardware or an API allows.
+
 ## Paid vision model
 
 Allowed for hard pages only: pages whose checks fail after the free readers, or

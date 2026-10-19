@@ -52,7 +52,7 @@ def _crop_box(row: dict) -> tuple[float, float, float, float]:
 
 def _on_the_row(blocks: list, row: dict) -> list:
     """The crop's lines whose middle lies within the row's own band: the edges of neighbouring lines are dropped."""
-    x1, y1, x2, y2 = _crop_box(row)
+    _, y1, _, y2 = _crop_box(row)
     top, bottom = (row["y1"] - y1) / (y2 - y1), (row["y2"] - y1) / (y2 - y1)
     return [b for b in blocks if top <= (b.bbox.y1 + b.bbox.y2) / 2 <= bottom]
 

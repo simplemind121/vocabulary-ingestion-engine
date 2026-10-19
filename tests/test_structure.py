@@ -178,3 +178,6 @@ def test_word_entries_compile_with_their_fields_and_chinese_is_checked():
     assert wrong["checked"]["dropped_lines"] == ["3:圆Tour includes bike.此次旅行提供自行车。"]
     with pytest.raises(ValueError):
         compile_plan(12, "M 记 a field before any word", WORD_LINES, by="t")
+    # The rest of an entry begun on the page before.
+    rest = compile_plan(13, "K words 01\n- 1-2,4\nV+ include\nM 例 Tour includes bike. 此次旅行提供自行车。", WORD_LINES, by="t")
+    assert rest["blocks"][0] == {"type": "word", "w": "include", "continued": True, "fields": [["例", "Tour includes bike. 此次旅行提供自行车。"]]}

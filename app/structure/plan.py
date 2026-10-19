@@ -22,6 +22,7 @@ answer). Append " b=phrase;phrase" to line references to bold those phrases.
   N <text> / N- <text>    index entry and its indented sub-entries
   K words 12              a page of word list 12 (a word book)
   V word | ipa | senses   a word entry: headword, pronunciation, parts of speech and meanings
+  V+ word                 the rest of an entry begun on the page before (its fields follow)
   M 记 <text>             a field of the last word entry, under its printed mark (记 例 用 考 辨 ...)
   - 1,2                   lines deliberately left out (page number, running header)
 
@@ -154,6 +155,8 @@ def compile_plan(number: int, plan: str, lines: list[dict], text_layer: Iterable
         elif op == "V":
             head, ipa, senses = ([*re.split(r"\s*\|\s*", rest, maxsplit=2), "", ""])[:3]
             stack[-1].append({"type": "word", "w": text(head), "ipa": ipa.strip(), "senses": text(senses) if senses.strip() else "", "fields": []})
+        elif op == "V+":
+            stack[-1].append({"type": "word", "w": text(rest), "continued": True, "fields": []})
         elif op == "M":
             mark, _, body = rest.partition(" ")
             if not (stack[-1] and stack[-1][-1].get("type") == "word"):

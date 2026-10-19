@@ -111,10 +111,35 @@ page. Pilot first: 20 pages with known misses, 10 ordinary pages, 10 pages of a
 Chinese-English word book. Adopt if at least 95% of the known misses are
 recovered, no invented text survives the checks, and a book costs under $1.
 
-Order: reader with cache and budget, then the pilot; alignment and voting; gaps
-and layout (figures, tables, reading order); structure drafting, measured on the
-exam-paper profile. Upgrading the primary reader to PaddleOCR-VL is evaluated
-once hardware or an API allows.
+Reinforcements (review of 2026-10-19 against current practice):
+1. **Recover, not only report.** Unread text becomes a proposed line: its region
+   is cropped and read again by the line reader, the readings are voted, and a
+   confirmed line joins the page like any other.
+2. **Held-out evaluation.** The Gold pages are split once: every fifth unit
+   (and every fifth other page) is held out and never looked at while tuning.
+   Metrics follow common practice: character error rate and normalized edit
+   distance for text, TEDS for tables, edit distance of reading order, IoU for
+   figure boxes; word precision and recall stay as order-free measures.
+3. **Weighted voting.** Each reader's reliability is measured on the
+   development pages by kind of text (words, digits, punctuation) and used to
+   weigh its vote, so two readers that differ do not always end in a dispute.
+4. **Swappable document models.** GLM-OCR sits behind a document-model reader
+   interface (PaddleOCR-VL, MinerU and others can take its place); the model
+   version and a hash of every response are recorded, and a version change
+   reruns the Gold regression.
+5. **Formatting and hard content are measured.** Bold, italic and underline
+   are treated as readings too; IPA, handwritten answers and symbols are scored
+   separately.
+6. **Character-level provenance** for exam papers: each field points at a line
+   and a character span.
+7. **PaddleOCR-VL as primary reader** is evaluated early, on rented GPU time if
+   needed.
+
+Order: (1) evaluation harness, held-out split and per-reader baseline;
+document-model reader interface with version records; recovery of unread lines.
+(2) GLM-OCR reader with cache and budget, then the pilot. (3) Region alignment,
+weighted voting. (4) Layout: figures, tables, reading order. (5) Structure
+drafting, measured on the exam-paper profile.
 
 ## Paid vision model
 

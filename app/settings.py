@@ -33,6 +33,8 @@ class Settings(BaseSettings):
     # Per run: requests and tokens the document model may use before it abstains.
     document_model_max_requests: int | None = None
     document_model_max_tokens: int | None = None
+    # ECDICT CSV: common words used to settle disputed lines the readers agree on word for word.
+    ocr_lexicon: Path | None = None
     # Vision model that arbitrates lines the OCR readers disagree on. Any
     # endpoint speaking the OpenAI Chat Completions protocol works.
     arbiter_api_key: SecretStr | None = None

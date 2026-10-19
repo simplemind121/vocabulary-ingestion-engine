@@ -22,7 +22,12 @@ def build_ocr_adapter(settings: Settings) -> OcrEngineAdapter | None:
     readers = [_build_reader(name, settings) for name in names if name]
     if not readers:
         return primary
-    return ConsensusOcrAdapter(primary, readers, parallel=settings.ocr_parallel_readers)
+    lexicon = None
+    if settings.ocr_lexicon:
+        from app.services.word_vote import load_lexicon
+
+        lexicon = load_lexicon(str(settings.ocr_lexicon))
+    return ConsensusOcrAdapter(primary, readers, parallel=settings.ocr_parallel_readers, lexicon=lexicon)
 
 
 def _build_reader(name: str, settings: Settings):

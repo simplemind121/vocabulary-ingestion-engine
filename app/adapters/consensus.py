@@ -10,6 +10,7 @@ from app.adapters.ocr_base import OcrPageInput, OcrPageResult
 from app.adapters.paddleocr import _group_rows, restore_spaces
 from app.idr import TextBlock
 from app.services.ocr_consensus import DISPUTED, SINGLE_READER, build_consensus
+from app.services.word_vote import WORD_MAJORITY, settle_by_words
 
 # A line no second reader could confirm must reach a human: this keeps it
 # below any sensible auto-accept threshold.
@@ -124,8 +125,10 @@ class ConsensusOcrAdapter:
 
     name = "ocr-consensus"
 
-    def __init__(self, primary: Any, secondaries: list[Any], *, parallel: bool = True) -> None:
+    def __init__(self, primary: Any, secondaries: list[Any], *, parallel: bool = True, lexicon: frozenset[str] | None = None) -> None:
         self._primary = primary
+        # Common words, for settling disputed lines the readers agree on word for word.
+        self._lexicon = lexicon
         self._secondaries = secondaries
         # With parallel off, readers that run a model in this process wait for
         # the primary instead of running beside it, so only one model holds a
@@ -177,6 +180,13 @@ class ConsensusOcrAdapter:
                 if (text := _aligned_text(rows, block.bbox.y1, block.bbox.y2))
             }
             consensus = build_consensus(block.text, list(others.values()))
+            settled = None
+            if consensus.status == DISPUTED and self._lexicon:
+                settled = settle_by_words(
+                    {self._primary.name: block.text, **others}, [self._primary.name, *others], self._lexicon
+                )
+                if settled is not None:
+                    consensus.text, consensus.status = settled[0], WORD_MAJORITY
             text = consensus.text
             for other in others.values():
                 # Spacing only: adopted where the letters are identical.
@@ -203,6 +213,7 @@ class ConsensusOcrAdapter:
                             "primary_text": block.text,
                             "primary_confidence": block.confidence,
                             "other_readings": others,
+                            **({"agreed_readers": settled[1]} if settled else {}),
                         },
                     },
                 )

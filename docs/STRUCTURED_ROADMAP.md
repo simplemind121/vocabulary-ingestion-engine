@@ -141,6 +141,22 @@ document-model reader interface with version records; recovery of unread lines.
 weighted voting. (4) Layout: figures, tables, reading order. (5) Structure
 drafting, measured on the exam-paper profile.
 
+### GLM-OCR pilot (2026-10-20, 30 grammar pages)
+
+| Pages | GLM-OCR word P / R | Voted lines word P / R |
+|---|---|---|
+| 20 with known misses | 0.990 / 0.948 | 0.969 / 0.927 |
+| 10 ordinary | 0.998 / 0.952 | 0.972 / 0.963 |
+
+- Of the 791 Gold words the voted lines miss on these pages, GLM-OCR read 752 (95%).
+- 81,889 tokens for 30 pages (about 2,700 per page; a whole book well under $0.10); 3 to 15 seconds a page.
+- Boxes come in pixels of the image sent, not fractions as documented (handled).
+- A region often holds several printed lines run together without line breaks:
+  word alignment to lines is required, splitting on line breaks is not enough.
+- Pictures are not read: text inside an illustration (speech bubbles) comes back
+  as an empty image region, also when the picture is sent on its own. Bubbles
+  stay with the text layer and line recovery.
+
 ## Paid vision model
 
 Allowed for hard pages only: pages whose checks fail after the free readers, or
